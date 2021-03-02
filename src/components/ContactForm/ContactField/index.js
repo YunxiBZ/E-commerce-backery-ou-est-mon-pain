@@ -1,13 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import './styles.scss';
 
-const Field = ({ type, placeholder, name }) => {
+const Field = ({
+  type,
+  placeholder,
+  name,
+  className,
+}) => {
   const inputId = `field-${name}`;
 
   return (
-    <div className="field">
+    <div className={`field ${className}`}>
+      <label
+        htmlFor={inputId}
+        className="field__label"
+      >
+        {placeholder}
+      </label>
+
       <input
         id={inputId}
         type={type}
@@ -15,13 +26,6 @@ const Field = ({ type, placeholder, name }) => {
         placeholder={placeholder}
         name={name}
       />
-
-      <label
-        htmlFor={inputId}
-        className="field-label"
-      >
-        {placeholder}
-      </label>
     </div>
   );
 };
@@ -30,10 +34,12 @@ Field.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 Field.defaultProps = {
   type: 'text',
+  className: '',
 };
 
 export default Field;

@@ -7,7 +7,7 @@ import ContactField from './ContactField';
 const ContactForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Envoi du form en méthode post pour que le back envoie le mail
+    // ! A FAIRE Envoi du form en méthode post pour que le back envoie le mail
   };
 
   return (
@@ -15,10 +15,12 @@ const ContactForm = () => {
       <ContactField
         name="Nom"
         placeholder="Nom"
+        className="field--modifier"
       />
       <ContactField
         name="Prénom"
         placeholder="Prénom"
+        className="field--modifier"
       />
       <ContactField
         name="Email"
@@ -27,9 +29,10 @@ const ContactForm = () => {
       <ContactField
         name="Téléphone"
         placeholder="Téléphone"
+        className="field--modifier"
       />
-      <textarea />
-      <Button value="Envoyer le formulaire" type="submit" />
+      <textarea className="contactForm__message" />
+      <Button value="Envoyer le formulaire" type="submit" className="button--ContactForm" />
     </form>
   );
 };
