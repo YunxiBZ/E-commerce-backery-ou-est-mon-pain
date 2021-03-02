@@ -15,7 +15,6 @@ const Header = ({ toggle, toggleNavbar }) => (
       className="header__hamburger"
       onClick={() => {
         // dispatch action changer l'état de toggle
-        console.log(toggle);
         toggleNavbar();
       }}
     />
@@ -24,7 +23,7 @@ const Header = ({ toggle, toggleNavbar }) => (
       alt="Logo"
       className="header__logo"
     />
-    {/* En gros on a un state 'active' qui passe de true à false au click sur le hamburger
+    {/* En gros on a un state 'toggle' qui passe de true à false au click sur le hamburger
         et on donne une classe en fonction de ce state */}
     <nav className={toggle ? 'header__navbar active' : 'header__navbar'}>
       <NavLink
