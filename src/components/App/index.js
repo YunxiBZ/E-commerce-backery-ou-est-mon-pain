@@ -3,7 +3,7 @@ import React from 'react';
 
 // == Import
 import './styles.scss';
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 
 // == Composant
 const App = () => {

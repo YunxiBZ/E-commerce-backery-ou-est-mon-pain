@@ -17,7 +17,8 @@
     max-width: 160px;
   }
   &__navbar {
-    text-align: center;
+    display: flex;
+    justify-content: center;
   }
   &__links {
     margin: 2em;
@@ -29,6 +30,11 @@
   .svg-inline--fa.fa-w-14 {
     width: 70px;
     height: 70px;
+  }
+  .active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -45,15 +51,7 @@
     &__navbar {
       display: flex;
       flex-direction: column;
+      display: none;
     }
-  }
-}
-
-@keyframes test {
-  from {
-    transform: rotate(0)
-  }
-  to {
-    transform: rotate(90deg)
   }
 }
