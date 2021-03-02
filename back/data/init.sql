@@ -12,7 +12,7 @@ CREATE TABLE "product" (
     "id" serial PRIMARY KEY,
     "title" text NOT NULL,
     "description" text NOT NULL,
-    "prix" float NOT NULL,
+    "price" float NOT NULL,
     "image" text NOT NULL
 );
 

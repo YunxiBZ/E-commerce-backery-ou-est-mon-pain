@@ -1,0 +1,17 @@
+@protocol= http
+@domainname= localhost
+@port= {{$dotenv PORT}}
+@path=api
+@baseUrl = {{protocol}}://{{domainname}}:{{port}}/{{path}}
+
+### Route GET /categories
+
+GET {{baseUrl}}/categories
+
+### Route GET /products
+
+GET {{baseUrl}}/products
+
+### Route GET /product/:id
+
+GET {{baseUrl}}/product/3

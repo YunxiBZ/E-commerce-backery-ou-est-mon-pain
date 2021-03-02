@@ -15,7 +15,7 @@ Product.belongsToMany(Category, {
 });
 
 Category.belongsToMany(Product, {
-    as: "products",
+    as: "cat_products",
     through: "product_category",
     foreignKey: "category_id",
     otherKey: "product_id"
@@ -41,7 +41,7 @@ Product.belongsToMany(Order, {
 });
 
 Order.belongsToMany(Product, {
-    as: "products",
+    as: "ord_products",
     through: "product_order",
     foreignKey: "order_id",
     otherKey: "product_id"
@@ -67,7 +67,7 @@ Product.belongsToMany(Allergen, {
 });
 
 Allergen.belongsToMany(Product, {
-    as: "products",
+    as: "all_products",
     through: "product_allergen",
     foreignKey: "allergen_id",
     otherKey: "product_id"
@@ -109,3 +109,13 @@ Allergen.belongsToMany(Account, {
     foreignKey: "allergen_id",
     otherKey: "account_id"
 });
+
+module.exports = {
+    Account,
+    Allergen,
+    Category,
+    Order,
+    Product,
+    Review,
+    Stock
+}
