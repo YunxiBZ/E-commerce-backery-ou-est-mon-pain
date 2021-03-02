@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-const Field = ({
+const ContactField = ({
   type,
   placeholder,
   name,
@@ -30,16 +30,16 @@ const Field = ({
   );
 };
 
-Field.propTypes = {
+ContactField.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
 };
 
-Field.defaultProps = {
+ContactField.defaultProps = {
   type: 'text',
   className: '',
 };
 
-export default Field;
+export default ContactField;
