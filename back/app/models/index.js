@@ -12,10 +12,3 @@ Product.belongsToMany(Category, {
     foreignKey: "product_id",
     otherKey: "category_id"
 })
-
-Product.belongsToMany(Category, {
-    as: "categories",
-    through: "category_product",
-    foreignKey: "category_id",
-    otherKey: "product_id"
-})
