@@ -3,16 +3,13 @@ import React from 'react';
 
 // == Import
 import './styles.scss';
+import Header from 'src/components/Header';
 
 // == Composant
 const App = () => {
-  const test = process.env.REACT_APP_BASE_URL;
-  console.log(test);
-  const truc = process.env.REACT_TEST;
-  console.log(truc);
   return (
     <div className="app">
-      <h1>Composant : App</h1>
+      <Header />
     </div>
   );
 };
