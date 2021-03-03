@@ -4,7 +4,6 @@ import './styles.scss';
 
 const History = ({ history, historyImg }) => {
   const ok = 'ok';
-  console.log(historyImg);
   return (
     <div className="history">
       <img
