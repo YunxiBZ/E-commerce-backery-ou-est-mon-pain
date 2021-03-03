@@ -2,7 +2,7 @@
 import React from 'react';
 
 // == Import
-import Footer from 'src/components/Footer';
+import Footer from 'src/containers/Footer';
 import './styles.scss';
 import Header from 'src/containers/Header';
 
