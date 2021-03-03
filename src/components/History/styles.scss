@@ -1,0 +1,29 @@
+.history {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2em;
+  &__img {
+    width: 100%;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 650px;
+    max-height: 400px;
+  }
+  &__content {
+    align-self: center;
+    line-height: 2;
+    font-size: 1.2em;
+    padding: 1em;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .history {
+    flex-direction: column;
+    &__content {
+      font-size: 1em;
+      min-width: 100%;
+    }
+  }
+}
