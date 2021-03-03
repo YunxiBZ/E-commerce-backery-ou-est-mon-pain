@@ -7,7 +7,10 @@
     color: #975721;
     display: none;
     padding: 2em 0 0 2em;
-    animation: test 2s;
+    &--active {
+      transform: rotate(90deg);
+      margin-left: 2em;
+    }
   }
   &__logo {
     width: 15%;
@@ -39,6 +42,14 @@
   }
 }
 
+@keyframes test {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
 
 @media screen and (max-width: 650px) {
   .header {

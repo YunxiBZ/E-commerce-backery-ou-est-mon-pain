@@ -1,0 +1,53 @@
+@use 'src/styles/vars';
+
+.opening {
+  color: vars.$lightest-brown;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  background-color: vars.$light-brown;
+  margin-bottom: 2em;
+  &__title {
+    font-size: 2em;
+    margin-bottom: 1em;
+    width: 100%;
+    text-align: center;
+    &--modifier {
+      padding-right: 1em;
+    }
+  }
+  &__day {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    text-align: center;
+    width: 30%;
+  }
+  &__breadSection {
+    display: flex;
+    margin-bottom: 1em;
+    justify-content: center;
+    width: 30%;
+  }
+  &__bread {
+    padding: 0 1em;
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .opening {
+    &__day {
+      width: 100%;
+      text-align: center;
+    }
+    &__breadSection {
+      width: 100%;
+      justify-content:center;
+    }
+  }
+  .opening__title--modifier {
+    padding: 0;
+  }
+}

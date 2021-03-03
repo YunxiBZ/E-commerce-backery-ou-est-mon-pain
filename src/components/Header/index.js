@@ -12,7 +12,7 @@ const Header = ({ toggle, toggleNavbar }) => (
   <div className="header">
     <FontAwesomeIcon
       icon={faBars}
-      className="header__hamburger"
+      className={toggle ? 'header__hamburger header__hamburger--active' : 'header__hamburger'}
       onClick={() => {
         // dispatch action changer l'état de toggle
         toggleNavbar();
