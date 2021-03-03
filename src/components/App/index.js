@@ -9,6 +9,7 @@ import Categories from 'src/components/Categories';
 import History from 'src/containers/History';
 import OpeningHours from 'src/containers/OpeningHours';
 import Slogan from 'src/containers/Slogan';
+import Contact from 'src/containers/Contact';
 
 // == Composant
 const App = () => (
@@ -17,6 +18,7 @@ const App = () => (
     <Slogan />
     <History />
     <OpeningHours />
+    <Contact />
     <Categories />
     <Footer />
   </div>

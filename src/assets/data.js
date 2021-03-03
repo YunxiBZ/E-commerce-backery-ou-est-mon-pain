@@ -17,5 +17,7 @@ export default [
       second: '12h',
       third: '16',
     },
+    adress: '26 rue des pissenlits, 95100, Argenteuil',
+    phone_number: '0615267362',
   },
 ];
