@@ -37,10 +37,10 @@ const Footer = ({ onClickToggleFooterList, toggleFooterClassname }) => (
         Formulaire de contact
       </Link>
       <Link
-        to="/Mentions-legals"
+        to="/Mentions-legales"
         className="footer__links"
       >
-        Mentions légals
+        Mentions légales
       </Link>
       <Link
         to="/Groupe-de-dev"
