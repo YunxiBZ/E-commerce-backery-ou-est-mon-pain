@@ -1,6 +1,8 @@
-@use 'reset';
-@use 'vars';
+@import 'src/styles/reset';
+@import 'src/styles/vars';
 
 body {
-  font-family: 'Ubuntu', sans-serif;
+  background-color: $dark-brown;
+  color:$light-brown;
+  font-family: $font-ubuntu;
 }
