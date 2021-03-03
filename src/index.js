@@ -4,10 +4,15 @@ import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from 'src/store';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 // == Import : local
 // Composants
 import App from 'src/components/App';
+
+library.add(fab, faCheckSquare, faCoffee);
 
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
