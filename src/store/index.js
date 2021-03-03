@@ -4,7 +4,7 @@ import reducer from 'src/reducers';
 // import middlewares
 
 const store = createStore(reducer, composeWithDevTools(
-  applyMiddleware(/*midleware, middleware, middlewares*/),
+  applyMiddleware(/* midleware, middleware, middlewares */),
   // other store enhancers if any
 ));
 
