@@ -23,7 +23,6 @@ const Products = ({
           onClickAddQuantityBtn={onClickAddQuantityBtn}
           onClickReduceQuantityBtn={onClickReduceQuantityBtn}
           onChangeQuantityInput={onChangeQuantityInput}
-          onClickDeleteBtn={onClickDeleteBtn}
         />
       ))}
     </div>
@@ -40,7 +39,6 @@ Products.propTypes = {
   onClickAddQuantityBtn: PropTypes.func.isRequired,
   onClickReduceQuantityBtn: PropTypes.func.isRequired,
   onChangeQuantityInput: PropTypes.func.isRequired,
-  onClickDeleteBtn: PropTypes.func.isRequired,
 };
 
 Products.defaultProps = {
