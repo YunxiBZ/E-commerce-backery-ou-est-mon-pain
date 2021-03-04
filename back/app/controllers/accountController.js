@@ -3,11 +3,12 @@
   } = require('../models');
   const bcrypt = require('bcrypt');
   const validator = require('email-validator');
+  const jsonwebtoken = require('jsonwebtoken');
 
   const accountController = {
       handleLoginForm: async (req, res) => {
           try {
-              //on cherche à identifier le user à partir de son email
+              //on cherche à identifier le compte à partir de son email
               const email = req.body.email;
               const account = await Account.findOne({
                   where: {
@@ -15,23 +16,23 @@
                   }
               })
 
-              //si aucun user touvé avec cet email => message d'erreur
+              //si aucun compte touvé avec cet email => message d'erreur
               if (!account) {
-                  return res.json({
+                  return res.status(400).json({
                       error: 'Email ou mot de passe incorrect'
                   });
               }
 
 
-              //le user avec cet email existe, on vérifie son mot de passe en comparant :
+              //le compte avec cet email existe, on vérifie son mot de passe en comparant :
               //- la version en clair saisie dans le formulaire
               //- la version hachée stockée en BDD
               //bcrypt est capable de déterminer si les 2 version du mot de passe correcpondent
-              const validPwd = bcrypt.compareSync(req.body.password, user.password);
+              const validPwd = bcrypt.compareSync(req.body.password, account.password);
 
               if (!validPwd) {
                   //la vérification a échoué, on envoie un message d'erreur
-                  return res.json({
+                  return res.status(400).json({
                       error: 'Email ou mot de passe incorrect'
                   });
               }
@@ -39,20 +40,26 @@
 
               //le user existe et s'est correctement identifié, on stocke les infos qui vont bien dans la session
 
-              req.session.user = {
-                  firstname: account.firstname,
-                  lastname: account.lastname,
-                  email: account.email,
-                  role: account.role
-              };
-
-              if (req.body.remember) {
-                  //l'utilisateur a coché la case 'se souvenir de moi'
-                  //on ajoute une heiure de validité à sa session
-                  request.session.cookie.expires = new Date(Date.now() + 3600000);
+              if (account) {
+                  const jwtContent = {
+                      accountId: account.id
+                  };
+                  const jwtOptions = {
+                      algorithm: 'HS256',
+                      expiresIn: '3h'
+                  };
+                  res.status(200).json({
+                      logged: true,
+                      email: account.email,
+                      last_name: account.last_name,
+                      first_name: account.first_name,
+                      phone_number: account.phone_number,
+                      role: account.role,
+                      token: jsonwebtoken.sign(jwtContent, 'YuThJbAn', jwtOptions),
+                  });
+              } else {
+                  res.sendStatus(401);
               }
-
-              response.redirect('/');
           } catch (error) {
               console.log(error);
           }

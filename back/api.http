@@ -29,3 +29,13 @@ Content-Type: application/json
     "first_name": "Hernandez",
     "phone_number": "0602235645"
 }
+
+### Route POST /login
+
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "email": "jaybi@gmail.fr",
+    "password": "bla"
+}

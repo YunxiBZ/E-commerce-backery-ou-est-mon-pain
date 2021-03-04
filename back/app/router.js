@@ -17,6 +17,7 @@
 
   // Route pour les comptes 
   router.post('/signup', accountContoller.handleSignupForm);
+  router.post('/login', accountContoller.handleLoginForm);
 
   // ici, une 404 pour l'API
   router.use((req, res) => {
