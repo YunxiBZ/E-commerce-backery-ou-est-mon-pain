@@ -53,8 +53,8 @@ const products = (state = initialState, action = {}) => {
           if (Number.isNaN(action.quantity)) {
             return {
               ...product,
-              quantity: 1,
-              totalPrice: parseFloat((product.quantity * product.price).toFixed(2)),
+              quantity: 0,
+              totalPrice: 0,
             };
           }
           return {
