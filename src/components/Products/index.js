@@ -8,7 +8,6 @@ const Products = ({
   onClickAddQuantityBtn,
   onClickReduceQuantityBtn,
   onChangeQuantityInput,
-  onClickDeleteBtn,
 }) => {
   useEffect(() => {
     fetchData();
