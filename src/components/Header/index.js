@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Connection from 'src/components/Connection';
 
 import './styles.scss';
 import logo from 'src/assets/logo.png';
@@ -23,6 +24,9 @@ const Header = ({ toggle, toggleNavbar }) => (
       alt="Logo"
       className="header__logo"
     />
+
+    <Connection />
+
     {/* En gros on a un state 'toggle' qui passe de true à false au click sur le hamburger
         et on donne une classe en fonction de ce state */}
     <nav className={toggle ? 'header__navbar active' : 'header__navbar'}>
@@ -55,6 +59,7 @@ const Header = ({ toggle, toggleNavbar }) => (
         Formulaire de contact
       </NavLink>
     </nav>
+
   </div>
 );
 
