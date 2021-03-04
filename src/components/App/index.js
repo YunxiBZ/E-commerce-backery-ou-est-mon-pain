@@ -10,15 +10,13 @@ import History from 'src/containers/History';
 import OpeningHours from 'src/containers/OpeningHours';
 import Slogan from 'src/containers/Slogan';
 import Contact from 'src/containers/Contact';
-import Product from 'src/containers/Product';
+import Products from 'src/containers/Products';
 
 // == Composant
 const App = () => (
   <div className="app">
     <Header />
-    <Product />
-    <Product />
-    <Product />
+    <Products />
 
     <Slogan />
     <History />

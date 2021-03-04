@@ -1,13 +1,10 @@
 import { connect } from 'react-redux';
-import Product from 'src/components/Product';
+import Product from 'src/components/Products/Product';
 import {
   addQuantity, reduceQuantity, quantityChange, deleteProduct,
 } from 'src/actions/product';
 
 const mapStateToProps = (state) => ({
-  name: state.product.productName,
-  price: state.product.productPrice,
-  image: state.product.productImg,
   quantity: state.product.productQuantity,
 });
 

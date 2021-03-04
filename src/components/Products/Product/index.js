@@ -5,7 +5,7 @@ import Button from 'src/components/Button';
 import './styles.scss';
 
 const Product = ({
-  name,
+  title,
   price,
   image,
   quantity,
@@ -15,8 +15,8 @@ const Product = ({
   onClickDeleteBtn,
 }) => (
   <div className="product">
-    <h3 className="product__name">{name}</h3>
-    <img className="product__img" src={image} alt={`image_${name}`} />
+    <h3 className="product__name">{title}</h3>
+    <img className="product__img" src={image} alt={`image_${title}`} />
     <div className="product__bottom">
       <div className="product__quantity">
 
@@ -62,7 +62,7 @@ const Product = ({
 );
 
 Product.propTypes = {
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,
