@@ -1,0 +1,67 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from 'src/components/Button';
+import './styles.scss';
+
+const Product = ({
+  title,
+  totalPrice,
+  image,
+  quantity,
+  onClickAddQuantityBtn,
+  onClickReduceQuantityBtn,
+  onChangeQuantityInput,
+}) => (
+  <div className="product">
+    <h3 className="product__name">{title}</h3>
+    <img className="product__img" src={image} alt={`image_${title}`} />
+    <div className="product__bottom">
+      <div className="product__quantity">
+
+        <FontAwesomeIcon
+          icon="arrow-alt-circle-up"
+          className="product__icon product__add-icon"
+          onClick={() => onClickAddQuantityBtn(title)}
+        />
+        <input
+          className="product__quantity-input"
+          placeholder="Quantité"
+          type="text"
+          value={quantity}
+          name="quantity"
+          onChange={
+            (evt) => {
+              const quantityInput = evt.target.value;
+              onChangeQuantityInput(quantityInput, title);
+            }
+          }
+        />
+        <FontAwesomeIcon
+          icon="arrow-alt-circle-down"
+          className="product__icon product__reduce-icon"
+          onClick={() => onClickReduceQuantityBtn(title)}
+        />
+      </div>
+
+      <p className="product__price">Prix: {totalPrice}€ </p>
+
+    </div>
+    <Button
+      className="product__add-to-cart-btn"
+      value="Ajouter au panier"
+    />
+  </div>
+);
+
+Product.propTypes = {
+  title: PropTypes.string.isRequired,
+  totalPrice: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
+  onClickAddQuantityBtn: PropTypes.func.isRequired,
+  onClickReduceQuantityBtn: PropTypes.func.isRequired,
+  onChangeQuantityInput: PropTypes.func.isRequired,
+};
+
+export default Product;

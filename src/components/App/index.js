@@ -1,28 +1,41 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 // == Import
 import './styles.scss';
 import Header from 'src/containers/Header';
 import Footer from 'src/containers/Footer';
-import Categories from 'src/components/Categories';
+import Categories from 'src/containers/Categories';
 import History from 'src/containers/History';
 import OpeningHours from 'src/containers/OpeningHours';
 import Slogan from 'src/containers/Slogan';
 import Contact from 'src/containers/Contact';
+import Products from 'src/containers/Products';
 
 // == Composant
-const App = () => (
-  <div className="app">
-    <Header />
-    <Slogan />
-    <History />
-    <OpeningHours />
-    <Contact />
-    <Categories />
-    <Footer />
-  </div>
-);
+const App = ({ fetchData }) => {
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return (
+    <div className="app">
+      <Header />
+      <Products />
+      <Slogan />
+      <History />
+      <OpeningHours />
+      <Contact />
+      <Categories />
+      <Footer />
+    </div>
+  );
+};
+
+App.propTypes = {
+  fetchData: PropTypes.func.isRequired,
+};
 
 // == Export
 export default App;
