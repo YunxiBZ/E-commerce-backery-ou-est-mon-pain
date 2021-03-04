@@ -14,7 +14,7 @@ const Footer = ({ onClickToggleFooterList, toggleFooterClassname }) => (
         className={toggleFooterClassname ? 'footer__icon  footer__icon--open' : 'footer__icon'}
         onClick={onClickToggleFooterList}
       />
-      <p className="footer__content">Copyright</p>
+      <p className="footer__content">©Copyright</p>
     </div>
 
     <nav className={toggleFooterClassname ? 'footer__list' : 'footer__list footer__list--notActive'}>

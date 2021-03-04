@@ -10,7 +10,7 @@ import History from 'src/containers/History';
 import OpeningHours from 'src/containers/OpeningHours';
 import Slogan from 'src/containers/Slogan';
 import Contact from 'src/containers/Contact';
-import Product from 'src/components/Product';
+import Product from 'src/containers/Product';
 
 // == Composant
 const App = () => (

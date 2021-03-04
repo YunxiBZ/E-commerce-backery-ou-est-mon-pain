@@ -8,6 +8,7 @@ const initialState = {
   toggle: false,
   toggleFooterlist: false,
   data,
+
 };
 
 export default (state = initialState, action = {}) => {
