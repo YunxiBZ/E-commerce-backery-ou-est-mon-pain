@@ -7,14 +7,22 @@ import store from 'src/store';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
-  faTrashAlt, faAngleRight, faArrowAltCircleUp, faArrowAltCircleDown, faUser,
+  faTrashAlt, faAngleRight, faArrowAltCircleUp, faArrowAltCircleDown, faUser, faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons';
 
 // == Import : local
 // Composants
 import App from 'src/containers/App';
 
-library.add(fab, faTrashAlt, faAngleRight, faArrowAltCircleUp, faArrowAltCircleDown, faUser);
+library.add(
+  fab,
+  faTrashAlt,
+  faAngleRight,
+  faArrowAltCircleUp,
+  faArrowAltCircleDown,
+  faUser,
+  faSignOutAlt,
+);
 
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
