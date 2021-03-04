@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from 'src/components/Button';
 import './styles.scss';
 
 const Product = ({
@@ -53,6 +54,10 @@ const Product = ({
       />
 
     </div>
+    <Button
+      className="product__add-to-cart-btn"
+      value="Ajouté au panier"
+    />
   </div>
 );
 
