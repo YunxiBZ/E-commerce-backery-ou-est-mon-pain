@@ -23,10 +23,7 @@ const Product = ({
         <FontAwesomeIcon
           icon="arrow-alt-circle-up"
           className="product__icon product__add-icon"
-          onClick={(event) => {
-            console.log(event);
-            onClickAddQuantityBtn(title);
-          }}
+          onClick={() => onClickAddQuantityBtn(title)}
         />
         <input
           className="product__quantity-input"
@@ -45,7 +42,7 @@ const Product = ({
         <FontAwesomeIcon
           icon="arrow-alt-circle-down"
           className="product__icon product__reduce-icon"
-          onClick={onClickReduceQuantityBtn}
+          onClick={() => onClickReduceQuantityBtn(title)}
         />
       </div>
 

@@ -24,8 +24,9 @@ export const deleteProduct = () => ({
 
 });
 
-export const reduceQuantity = () => ({
+export const reduceQuantity = (product) => ({
   type: REDUCE_QUANTITY,
+  product,
 });
 
 export const addQuantity = (product) => ({

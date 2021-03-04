@@ -20,8 +20,8 @@ const mapDispatchToProps = (dispatch) => ({
     const action = addQuantity(product);
     dispatch(action);
   },
-  onClickReduceQuantityBtn: () => {
-    const action = reduceQuantity();
+  onClickReduceQuantityBtn: (product) => {
+    const action = reduceQuantity(product);
     dispatch(action);
   },
   onChangeQuantityInput: (payload) => {
