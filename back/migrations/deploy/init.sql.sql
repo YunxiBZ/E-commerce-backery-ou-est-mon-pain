@@ -1,7 +1,5 @@
 BEGIN ;
 
-DROP TABLE  IF EXISTS "category", "product", "allergen", "account", "review", "order", "stock", "product_category", "product_allergen", "account_allergen", "product_order" ;
-
 CREATE TABLE "category" (
     "id" serial PRIMARY KEY,
     "label" text NOT NULL,
@@ -29,7 +27,7 @@ CREATE TABLE "account" (
     "first_name" text NOT NULL,
     "last_name" text NOT NULL,
     "phone_number" integer NOT NULL,
-    "role" text DEFAULT 'utilisateur'
+    "role" text DEFAULT 0
 );
 
 CREATE TABLE "review" (

@@ -1,3 +1,5 @@
+-- Deploy ou-est-mon-pain:category_product_insertion to pg
+
 BEGIN;
 
 INSERT INTO category ("label", "image") VALUES 

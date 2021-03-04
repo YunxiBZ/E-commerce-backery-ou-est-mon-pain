@@ -1,0 +1,5 @@
+%syntax-version=1.0.0
+%project=ou-est-mon-pain
+
+init.sql 2021-03-03T13:12:50Z Contoqueren <assageant-flyff@hotmail.fr> # ajouts des tables
+category_product_insertion 2021-03-03T13:23:49Z Contoqueren <assageant-flyff@hotmail.fr> # Ajout de data produits et categories

@@ -79,7 +79,7 @@ Account.hasMany(Order, {
     as: "orders"
 });
 
-Account.belongsTo(Product, {
+Order.belongsTo(Account, {
     foreignKey: "account_id",
     as: "account"
 });
@@ -90,7 +90,7 @@ Account.hasMany(Review, {
     as: "reviews"
 });
 
-Review.belongsTo(Product, {
+Review.belongsTo(Account, {
     foreignKey: "account_id",
     as: "account"
 });

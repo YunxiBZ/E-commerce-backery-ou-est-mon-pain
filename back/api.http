@@ -15,3 +15,17 @@ GET {{baseUrl}}/products
 ### Route GET /product/:id
 
 GET {{baseUrl}}/product/3
+
+### Route POST /signup
+
+POST {{baseUrl}}/signup
+Content-Type: application/json
+
+{
+    "email": "jaybi@gmail.fr",
+    "password": "bla",
+    "passwordConfirm" : "bla",
+    "last_name": "Bataya",
+    "first_name": "Hernandez",
+    "phone_number": "0602235645"
+}
