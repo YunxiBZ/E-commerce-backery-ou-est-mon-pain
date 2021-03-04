@@ -10,7 +10,7 @@ import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 // == Import : local
 // Composants
-import App from 'src/components/App';
+import App from 'src/containers/App';
 
 library.add(fab, faCheckSquare, faCoffee);
 
