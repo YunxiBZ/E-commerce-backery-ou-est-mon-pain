@@ -6,13 +6,12 @@ import './styles.scss';
 
 const Product = ({
   title,
-  price,
+  totalPrice,
   image,
   quantity,
   onClickAddQuantityBtn,
   onClickReduceQuantityBtn,
   onChangeQuantityInput,
-  onClickDeleteBtn,
 }) => (
   <div className="product">
     <h3 className="product__name">{title}</h3>
@@ -34,8 +33,7 @@ const Product = ({
           onChange={
             (evt) => {
               const quantityInput = evt.target.value;
-              console.log(quantityInput);
-              onChangeQuantityInput(quantityInput);
+              onChangeQuantityInput(quantityInput, title);
             }
           }
         />
@@ -46,12 +44,7 @@ const Product = ({
         />
       </div>
 
-      <p className="product__price">Prix: {price}€ </p>
-      <FontAwesomeIcon
-        icon="trash-alt"
-        className="product__icon product__trash-icon"
-        onClick={onClickDeleteBtn}
-      />
+      <p className="product__price">Prix: {totalPrice}€ </p>
 
     </div>
     <Button
@@ -63,13 +56,12 @@ const Product = ({
 
 Product.propTypes = {
   title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  totalPrice: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,
   onClickAddQuantityBtn: PropTypes.func.isRequired,
   onClickReduceQuantityBtn: PropTypes.func.isRequired,
   onChangeQuantityInput: PropTypes.func.isRequired,
-  onClickDeleteBtn: PropTypes.func.isRequired,
 };
 
 export default Product;

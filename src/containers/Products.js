@@ -5,7 +5,6 @@ import {
   addQuantity,
   reduceQuantity,
   quantityChange,
-  deleteProduct,
 } from 'src/actions/products';
 
 const mapStateToProps = (state) => ({
@@ -24,12 +23,8 @@ const mapDispatchToProps = (dispatch) => ({
     const action = reduceQuantity(product);
     dispatch(action);
   },
-  onChangeQuantityInput: (payload) => {
-    const action = quantityChange(parseFloat(payload));
-    dispatch(action);
-  },
-  onClickDeleteBtn: () => {
-    const action = deleteProduct();
+  onChangeQuantityInput: (payload, title) => {
+    const action = quantityChange(parseFloat(payload), title);
     dispatch(action);
   },
 });

@@ -10,7 +10,8 @@ const products = (store) => (next) => (action) => {
         try {
           const response = await axios.get(url);
           response.data.forEach((product) => {
-            product.quantity = 0;
+            product.quantity = 1;
+            product.totalPrice = product.price;
           });
           store.dispatch(saveProducts(response.data));
         }
