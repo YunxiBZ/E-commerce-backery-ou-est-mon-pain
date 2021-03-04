@@ -31,7 +31,7 @@ const Contact = ({ adress, phoneNumber }) => {
             />
           </a>
           <a
-            href="http://googlemaps.com"
+            href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="facebook page"
@@ -42,7 +42,7 @@ const Contact = ({ adress, phoneNumber }) => {
             />
           </a>
           <a
-            href="http://instagram.com"
+            href="https://googlemaps.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="facebook page"
