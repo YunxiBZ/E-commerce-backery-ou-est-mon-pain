@@ -9,6 +9,9 @@ const products = (store) => (next) => (action) => {
         const url = `${baseUrl}/products`;
         try {
           const response = await axios.get(url);
+          response.data.forEach((product) => {
+            product.quantity = 0;
+          });
           store.dispatch(saveProducts(response.data));
         }
         catch (error) {

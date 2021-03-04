@@ -23,7 +23,10 @@ const Product = ({
         <FontAwesomeIcon
           icon="arrow-alt-circle-up"
           className="product__icon product__add-icon"
-          onClick={onClickAddQuantityBtn}
+          onClick={(event) => {
+            console.log(event);
+            onClickAddQuantityBtn(title);
+          }}
         />
         <input
           className="product__quantity-input"
@@ -46,7 +49,7 @@ const Product = ({
         />
       </div>
 
-      <p className="product__price">Prix:{price}€ </p>
+      <p className="product__price">Prix: {price}€ </p>
       <FontAwesomeIcon
         icon="trash-alt"
         className="product__icon product__trash-icon"
@@ -56,7 +59,7 @@ const Product = ({
     </div>
     <Button
       className="product__add-to-cart-btn"
-      value="Ajouté au panier"
+      value="Ajouter au panier"
     />
   </div>
 );

@@ -1,6 +1,12 @@
 import { connect } from 'react-redux';
 import Products from 'src/components/Products';
-import { fetchProducts } from 'src/actions/products';
+import {
+  fetchProducts,
+  addQuantity,
+  reduceQuantity,
+  quantityChange,
+  deleteProduct,
+} from 'src/actions/products';
 
 const mapStateToProps = (state) => ({
   products: state.products,
@@ -9,6 +15,22 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchData: () => {
     dispatch(fetchProducts());
+  },
+  onClickAddQuantityBtn: (product) => {
+    const action = addQuantity(product);
+    dispatch(action);
+  },
+  onClickReduceQuantityBtn: () => {
+    const action = reduceQuantity();
+    dispatch(action);
+  },
+  onChangeQuantityInput: (payload) => {
+    const action = quantityChange(parseFloat(payload));
+    dispatch(action);
+  },
+  onClickDeleteBtn: () => {
+    const action = deleteProduct();
+    dispatch(action);
   },
 });
 

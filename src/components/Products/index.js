@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Product from 'src/containers/Product';
+import Product from './Product';
 
-const Products = ({ fetchData, products }) => {
+const Products = ({
+  fetchData,
+  products,
+  onClickAddQuantityBtn,
+  onClickReduceQuantityBtn,
+  onChangeQuantityInput,
+  onClickDeleteBtn,
+}) => {
   useEffect(() => {
     fetchData();
   }, []);
@@ -10,7 +17,14 @@ const Products = ({ fetchData, products }) => {
   return (
     <div>
       {products.map((product) => (
-        <Product key={product.id} {...product} />
+        <Product
+          key={product.id}
+          {...product}
+          onClickAddQuantityBtn={onClickAddQuantityBtn}
+          onClickReduceQuantityBtn={onClickReduceQuantityBtn}
+          onChangeQuantityInput={onChangeQuantityInput}
+          onClickDeleteBtn={onClickDeleteBtn}
+        />
       ))}
     </div>
   );
@@ -23,6 +37,10 @@ Products.propTypes = {
       id: PropTypes.number.isRequired,
     }),
   ),
+  onClickAddQuantityBtn: PropTypes.func.isRequired,
+  onClickReduceQuantityBtn: PropTypes.func.isRequired,
+  onChangeQuantityInput: PropTypes.func.isRequired,
+  onClickDeleteBtn: PropTypes.func.isRequired,
 };
 
 Products.defaultProps = {
