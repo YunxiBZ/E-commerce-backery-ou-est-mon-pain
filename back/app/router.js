@@ -6,10 +6,13 @@
 
   const categoryController = require('./controllers/categoryController');
   const productController = require('./controllers/productController');
-  const accountContoller = require('./controllers/accountController')
+  const accountContoller = require('./controllers/accountController');
+
+  const adminMW = require('./middlewares/adminMW');
 
   // Route pour les catégories
   router.get('/categories', categoryController.getAllCategories);
+  router.post('/category', categoryController.createCategory);
 
   // Route pour les produits
   router.get('/products', productController.getAllProducts);

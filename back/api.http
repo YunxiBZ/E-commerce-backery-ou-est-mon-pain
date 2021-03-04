@@ -39,3 +39,14 @@ Content-Type: application/json
     "email": "jaybi@gmail.fr",
     "password": "bla"
 }
+
+### Route POST /category
+
+POST {{baseUrl}}/category
+Content-Type: application/json
+
+{
+    "label": "Sandwich",
+    "image": "Un bon petit burger américain là"
+}
+
