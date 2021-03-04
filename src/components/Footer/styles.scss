@@ -14,11 +14,17 @@
     justify-content: space-between;
     margin: $gutter*2;
   }
+  &__icon{
+    cursor: pointer;
+
+  }
   &__icon:hover{
     color: $lightest-brown;
   }
   &__icon--open{
     transform: rotate(90deg);
+    
+
   }
   &__list{
     display: flex;
@@ -31,6 +37,8 @@
   }
   &__links{
     margin: $gutter;
+    cursor: pointer;
+
   }
   &__links:hover{
     color: $lightest-brown;

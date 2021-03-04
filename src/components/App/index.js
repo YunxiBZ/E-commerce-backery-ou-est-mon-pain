@@ -11,6 +11,7 @@ import History from 'src/containers/History';
 import OpeningHours from 'src/containers/OpeningHours';
 import Slogan from 'src/containers/Slogan';
 import Contact from 'src/containers/Contact';
+import Products from 'src/containers/Products';
 
 // == Composant
 const App = ({ fetchData }) => {
@@ -21,6 +22,7 @@ const App = ({ fetchData }) => {
   return (
     <div className="app">
       <Header />
+      <Products />
       <Slogan />
       <History />
       <OpeningHours />
