@@ -1,6 +1,6 @@
 const {
     Product,
-    Category
+    ProductCategory
 } = require('../models');
 
 const productController = {
@@ -36,17 +36,21 @@ const productController = {
             categories
         } = req.body;
 
+        // Création d'un nouveau produit
         const newProduct = await Product.create({
             title,
             description,
             price,
-            image,
-            categories: [{
-                id: categories[0].id
-            }]
-        }, {
-            include: ['categories']
-        });
+            image
+        })
+
+        // Création des éléments de la table de liasion ProductCategory
+        for (const category of categories) {
+            await ProductCategory.create({
+                product_id: newProduct.id,
+                category_id: category
+            })
+        }
 
         if (newProduct) {
             res.status(201).json({
@@ -55,45 +59,75 @@ const productController = {
         }
     },
 
-    modifyCategory: async (req, res) => {
+    modifyProduct: async (req, res) => {
 
         const {
             id,
-            label,
-            image
+            title,
+            description,
+            price,
+            image,
+            categories
         } = req.body;
 
-        const modifiedCategory = await Category.update({
-            label,
+        // Modification d'un produit
+        const modifiedProduct = await Product.update({
+            title,
+            description,
+            price,
             image
         }, {
             where: {
                 id
             }
-        });
 
-        if (modifiedCategory) {
+        })
+
+        // Suppression des éléments de la table de liasion ProductCategory pour modification
+        await ProductCategory.destroy({
+            where: {
+                product_id: id
+            }
+        })
+
+        // Création des nouveaux éléments de la table de liasion ProductCategory
+        for (const category of categories) {
+            await ProductCategory.create({
+                product_id: id,
+                category_id: category
+            })
+        }
+
+        if (modifiedProduct) {
             res.status(200).json({
-                message: 'catégorie modifiée'
+                message: 'product modifié'
             });
         }
     },
 
-    deleteCategory: async (req, res) => {
+    deleteProduct: async (req, res) => {
 
         const {
             id
         } = req.body;
 
-        const deletedCategory = await Category.destroy({
+        // Suppression des éléments de la table de liasion ProductCategory pour modification
+        await ProductCategory.destroy({
+            where: {
+                product_id: id
+            }
+        })
+
+        // Suppression du produit
+        const deletedProduct = await Product.destroy({
             where: {
                 id
             }
         });
 
-        if (deletedCategory) {
+        if (deletedProduct) {
             res.status(200).json({
-                message: 'catégorie supprimée'
+                message: 'produit supprimé'
             });
         }
     }

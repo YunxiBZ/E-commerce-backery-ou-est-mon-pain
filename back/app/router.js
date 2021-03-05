@@ -20,6 +20,8 @@
   router.get('/products', productController.getAllProducts);
   router.get('/product/:id', productController.getOneProduct);
   router.post('/product', productController.createProduct);
+  router.put('/product', productController.modifyProduct);
+  router.delete('/product', productController.deleteProduct);
 
   // Route pour les comptes 
   router.post('/signup', accountContoller.handleSignupForm);

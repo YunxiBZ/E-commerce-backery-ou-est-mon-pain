@@ -5,7 +5,11 @@ const Order = require('./order');
 const Product = require('./product');
 const Review = require('./review');
 const Stock = require('./stock');
-const ProductCategory = require('./productCategory')
+const ProductCategory = require('./productCategory');
+const ProductOrder = require('./productOrder');
+const ProductAllergen = require('./productAllergen');
+const AccountAllergen = require('./accountAllergen');
+
 
 // Relation NN Produit/Category
 Product.belongsToMany(Category, {
@@ -65,6 +69,23 @@ Order.belongsToMany(Product, {
     otherKey: "product_id"
 });
 
+// Mise en place de la table de liaison ProductOrder
+ProductOrder.belongsTo(Product, {
+    foreignKey: 'product_id'
+});
+
+ProductOrder.belongsTo(Order, {
+    foreignKey: 'order_id'
+});
+
+Product.hasMany(ProductOrder, {
+    foreignKey: 'product_id'
+});
+
+Order.hasMany(ProductOrder, {
+    foreignKey: 'order_id'
+});
+
 //Relation 1N Produit/Avis
 Product.hasMany(Review, {
     foreignKey: "product_id",
@@ -89,6 +110,23 @@ Allergen.belongsToMany(Product, {
     through: "product_allergen",
     foreignKey: "allergen_id",
     otherKey: "product_id"
+});
+
+// Mise en place de la table de liaison ProductAllergen
+ProductAllergen.belongsTo(Product, {
+    foreignKey: 'product_id'
+});
+
+ProductAllergen.belongsTo(Allergen, {
+    foreignKey: 'allergen_id'
+});
+
+Product.hasMany(ProductAllergen, {
+    foreignKey: 'product_id'
+});
+
+Allergen.hasMany(ProductAllergen, {
+    foreignKey: 'allergen_id'
 });
 
 //Relation 1N Compte/Commande
@@ -128,6 +166,23 @@ Allergen.belongsToMany(Account, {
     otherKey: "account_id"
 });
 
+// Mise en place de la table de liaison AccountAllergen
+AccountAllergen.belongsTo(Account, {
+    foreignKey: 'account_id'
+});
+
+AccountAllergen.belongsTo(Allergen, {
+    foreignKey: 'allergen_id'
+});
+
+Account.hasMany(AccountAllergen, {
+    foreignKey: 'account_id'
+});
+
+Allergen.hasMany(AccountAllergen, {
+    foreignKey: 'allergen_id'
+});
+
 module.exports = {
     Account,
     Allergen,
@@ -135,5 +190,9 @@ module.exports = {
     Order,
     Product,
     Review,
-    Stock
+    Stock,
+    ProductCategory,
+    ProductOrder,
+    ProductAllergen,
+    AccountAllergen
 }
