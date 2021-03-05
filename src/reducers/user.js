@@ -1,3 +1,5 @@
+import { SIGNUP_SUCCESS } from 'src/actions/signup';
+
 // IMPORT ACTIONS
 import {
   CHANGE_VALUE,
@@ -16,6 +18,13 @@ const user = (state = initialState, action = {}) => {
         [action.name]: action.value,
       };
     }
+    case SIGNUP_SUCCESS: {
+      return {
+        ...state,
+        email: action.email,
+      };
+    }
+
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import { CHANGE_FIELD } from 'src/actions/signupForm';
+import { CHANGE_FIELD, SIGNUP_SUCCESS } from 'src/actions/signup';
 
 const initialState = {
   email: '',
@@ -16,7 +16,17 @@ const signup = (state = initialState, action = {}) => {
         ...state,
         ...action.payload,
       };
-
+    case SIGNUP_SUCCESS: {
+      return {
+        ...state,
+        email: '',
+        password: '',
+        passwordConfirm: '',
+        first_name: '',
+        last_name: '',
+        phone_number: '',
+      };
+    }
     default:
       return state;
   }

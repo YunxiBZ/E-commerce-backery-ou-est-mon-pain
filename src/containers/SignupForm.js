@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SignupForm from 'src/components/SignupForm';
-import { changeField, handleSignup } from 'src/actions/signupForm';
+import { changeField, handleSignup } from 'src/actions/signup';
 
 const mapStateToProps = (state) => ({
   firstName: state.signup.first_name,
@@ -17,7 +17,10 @@ const mapDispatchToProps = (dispatch) => ({
     const action = changeField(data);
     dispatch(action);
   },
-  handleSignup,
+  handleSignup: () => {
+    const action = handleSignup();
+    dispatch(action);
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);

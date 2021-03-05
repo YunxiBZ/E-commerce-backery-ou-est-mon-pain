@@ -71,6 +71,7 @@ const SignupForm = ({
       <Button
         className="signupForm__submmit-btn"
         value="Inscrire"
+        type="submit"
       />
     </form>
   );
