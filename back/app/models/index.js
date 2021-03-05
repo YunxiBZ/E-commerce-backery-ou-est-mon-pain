@@ -7,6 +7,8 @@ const Review = require('./review');
 const Stock = require('./stock');
 const ProductCategory = require('./productCategory');
 const ProductOrder = require('./productOrder');
+const ProductAllergen = require('./productAllergen');
+const AccountAllergen = require('./accountAllergen');
 
 
 // Relation NN Produit/Category
@@ -110,6 +112,23 @@ Allergen.belongsToMany(Product, {
     otherKey: "product_id"
 });
 
+// Mise en place de la table de liaison ProductAllergen
+ProductAllergen.belongsTo(Product, {
+    foreignKey: 'product_id'
+});
+
+ProductAllergen.belongsTo(Allergen, {
+    foreignKey: 'allergen_id'
+});
+
+Product.hasMany(ProductAllergen, {
+    foreignKey: 'product_id'
+});
+
+Allergen.hasMany(ProductAllergen, {
+    foreignKey: 'allergen_id'
+});
+
 //Relation 1N Compte/Commande
 Account.hasMany(Order, {
     foreignKey: "account_id",
@@ -147,6 +166,23 @@ Allergen.belongsToMany(Account, {
     otherKey: "account_id"
 });
 
+// Mise en place de la table de liaison AccountAllergen
+AccountAllergen.belongsTo(Account, {
+    foreignKey: 'account_id'
+});
+
+AccountAllergen.belongsTo(Allergen, {
+    foreignKey: 'allergen_id'
+});
+
+Account.hasMany(AccountAllergen, {
+    foreignKey: 'account_id'
+});
+
+Allergen.hasMany(AccountAllergen, {
+    foreignKey: 'allergen_id'
+});
+
 module.exports = {
     Account,
     Allergen,
@@ -156,5 +192,7 @@ module.exports = {
     Review,
     Stock,
     ProductCategory,
-    ProductOrder
+    ProductOrder,
+    ProductAllergen,
+    AccountAllergen
 }
