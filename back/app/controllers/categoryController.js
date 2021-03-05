@@ -1,5 +1,6 @@
 const {
-    Category
+    Category,
+    ProductCategory
 } = require('../models');
 
 const categoryController = {
@@ -63,6 +64,13 @@ const categoryController = {
         const {
             id
         } = req.body;
+
+        // Suppression des éléments de la table de liasion ProductCategory
+        await ProductAllergen.destroy({
+            where: {
+                category_id: id
+            }
+        })
 
         const deletedCategory = await Category.destroy({
             where: {

@@ -1,6 +1,7 @@
 const {
     Product,
-    ProductCategory
+    ProductCategory,
+    ProductAllergen
 } = require('../models');
 
 const productController = {
@@ -8,7 +9,7 @@ const productController = {
     getAllProducts: async (req, res) => {
 
         const products = await Product.findAll({
-            include: ['categories']
+            include: ['categories', 'allergens']
         });
 
         res.json(products);
@@ -33,7 +34,8 @@ const productController = {
             description,
             price,
             image,
-            categories
+            categories,
+            allergens
         } = req.body;
 
         // Création d'un nouveau produit
@@ -42,7 +44,7 @@ const productController = {
             description,
             price,
             image
-        })
+        });
 
         // Création des éléments de la table de liasion ProductCategory
         for (const category of categories) {
@@ -50,7 +52,16 @@ const productController = {
                 product_id: newProduct.id,
                 category_id: category
             })
-        }
+        };
+
+        // Création des éléments de la table de liasion ProductAllergen
+        for (const allergen of allergens) {
+            await ProductAllergen.create({
+                product_id: newProduct.id,
+                allergen_id: allergen
+            })
+        };
+
 
         if (newProduct) {
             res.status(201).json({
@@ -69,7 +80,8 @@ const productController = {
             description,
             price,
             image,
-            categories
+            categories,
+            allergens
         } = req.body;
 
         // Modification d'un produit
@@ -90,7 +102,7 @@ const productController = {
             where: {
                 product_id: id
             }
-        })
+        });
 
         // Création des nouveaux éléments de la table de liasion ProductCategory
         for (const category of categories) {
@@ -98,7 +110,22 @@ const productController = {
                 product_id: id,
                 category_id: category
             })
-        }
+        };
+
+        // Suppression des éléments de la table de liasion ProductAllergen pour modification
+        await ProductAllergen.destroy({
+            where: {
+                product_id: id
+            }
+        });
+
+        // Création des nouveaux éléments de la table de liasion ProductAllergen
+        for (const allergen of allergens) {
+            await ProductAllergen.create({
+                product_id: id,
+                allergen_id: allergen
+            })
+        };
 
         if (modifiedProduct) {
             res.status(200).json({
@@ -117,6 +144,13 @@ const productController = {
 
         // Suppression des éléments de la table de liasion ProductCategory pour modification
         await ProductCategory.destroy({
+            where: {
+                product_id: id
+            }
+        })
+
+        // Suppression des éléments de la table de liasion ProductAllergen pour modification
+        await ProductAllergen.destroy({
             where: {
                 product_id: id
             }
