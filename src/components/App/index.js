@@ -33,7 +33,7 @@ const App = ({ fetchData }) => {
         <Route exact path="/signup">
           <SignupForm />
         </Route>
-        <Route exact path="/accueil">
+        <Route exact path="/">
           <Slogan />
           <History />
           <OpeningHours />
