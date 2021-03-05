@@ -61,7 +61,7 @@ const SignupForm = ({
       />
 
       <SignupField
-        name="passwordComfirm"
+        name="passwordConfirm"
         placeholder="Confirmez votre mot de passe"
         type="password"
         onChange={changeField}

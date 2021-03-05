@@ -4,8 +4,8 @@ import {
 } from 'src/actions/user';
 
 const initialState = {
-  email: 'test@gmail.com',
-  password: 'lolol',
+  email: '',
+  password: '',
 };
 
 const user = (state = initialState, action = {}) => {

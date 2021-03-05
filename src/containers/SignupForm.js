@@ -3,13 +3,12 @@ import SignupForm from 'src/components/SignupForm';
 import { changeField, handleSignup } from 'src/actions/signupForm';
 
 const mapStateToProps = (state) => ({
-  firstName: state.signupForm.first_name,
-  lastName: state.signupForm.last_name,
-  email: state.signupForm.email,
-  telephone: state.signupForm.phone_number,
-  password: state.signupForm.password,
-  passwordComfirm: state.signupForm.passwordComfirm,
-
+  firstName: state.signup.first_name,
+  lastName: state.signup.last_name,
+  email: state.signup.email,
+  telephone: state.signup.phone_number,
+  password: state.signup.password,
+  passwordComfirm: state.signup.passwordConfirm,
 });
 
 const mapDispatchToProps = (dispatch) => ({

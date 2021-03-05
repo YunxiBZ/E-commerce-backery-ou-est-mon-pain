@@ -1,16 +1,15 @@
 import { CHANGE_FIELD } from 'src/actions/signupForm';
 
 const initialState = {
-  email: 'test@gmail.com',
-  password: 'test123',
-  passwordConfirm: 'test123',
-  first_name: 'Eddy',
-  last_name: 'Jaja',
-  phone_number: '0636235368',
-
+  email: '',
+  password: '',
+  passwordConfirm: '',
+  first_name: '',
+  last_name: '',
+  phone_number: '',
 };
 
-const reducer = (state = initialState, action = {}) => {
+const signup = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_FIELD:
       return {
@@ -23,4 +22,4 @@ const reducer = (state = initialState, action = {}) => {
   }
 };
 
-export default reducer;
+export default signup;
