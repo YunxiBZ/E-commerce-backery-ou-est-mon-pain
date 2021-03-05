@@ -1,0 +1,12 @@
+@import 'src/styles/vars';
+
+.connection{
+  color: #975721;;
+  position: absolute;
+  top:0;
+  right: 0;
+  margin:$gutter $gutter*2;
+  &__icon{
+    max-width: 30px
+  }
+}

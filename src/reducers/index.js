@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import app from './app';
 import categories from './categories';
 import products from './products';
+import connection from './connection';
 // Import des reducers
 
 const globalReducer = combineReducers({
@@ -10,6 +11,7 @@ const globalReducer = combineReducers({
   app,
   categories,
   products,
+  connection,
   //  reducer,
   //  reducer,
 });
