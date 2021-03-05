@@ -79,5 +79,6 @@ Content-Type: application/json
     "title": "Panini Nutella",
     "description": "Le meilleur panini du monde",
     "price": 1.95,
-    "image": "image d'huile de palme"
+    "image": "image d'huile de palme",
+    "categories" : [1,5]
 }

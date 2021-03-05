@@ -1,6 +1,6 @@
 const {
     Product,
-    Category
+    ProductCategory
 } = require('../models');
 
 const productController = {
@@ -36,17 +36,21 @@ const productController = {
             categories
         } = req.body;
 
+        // Création d'un nouveau produit
         const newProduct = await Product.create({
             title,
             description,
             price,
-            image,
-            categories: [{
-                id: categories[0].id
-            }]
-        }, {
-            include: ['categories']
-        });
+            image
+        })
+
+        // Création des éléments de la table de liasion ProductCategory
+        for (const category of categories) {
+            await ProductCategory.create({
+                product_id: newProduct.id,
+                category_id: category
+            })
+        }
 
         if (newProduct) {
             res.status(201).json({

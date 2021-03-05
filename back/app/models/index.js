@@ -135,5 +135,6 @@ module.exports = {
     Order,
     Product,
     Review,
-    Stock
+    Stock,
+    ProductCategory
 }
