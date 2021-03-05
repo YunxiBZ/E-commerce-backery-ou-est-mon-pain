@@ -56,6 +56,8 @@ const productController = {
             res.status(201).json({
                 message: 'produit créé'
             });
+        } else {
+            res.sendStatus(400);
         }
     },
 
@@ -102,6 +104,8 @@ const productController = {
             res.status(200).json({
                 message: 'product modifié'
             });
+        } else {
+            res.sendStatus(400);
         }
     },
 
@@ -129,6 +133,8 @@ const productController = {
             res.status(200).json({
                 message: 'produit supprimé'
             });
+        } else {
+            res.sendStatus(400);
         }
     }
 }

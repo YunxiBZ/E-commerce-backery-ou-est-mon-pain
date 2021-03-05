@@ -27,6 +27,8 @@ const categoryController = {
             res.status(201).json({
                 message: 'catégorie créée'
             });
+        } else {
+            res.sendStatus(400);
         }
     },
 
@@ -51,6 +53,8 @@ const categoryController = {
             res.status(200).json({
                 message: 'catégorie modifiée'
             });
+        } else {
+            res.sendStatus(400);
         }
     },
 
@@ -70,6 +74,8 @@ const categoryController = {
             res.status(200).json({
                 message: 'catégorie supprimée'
             });
+        } else {
+            res.sendStatus(400);
         }
     }
 }

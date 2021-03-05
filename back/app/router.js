@@ -7,6 +7,7 @@
   const categoryController = require('./controllers/categoryController');
   const productController = require('./controllers/productController');
   const accountContoller = require('./controllers/accountController');
+  const allergenController = require('./controllers/allergenController');
 
   const adminMW = require('./middlewares/adminMW');
 
@@ -22,6 +23,11 @@
   router.post('/product', adminMW, productController.createProduct);
   router.put('/product', adminMW, productController.modifyProduct);
   router.delete('/product', adminMW, productController.deleteProduct);
+
+  // Route pour les allergènes
+  router.post('/allergen', adminMW, allergenController.createAllergen);
+  router.put('/allergen', adminMW, allergenController.modifyAllergen);
+  router.delete('/allergen', adminMW, allergenController.deleteAllergen);
 
   // Route pour les comptes 
   router.post('/signup', accountContoller.handleSignupForm);
