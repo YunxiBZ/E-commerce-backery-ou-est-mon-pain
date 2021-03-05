@@ -5,7 +5,9 @@ const Order = require('./order');
 const Product = require('./product');
 const Review = require('./review');
 const Stock = require('./stock');
-const ProductCategory = require('./productCategory')
+const ProductCategory = require('./productCategory');
+const ProductOrder = require('./productOrder');
+
 
 // Relation NN Produit/Category
 Product.belongsToMany(Category, {
@@ -63,6 +65,23 @@ Order.belongsToMany(Product, {
     through: "product_order",
     foreignKey: "order_id",
     otherKey: "product_id"
+});
+
+// Mise en place de la table de liaison ProductOrder
+ProductOrder.belongsTo(Product, {
+    foreignKey: 'product_id'
+});
+
+ProductOrder.belongsTo(Order, {
+    foreignKey: 'order_id'
+});
+
+Product.hasMany(ProductOrder, {
+    foreignKey: 'product_id'
+});
+
+Order.hasMany(ProductOrder, {
+    foreignKey: 'order_id'
 });
 
 //Relation 1N Produit/Avis
@@ -136,5 +155,6 @@ module.exports = {
     Product,
     Review,
     Stock,
-    ProductCategory
+    ProductCategory,
+    ProductOrder
 }

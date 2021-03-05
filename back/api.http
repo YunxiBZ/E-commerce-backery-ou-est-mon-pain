@@ -82,3 +82,26 @@ Content-Type: application/json
     "image": "image d'huile de palme",
     "categories" : [1,5]
 }
+
+### Route PUT /product
+
+PUT {{baseUrl}}/product
+Content-Type: application/json
+
+{
+    "id" : 9,
+    "title": "AIEAIE",
+    "description": "Incroyable panini du monde",
+    "price": 1.95,
+    "image": "image d'huile de palme",
+    "categories" : [1,2,5]
+}
+
+### Route DELETE /product
+
+DELETE {{baseUrl}}/product
+Content-Type: application/json
+
+{
+    "id" : 9
+}
