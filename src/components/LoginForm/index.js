@@ -15,7 +15,7 @@ const LoginForm = ({
   const ok = 'ok';
 
   return (
-    <div>
+    <div className="container">
       <form autoComplete="off" className="loginForm">
         <LoginField
           name="email"
@@ -31,21 +31,23 @@ const LoginForm = ({
           value={password}
           onChange={changeField}
         />
-        <NavLink
-          to="/signup"
-          exact
-          className="loginForm__links"
-        >
-          Se créer un compte
-        </NavLink>
-        <NavLink
-          to="?????" // à changer ofc
-          exact
-          className="loginForm__links"
-        >
-          Mot de passe oublié ?
-        </NavLink>
-        <Button value="Connexion" />
+        <div className="loginForm__container">
+          <NavLink
+            to="/signup"
+            exact
+            className="loginForm__links"
+          >
+            Se créer un compte
+          </NavLink>
+          <NavLink
+            to="?????" // à changer ofc
+            exact
+            className="loginForm__links"
+          >
+            Mot de passe oublié ?
+          </NavLink>
+          <Button value="Se connecter" className="loginForm__button" />
+        </div>
       </form>
     </div>
   );

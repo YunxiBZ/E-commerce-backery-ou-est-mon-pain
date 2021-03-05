@@ -9,10 +9,23 @@
   &__input {
     padding: 0.8em;
     width: 100%;
+    align-self: flex-start;
   }
   &__label {
     margin-bottom: 0.8em;
     display: flex;
     align-self: flex-start;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .loginField {
+    width: 100%;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    
   }
 }
