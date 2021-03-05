@@ -12,7 +12,7 @@ import OpeningHours from 'src/containers/OpeningHours';
 import Slogan from 'src/containers/Slogan';
 import Contact from 'src/containers/Contact';
 import Products from 'src/containers/Products';
-import SignupForm from 'src/components/SignupForm';
+import SignupForm from 'src/containers/SignupForm';
 
 // == Composant
 const App = ({ fetchData }) => {
