@@ -3,7 +3,7 @@ const sequelize = require('../database');
 
 class AccountAllergen extends Sequelize.Model {};
 
-AccountAllergen.init({
+AccountAllergen.init({}, {
     sequelize,
     tableName: "account_allergen"
 });

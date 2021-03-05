@@ -3,7 +3,7 @@ const sequelize = require('../database');
 
 class ProductOrder extends Sequelize.Model {};
 
-ProductOrder.init({
+ProductOrder.init({}, {
     sequelize,
     tableName: "product_order"
 });

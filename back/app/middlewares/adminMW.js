@@ -1,13 +1,21 @@
-const adminMW = (req, res, next) => {
-    //est-ce que l'utilisateur est connecté
-    console.log(req.token, req.role);
-    if (!req.token) {
-        return res.status(401).json({
-            error: 'Il faut être connecté'
-        });
+const jwt = require('jsonwebtoken');
+const {
+    Account
+} = require('../models');
+
+const adminMW = async (req, res, next) => {
+
+    const token = req.header('auth-token');
+    if (!token) {
+        return res.status(401).send('Non connecté');
     }
+
+    const verified = jwt.verify(token, 'YuThJbAn')
+
+    const theUser = await Account.findByPk(verified.accountId);
+
     //est-ce que l'utilisateur a le role admin
-    if (req.role !== 'admin') {
+    if (theUser.role !== 'admin') {
         return res.status(403).json({
             error: 'Il faut être un admin'
         });

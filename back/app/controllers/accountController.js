@@ -3,7 +3,7 @@
   } = require('../models');
   const bcrypt = require('bcrypt');
   const validator = require('email-validator');
-  const jsonwebtoken = require('jsonwebtoken');
+  const jwt = require('jsonwebtoken');
 
   const accountController = {
       handleLoginForm: async (req, res) => {
@@ -38,8 +38,7 @@
               }
 
 
-              //le user existe et s'est correctement identifié, on stocke les infos qui vont bien dans la session
-
+              //le user existe et s'est correctement identifié, on stocke les infos dans un token
               if (account) {
                   const jwtContent = {
                       accountId: account.id
@@ -48,15 +47,10 @@
                       algorithm: 'HS256',
                       expiresIn: '3h'
                   };
-                  res.status(200).json({
-                      logged: true,
-                      email: account.email,
-                      last_name: account.last_name,
-                      first_name: account.first_name,
-                      phone_number: account.phone_number,
-                      role: account.role,
-                      token: jsonwebtoken.sign(jwtContent, 'YuThJbAn', jwtOptions),
-                  });
+
+                  const token = jwt.sign(jwtContent, 'YuThJbAn', jwtOptions);
+                  res.header('auth-token', token).sendStatus(200);
+
               } else {
                   res.sendStatus(401);
               }
@@ -106,7 +100,7 @@
                   first_name: req.body.first_name,
                   phone_number: req.body.phone_number
               });
-              res.status(201);
+              res.sendStatus(201);
           } catch (error) {
               console.log(error);
           }
