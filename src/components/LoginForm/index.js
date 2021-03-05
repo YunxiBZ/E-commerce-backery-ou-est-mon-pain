@@ -27,7 +27,7 @@ const LoginForm = ({
         <LoginField
           name="password"
           placeholder="password"
-          type="email"
+          type="password"
           value={password}
           onChange={changeField}
         />
@@ -46,7 +46,7 @@ const LoginForm = ({
           >
             Mot de passe oublié ?
           </NavLink>
-          <Button value="Se connecter" className="loginForm__button" />
+          <Button value="Se connecter" className="loginForm__button" type="submit" />
         </div>
       </form>
     </div>
