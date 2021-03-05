@@ -3,6 +3,8 @@ import { SIGNUP_SUCCESS } from 'src/actions/signup';
 // IMPORT ACTIONS
 import {
   CHANGE_VALUE,
+  LOGIN_SUCCESS,
+  LOGIN_FAILED,
 } from 'src/actions/user';
 
 const initialState = {
@@ -22,6 +24,20 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         email: action.email,
+      };
+    }
+    case LOGIN_SUCCESS: {
+      return {
+        ...state,
+        email: action.email,
+        password: '',
+        infos: {
+          firstName: action.firstName,
+          lastName: action.lastName,
+          logged: action.logged,
+          phoneNumber: action.phoneNumber,
+          token: action.token,
+        },
       };
     }
 
