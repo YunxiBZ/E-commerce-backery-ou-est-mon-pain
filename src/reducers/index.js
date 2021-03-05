@@ -5,6 +5,8 @@ import categories from './categories';
 import products from './products';
 import connection from './connection';
 import user from './user';
+import signupForm from './signupForm';
+
 // Import des reducers
 
 const globalReducer = combineReducers({
@@ -14,6 +16,7 @@ const globalReducer = combineReducers({
   products,
   connection,
   user,
+  signupForm,
   //  reducer,
   //  reducer,
 });
