@@ -4,6 +4,7 @@ import app from './app';
 import categories from './categories';
 import products from './products';
 import connection from './connection';
+import user from './user';
 // Import des reducers
 
 const globalReducer = combineReducers({
@@ -12,6 +13,7 @@ const globalReducer = combineReducers({
   categories,
   products,
   connection,
+  user,
   //  reducer,
   //  reducer,
 });

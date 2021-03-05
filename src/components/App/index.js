@@ -12,6 +12,7 @@ import OpeningHours from 'src/containers/OpeningHours';
 import Slogan from 'src/containers/Slogan';
 import Contact from 'src/containers/Contact';
 import Products from 'src/containers/Products';
+import LoginForm from 'src/containers/LoginForm';
 
 // == Composant
 const App = ({ fetchData }) => {
@@ -22,6 +23,7 @@ const App = ({ fetchData }) => {
   return (
     <div className="app">
       <Header />
+      <LoginForm />
       <Products />
       <Slogan />
       <History />
