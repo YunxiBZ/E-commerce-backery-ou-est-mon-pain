@@ -5,6 +5,7 @@ import { changeValue, submitForm } from 'src/actions/user';
 const mapStateToProps = (state) => ({
   email: state.user.email,
   password: state.user.password,
+  error: state.user.error,
 });
 
 const mapDispatchToProps = (dispatch) => ({

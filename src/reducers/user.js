@@ -40,6 +40,14 @@ const user = (state = initialState, action = {}) => {
         },
       };
     }
+    case LOGIN_FAILED: {
+      console.log(action);
+      return {
+        ...state,
+        password: '',
+        error: 'identifiants invalides',
+      };
+    }
 
     default:
       return state;

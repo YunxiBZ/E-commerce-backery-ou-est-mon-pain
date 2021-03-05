@@ -14,6 +14,7 @@ const login = (store) => (next) => (action) => {
             email: state.user.email,
             password: state.user.password,
           });
+          console.log(response);
           if (response.statusText === 'OK') {
             const { email } = response.data;
             const firstName = response.data.first_name;
@@ -33,6 +34,7 @@ const login = (store) => (next) => (action) => {
         }
         catch (error) {
           console.log('error', error);
+          store.dispatch(loginFailed());
         }
       };
       userLogin();

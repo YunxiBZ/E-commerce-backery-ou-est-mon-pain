@@ -12,6 +12,7 @@ const LoginForm = ({
   password,
   changeField,
   submitForm,
+  error,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,6 +22,9 @@ const LoginForm = ({
   return (
     <div className="container">
       <form autoComplete="off" className="loginForm" onSubmit={handleSubmit}>
+        {error && (
+          <div className="loginForm__error">{error}</div>
+        )}
         <LoginField
           name="email"
           placeholder="email"
@@ -62,6 +66,11 @@ LoginForm.propTypes = {
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
+  error: PropTypes.string,
+};
+
+LoginForm.defaultProps = {
+  error: '',
 };
 
 export default LoginForm;

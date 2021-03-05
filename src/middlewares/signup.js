@@ -21,12 +21,9 @@ const signup = (store) => (next) => (action) => {
           if (response.status === 201) {
             store.dispatch(signupSuccess(state.signup.email));
           }
-          else {
-            store.dispatch(signupFailed());
-          }
         }
         catch (error) {
-          console.log('error', error);
+          store.dispatch(signupFailed());
         }
       };
       userSignup();
