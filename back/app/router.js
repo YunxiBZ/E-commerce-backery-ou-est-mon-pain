@@ -13,10 +13,13 @@
   // Route pour les catégories
   router.get('/categories', categoryController.getAllCategories);
   router.post('/category', categoryController.createCategory);
+  router.put('/category', categoryController.modifyCategory);
+  router.delete('/category', categoryController.deleteCategory);
 
   // Route pour les produits
   router.get('/products', productController.getAllProducts);
   router.get('/product/:id', productController.getOneProduct);
+  router.post('/product', productController.createProduct);
 
   // Route pour les comptes 
   router.post('/signup', accountContoller.handleSignupForm);

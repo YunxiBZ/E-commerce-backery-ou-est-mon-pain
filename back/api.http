@@ -50,3 +50,34 @@ Content-Type: application/json
     "image": "Un bon petit burger américain là"
 }
 
+### Route PUT /category
+
+PUT {{baseUrl}}/category
+Content-Type: application/json
+
+{
+    "id":"5",
+    "label": "Sandwich",
+    "image": "Un bon sandwich au paté"
+}
+
+### Route PUT /category
+
+DELETE {{baseUrl}}/category
+Content-Type: application/json
+
+{
+    "id":"4" 
+}
+
+### Route POST /product
+
+POST {{baseUrl}}/product
+Content-Type: application/json
+
+{
+    "title": "Panini Nutella",
+    "description": "Le meilleur panini du monde",
+    "price": 1.95,
+    "image": "image d'huile de palme"
+}

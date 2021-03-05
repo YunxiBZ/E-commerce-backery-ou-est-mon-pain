@@ -16,17 +16,61 @@ const categoryController = {
         const {
             label,
             image
-        } = req.body
+        } = req.body;
 
-        await Category.create({
+        const newCategory = await Category.create({
             label,
             image
-        })
+        });
 
-        res.status(201).json({
-            message: 'catégorie créée'
-        })
+        if (newCategory) {
+            res.status(201).json({
+                message: 'catégorie créée'
+            });
+        }
+    },
 
+    modifyCategory: async (req, res) => {
+
+        const {
+            id,
+            label,
+            image
+        } = req.body;
+
+        const modifiedCategory = await Category.update({
+            label,
+            image
+        }, {
+            where: {
+                id
+            }
+        });
+
+        if (modifiedCategory) {
+            res.status(200).json({
+                message: 'catégorie modifiée'
+            });
+        }
+    },
+
+    deleteCategory: async (req, res) => {
+
+        const {
+            id
+        } = req.body;
+
+        const deletedCategory = await Category.destroy({
+            where: {
+                id
+            }
+        });
+
+        if (deletedCategory) {
+            res.status(200).json({
+                message: 'catégorie supprimée'
+            });
+        }
     }
 }
 
