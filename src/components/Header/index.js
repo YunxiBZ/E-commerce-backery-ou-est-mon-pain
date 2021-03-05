@@ -52,7 +52,7 @@ const Header = ({ toggle, toggleNavbar }) => (
         Infos pratiques
       </NavLink>
       <NavLink
-        to="Formulaire-de-contact"
+        to="formulaire-de-contact"
         exact
         className="header__links"
       >

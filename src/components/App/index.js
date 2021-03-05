@@ -1,5 +1,6 @@
 // == Import npm
 import React, { useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -14,6 +15,7 @@ import Contact from 'src/containers/Contact';
 import Products from 'src/containers/Products';
 import LoginForm from 'src/containers/LoginForm';
 import SignupForm from 'src/containers/SignupForm';
+import ContactForm from 'src/components/ContactForm';
 
 // == Composant
 const App = ({ fetchData }) => {
@@ -24,14 +26,28 @@ const App = ({ fetchData }) => {
   return (
     <div className="app">
       <Header />
-      <LoginForm />
-      <SignupForm />
-      <Products />
-      <Slogan />
-      <History />
-      <OpeningHours />
-      <Contact />
-      <Categories />
+      <Switch>
+        <Route exact path="/login">
+          <LoginForm />
+        </Route>
+        <Route exact path="/signup">
+          <SignupForm />
+        </Route>
+        <Route exact path="/accueil">
+          <Slogan />
+          <History />
+          <OpeningHours />
+          <Contact />
+          <Categories />
+        </Route>
+        <Route exact path="/products">
+          <Products />
+        </Route>
+        <Route exact path="/formulaire-de-contact">
+          <ContactForm />
+        </Route>
+
+      </Switch>
       <Footer />
     </div>
   );
