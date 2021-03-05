@@ -3,7 +3,6 @@ import { combineReducers } from 'redux';
 import app from './app';
 import categories from './categories';
 import products from './products';
-import connection from './connection';
 import user from './user';
 import signup from './signup';
 
@@ -14,7 +13,6 @@ const globalReducer = combineReducers({
   app,
   categories,
   products,
-  connection,
   user,
   signup,
   //  reducer,

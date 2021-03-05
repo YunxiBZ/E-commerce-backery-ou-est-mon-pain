@@ -2,6 +2,7 @@ export const CHANGE_VALUE = 'CHANGE_VALUE';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
+export const USER_LOGOUT = 'USER_LOGOUT';
 
 export const loginFailed = () => ({
   type: LOGIN_FAILED,
@@ -33,4 +34,8 @@ export const changeValue = (value, name) => ({
 
 export const submitForm = () => ({
   type: SUBMIT_FORM,
+});
+
+export const userLogout = () => ({
+  type: USER_LOGOUT,
 });

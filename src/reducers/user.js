@@ -5,11 +5,19 @@ import {
   CHANGE_VALUE,
   LOGIN_SUCCESS,
   LOGIN_FAILED,
+  USER_LOGOUT,
 } from 'src/actions/user';
 
 const initialState = {
   email: '',
   password: '',
+  infos: {
+    firstName: '',
+    lastName: '',
+    logged: false,
+    phoneNumber: '',
+    token: '',
+  },
 };
 
 const user = (state = initialState, action = {}) => {
@@ -41,14 +49,17 @@ const user = (state = initialState, action = {}) => {
       };
     }
     case LOGIN_FAILED: {
-      console.log(action);
       return {
         ...state,
         password: '',
         error: 'identifiants invalides',
       };
     }
-
+    case USER_LOGOUT: {
+      return {
+        ...initialState,
+      };
+    }
     default:
       return state;
   }
