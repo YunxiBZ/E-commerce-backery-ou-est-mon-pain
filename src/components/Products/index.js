@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Product from './Product';
+import './styles.scss';
 
 const Products = ({
   fetchData,
@@ -14,7 +15,7 @@ const Products = ({
   }, []);
 
   return (
-    <div>
+    <div className="products">
       {products.map((product) => (
         <Product
           key={product.id}
