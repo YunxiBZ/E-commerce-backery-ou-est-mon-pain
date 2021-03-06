@@ -1,14 +1,16 @@
-@use 'src/styles/vars';
+@use 'src/styles/vars' as v;
 
 .opening {
-  color: vars.$lightest-brown;
+  color: v.$light-brown;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 80%;
   margin: 0 auto;
-  background-color: vars.$light-brown;
+  background-color: v.$dark-brown;
   margin-bottom: 2em;
+  border: 2px solid v.$light-brown;
+  padding: 1em;
   &__title {
     font-size: 2em;
     margin-bottom: 1em;
