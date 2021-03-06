@@ -24,9 +24,13 @@ const Connection = ({ userName, onClickLogoutBtn, isLogged }) => (
     {
       isLogged && (
         <div className="connection__logged">
-          <p className="connection__hello">
-            Hello {userName}
-          </p>
+          <Link
+            to="/account"
+          >
+            <p className="connection__hello">
+              Hello {userName}
+            </p>
+          </Link>
           <Link
             to="/"
             className="connection__logout-link"

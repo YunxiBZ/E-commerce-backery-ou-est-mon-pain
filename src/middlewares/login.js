@@ -14,14 +14,11 @@ const login = (store) => (next) => (action) => {
             email: state.user.email,
             password: state.user.password,
           });
-          console.log(response);
           if (response.statusText === 'OK') {
-            const { email } = response.data;
+            const { email, logged, token } = response.data;
             const firstName = response.data.first_name;
             const lastName = response.data.last_name;
-            const { logged } = response.data;
             const phoneNumber = response.data.phone_number;
-            const { token } = response.data;
             store.dispatch(loginSuccess(
               email,
               firstName,

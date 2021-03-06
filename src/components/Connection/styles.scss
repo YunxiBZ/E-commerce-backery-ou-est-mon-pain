@@ -7,6 +7,11 @@
   right: 0;
   margin:$gutter $gutter*2;
   &__icon{
-    max-width: 30px
+    max-width: 30px;
+    margin-left: 1em;
+  }
+  &__hello {
+    text-transform: capitalize;
+    margin-bottom: 1em;
   }
 }
