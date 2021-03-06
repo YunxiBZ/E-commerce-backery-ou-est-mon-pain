@@ -3,36 +3,38 @@
 .field {
   margin: .3em;
   position: relative;
-  &-input {
-    width: 100%;
+  width: 60%;
+  &__input {
+    width:100%;
     padding: .7em;
     font-size: 1em;
     border: none;
     border-radius: .3em;
     height: 2.5em;
+   
   }
-  &-input:focus {
-    border-color: $light-brown;
+  &__input:focus {
+    border-color: $lightest-brown;
   }
-  &-input:focus + &-label {
-    color: $light-brown;
+  &__input:focus + &__label {
+    color: $lightest-brown;
   }
   
-  &--has-content &-label {
+  &--has-content &__label {
     display: block;
   }
   
-  &--has-content &-input {
+  &--has-content &__input {
     padding: 1.4em .7em .4em;
   }
   
-  &-label {
+  &__label {
     display: none;
     position: absolute;
-    top: .2rem;
+    top: -0.3rem;
     left: .7rem;
     font-weight: 700;
-    color: $lightest-brown;
+    color: $light-brown;
     font-size: .7em;
     text-transform: uppercase;
     font-family: sans-serif;
@@ -48,5 +50,13 @@
   100% {
     transform: translateY(0em);
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .field{
+
+    width: 50%;
+    max-width: 300px;
   }
 }

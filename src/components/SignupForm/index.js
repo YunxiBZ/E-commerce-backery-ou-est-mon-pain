@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'src/components/Button';
 import SignupField from './SignupField';
+import './styles.scss';
 
 const SignupForm = ({
   firstName,
