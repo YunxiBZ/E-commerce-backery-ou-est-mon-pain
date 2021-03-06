@@ -1,0 +1,25 @@
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 55vh;
+  margin-bottom: 3em;
+  &__field--modifier {
+    width: 50%;
+  }
+  &__submit-btn {
+    width: 20%;
+    margin-left: 1.4em;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .signupForm {
+    margin-bottom: 10em;
+    &__submit-btn {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}

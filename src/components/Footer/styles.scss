@@ -5,7 +5,6 @@
   font-size:1.4em;
   margin: $gutter auto;
   font-weight: 700;
-
   bottom: 0;
   left: 0;
   right: 0;
@@ -38,7 +37,6 @@
   &__links{
     margin: $gutter;
     cursor: pointer;
-
   }
   &__links:hover{
     color: $lightest-brown;

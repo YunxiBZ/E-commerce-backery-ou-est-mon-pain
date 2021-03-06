@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'src/components/Button';
 import SignupField from './SignupField';
+import './styles.scss';
 
 const SignupForm = ({
   firstName,
@@ -67,12 +68,13 @@ const SignupForm = ({
         onChange={changeField}
         value={passwordComfirm}
       />
-
-      <Button
-        className="signupForm__submmit-btn"
-        value="Inscrire"
-        type="submit"
-      />
+      <div className="signupForm__field--modifier">
+        <Button
+          className="signupForm__submit-btn"
+          value="Inscrire"
+          type="submit"
+        />
+      </div>
     </form>
   );
 };

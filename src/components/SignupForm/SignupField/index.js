@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles.scss';
 
 const SignupField = ({
   name,
@@ -13,7 +14,13 @@ const SignupField = ({
   };
   const inputId = `field__${name}`;
   return (
-    <div className="value.length > 0 ? 'field field--has-content' : 'field'">
+    <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
+      <label
+        htmlFor={inputId}
+        className="field__label"
+      >
+        {placeholder}
+      </label>
       <input
         value={value}
         onChange={handleChange}
@@ -22,12 +29,6 @@ const SignupField = ({
         className="field__input"
         placeholder={placeholder}
       />
-      <label
-        htmlFor={inputId}
-        className="field__label"
-      >
-        {placeholder}
-      </label>
     </div>
   );
 };

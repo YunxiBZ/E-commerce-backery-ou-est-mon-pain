@@ -14,6 +14,8 @@ const login = (store) => (next) => (action) => {
             email: state.user.email,
             password: state.user.password,
           });
+          console.trace(response);
+          // si réussite on dispatch l'action loginSuccess avec la data reçu en response
           if (response.statusText === 'OK') {
             const { email, logged, token } = response.data;
             const firstName = response.data.first_name;
@@ -30,6 +32,7 @@ const login = (store) => (next) => (action) => {
           }
         }
         catch (error) {
+          // Sinon on dispatch l'action loginFailed
           console.log('error', error);
           store.dispatch(loginFailed());
         }
