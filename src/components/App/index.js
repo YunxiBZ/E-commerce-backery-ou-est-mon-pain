@@ -43,6 +43,10 @@ const App = ({ fetchData }) => {
         <Route exact path="/products">
           <Products />
         </Route>
+        <Route exact path="/infos-pratiques">
+          <OpeningHours />
+          <Contact />
+        </Route>
         <Route exact path="/formulaire-de-contact">
           <ContactForm />
         </Route>
