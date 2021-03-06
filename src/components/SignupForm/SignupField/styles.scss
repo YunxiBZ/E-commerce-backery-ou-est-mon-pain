@@ -27,16 +27,17 @@
   }
   
   &-label {
-    display: none;
     position: absolute;
-    top: .2rem;
+    top: -0.7rem;
     left: .7rem;
     font-weight: 700;
     color: $lightest-brown;
     font-size: .7em;
     text-transform: uppercase;
     font-family: sans-serif;
-    animation: labelSlideUpAndShow .3s;
+  }
+  &__label {
+    color: $lightest-brown;
   }
 }
 
@@ -69,5 +70,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  #field {
+    &__first_name {
+      width: 50%;
+    }
+    &__last_name {
+      width: 50%;
+    }
+    &__phone_number {
+      width: 50%;
+    }
   }
 }
