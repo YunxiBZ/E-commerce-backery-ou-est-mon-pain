@@ -31,7 +31,7 @@ const Header = ({ toggle, toggleNavbar }) => (
         et on donne une classe en fonction de ce state */}
     <nav className={toggle ? 'header__navbar active' : 'header__navbar'}>
       <NavLink
-        to="accueil"
+        to="/"
         exact
         className="header__links"
       >
