@@ -31,7 +31,8 @@ const ContactForm = () => {
         placeholder="Téléphone"
         className="field--modifier"
       />
-      <textarea className="contactForm__message" />
+      <p className="field__label">Message</p>
+      <textarea className="contactForm__message" id="field-message" name="field-message" />
       <Button value="Envoyer le formulaire" type="submit" className="button--ContactForm" />
     </form>
   );
