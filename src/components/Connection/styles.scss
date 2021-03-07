@@ -1,8 +1,9 @@
 @import 'src/styles/vars';
 
 .connection{
-  color: #975721;;
+  color: $normal-grey;
   position: absolute;
+  font-weight: 700;
   top:0;
   right: 0;
   margin:$gutter $gutter*2;

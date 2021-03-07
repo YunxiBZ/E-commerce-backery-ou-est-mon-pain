@@ -39,7 +39,7 @@ const Connection = ({
           >
             <FontAwesomeIcon
               className="connection__cart-btn"
-              icon="shopping-cart"
+              icon="shopping-basket"
               onClick={onClickCartBtn}
             />
           </Link>

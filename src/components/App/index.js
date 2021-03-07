@@ -27,7 +27,7 @@ import {
   faArrowAltCircleDown,
   faUser,
   faSignOutAlt,
-  faShoppingCart,
+  faShoppingBasket,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -38,7 +38,7 @@ library.add(
   faArrowAltCircleDown,
   faUser,
   faSignOutAlt,
-  faShoppingCart,
+  faShoppingBasket,
 );
 
 // == Composant
