@@ -9,4 +9,33 @@
   &__icon{
     max-width: 30px
   }
+ &__logged{
+   font-size:1.5rem;
+   margin-top: $gutter;
+
+ }
+ &__cart-btn{
+   margin: $gutter;
+ }
+ &__logout-btn{
+  margin: $gutter;
+
+ }
+}
+
+@media screen and (min-width: 650px) {
+  .connection{
+
+    &__logged {
+      display: flex;
+    }
+    &__cart-btn{
+      margin-top: 0;
+    }
+    &__logout-btn{
+      margin-top: 0;
+   
+    }
+  }
+  
 }

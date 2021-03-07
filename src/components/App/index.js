@@ -17,6 +17,30 @@ import LoginForm from 'src/containers/LoginForm';
 import SignupForm from 'src/containers/SignupForm';
 import ContactForm from 'src/components/ContactForm';
 
+// ==Import FontAwesomeIcon for use Icon
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import {
+  faTrashAlt,
+  faAngleRight,
+  faArrowAltCircleUp,
+  faArrowAltCircleDown,
+  faUser,
+  faSignOutAlt,
+  faShoppingCart,
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add(
+  fab,
+  faTrashAlt,
+  faAngleRight,
+  faArrowAltCircleUp,
+  faArrowAltCircleDown,
+  faUser,
+  faSignOutAlt,
+  faShoppingCart,
+);
+
 // == Composant
 const App = ({ fetchData }) => {
   useEffect(() => {
