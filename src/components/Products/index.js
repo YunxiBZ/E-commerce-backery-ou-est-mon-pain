@@ -11,6 +11,9 @@ const Products = ({
   onChangeQuantityInput,
 }) => {
   useEffect(() => {
+    if (products.length > 0) {
+      return;
+    }
     fetchData();
   }, []);
 
