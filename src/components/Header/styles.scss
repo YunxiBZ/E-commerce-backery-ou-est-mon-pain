@@ -33,12 +33,13 @@
   }
   &__links {
     margin: 1em 2em;
-    font-size:1.4em;
+    font-size:1.1em;
     font-weight: 700;
-    text-shadow: $light-brown 1px 0 10px;;
+    text-shadow: $light-brown 1px 0 10px;
     text-transform: uppercase;
     text-align: center;
     color: $dark-grey;
+    white-space: nowrap;
     &:hover {
       color: $normal-grey;
     }
