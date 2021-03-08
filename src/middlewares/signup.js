@@ -8,7 +8,6 @@ const signup = (store) => (next) => (action) => {
         const state = store.getState();
         const baseUrl = process.env.REACT_APP_BASE_URL;
         const url = `${baseUrl}/signup`;
-        console.log(state);
         try {
           const response = await axios.post(url, {
             email: state.signup.email,
@@ -24,7 +23,7 @@ const signup = (store) => (next) => (action) => {
           }
         }
         catch (error) {
-          store.dispatch(signupFailed());
+          store.dispatch(signupFailed(error.response.data.error));
         }
       };
       userSignup();

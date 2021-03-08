@@ -1,4 +1,4 @@
-import { CHANGE_FIELD, SIGNUP_SUCCESS } from 'src/actions/signup';
+import { CHANGE_FIELD, SIGNUP_SUCCESS, SIGNUP_FAILED } from 'src/actions/signup';
 
 const initialState = {
   email: '',
@@ -25,6 +25,14 @@ const signup = (state = initialState, action = {}) => {
         first_name: '',
         last_name: '',
         phone_number: '',
+      };
+    }
+    case SIGNUP_FAILED: {
+      return {
+        ...state,
+        password: '',
+        passwordConfirm: '',
+        error: action.message,
       };
     }
     default:
