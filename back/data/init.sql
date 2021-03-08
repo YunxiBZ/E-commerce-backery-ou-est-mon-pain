@@ -75,7 +75,8 @@ CREATE TABLE "account_allergen" (
 CREATE TABLE "product_order" (
     "id" serial PRIMARY KEY,
     "product_id" integer NOT NULL REFERENCES "product"("id"),
-    "order_id" integer NOT NULL REFERENCES "order"("id")
+    "order_id" integer NOT NULL REFERENCES "order"("id"),
+    "quantity" integer NOT NULL
 );
 
 COMMIT ;

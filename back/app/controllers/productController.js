@@ -21,7 +21,9 @@ const productController = {
             id
         } = req.params
 
-        const theProduct = await Product.findByPk(id)
+        const theProduct = await Product.findByPk(id, {
+            include: ['categories', 'allegerns']
+        })
 
         res.json(theProduct);
 

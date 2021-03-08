@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const adminMW = async (req, res, next) => {
+const userMW = async (req, res, next) => {
 
     const token = req.header('auth-token');
     if (!token) {
@@ -9,6 +9,7 @@ const adminMW = async (req, res, next) => {
 
     const verified = jwt.verify(token, 'YuThJbAn')
 
+    console.log(verified);
     if (!verified) {
         return res.status(400).send('Token invalide');
     }
@@ -16,4 +17,4 @@ const adminMW = async (req, res, next) => {
     next();
 }
 
-module.exports = adminMW;
+module.exports = userMW;

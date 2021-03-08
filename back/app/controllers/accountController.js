@@ -1,9 +1,13 @@
   const {
-      Account
+      Account,
+      AccountAllergen
   } = require('../models');
   const bcrypt = require('bcrypt');
   const validator = require('email-validator');
   const jwt = require('jsonwebtoken');
+  const {
+      verified
+  } = require('../middlewares/userMW')
 
   const accountController = {
       handleLoginForm: async (req, res) => {
@@ -106,11 +110,162 @@
           }
       },
 
-      logout: (request, response) => {
-          //on reset des infos du user en session
-          request.session.user = false;
-          //on redirige sur la page d'accueil
-          response.redirect('/');
+      accountPage: async (req, res) => {
+
+          const token = req.header('auth-token');
+          const verified = jwt.verify(token, 'YuThJbAn')
+
+          const id = verified.accountId;
+
+          const account = await Account.findByPk(id, {
+              include: ['allergens', 'orders']
+          });
+
+          res.json(account);
+      },
+
+      modifyAccount: async (req, res) => {
+
+          const token = req.header('auth-token');
+          const verified = jwt.verify(token, 'YuThJbAn')
+
+          const id = verified.accountId;
+
+          const {
+              email,
+              first_name,
+              last_name,
+              phone_number,
+              allergens
+          } = req.body;
+
+          const account = await Account.findByPk(id);
+
+          console.log(account);
+
+          // On vérifie s'il n'y a pas un autre compte avec l'email que l'on veut modifier
+          const otherAccount = await Account.findOne({
+              where: {
+                  email: email
+              }
+          });
+
+          console.log(otherAccount);
+
+          if (otherAccount.id !== account.id && otherAccount) {
+              //il y a déjà un utilisateur avec cet email, on envoie une erreur
+              return res.status(401).json({
+                  error: 'Un utilisateur avec cet email existe déjà'
+              });
+          }
+          //on rechecke que l'email a un format valide
+          if (!validator.validate(email)) {
+              //le format de l'email est incorrect
+              return res.status(401).json({
+                  error: 'Le format de l\'email est incorrect'
+              });
+          }
+
+          // Modification de la table account
+          const updatedAccount = await Account.update({
+              email,
+              first_name,
+              last_name,
+              phone_number
+          }, {
+              where: {
+                  id
+              }
+          });
+
+          // Suppression des éléments de la table de liasion AccountAllergen pour modification
+          await AccountAllergen.destroy({
+              where: {
+                  allergen_id: id
+              }
+          });
+
+          // Création des nouveaux éléments de la table de liasion AccountAllergen
+          for (const allergen of allergens) {
+              await AccountAllergen.create({
+                  account_id: id,
+                  allergen_id: allergen
+              })
+          };
+
+          if (updatedAccount) {
+              res.status(200).json({
+                  message: 'compte modifié'
+              });
+          } else {
+              res.sendStatus(400);
+          }
+      },
+
+      modifyPassword: async (req, res) => {
+          const token = req.header('auth-token');
+          const verified = jwt.verify(token, 'YuThJbAn')
+
+          const id = verified.accountId;
+
+          const {
+              password,
+              passwordConfirm
+          } = req.body;
+
+          //on checke si le password et la vérif sont bien identiques
+          if (password !== passwordConfirm) {
+              return res.status(401).json({
+                  error: 'La confirmation du mot de passe est incorrecte'
+              });
+          }
+          //on hache le password
+          const hashedPwd = bcrypt.hashSync(password, 10)
+
+          const modifiedAccount = await Account.update({
+              password: hashedPwd
+          }, {
+              where: {
+                  id
+              }
+          });
+
+          if (modifiedAccount) {
+              res.status(200).json({
+                  message: 'Mot de passe modifié'
+              });
+          } else {
+              res.sendStatus(400);
+          }
+      },
+
+      deleteAccount: async (req, res) => {
+          const token = req.header('auth-token');
+          const verified = jwt.verify(token, 'YuThJbAn')
+
+          const id = verified.accountId;
+
+          // Suppression des éléments de la table de liasion AccountAllergen pour modification
+          await AccountAllergen.destroy({
+              where: {
+                  account_id: id
+              }
+          })
+
+          // Suppression du compte
+          const deletedAccount = await Account.destroy({
+              where: {
+                  id
+              }
+          });
+
+          if (deletedAccount) {
+              res.status(200).json({
+                  message: 'Compte supprimé'
+              });
+          } else {
+              res.sendStatus(400);
+          }
       }
   };
 

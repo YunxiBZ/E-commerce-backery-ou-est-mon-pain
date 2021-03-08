@@ -22,7 +22,7 @@ POST {{baseUrl}}/signup
 Content-Type: application/json
 
 {
-    "email": "jaybi@gmail.fr",
+    "email": "jaybi@orange.fr",
     "password": "bla",
     "passwordConfirm" : "bla",
     "last_name": "Bataya",
@@ -36,7 +36,7 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-    "email": "jaybi@gmail.fr",
+    "email": "jaybi@orange.fr",
     "password": "bla"
 }
 
@@ -132,7 +132,7 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTY
     "color": "#ffe436"
 }
 
-### Route PUT /allergen
+### Route DELETE /allergen
 
 DELETE {{baseUrl}}/allergen
 Content-Type: application/json
@@ -140,4 +140,44 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTY
 
 {
     "id":1
+}
+
+### Route GET /account
+
+GET {{baseUrl}}/account
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTE5ODU4MSwiZXhwIjoxNjE1MjA5MzgxfQ.S3dn7nUdFTrcoXvrxRdpxWKRrTqVj37_Cw8lo7VHwus
+
+### Route PUT /account
+
+PUT {{baseUrl}}/account
+Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTE5ODU4MSwiZXhwIjoxNjE1MjA5MzgxfQ.S3dn7nUdFTrcoXvrxRdpxWKRrTqVj37_Cw8lo7VHwus
+
+{
+    "email": "j@gmail.fr",
+    "first_name": "j",
+    "last_name": "b",
+    "phone_number": "0602267895",
+    "allergens": [2]
+}
+
+### Route PUT /password-account
+
+PUT {{baseUrl}}/password-account
+Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTE5ODU4MSwiZXhwIjoxNjE1MjA5MzgxfQ.S3dn7nUdFTrcoXvrxRdpxWKRrTqVj37_Cw8lo7VHwus
+
+{
+    "password":"blu",
+    "passwordConfirm": "blu"
+}
+
+### Route DELETE /account
+
+DELETE {{baseUrl}}/account
+Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjIsImlhdCI6MTYxNTE5OTA0NSwiZXhwIjoxNjE1MjA5ODQ1fQ.D1lx13-oIpGM64Topi4tnrQFNekiJ3fEHtq6qaigsBg
+
+{
+    "id":2
 }

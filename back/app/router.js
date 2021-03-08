@@ -10,6 +10,7 @@
   const allergenController = require('./controllers/allergenController');
 
   const adminMW = require('./middlewares/adminMW');
+  const userMW = require('./middlewares/userMW');
 
   // Route pour les catégories
   router.get('/categories', categoryController.getAllCategories);
@@ -32,6 +33,10 @@
   // Route pour les comptes 
   router.post('/signup', accountContoller.handleSignupForm);
   router.post('/login', accountContoller.handleLoginForm);
+  router.get('/account', accountContoller.accountPage);
+  router.put('/account', userMW, accountContoller.modifyAccount);
+  router.put('/password-account', userMW, accountContoller.modifyPassword);
+  router.delete('/account', userMW, accountContoller.deleteAccount);
 
   // ici, une 404 pour l'API
   router.use((req, res) => {
