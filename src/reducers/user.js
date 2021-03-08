@@ -52,7 +52,7 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         password: '',
-        error: 'identifiants invalides',
+        error: action.error,
       };
     }
     case USER_LOGOUT: {
