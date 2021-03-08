@@ -5,9 +5,6 @@
   const bcrypt = require('bcrypt');
   const validator = require('email-validator');
   const jwt = require('jsonwebtoken');
-  const {
-      verified
-  } = require('../middlewares/userMW')
 
   const accountController = {
       handleLoginForm: async (req, res) => {
@@ -267,6 +264,6 @@
               res.sendStatus(400);
           }
       }
-  };
+  }
 
   module.exports = accountController

@@ -181,3 +181,7 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjIsImlhdCI6MTY
 {
     "id":2
 }
+
+### Route contact
+
+POST {{baseUrl}}/contact

@@ -8,6 +8,7 @@
   const productController = require('./controllers/productController');
   const accountContoller = require('./controllers/accountController');
   const allergenController = require('./controllers/allergenController');
+  const formController = require('./controllers/formController');
 
   const adminMW = require('./middlewares/adminMW');
   const userMW = require('./middlewares/userMW');
