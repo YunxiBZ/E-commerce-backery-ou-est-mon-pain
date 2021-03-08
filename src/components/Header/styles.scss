@@ -33,15 +33,19 @@
   }
   &__links {
     margin: 1em 2em;
+    padding: 0.5em;
     font-size:1.1em;
+    margin: 0 0.3em;
     font-weight: 700;
     text-shadow: $light-brown 1px 0 10px;
     text-transform: uppercase;
     text-align: center;
-    color: $dark-grey;
+    color: $light-brown;
     white-space: nowrap;
+    background-color: $normal-grey;
+    border-radius: 2px;
     &:hover {
-      color: $normal-grey;
+      color: $lightest-brown;
     }
   }
   // target la svg (hamburger)
@@ -78,6 +82,9 @@
       display: flex;
       flex-direction: column;
       display: none;
+    }
+    &__links {
+      margin-bottom: 0.5em;
     }
   }
 }
