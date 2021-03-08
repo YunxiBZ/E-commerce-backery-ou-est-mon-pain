@@ -17,7 +17,7 @@ import LoginForm from 'src/containers/LoginForm';
 import SignupForm from 'src/containers/SignupForm';
 import ContactForm from 'src/components/ContactForm';
 import SingleProduct from 'src/containers/SingleProduct';
-import Account from 'src/components/Account';
+import Account from 'src/containers/Account';
 
 // ==Import FontAwesomeIcon for use Icon
 import { library } from '@fortawesome/fontawesome-svg-core';
