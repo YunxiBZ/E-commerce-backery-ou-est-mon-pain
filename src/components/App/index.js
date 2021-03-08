@@ -78,7 +78,6 @@ const App = ({ fetchData }) => {
         <Route exatct path="/account">
           <SingleProduct />
         </Route>
-
       </Switch>
       <Footer />
     </div>

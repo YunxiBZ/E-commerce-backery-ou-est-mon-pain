@@ -29,8 +29,9 @@
   }
   &__links {
     margin: 1em 2em;
-    font-size:1.4em;
+    font-size:1.1em;
     font-weight: 700;
+    white-space: nowrap;
     &:hover {
       color: $lightest-brown;
     }
