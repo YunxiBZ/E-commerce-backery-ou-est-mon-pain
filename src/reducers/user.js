@@ -18,6 +18,12 @@ const initialState = {
     phoneNumber: '',
     token: '',
   },
+  action: {
+    toggleFirstName: false,
+    toggleLastName: false,
+    togglePhone: false,
+    toggleEmail: false,
+  },
 };
 
 const user = (state = initialState, action = {}) => {
