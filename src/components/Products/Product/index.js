@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'src/components/Button';
 import './styles.scss';
 
 const Product = ({
+  id,
   title,
   totalPrice,
   image,
@@ -15,7 +17,9 @@ const Product = ({
 }) => (
   <div className="product">
     <h3 className="product__name">{title}</h3>
-    <img className="product__img" src={image} alt={`image_${title}`} />
+    <Link to={`/product/${id}`}>
+      <img className="product__img" src={image} alt={`image_${title}`} />
+    </Link>
     <div className="product__bottom">
       <div className="product__quantity">
 
@@ -56,6 +60,7 @@ const Product = ({
 
 Product.propTypes = {
   title: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   totalPrice: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,

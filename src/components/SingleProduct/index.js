@@ -1,53 +1,80 @@
 import React from 'react';
 import './styles.scss';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'src/components/Button';
 
-const SingleProduct = () => {
-  const ok = 'ok';
+const SingleProduct = ({
+  product,
+  onClickAddQuantityBtn,
+  onClickReduceQuantityBtn,
+  onChangeQuantityInput,
+}) => {
   const url = 'https://images.unsplash.com/photo-1509440159596-0249088772ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80';
   return (
     <div className="singleProduct">
       <section className="singleProduct__leftContainer">
         <header className="singleProduct__infos">
-          <h2>Nom du produit</h2>
+          <h2>{product.title} </h2>
           <p>Stock</p>
         </header>
         <div className="test">
-          Il faudra mettre les ingrédients/description du produit
-          Encore meilleur quand on le déguste en pantoufle dans son canapé.
-          Ingrédients : Pâte feuilletée, Pomme du verger, Compote de pomme, Oeuf, Beurre, Sucre.
+          {product.description}
         </div>
 
         <div className="singleProduct__data">
           <div className="singleProduct__quantityContainer">
+            <FontAwesomeIcon
+              icon="arrow-alt-circle-up"
+              className="singleProduct__AddIcon"
+              onClick={() => onClickAddQuantityBtn(product.title)}
+            />
             <input
               className="singleProduct__quantity"
               placeholder="Quantité"
               type="text"
-              value="{quantity}"
+              value={product.quantity}
               name="quantity"
-            />
-            <FontAwesomeIcon
-              icon="arrow-alt-circle-up"
-              className="singleProduct__AddIcon"
+              onChange={
+                (event) => {
+                  const quantityInput = event.target.value;
+                  onChangeQuantityInput(quantityInput, product.title);
+                }
+              }
             />
             <FontAwesomeIcon
               icon="arrow-alt-circle-down"
               className="singleProduct__RemoveIcon"
+              onClick={() => onClickReduceQuantityBtn(product.title)}
             />
           </div>
-          <p className="singleProduct__price">3000€</p>
+          <p className="singleProduct__price">{product.totalPrice}€</p>
         </div>
 
         <Button value="Ajouter au panier" className="singleProduct__button" />
       </section>
       <section className="singleProduct__rightContainer">
-        <img src={url} alt="product-img" className="singleProduct__image" />
+        <img src={product.image} alt="product-img" className="singleProduct__image" />
         <Button value="Ajouter au panier" className="singleProduct__button singleProduct__button--modifier" />
       </section>
     </div>
   );
 };
 
+SingleProduct.propTypes = {
+  product: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+    totalPrice: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+  }),
+  onClickAddQuantityBtn: PropTypes.func.isRequired,
+  onClickReduceQuantityBtn: PropTypes.func.isRequired,
+  onChangeQuantityInput: PropTypes.func.isRequired,
+};
+
+SingleProduct.defaultProps = {
+  product: null,
+};
 export default SingleProduct;
