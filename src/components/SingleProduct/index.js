@@ -15,6 +15,8 @@ const SingleProduct = () => {
         </header>
         <div className="test">
           Il faudra mettre les ingrédients/description du produit
+          Encore meilleur quand on le déguste en pantoufle dans son canapé.
+          Ingrédients : Pâte feuilletée, Pomme du verger, Compote de pomme, Oeuf, Beurre, Sucre.
         </div>
 
         <div className="singleProduct__data">
