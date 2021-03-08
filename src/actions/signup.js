@@ -4,8 +4,9 @@ export const HANDLE_SIGNUP = 'HANDLE_SIGNUP';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAILED = 'SIGNUP_FAILED';
 
-export const signupFailed = () => ({
+export const signupFailed = (message) => ({
   type: SIGNUP_FAILED,
+  message,
 });
 
 export const handleSignup = () => ({

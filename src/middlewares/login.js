@@ -34,7 +34,7 @@ const login = (store) => (next) => (action) => {
         catch (error) {
           // Sinon on dispatch l'action loginFailed
           console.log('error', error);
-          store.dispatch(loginFailed());
+          store.dispatch(loginFailed(error.response.data.error));
         }
       };
       userLogin();

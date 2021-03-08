@@ -9,6 +9,7 @@ const mapStateToProps = (state) => ({
   telephone: state.signup.phone_number,
   password: state.signup.password,
   passwordComfirm: state.signup.passwordConfirm,
+  error: state.signup.error,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -30,7 +30,7 @@
     margin: $gutter $gutter*.3;
     border: none;
     background-color:$light-brown;
-    color:$dark-brown;
+    color:$normal-grey;
     text-align: center;
     font-size: 0.8rem;
     border-radius: 5px;
@@ -39,7 +39,7 @@
     background-color:$lightest-brown;
   }
   &__quantity-input::-webkit-input-placeholder {
-    color: $dark-brown;
+    color: $normal-grey;
   }
  
   &__price {
@@ -59,7 +59,7 @@
 
   &__add-to-cart-btn{
     background-color: $light-brown;
-    color: $dark-brown;
+    color: $normal-grey;
     font-weight: 700;
     width: 100%;
   }

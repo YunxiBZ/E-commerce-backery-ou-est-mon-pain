@@ -13,6 +13,7 @@ const SignupForm = ({
   passwordComfirm,
   changeField,
   handleSignup,
+  error,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -25,6 +26,9 @@ const SignupForm = ({
       type="submit"
       onSubmit={handleSubmit}
     >
+      {error && (
+        <div className="loginForm__error">{error}</div>
+      )}
       <SignupField
         name="first_name"
         placeholder="Votre prénom"
@@ -87,6 +91,10 @@ SignupForm.propTypes = {
   passwordComfirm: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleSignup: PropTypes.func.isRequired,
+  error: PropTypes.string,
 };
 
+SignupForm.defaultProps = {
+  error: null,
+};
 export default SignupForm;

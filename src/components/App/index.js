@@ -16,7 +16,7 @@ import Products from 'src/containers/Products';
 import LoginForm from 'src/containers/LoginForm';
 import SignupForm from 'src/containers/SignupForm';
 import ContactForm from 'src/components/ContactForm';
-import SingleProduct from 'src/components/SingleProduct';
+import SingleProduct from 'src/containers/SingleProduct';
 
 // ==Import FontAwesomeIcon for use Icon
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -28,7 +28,7 @@ import {
   faArrowAltCircleDown,
   faUser,
   faSignOutAlt,
-  faShoppingCart,
+  faShoppingBasket,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -39,7 +39,7 @@ library.add(
   faArrowAltCircleDown,
   faUser,
   faSignOutAlt,
-  faShoppingCart,
+  faShoppingBasket,
 );
 
 // == Composant
@@ -68,6 +68,11 @@ const App = ({ fetchData }) => {
         <Route exact path="/products">
           <Products />
         </Route>
+        <Route
+          exact
+          path="/product/:id"
+          component={SingleProduct}
+        />
         <Route exact path="/infos-pratiques">
           <OpeningHours />
           <Contact />

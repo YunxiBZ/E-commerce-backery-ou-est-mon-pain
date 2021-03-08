@@ -1,7 +1,7 @@
 @import 'src/styles/vars';
 
 .singleProduct {
-  background-color: $brownish-red;
+  background-color: $normal-grey;
   height: 55vh;
   display: flex;
   &__leftContainer {
@@ -36,7 +36,7 @@
     width: 60%;
     border: none;
     background-color:$light-brown;
-    color:$dark-brown;
+    color:$normal-grey;
     text-align: center;
     font-size: 0.8rem;
     border-radius: 5px;
@@ -67,7 +67,11 @@
 }
 
 .test {
+  margin-left: 1em;
   height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 

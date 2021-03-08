@@ -38,21 +38,21 @@ const Header = ({ toggle, toggleNavbar }) => (
         Accueil
       </NavLink>
       <NavLink
-        to="products"
+        to="/products"
         exact
         className="header__links"
       >
         Products
       </NavLink>
       <NavLink
-        to="infos-pratiques"
+        to="/infos-pratiques"
         exact
         className="header__links"
       >
         Infos pratiques
       </NavLink>
       <NavLink
-        to="formulaire-de-contact"
+        to="/formulaire-de-contact"
         exact
         className="header__links"
       >
