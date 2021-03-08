@@ -7,9 +7,11 @@
   align-items: center;
   width: 80%;
   margin: 0 auto;
-  background-color: v.$dark-brown;
+  background-color: v.$normal-grey;
   margin-bottom: 2em;
   border: 2px solid v.$light-brown;
+  border-radius: 15px;
+  border-radius: 0px 100px / 120px;
   padding: 1em;
   &__title {
     font-size: 2em;
