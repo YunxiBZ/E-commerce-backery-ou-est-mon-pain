@@ -17,6 +17,7 @@ const Products = ({
     }
     fetchData();
   }, []);
+  console.log(products);
 
   return (
     <div className="products">

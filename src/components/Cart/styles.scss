@@ -1,0 +1,16 @@
+.cart {
+  display: flex;
+  flex-wrap: wrap;
+  &__order-link{
+    margin: auto;
+    
+  }
+ 
+}
+
+@media screen and (max-width: 650px) {
+  .cart  {
+    flex-direction: column;
+    
+  }
+}
