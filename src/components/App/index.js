@@ -18,6 +18,7 @@ import SignupForm from 'src/containers/SignupForm';
 import ContactForm from 'src/components/ContactForm';
 import SingleProduct from 'src/containers/SingleProduct';
 import Account from 'src/containers/Account';
+import AdminTest from 'src/components/AdminTest';
 
 // ==Import FontAwesomeIcon for use Icon
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -83,6 +84,9 @@ const App = ({ fetchData }) => {
         </Route>
         <Route exact path="/account">
           <Account />
+        </Route>
+        <Route exact path="/admin">
+          <AdminTest />
         </Route>
       </Switch>
       <Footer />
