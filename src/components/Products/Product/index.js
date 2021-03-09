@@ -14,6 +14,7 @@ const Product = ({
   onClickAddQuantityBtn,
   onClickReduceQuantityBtn,
   onChangeQuantityInput,
+  onClickAddToCartBtn,
 }) => (
   <div className="product">
     <h3 className="product__name">{title}</h3>
@@ -44,7 +45,10 @@ const Product = ({
         <FontAwesomeIcon
           icon="arrow-alt-circle-down"
           className="product__icon product__reduce-icon"
-          onClick={() => onClickReduceQuantityBtn(title)}
+          onClick={() => {
+            console.log('coco');
+            onClickReduceQuantityBtn(title);
+          }}
         />
       </div>
 
@@ -54,6 +58,16 @@ const Product = ({
     <Button
       className="product__add-to-cart-btn"
       value="Ajouter au panier"
+      addInCart={() => {
+        console.log('nono');
+        onClickAddToCartBtn(
+          id,
+          title,
+          totalPrice,
+          image,
+          quantity,
+        );
+      }}
     />
   </div>
 );
@@ -67,6 +81,7 @@ Product.propTypes = {
   onClickAddQuantityBtn: PropTypes.func.isRequired,
   onClickReduceQuantityBtn: PropTypes.func.isRequired,
   onChangeQuantityInput: PropTypes.func.isRequired,
+  onClickAddToCartBtn: PropTypes.func.isRequired,
 };
 
 export default Product;

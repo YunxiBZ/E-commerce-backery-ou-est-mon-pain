@@ -7,6 +7,7 @@ import './styles.scss';
 
 const Cart = (
   products,
+  totalPriceInCart,
   onClickAddQuantityBtn,
   onClickReduceQuantityBtn,
   onChangeQuantityInput,
@@ -25,21 +26,26 @@ const Cart = (
           onChangeQuantityInput={onChangeQuantityInput}
         />
       ))}
-      <Link
-        to="/account"
-        className="cart__order-link"
-      >
-        <Button
-          onClick={
+      <div className="cart__bottom">
+
+        <p className="cart__price-total">Prix total: </p>
+        <Link
+          to="/account"
+          className="cart__order-link"
+        >
+          <Button
+            onClick={
             (evt) => {
               evt.preventDefault();
               onClickCommandBtn();
             }
           }
-          value="Valider ma commande"
-          className="cart__order-btn"
-        />
-      </Link>
+            value="Valider ma commande"
+            className="cart__order-btn"
+          />
+        </Link>
+      </div>
+
     </div>
   );
 };
@@ -48,9 +54,10 @@ Cart.propTypes = {
 
   products: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.number,
     }),
   ),
+  totalPriceInCart: PropTypes.number,
   onClickAddQuantityBtn: PropTypes.func.isRequired,
   onClickReduceQuantityBtn: PropTypes.func.isRequired,
   onChangeQuantityInput: PropTypes.func.isRequired,
@@ -58,7 +65,8 @@ Cart.propTypes = {
 };
 
 Cart.defaultProps = {
-  products: null,
+  products: [],
+  totalPriceInCart: 0,
 };
 
 export default Cart;
