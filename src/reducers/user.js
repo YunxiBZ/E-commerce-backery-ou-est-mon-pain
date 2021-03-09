@@ -20,7 +20,7 @@ const initialState = {
     firstName: '',
     lastName: '',
     logged: false,
-    phoneNumber: '',
+    phoneNumber: 0,
     token: '',
   },
   action: {

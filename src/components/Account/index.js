@@ -26,11 +26,10 @@ const Account = ({
   changeInfo,
   submitInfo,
 }) => {
-  console.log(logged);
-  // if (!logged) {
-  //   console.log(logged);
-  //   return <Redirect to="/" />;
-  // }
+  if (!logged) {
+    console.log(logged);
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="account">
@@ -203,7 +202,7 @@ Account.propTypes = {
   newFirstName: PropTypes.string.isRequired,
   newLastName: PropTypes.string.isRequired,
   newEmail: PropTypes.string.isRequired,
-  newPhone: PropTypes.number.isRequired,
+  newPhone: PropTypes.string.isRequired,
   changeInfo: PropTypes.func.isRequired,
   submitInfo: PropTypes.func.isRequired,
 };

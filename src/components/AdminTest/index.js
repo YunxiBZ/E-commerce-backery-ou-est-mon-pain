@@ -2,7 +2,7 @@ import React from 'react';
 
 const AdminTest = () => (
   <div>
-    Ok
+    Component Admin à faire
   </div>
 );
 
