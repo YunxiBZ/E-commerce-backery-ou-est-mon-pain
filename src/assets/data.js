@@ -19,4 +19,4 @@ export default [{
   adress: '26 rue des pissenlits, 95100, Argenteuil',
   phone_number: '0615267362',
 
-}, ];
+}];

@@ -21,4 +21,30 @@
   &__infoData{
     margin-right: 1em;
   }
+  &__label {
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  &__input {
+    width: 100%;
+    margin: $gutter $gutter*.3;
+    border: none;
+    background-color:$light-brown;
+    color:$normal-grey;
+    text-align: center;
+    font-size: 0.8rem;
+    border-radius: 5px;
+  }
+  &__changeInfo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.1em;
+    font-weight: 700;
+  }
+  &__modify {
+    display: flex;
+    justify-content: space-around;
+  }
 }
