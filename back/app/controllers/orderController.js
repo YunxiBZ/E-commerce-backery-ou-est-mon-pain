@@ -67,9 +67,11 @@ const orderController = {
 
     OrdersByDay: async (req, res) => {
 
+        const theDate = new Date();
+
         const dailyOrders = await Order.findAll({
             where: {
-                reception_date: new Date().toISOString().split('T')[0]
+                reception_date: theDate
             },
             include: ['ord_products', 'products_in_order']
         })

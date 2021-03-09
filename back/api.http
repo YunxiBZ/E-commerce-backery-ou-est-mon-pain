@@ -194,7 +194,7 @@ Content-Type: application/json
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTI4NjY1NywiZXhwIjoxNjE1Mjk3NDU3fQ.wzliyO8dkx5zSQuy9KIeeEndOjMbZIhNA_cLtku7fi8
 
 {
-    "reception_date" : "2021-03-08",
+    "reception_date" : "2021-03-09",
     "total_price" : 14.20,
     "products" : [
         {"id" :11,
