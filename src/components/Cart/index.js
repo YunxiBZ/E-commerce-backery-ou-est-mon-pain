@@ -6,18 +6,18 @@ import { Link } from 'react-router-dom';
 import './styles.scss';
 
 const Cart = (
-  products,
+  productsInCart,
   totalPriceInCart,
   onClickAddQuantityBtn,
   onClickReduceQuantityBtn,
   onChangeQuantityInput,
   onClickCommandBtn,
 ) => {
-  console.log(products);
+  console.log('productsInCart', productsInCart.totalPriceInCart);
 
   return (
     <div className="cart">
-      {products.products.map((product) => (
+      {productsInCart.productsInCart.map((product) => (
         <CartProduct
           key={product.id}
           {...product}
@@ -28,7 +28,7 @@ const Cart = (
       ))}
       <div className="cart__bottom">
 
-        <p className="cart__price-total">Prix total: </p>
+        <p className="cart__price-total">Prix total: {productsInCart.totalPriceInCart}</p>
         <Link
           to="/account"
           className="cart__order-link"
@@ -52,7 +52,7 @@ const Cart = (
 
 Cart.propTypes = {
 
-  products: PropTypes.arrayOf(
+  productsInCart: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
     }),
@@ -65,7 +65,7 @@ Cart.propTypes = {
 };
 
 Cart.defaultProps = {
-  products: [],
+  productsInCart: [],
   totalPriceInCart: 0,
 };
 

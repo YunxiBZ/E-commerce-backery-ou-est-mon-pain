@@ -22,7 +22,7 @@ const reducer = (state = initialState, action = {}) => {
             quantity: action.quantity,
           },
         ],
-        totalPriceInCart: action.totalPrice,
+        totalPriceInCart: parseFloat((action.totalPrice + state.totalPriceInCart).toFixed(2)),
       };
     default:
       return state;

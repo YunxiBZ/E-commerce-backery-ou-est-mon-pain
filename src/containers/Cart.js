@@ -7,8 +7,8 @@ import {
 } from 'src/actions/products';
 
 const mapStateToProps = (state) => ({
-  products: state.cart.cart,
-  totalPriceInCart: state.cart.totalPriceInCart,
+  productsInCart: state.cartReducer.cart,
+  totalPriceInCart: state.cartReducer.totalPriceInCart,
 });
 
 const mapDispatchToProps = (dispatch) => ({
