@@ -8,6 +8,7 @@ import './styles.scss';
 const Product = ({
   id,
   title,
+  price,
   totalPrice,
   image,
   quantity,
@@ -63,6 +64,7 @@ const Product = ({
         onClickAddToCartBtn(
           id,
           title,
+          price,
           totalPrice,
           image,
           quantity,
@@ -75,6 +77,7 @@ const Product = ({
 Product.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
   totalPrice: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,

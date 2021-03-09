@@ -9,6 +9,7 @@ export const ADD_IN_CART = 'ADD_IN_CART';
 export const addInCart = (
   id,
   title,
+  price,
   totalPrice,
   image,
   quantity,
@@ -16,6 +17,7 @@ export const addInCart = (
   type: ADD_IN_CART,
   id,
   title,
+  price,
   totalPrice,
   image,
   quantity,

@@ -7,6 +7,7 @@ import './styles.scss';
 const CartProduct = ({
   id,
   title,
+  price,
   totalPrice,
   image,
   quantity,
@@ -26,7 +27,7 @@ const CartProduct = ({
         <FontAwesomeIcon
           icon="arrow-alt-circle-up"
           className="product__icon product__add-icon"
-          onClick={() => onClickAddQuantityBtn(title)}
+          onClick={() => onClickAddQuantityBtn(title, price)}
         />
         <input
           className="product__quantity-input"
@@ -37,14 +38,14 @@ const CartProduct = ({
           onChange={
             (evt) => {
               const quantityInput = evt.target.value;
-              onChangeQuantityInput(quantityInput, title);
+              onChangeQuantityInput(title, quantityInput, price);
             }
           }
         />
         <FontAwesomeIcon
           icon="arrow-alt-circle-down"
           className="product__icon product__reduce-icon"
-          onClick={() => onClickReduceQuantityBtn(title)}
+          onClick={() => onClickReduceQuantityBtn(title, price)}
         />
       </div>
 
@@ -52,7 +53,7 @@ const CartProduct = ({
       <FontAwesomeIcon
         icon="trash-alt"
         className="product__icon product__delete"
-        onClick={() => onClickDeleteBtn(title)}
+        onClick={() => onClickDeleteBtn(title, totalPrice)}
       />
     </div>
 
@@ -62,6 +63,7 @@ const CartProduct = ({
 CartProduct.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
   totalPrice: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,

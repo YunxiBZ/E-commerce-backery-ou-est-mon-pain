@@ -6,29 +6,33 @@ import { Link } from 'react-router-dom';
 import './styles.scss';
 
 const Cart = (
-  productsInCart,
-  totalPriceInCart,
-  onClickAddQuantityBtn,
-  onClickReduceQuantityBtn,
-  onChangeQuantityInput,
-  onClickCommandBtn,
+  {
+    productsInCart,
+    totalPriceInCart,
+    onClickAddQuantityBtn,
+    onClickReduceQuantityBtn,
+    onChangeQuantityInput,
+    onClickDeleteBtn,
+    onClickCommandBtn,
+  },
 ) => {
-  console.log('productsInCart', productsInCart.totalPriceInCart);
+  console.log('productsInCart.onClickAddQuantityBtn', onClickAddQuantityBtn);
 
   return (
     <div className="cart">
-      {productsInCart.productsInCart.map((product) => (
+      {productsInCart.map((product) => (
         <CartProduct
           key={product.id}
           {...product}
           onClickAddQuantityBtn={onClickAddQuantityBtn}
           onClickReduceQuantityBtn={onClickReduceQuantityBtn}
           onChangeQuantityInput={onChangeQuantityInput}
+          onClickDeleteBtn={onClickDeleteBtn}
         />
       ))}
       <div className="cart__bottom">
 
-        <p className="cart__price-total">Prix total: {productsInCart.totalPriceInCart}</p>
+        <p className="cart__price-total">Prix total: {totalPriceInCart}</p>
         <Link
           to="/account"
           className="cart__order-link"
@@ -61,6 +65,7 @@ Cart.propTypes = {
   onClickAddQuantityBtn: PropTypes.func.isRequired,
   onClickReduceQuantityBtn: PropTypes.func.isRequired,
   onChangeQuantityInput: PropTypes.func.isRequired,
+  onClickDeleteBtn: PropTypes.func.isRequired,
   onClickCommandBtn: PropTypes.func.isRequired,
 };
 

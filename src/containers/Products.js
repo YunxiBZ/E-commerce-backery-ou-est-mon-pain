@@ -31,6 +31,7 @@ const mapDispatchToProps = (dispatch) => ({
   onClickAddToCartBtn: (
     id,
     title,
+    price,
     totalPrice,
     image,
     quantity,
@@ -38,6 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
     const action = addInCart(
       id,
       title,
+      price,
       totalPrice,
       image,
       quantity,

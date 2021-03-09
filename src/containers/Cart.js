@@ -4,6 +4,7 @@ import {
   addQuantityInCart,
   reduceQuantityInCart,
   changeQuantityInCart,
+  deleteProduct,
 } from 'src/actions/cart';
 
 const mapStateToProps = (state) => ({
@@ -12,16 +13,20 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onClickAddQuantityBtn: (product) => {
-    const action = addQuantityInCart(product);
+  onClickAddQuantityBtn: (title, price) => {
+    const action = addQuantityInCart(title, price);
     dispatch(action);
   },
-  onClickReduceQuantityBtn: (product) => {
-    const action = reduceQuantityInCart(product);
+  onClickReduceQuantityBtn: (title, price) => {
+    const action = reduceQuantityInCart(title, price);
     dispatch(action);
   },
-  onChangeQuantityInput: (payload, title) => {
-    const action = changeQuantityInCart(parseFloat(payload), title);
+  onChangeQuantityInput: (title, quantity, price) => {
+    const action = changeQuantityInCart(title, parseFloat(quantity), price);
+    dispatch(action);
+  },
+  onClickDeleteBtn: (title, totalPrice) => {
+    const action = deleteProduct(title, totalPrice);
     dispatch(action);
   },
   onClickCommandBtn: () => {
