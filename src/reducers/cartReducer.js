@@ -133,12 +133,17 @@ const reducer = (state = initialState, action = {}) => {
 
       };
     }
-    case DELETE_PRODUCT:
-      console.log('delete product');
+    case DELETE_PRODUCT: {
+      // Filter the products in cart with product title
+      const productRest = state.cart.filter((product) => product.title !== action.title);
+
       return {
         ...state,
+        cart: productRest,
+        totalPriceInCart: parseFloat((state.totalPriceInCart - action.totalPrice).toFixed(2)),
 
       };
+    }
     default:
       return state;
   }
