@@ -5,6 +5,7 @@ import {
   addQuantity,
   reduceQuantity,
   quantityChange,
+  addInCart,
 } from 'src/actions/products';
 
 const mapStateToProps = (state) => ({
@@ -25,6 +26,24 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onChangeQuantityInput: (payload, title) => {
     const action = quantityChange(parseFloat(payload), title);
+    dispatch(action);
+  },
+  onClickAddToCartBtn: (
+    id,
+    title,
+    price,
+    totalPrice,
+    image,
+    quantity,
+  ) => {
+    const action = addInCart(
+      id,
+      title,
+      price,
+      totalPrice,
+      image,
+      quantity,
+    );
     dispatch(action);
   },
 });

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Connection = ({
-  userName, onClickLogoutBtn, isLogged, onClickCartBtn,
+  userName, onClickLogoutBtn, isLogged,
 }) => (
   <div className="connection">
     {
@@ -40,7 +40,7 @@ const Connection = ({
             <FontAwesomeIcon
               className="connection__cart-btn"
               icon="shopping-basket"
-              onClick={onClickCartBtn}
+
             />
           </Link>
           <Link
@@ -65,7 +65,6 @@ Connection.propTypes = {
   userName: PropTypes.string.isRequired,
   onClickLogoutBtn: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
-  onClickCartBtn: PropTypes.func.isRequired,
 };
 
 export default Connection;

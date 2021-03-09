@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Button from 'src/components/Button';
 import './styles.scss';
 
-const Product = ({
+const CartProduct = ({
   id,
   title,
   price,
@@ -15,7 +14,7 @@ const Product = ({
   onClickAddQuantityBtn,
   onClickReduceQuantityBtn,
   onChangeQuantityInput,
-  onClickAddToCartBtn,
+  onClickDeleteBtn,
 }) => (
   <div className="product">
     <h3 className="product__name">{title}</h3>
@@ -28,7 +27,7 @@ const Product = ({
         <FontAwesomeIcon
           icon="arrow-alt-circle-up"
           className="product__icon product__add-icon"
-          onClick={() => onClickAddQuantityBtn(title)}
+          onClick={() => onClickAddQuantityBtn(title, price)}
         />
         <input
           className="product__quantity-input"
@@ -39,42 +38,29 @@ const Product = ({
           onChange={
             (evt) => {
               const quantityInput = evt.target.value;
-              onChangeQuantityInput(quantityInput, title);
+              onChangeQuantityInput(title, quantityInput, price);
             }
           }
         />
         <FontAwesomeIcon
           icon="arrow-alt-circle-down"
           className="product__icon product__reduce-icon"
-          onClick={() => {
-            console.log('coco');
-            onClickReduceQuantityBtn(title);
-          }}
+          onClick={() => onClickReduceQuantityBtn(title, price)}
         />
       </div>
 
       <p className="product__price">Prix: {totalPrice}€ </p>
-
+      <FontAwesomeIcon
+        icon="trash-alt"
+        className="product__icon product__delete"
+        onClick={() => onClickDeleteBtn(title, totalPrice)}
+      />
     </div>
-    <Button
-      className="product__add-to-cart-btn"
-      value="Ajouter au panier"
-      addInCart={() => {
-        console.log('nono');
-        onClickAddToCartBtn(
-          id,
-          title,
-          price,
-          totalPrice,
-          image,
-          quantity,
-        );
-      }}
-    />
+
   </div>
 );
 
-Product.propTypes = {
+CartProduct.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
@@ -84,7 +70,7 @@ Product.propTypes = {
   onClickAddQuantityBtn: PropTypes.func.isRequired,
   onClickReduceQuantityBtn: PropTypes.func.isRequired,
   onChangeQuantityInput: PropTypes.func.isRequired,
-  onClickAddToCartBtn: PropTypes.func.isRequired,
+  onClickDeleteBtn: PropTypes.func.isRequired,
 };
 
-export default Product;
+export default CartProduct;

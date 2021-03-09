@@ -4,6 +4,7 @@ import app from './app';
 import categories from './categories';
 import products from './products';
 import user from './user';
+import cartReducer from './cartReducer';
 import signup from './signup';
 
 // Import des reducers
@@ -15,6 +16,7 @@ const globalReducer = combineReducers({
   products,
   user,
   signup,
+  cartReducer,
   //  reducer,
   //  reducer,
 });

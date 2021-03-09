@@ -1,0 +1,92 @@
+@import 'src/styles/vars';
+
+.product {
+  width: 30%;
+  margin: $gutter*2 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &__name {
+    margin: $gutter;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &__img {
+    width: 100%;
+    border-radius: 5px;
+    height: auto;
+  }
+  &__bottom{
+    display: flex;
+    justify-content:space-around
+  }
+  &__quantity {
+    width: 30%;
+    display:flex;
+  }
+  &__quantity-input{
+    width: 60%;
+    margin: $gutter $gutter*.3;
+    border: none;
+    background-color:$light-brown;
+    color:$normal-grey;
+    text-align: center;
+    font-size: 0.8rem;
+    border-radius: 5px;
+  }
+  &__quantity-input:hover{
+    background-color:$lightest-brown;
+  }
+  &__quantity-input::-webkit-input-placeholder {
+    color: $normal-grey;
+  }
+ 
+  &__price {
+    text-transform: uppercase;
+    margin: $gutter;
+    font-weight: 700;
+  }
+
+  &__icon{
+    margin: $gutter 0;
+    cursor: pointer;
+  }
+  
+  &__icon:hover{
+    color: $lightest-brown;
+  }
+
+  &__add-to-cart-btn{
+    background-color: $light-brown;
+    color: $normal-grey;
+    font-weight: 700;
+    width: 100%;
+  }
+
+  &__add-to-cart-btn:hover{
+    background-color: $lightest-brown;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .product{
+    width:100%;
+    font-size: 0.7rem;
+    &__quantity-input {
+      font-size: 0.6rem;
+      min-width: 50px;
+    }
+    &__icon{
+      font-size: 0.9rem;
+    }
+    &__quantity{
+      width: 50%;
+      display: flex;
+      align-items: center;
+      &-input {
+        height: 50%;
+      }
+    }
+  }
+}
