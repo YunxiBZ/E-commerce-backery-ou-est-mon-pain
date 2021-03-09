@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import Cart from 'src/components/Cart';
 import {
-  addQuantity,
-  reduceQuantity,
-  quantityChange,
-} from 'src/actions/products';
+  addQuantityInCart,
+  reduceQuantityInCart,
+  changeQuantityInCart,
+} from 'src/actions/cart';
 
 const mapStateToProps = (state) => ({
   productsInCart: state.cartReducer.cart,
@@ -13,15 +13,15 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onClickAddQuantityBtn: (product) => {
-    const action = addQuantity(product);
+    const action = addQuantityInCart(product);
     dispatch(action);
   },
   onClickReduceQuantityBtn: (product) => {
-    const action = reduceQuantity(product);
+    const action = reduceQuantityInCart(product);
     dispatch(action);
   },
   onChangeQuantityInput: (payload, title) => {
-    const action = quantityChange(parseFloat(payload), title);
+    const action = changeQuantityInCart(parseFloat(payload), title);
     dispatch(action);
   },
   onClickCommandBtn: () => {
