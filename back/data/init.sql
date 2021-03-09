@@ -44,6 +44,7 @@ CREATE TABLE "order" (
     "reception_date" date NOT NULL,
     "creation_date" date DEFAULT now(),
     "state" text DEFAULT 'enregistré',
+    "total_price" float NOT NULL,
     "account_id" integer NOT NULL REFERENCES "account"("id")
 );
 

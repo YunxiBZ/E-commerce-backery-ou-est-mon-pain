@@ -6,7 +6,8 @@ class Order extends Sequelize.Model {};
 Order.init({
     reception_date: Sequelize.DATE,
     creation_date: Sequelize.DATE,
-    state: Sequelize.STRING
+    state: Sequelize.STRING,
+    total_price: Sequelize.FLOAT
 }, {
     sequelize,
     tableName: "order"

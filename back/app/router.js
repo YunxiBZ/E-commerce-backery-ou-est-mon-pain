@@ -8,7 +8,7 @@
   const productController = require('./controllers/productController');
   const accountContoller = require('./controllers/accountController');
   const allergenController = require('./controllers/allergenController');
-  const formController = require('./controllers/formController');
+  const orderController = require('./controllers/orderController');
 
   const adminMW = require('./middlewares/adminMW');
   const userMW = require('./middlewares/userMW');
@@ -38,6 +38,10 @@
   router.put('/account', userMW, accountContoller.modifyAccount);
   router.put('/password-account', userMW, accountContoller.modifyPassword);
   router.delete('/account', userMW, accountContoller.deleteAccount);
+
+  // Route pour les commandes
+  router.post('/order', orderController.postOrder);
+  router.get('/client-orders', orderController.OrderById);
 
   // ici, une 404 pour l'API
   router.use((req, res) => {
