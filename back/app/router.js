@@ -40,8 +40,9 @@
   router.delete('/account', userMW, accountContoller.deleteAccount);
 
   // Route pour les commandes
-  router.post('/order', orderController.postOrder);
-  router.get('/client-orders', orderController.OrderById);
+  router.post('/order', userMW, orderController.postOrder);
+  router.get('/client-orders', userMW, orderController.OrdersById);
+  router.get('/dayli-orders', orderController.OrdersByDay);
 
   // ici, une 404 pour l'API
   router.use((req, res) => {
