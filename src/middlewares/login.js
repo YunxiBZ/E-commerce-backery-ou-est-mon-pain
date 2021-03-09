@@ -17,10 +17,16 @@ const login = (store) => (next) => (action) => {
           console.trace(response);
           // si réussite on dispatch l'action loginSuccess avec la data reçu en response
           if (response.statusText === 'OK') {
-            const { email, logged, token } = response.data;
+            const {
+              email,
+              logged,
+              token,
+              role,
+            } = response.data;
             const firstName = response.data.first_name;
             const lastName = response.data.last_name;
             const phoneNumber = response.data.phone_number;
+
             store.dispatch(loginSuccess(
               email,
               firstName,
@@ -28,6 +34,7 @@ const login = (store) => (next) => (action) => {
               logged,
               phoneNumber,
               token,
+              role,
             ));
           }
         }

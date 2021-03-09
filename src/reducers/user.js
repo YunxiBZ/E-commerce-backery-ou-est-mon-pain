@@ -62,6 +62,7 @@ const user = (state = initialState, action = {}) => {
           logged: action.logged,
           phoneNumber: action.phoneNumber,
           token: action.token,
+          role: action.role,
         },
       };
     }

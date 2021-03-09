@@ -22,6 +22,7 @@ export const loginSuccess = (
   logged,
   phoneNumber,
   token,
+  role,
 ) => ({
   type: LOGIN_SUCCESS,
   email,
@@ -30,6 +31,7 @@ export const loginSuccess = (
   logged,
   phoneNumber,
   token,
+  role,
 });
 
 export const changeValue = (value, name) => ({
