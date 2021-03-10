@@ -11,58 +11,62 @@ const Connection = ({
   isLogged,
   onClickCartBtn,
   role,
-}) => (
-  <div className="connection">
-    {
-      !isLogged && (
-        <Link
-          to="/login"
-          className="connection__link"
-        >
-          <FontAwesomeIcon
-            className="connection__icon"
-            icon="user"
-          />
-        </Link>
-      )
-    }
+}) => {
+  const USER = 'user';
 
-    {
-      isLogged && (
-        <div className="connection__logged">
+  return (
+    <div className="connection">
+      {
+        !isLogged && (
           <Link
-            to={role === '0' ? '/account' : '/admin'}
-          >
-            <p className="connection__hello">
-              Hello {userName}
-            </p>
-          </Link>
-          <Link
-            to="/cart"
-            className="connection__cart-link"
+            to="/login"
+            className="connection__link"
           >
             <FontAwesomeIcon
-              className="connection__cart-btn"
-              icon="shopping-basket"
-
+              className="connection__icon"
+              icon="user"
             />
           </Link>
-          <Link
-            to="/"
-            className="connection__logout-link"
-          >
-            <FontAwesomeIcon
-              className="connection__logout-btn"
-              icon="sign-out-alt"
-              onClick={onClickLogoutBtn}
-            />
-          </Link>
+        )
+      }
 
-        </div>
-      )
-    }
-  </div>
-);
+      {
+        isLogged && (
+          <div className="connection__logged">
+            <Link
+              to={role === USER ? '/account' : '/admin'}
+            >
+              <p className="connection__hello">
+                Hello {userName}
+              </p>
+            </Link>
+            <Link
+              to="/cart"
+              className="connection__cart-link"
+            >
+              <FontAwesomeIcon
+                className="connection__cart-btn"
+                icon="shopping-basket"
+
+              />
+            </Link>
+            <Link
+              to="/"
+              className="connection__logout-link"
+            >
+              <FontAwesomeIcon
+                className="connection__logout-btn"
+                icon="sign-out-alt"
+                onClick={onClickLogoutBtn}
+              />
+            </Link>
+
+          </div>
+        )
+      }
+    </div>
+  );
+};
 
 Connection.propTypes = {
   userName: PropTypes.string.isRequired,

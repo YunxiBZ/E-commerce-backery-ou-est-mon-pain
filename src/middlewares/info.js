@@ -18,7 +18,7 @@ const info = (store) => (next) => (action) => {
             phone_number: state.user.newInfos.phoneNumber || state.user.infos.phoneNumber,
             header: {
               'Content-Type': 'application/json',
-              auth_token: `bearer ${state.user.infos.token}`,
+              Authorization: `Bearer ${state.user.infos.token}`,
             },
           });
           console.log(response);
