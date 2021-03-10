@@ -1,5 +1,7 @@
 BEGIN ;
 
+DROP TABLE  IF EXISTS "category", "product", "allergen", "account", "review", "order", "stock", "product_category", "product_allergen", "account_allergen", "product_order" ;
+
 CREATE TABLE "category" (
     "id" serial PRIMARY KEY,
     "label" text NOT NULL,
@@ -27,7 +29,7 @@ CREATE TABLE "account" (
     "first_name" text NOT NULL,
     "last_name" text NOT NULL,
     "phone_number" integer NOT NULL,
-    "role" text DEFAULT 0
+    "role" text DEFAULT 'user'
 );
 
 CREATE TABLE "review" (
@@ -42,6 +44,7 @@ CREATE TABLE "order" (
     "reception_date" date NOT NULL,
     "creation_date" date DEFAULT now(),
     "state" text DEFAULT 'enregistré',
+    "total_price" float NOT NULL,
     "account_id" integer NOT NULL REFERENCES "account"("id")
 );
 
@@ -73,7 +76,8 @@ CREATE TABLE "account_allergen" (
 CREATE TABLE "product_order" (
     "id" serial PRIMARY KEY,
     "product_id" integer NOT NULL REFERENCES "product"("id"),
-    "order_id" integer NOT NULL REFERENCES "order"("id")
+    "order_id" integer NOT NULL REFERENCES "order"("id"),
+    "quantity" integer NOT NULL
 );
 
 COMMIT ;

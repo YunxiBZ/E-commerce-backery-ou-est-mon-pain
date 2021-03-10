@@ -7,17 +7,15 @@ const jwt = require('jsonwebtoken')
 const orderController = {
 
     postOrder: async (req, res) => {
+
         const {
             reception_date,
             total_price,
             products
         } = req.body
 
-        // On reprend l'ID du compte grâce au token
-        const token = req.header('auth-token');
-        const verified = jwt.verify(token, 'YuThJbAn')
-
-        const id = verified.accountId;
+        // On reprend l'ID du compte grâce au user
+        const id = req.user.accountId;
 
         // On crée une nouvelle commande
         const newOrder = await Order.create({
@@ -45,10 +43,8 @@ const orderController = {
     },
 
     OrdersById: async (req, res) => {
-        const token = req.header('auth-token');
-        const verified = jwt.verify(token, 'YuThJbAn')
 
-        const id = verified.accountId;
+        const id = req.user.accountId;
 
         // On récupère toute les commandes du compte concerné
         const orders = await Order.findAll({
