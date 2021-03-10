@@ -40,14 +40,22 @@ const Connection = ({
               </p>
             </Link>
             <Link
-              to="/cart"
+              to={role === USER ? '/cart' : '/admin'}
               className="connection__cart-link"
             >
-              <FontAwesomeIcon
-                className="connection__cart-btn"
-                icon="shopping-basket"
+              {role === USER
+                ? (
+                  <FontAwesomeIcon
+                    className="connection__cart-btn"
+                    icon="shopping-basket"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    className="connection__admin-btn"
+                    icon="user-cog"
+                  />
+                )}
 
-              />
             </Link>
             <Link
               to="/"

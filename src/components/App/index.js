@@ -32,6 +32,8 @@ import {
   faUser,
   faSignOutAlt,
   faShoppingBasket,
+  faUserCog,
+  faUserEdit,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -43,6 +45,8 @@ library.add(
   faUser,
   faSignOutAlt,
   faShoppingBasket,
+  faUserCog,
+  faUserEdit,
 );
 
 // == Composant
