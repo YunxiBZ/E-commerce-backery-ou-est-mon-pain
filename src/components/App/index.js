@@ -1,26 +1,27 @@
 // == Import npm
-import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React, { useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
+import PropTypes from "prop-types";
 
 // == Import
-import './styles.scss';
-import Header from 'src/containers/Header';
-import Footer from 'src/containers/Footer';
-import Categories from 'src/containers/Categories';
-import History from 'src/containers/History';
-import OpeningHours from 'src/containers/OpeningHours';
-import Slogan from 'src/containers/Slogan';
-import Contact from 'src/containers/Contact';
-import Products from 'src/containers/Products';
-import LoginForm from 'src/containers/LoginForm';
-import SignupForm from 'src/containers/SignupForm';
-import ContactForm from 'src/components/ContactForm';
-import SingleProduct from 'src/containers/SingleProduct';
+import "./styles.scss";
+import Header from "src/containers/Header";
+import Footer from "src/containers/Footer";
+import Categories from "src/containers/Categories";
+import History from "src/containers/History";
+import OpeningHours from "src/containers/OpeningHours";
+import Slogan from "src/containers/Slogan";
+import Contact from "src/containers/Contact";
+import Products from "src/containers/Products";
+import LoginForm from "src/containers/LoginForm";
+import SignupForm from "src/containers/SignupForm";
+import ContactForm from "src/components/ContactForm";
+import SingleProduct from "src/containers/SingleProduct";
+import PageNotFound from "src/components/PageNotFound";
 
 // ==Import FontAwesomeIcon for use Icon
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
   faTrashAlt,
   faAngleRight,
@@ -29,7 +30,7 @@ import {
   faUser,
   faSignOutAlt,
   faShoppingBasket,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
 
 library.add(
   fab,
@@ -39,7 +40,7 @@ library.add(
   faArrowAltCircleDown,
   faUser,
   faSignOutAlt,
-  faShoppingBasket,
+  faShoppingBasket
 );
 
 // == Composant
@@ -68,11 +69,7 @@ const App = ({ fetchData }) => {
         <Route exact path="/products">
           <Products />
         </Route>
-        <Route
-          exact
-          path="/product/:id"
-          component={SingleProduct}
-        />
+        <Route exact path="/product/:id" component={SingleProduct} />
         <Route exact path="/infos-pratiques">
           <OpeningHours />
           <Contact />
@@ -83,6 +80,7 @@ const App = ({ fetchData }) => {
         <Route exatct path="/account">
           <SingleProduct />
         </Route>
+        <Route component={PageNotFound} />
       </Switch>
       <Footer />
     </div>
