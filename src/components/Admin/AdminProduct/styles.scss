@@ -1,0 +1,43 @@
+@import 'src/styles/vars';
+
+.adminProduct {
+  background-color: $normal-grey;
+  &__title {
+    margin-bottom: 1em;
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+  &__addProduct {
+    width: 30%;
+    font-size: 1em;
+    white-space: nowrap;
+  }
+  &__dropdown {
+    border-radius: 20px;
+    border: none;
+    width: 20%;
+    padding: 1.1em;
+    text-align: center;
+  }
+  &__addProductContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: $dark-grey;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 2em;
+    margin-bottom: 1em;
+  }
+  &__modifyProductContainer {
+    display: flex;
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $dark-grey;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-bottom: 3em;
+  }
+}

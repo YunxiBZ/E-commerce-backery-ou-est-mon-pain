@@ -18,7 +18,7 @@ import SignupForm from 'src/containers/SignupForm';
 import ContactForm from 'src/components/ContactForm';
 import SingleProduct from 'src/containers/SingleProduct';
 import Account from 'src/containers/Account';
-import AdminTest from 'src/components/AdminTest';
+import Admin from 'src/components/Admin';
 import Cart from 'src/containers/Cart';
 
 // ==Import FontAwesomeIcon for use Icon
@@ -87,7 +87,7 @@ const App = ({ fetchData }) => {
           <Account />
         </Route>
         <Route exact path="/admin">
-          <AdminTest />
+          <Admin />
         </Route>
         <Route exatct path="/cart">
           <Cart />
