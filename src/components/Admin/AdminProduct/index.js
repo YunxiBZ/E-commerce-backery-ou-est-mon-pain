@@ -9,7 +9,6 @@ const AdminProduct = ({ products, fetchData }) => {
       return;
     }
     fetchData();
-    console.log('ok');
   }, []);
 
   return (
@@ -20,7 +19,14 @@ const AdminProduct = ({ products, fetchData }) => {
       </section>
       <section className="adminProduct__modifyProductContainer">
         <select type="text" className="adminProduct__dropdown">
-          { products.map((product) => <option value={product.title}>{product.title}</option>)}
+          {products.map((product) => (
+            <option
+              value={product.title}
+              key={product.id}
+            >
+              {product.title}
+            </option>
+          ))}
         </select>
         <Button value="Modifier ce produit" />
         <Button value="Supprimer ce produit" />

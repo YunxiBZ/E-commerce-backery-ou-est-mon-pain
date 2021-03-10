@@ -9,7 +9,6 @@ const Connection = ({
   userName,
   onClickLogoutBtn,
   isLogged,
-  onClickCartBtn,
   role,
 }) => {
   const USER = 'user';
@@ -72,7 +71,6 @@ Connection.propTypes = {
   userName: PropTypes.string.isRequired,
   onClickLogoutBtn: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
-  onClickCartBtn: PropTypes.func.isRequired,
   role: PropTypes.string,
 };
 
