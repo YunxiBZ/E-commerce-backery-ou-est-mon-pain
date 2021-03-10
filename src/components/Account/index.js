@@ -53,6 +53,7 @@ const Account = ({
               <FontAwesomeIcon
                 icon={faTimes}
                 onClick={() => onClickFirstName()}
+                className="test333"
               />
               <FontAwesomeIcon
                 icon={faCheck}

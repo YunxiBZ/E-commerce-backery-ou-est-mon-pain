@@ -32,8 +32,9 @@
     background-color:$light-brown;
     color:$normal-grey;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1.2em;
     border-radius: 5px;
+    padding: 0.5em;
   }
   &__changeInfo {
     display: flex;
@@ -48,4 +49,38 @@
     display: flex;
     justify-content: space-around;
   }
+}
+
+@media screen and (max-width: 650px) {
+.account {
+  height: 40vh;
+  &__userInterface {
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+  }
+  &__info {
+    margin-bottom: 1em;
+  }
+  &__label {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  &__input {
+    width: 80%;
+    align-self: center;
+  }
+  &__infoData {
+    font-size: 1.2em;
+  }
+}
+.svg-inline--fa.fa-w-11 {
+  width: 20px;
+  height: 20px;
+}
+.svg-inline--fa.fa-w-16 {
+  width: 20px;
+  height: 20px;
+}
 }
