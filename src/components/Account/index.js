@@ -93,6 +93,7 @@ const Account = ({
               />
               <FontAwesomeIcon
                 icon={faCheck}
+                onClick={() => submitInfo()}
               />
             </div>
           </div>
@@ -129,6 +130,7 @@ const Account = ({
                 />
                 <FontAwesomeIcon
                   icon={faCheck}
+                  onClick={() => submitInfo()}
                 />
               </div>
             </div>
@@ -166,6 +168,7 @@ const Account = ({
                 />
                 <FontAwesomeIcon
                   icon={faCheck}
+                  onClick={() => submitInfo()}
                 />
               </div>
             </div>

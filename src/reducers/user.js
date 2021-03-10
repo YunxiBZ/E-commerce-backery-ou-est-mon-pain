@@ -11,6 +11,7 @@ import {
   TOGGLE_PHONE,
   TOGGLE_EMAIL,
   CHANGE_INFO,
+  MODIF__USER__SUCCESS,
 } from 'src/actions/user';
 
 const initialState = {
@@ -84,6 +85,9 @@ const user = (state = initialState, action = {}) => {
         action: {
           ...state.action,
           toggleFirstName: !state.action.toggleFirstName,
+          toggleLastName: false,
+          togglePhone: false,
+          toggleEmail: false,
         },
         newInfos: {
           ...state.newInfos,
@@ -97,6 +101,9 @@ const user = (state = initialState, action = {}) => {
         action: {
           ...state.action,
           toggleLastName: !state.action.toggleLastName,
+          toggleFirstName: false,
+          togglePhone: false,
+          toggleEmail: false,
         },
         newInfos: {
           ...state.newInfos,
@@ -110,6 +117,9 @@ const user = (state = initialState, action = {}) => {
         action: {
           ...state.action,
           togglePhone: !state.action.togglePhone,
+          toggleFirstName: false,
+          toggleLastName: false,
+          toggleEmail: false,
         },
         newInfos: {
           ...state.newInfos,
@@ -123,6 +133,9 @@ const user = (state = initialState, action = {}) => {
         action: {
           ...state.action,
           toggleEmail: !state.action.toggleEmail,
+          toggleFirstName: false,
+          toggleLastName: false,
+          togglePhone: false,
         },
         newInfos: {
           ...state.newInfos,
@@ -137,6 +150,25 @@ const user = (state = initialState, action = {}) => {
         newInfos: {
           ...state.newInfos,
           [action.fieldName]: action.value,
+        },
+      };
+    }
+    case MODIF__USER__SUCCESS: {
+      console.log(action);
+      return {
+        ...state,
+        email: action.email,
+        action: {
+          toggleFirstName: false,
+          toggleLastName: false,
+          togglePhone: false,
+          toggleEmail: false,
+        },
+        infos: {
+          ...state.infos,
+          firstName: action.firstName,
+          lastName: action.lastName,
+          phoneNumber: action.phoneNumber,
         },
       };
     }

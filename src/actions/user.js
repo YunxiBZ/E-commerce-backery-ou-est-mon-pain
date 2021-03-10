@@ -9,10 +9,24 @@ export const TOGGLE_PHONE = 'TOGGLE_PHONE';
 export const TOGGLE_EMAIL = 'TOGGLE_EMAIL';
 export const CHANGE_INFO = 'CHANGE_INFO';
 export const SUBMIT_NEW_INFO = 'SUBMIT_NEW_INFO';
+export const MODIF__USER__SUCCESS = 'MODIF__USER__SUCCESS';
 
 export const loginFailed = (message) => ({
   type: LOGIN_FAILED,
   error: message,
+});
+
+export const modifUserSucess = (
+  email,
+  firstName,
+  lastName,
+  phoneNumber,
+) => ({
+  type: MODIF__USER__SUCCESS,
+  email,
+  firstName,
+  lastName,
+  phoneNumber,
 });
 
 export const loginSuccess = (
