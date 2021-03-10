@@ -32,33 +32,50 @@ const Connection = ({
       {
         isLogged && (
           <div className="connection__logged">
-            <Link
-              to={role === USER ? '/account' : '/admin'}
-            >
-              <p className="connection__hello">
-                Hello {userName}
-              </p>
-            </Link>
-            <Link
-              to="/cart"
-              className="connection__cart-link"
-            >
-              <FontAwesomeIcon
-                className="connection__cart-btn"
-                icon="shopping-basket"
-
-              />
-            </Link>
-            <Link
-              to="/"
-              className="connection__logout-link"
-            >
-              <FontAwesomeIcon
-                className="connection__logout-btn"
-                icon="sign-out-alt"
-                onClick={onClickLogoutBtn}
-              />
-            </Link>
+            <p className="connection__hello">
+              Hello {userName}
+            </p>
+            {/* Flexible icon with different user role in connection */}
+            <div className="connection__group-icon">
+              <Link
+                to={role === USER ? '/account' : '/admin'}
+              >
+                {role === USER
+                  ? (
+                    <FontAwesomeIcon
+                      className="connection__edit-btn"
+                      icon="user-edit"
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      className="connection__admin-btn"
+                      icon="user-cog"
+                    />
+                  )}
+              </Link>
+              {(role === USER)
+              && (
+              <Link
+                to="/cart"
+                className="connection__cart-link"
+              >
+                <FontAwesomeIcon
+                  className="connection__cart-btn"
+                  icon="shopping-basket"
+                />
+              </Link>
+              )}
+              <Link
+                to="/"
+                className="connection__logout-link"
+              >
+                <FontAwesomeIcon
+                  className="connection__logout-btn"
+                  icon="sign-out-alt"
+                  onClick={onClickLogoutBtn}
+                />
+              </Link>
+            </div>
 
           </div>
         )

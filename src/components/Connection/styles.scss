@@ -6,42 +6,91 @@
   font-weight: 700;
   top:0;
   right: 0;
-  margin:$gutter $gutter*2;
+  margin:$gutter ;
   &__icon{
     max-width: 30px;
     margin-left: 1em;
   }
+  &__icon:hover {
+    color:$dark-grey
+  }
+&__group-icon{
+  display: flex;
+  font-size: 1.3rem;
+  justify-content:space-around
+}
   &__hello {
-    text-transform: capitalize;
+    text-align: center;
+    font-size: 0.8rem;
     margin-bottom: 1em;
   }
  &__logged{
    font-size:1.5rem;
    margin-top: $gutter;
 
+
  }
+ &__edit-btn{
+  margin: $gutter 0;
+ }
+ &__edit-btn:hover {
+  color:$dark-grey
+  }
+ &__admin-btn{
+  margin: $gutter;
+ }
+ &__admin-btn:hover {
+  color:$dark-grey
+}
+
  &__cart-btn{
    margin: $gutter;
  }
+ &__cart-btn:hover {
+  color:$dark-grey
+}
  &__logout-btn{
-  margin: $gutter;
+  margin: $gutter 0;
 
  }
+ &__logout-btn:hover {
+  color:$dark-grey
+}
 }
 
 @media screen and (min-width: 650px) {
   .connection{
-
+    margin: $gutter*2;
+    &__hello {
+      font-size: 1.5rem;
+      text-shadow: center;
+    }
     &__logged {
       display: flex;
+      flex-direction: column;
+
     }
     &__cart-btn{
       margin-top: 0;
+      font-size: 1.5rem;
+
     }
+    &__edit-btn{
+      margin-top: 0;
+      font-size: 1.5rem;
+
+     }
     &__logout-btn{
       margin-top: 0;
-   
+      font-size: 1.5rem;
+      
     }
+    &__admin-btn{
+      margin-top: 0;
+      font-size: 1.5rem;
+
+
+     }
   }
   
 }
