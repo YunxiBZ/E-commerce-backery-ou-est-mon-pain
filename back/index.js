@@ -16,12 +16,12 @@ app.use(cors({
     origin: '*',
     optionsSuccessStatus: 200,
     credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'authorization']
 }));
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-origin", "*")
-    res.header("Access-Control-Allow-headers", "Origin, x-Requested-With, Content-Type, Accept")
+    res.header("Access-Control-Allow-headers", "Origin, x-Requested-With, Content-Type, Accept, authorization");
     res.header("Access-Control-Allow-Methods", "POST, GET, PATCH, DELETE, PUT");
     next();
 })

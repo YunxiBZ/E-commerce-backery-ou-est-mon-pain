@@ -145,23 +145,19 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTY
 ### Route GET /account
 
 GET {{baseUrl}}/account
-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTE5ODU4MSwiZXhwIjoxNjE1MjA5MzgxfQ.S3dn7nUdFTrcoXvrxRdpxWKRrTqVj37_Cw8lo7VHwus
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTM3MzI0NiwiZXhwIjoxNjE1Mzg0MDQ2fQ.nsQDa-gLOCqeIZWPPu7htLV07jcGytn2MgtE-SZFJQg
 
 ### Route PUT /account
 
 PUT {{baseUrl}}/account
 Content-Type: application/json
-auth_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTM2NDQ4OSwiZXhwIjoxNjE1Mzc1Mjg5fQ.-t3OatBnF984M0gWMrSYid-IkdjfMzHT2XjVNTjZTco
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTM4Mzk2NiwiZXhwIjoxNjE1Mzk0NzY2fQ.ntMmYEMqLN73L1aGnuyPlEG4X1G0GQ3e_h_PsuS_DlM
 
 {
-    "email": "jaybi@orange.fr",
+    "email": "jai@orange.fr",
     "first_name": "jasdadsqd",
-    "last_name": "b",
-    "phone_number": "0602267895",
-    "allergens": [1],
-    "header" : {
-        "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTMwMDA1MCwiZXhwIjoxNjE1MzEwODUwfQ.hi3lyzz2QW3R3InzAatW0P4vRa6PseLE_IE0WW1seQk"
-        }
+    "last_name": "dzqdzdqdqb",
+    "phone_number": "05158"
 }
 
 ### Route PUT /password-account
@@ -188,13 +184,13 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjIsImlhdCI6MTY
 ### Route GET /client-orders
 
 GET {{baseUrl}}/client-orders
-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTI4NjY1NywiZXhwIjoxNjE1Mjk3NDU3fQ.wzliyO8dkx5zSQuy9KIeeEndOjMbZIhNA_cLtku7fi8
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTM4Mzk2NiwiZXhwIjoxNjE1Mzk0NzY2fQ.ntMmYEMqLN73L1aGnuyPlEG4X1G0GQ3e_h_PsuS_DlM
 
 ### Route POST /order
 
 POST {{baseUrl}}/order
 Content-Type: application/json
-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTI4NjY1NywiZXhwIjoxNjE1Mjk3NDU3fQ.wzliyO8dkx5zSQuy9KIeeEndOjMbZIhNA_cLtku7fi8
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTM4Mzk2NiwiZXhwIjoxNjE1Mzk0NzY2fQ.ntMmYEMqLN73L1aGnuyPlEG4X1G0GQ3e_h_PsuS_DlM
 
 {
     "reception_date" : "2021-03-09",

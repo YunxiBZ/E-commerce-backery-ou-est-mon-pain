@@ -28,7 +28,7 @@ const accountController = {
             //- la version en clair saisie dans le formulaire
             //- la version hachée stockée en BDD
             //bcrypt est capable de déterminer si les 2 version du mot de passe correcpondent
-            const validPwd = bcrypt.compareSync(req.body.password, account.password);
+            const validPwd = await bcrypt.compare(req.body.password, account.password);
 
             if (!validPwd) {
                 //la vérification a échoué, on envoie un message d'erreur
@@ -49,7 +49,7 @@ const accountController = {
                 };
 
                 const token = jwt.sign(jwtContent, 'YuThJbAn', jwtOptions);
-                res.header('Authorization', token).status(200).json({
+                res.header('authorization', token).status(200).json({
                     logged: true,
                     email: account.email,
                     last_name: account.last_name,
@@ -116,10 +116,7 @@ const accountController = {
 
     accountPage: async (req, res) => {
 
-        const token = req.hearder('auth_token');
-        const verified = jwt.verify(token, 'YuThJbAn')
-
-        const id = verified.accountId;
+        const id = req.user.accountId;
 
         const account = await Account.findByPk(id, {
             include: ['allergens', 'orders']
@@ -130,10 +127,7 @@ const accountController = {
 
     modifyAccount: async (req, res) => {
 
-        const token = req.headers('Authorization');
-        const verified = jwt.verify(token, 'YuThJbAn');
-
-        const id = verified.accountId;
+        const id = req.user.accountId;
 
         const {
             email,
@@ -151,12 +145,13 @@ const accountController = {
                 email: email
             }
         });
-
-        if (otherAccount.id !== account.id && otherAccount) {
-            //il y a déjà un utilisateur avec cet email, on envoie une erreur
-            return res.status(401).json({
-                error: 'Un utilisateur avec cet email existe déjà'
-            });
+        if (otherAccount) {
+            if (otherAccount.id !== account.id) {
+                //il y a déjà un utilisateur avec cet email, on envoie une erreur
+                return res.status(401).json({
+                    error: 'Un utilisateur avec cet email existe déjà'
+                });
+            }
         }
         //on rechecke que l'email a un format valide
         if (!validator.validate(email)) {
@@ -204,10 +199,8 @@ const accountController = {
     },
 
     modifyPassword: async (req, res) => {
-        const token = req.header('auth-token');
-        const verified = jwt.verify(token, 'YuThJbAn')
 
-        const id = verified.accountId;
+        const id = req.user.accountId;
 
         const {
             password,
@@ -241,10 +234,8 @@ const accountController = {
     },
 
     deleteAccount: async (req, res) => {
-        const token = req.header('auth-token');
-        const verified = jwt.verify(token, 'YuThJbAn')
 
-        const id = verified.accountId;
+        const id = req.user.accountId;
 
         // Suppression des éléments de la table de liasion AccountAllergen pour modification
         await AccountAllergen.destroy({

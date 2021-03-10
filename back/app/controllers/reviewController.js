@@ -6,10 +6,7 @@ const jwt = require('jsonwebtoken');
 const reviewController = {
     postReview: async (req, res) => {
         // On reprend l'ID du compte grâce au token
-        const token = req.header('auth-token');
-        const verified = jwt.verify(token, 'YuThJbAn')
-
-        const accountId = verified.accountId;
+        const accountId = req.user.accountId;
 
         // On récupère l'ID et la note du produit 
         const {

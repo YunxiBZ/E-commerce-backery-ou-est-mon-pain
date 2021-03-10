@@ -2,18 +2,20 @@ const jwt = require('jsonwebtoken');
 
 const userMW = async (req, res, next) => {
 
-    const token = req.header('Authorization');
+    const authHeader = req.headers.authorization;
+    const token = authHeader && authHeader.split(' ')[1];
+
     if (!token) {
         return res.status(401).send('Non connecté');
     }
 
-    const verified = jwt.verify(token, 'YuThJbAn')
-
-    if (!verified) {
-        return res.status(400).send('Token invalide');
+    try {
+        const decodedPayload = jwt.verify(token, 'YuThJbAn');
+        req.user = decodedPayload;
+        next();
+    } catch (error) {
+        res.status(400).json('Invalid token.');
     }
-
-    next();
 }
 
 module.exports = userMW;
