@@ -22,9 +22,9 @@ const Button = ({
         }
         if (openModal) {
           openModal();
-          if (handleOrder) {
-            handleOrder();
-          }
+        }
+        if (handleOrder) {
+          handleOrder();
         }
       }}
     >

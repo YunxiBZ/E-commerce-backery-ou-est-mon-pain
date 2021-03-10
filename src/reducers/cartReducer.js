@@ -4,7 +4,6 @@ import {
 } from 'src/actions/products';
 
 import {
-
   ADD_QUANTITY_IN_CART,
   REDUCE_QUANTITY_IN_CART,
   CHANGE_QUANTITY_IN_CART,
