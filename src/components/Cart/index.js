@@ -38,14 +38,13 @@ const Cart = (
           className="cart__order-link"
         >
           <Button
-            onClick={
-            (evt) => {
-              evt.preventDefault();
-              onClickCommandBtn();
+            className="cart__order-btn"
+            value="Valider ma commande"
+            handleOrder={
+            () => {
+              onClickCommandBtn(productsInCart, totalPriceInCart);
             }
           }
-            value="Valider ma commande"
-            className="cart__order-btn"
           />
         </Link>
       </div>

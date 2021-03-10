@@ -5,6 +5,7 @@ import {
   reduceQuantityInCart,
   changeQuantityInCart,
   deleteProduct,
+  handleOrder,
 } from 'src/actions/cart';
 
 const mapStateToProps = (state) => ({
@@ -29,8 +30,10 @@ const mapDispatchToProps = (dispatch) => ({
     const action = deleteProduct(title, totalPrice);
     dispatch(action);
   },
-  onClickCommandBtn: () => {
-    console.log('je veux bien passer ma commande!!! ');
+  onClickCommandBtn: (productsInCart, totalPriceInCart) => {
+    console.log('je veux bien passer ma commande!!! ', productsInCart, totalPriceInCart);
+    const action = handleOrder(productsInCart, totalPriceInCart);
+    dispatch(action);
   },
 });
 

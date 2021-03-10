@@ -47,7 +47,6 @@ const Product = ({
           icon="arrow-alt-circle-down"
           className="product__icon product__reduce-icon"
           onClick={() => {
-            console.log('coco');
             onClickReduceQuantityBtn(title);
           }}
         />
@@ -60,7 +59,6 @@ const Product = ({
       className="product__add-to-cart-btn"
       value="Ajouter au panier"
       addInCart={() => {
-        console.log('nono');
         onClickAddToCartBtn(
           id,
           title,

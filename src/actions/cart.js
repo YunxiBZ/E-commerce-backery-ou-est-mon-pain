@@ -6,6 +6,29 @@ export const CHANGE_QUANTITY_IN_CART = 'CHANGE_QUANTITY_IN_CART';
 
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 
+export const HANDLE_ORDER = 'HANDLE_ORDER';
+
+export const ORDER_SUCCESS = 'ORDER_SUCCESS';
+
+export const ORDER_FAILED = 'ORDER_FAILED';
+
+export const orderFailed = (message) => ({
+  type: ORDER_FAILED,
+  message,
+});
+
+export const orderSuccess = (cart, totalPriceInCart) => ({
+  type: ORDER_SUCCESS,
+  cart,
+  totalPriceInCart,
+});
+
+export const handleOrder = (cart, totalPriceInCart) => ({
+  type: HANDLE_ORDER,
+  cart,
+  totalPriceInCart,
+});
+
 export const deleteProduct = (title, totalPrice) => ({
   type: DELETE_PRODUCT,
   title,
