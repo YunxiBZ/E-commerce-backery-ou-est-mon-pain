@@ -3,7 +3,11 @@ import './styles.scss';
 import PropTypes from 'prop-types';
 
 const Button = ({
-  value, type, className, addInCart,
+  value,
+  type,
+  className,
+  addInCart,
+  openModal,
 }) => {
   const test = 'cool';
 
@@ -12,9 +16,11 @@ const Button = ({
       className={`button ${className}`}
       type={type === 'button' ? 'button' : 'submit'}
       onClick={() => {
-        console.log('click');
         if (addInCart) {
           addInCart();
+        }
+        if (openModal) {
+          openModal();
         }
       }}
     >
@@ -28,6 +34,7 @@ Button.propTypes = {
   type: PropTypes.string,
   className: PropTypes.string,
   addInCart: PropTypes.func,
+  openModal: PropTypes.func,
 };
 
 Button.defaultProps = {
@@ -35,6 +42,7 @@ Button.defaultProps = {
   type: 'button',
   className: '',
   addInCart: null,
+  openModal: null,
 };
 
 export default Button;

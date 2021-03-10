@@ -16,8 +16,9 @@ const info = (store) => (next) => (action) => {
             first_name: state.user.newInfos.firstName || state.user.infos.firstName,
             last_name: state.user.newInfos.lastName || state.user.infos.lastName,
             phone_number: state.user.newInfos.phoneNumber || state.user.infos.phoneNumber,
+          },
+          {
             headers: {
-              'Content-Type': 'application/json',
               authorization: `Bearer ${state.user.infos.token}`,
             },
           });
