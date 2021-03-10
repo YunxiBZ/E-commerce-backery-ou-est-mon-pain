@@ -1,8 +1,14 @@
+@import 'src/styles/vars';
+
 .button {
   padding: 1em;
-  background-color: #975721;
+  background-color:$light-brown;
   font-size: 1em;
   border-radius: 15px;
   border: none;
-  color: #FEFAE0;
+  color: $normal-grey;
+  font-weight: 700;
+}
+.button:hover{
+  background-color: $lightest-brown;
 }

@@ -4,6 +4,25 @@ export const ADD_QUANTITY = 'ADD_QUANTITY';
 export const REDUCE_QUANTITY = 'REDUCE_QUANTITY';
 export const QUANTITY_CHANGE = 'QUANTITY_CHANGE';
 
+export const ADD_IN_CART = 'ADD_IN_CART';
+
+export const addInCart = (
+  id,
+  title,
+  price,
+  totalPrice,
+  image,
+  quantity,
+) => ({
+  type: ADD_IN_CART,
+  id,
+  title,
+  price,
+  totalPrice,
+  image,
+  quantity,
+});
+
 export const fetchProducts = () => ({
   type: FETCH_PRODUCTS,
 });
