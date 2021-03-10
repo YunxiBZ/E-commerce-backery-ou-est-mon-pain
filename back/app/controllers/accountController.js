@@ -138,16 +138,12 @@
 
           const account = await Account.findByPk(id);
 
-          console.log(account);
-
           // On vérifie s'il n'y a pas un autre compte avec l'email que l'on veut modifier
           const otherAccount = await Account.findOne({
               where: {
                   email: email
               }
           });
-
-          console.log(otherAccount);
 
           if (otherAccount.id !== account.id && otherAccount) {
               //il y a déjà un utilisateur avec cet email, on envoie une erreur

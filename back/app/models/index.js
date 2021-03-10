@@ -83,7 +83,8 @@ Product.hasMany(ProductOrder, {
 });
 
 Order.hasMany(ProductOrder, {
-    foreignKey: 'order_id'
+    foreignKey: 'order_id',
+    as: 'products_in_order'
 });
 
 //Relation 1N Produit/Avis
