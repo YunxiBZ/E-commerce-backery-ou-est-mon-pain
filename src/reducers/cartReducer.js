@@ -19,6 +19,11 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case ADD_IN_CART: {
+      if (action.quantity === 0) {
+        return {
+          ...state,
+        };
+      }
       // Find the product need to change quantity
       const productFound = state.cart.find((product) => product.title === action.title);
       // If the product has been in cart, we just change the quantity with price

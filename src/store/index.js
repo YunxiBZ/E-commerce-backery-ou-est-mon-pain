@@ -6,10 +6,11 @@ import products from 'src/middlewares/products';
 import signup from 'src/middlewares/signup';
 import login from 'src/middlewares/login';
 import info from 'src/middlewares/info';
+import order from 'src/middlewares/order';
 // import middlewares
 
 const store = createStore(reducer, composeWithDevTools(
-  applyMiddleware(categories, products, signup, login, info),
+  applyMiddleware(categories, products, signup, login, info, order),
 
 // import middlewares
 ));

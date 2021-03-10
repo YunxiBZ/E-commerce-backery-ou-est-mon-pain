@@ -8,6 +8,7 @@ const Button = ({
   className,
   addInCart,
   openModal,
+  handleOrder,
 }) => {
   const test = 'cool';
 
@@ -21,6 +22,9 @@ const Button = ({
         }
         if (openModal) {
           openModal();
+          if (handleOrder) {
+            handleOrder();
+          }
         }
       }}
     >
@@ -35,6 +39,7 @@ Button.propTypes = {
   className: PropTypes.string,
   addInCart: PropTypes.func,
   openModal: PropTypes.func,
+  handleOrder: PropTypes.func,
 };
 
 Button.defaultProps = {
@@ -43,6 +48,7 @@ Button.defaultProps = {
   className: '',
   addInCart: null,
   openModal: null,
+  handleOrder: null,
 };
 
 export default Button;
