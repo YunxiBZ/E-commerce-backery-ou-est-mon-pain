@@ -5,7 +5,7 @@ const {
 
 const adminMW = async (req, res, next) => {
 
-    const token = req.header('auth-token');
+    const token = req.headers('Authorization');
     if (!token) {
         return res.status(401).send('Non connecté');
     }

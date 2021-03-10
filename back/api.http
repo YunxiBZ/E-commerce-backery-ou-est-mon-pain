@@ -14,7 +14,7 @@ GET {{baseUrl}}/products
 
 ### Route GET /product/:id
 
-GET {{baseUrl}}/product/3
+GET {{baseUrl}}/product/11
 
 ### Route POST /signup
 
@@ -75,7 +75,7 @@ Content-Type: application/json
 
 POST {{baseUrl}}/product
 Content-Type: application/json
-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNDk1Mjk5MCwiZXhwIjoxNjE0OTYzNzkwfQ.-Tbyt2fiTrXwgDMWahjlFvf8oiAbNkqM1F4-ErWy8Z0
+auth_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTM2NDI0OSwiZXhwIjoxNjE1Mzc1MDQ5fQ.KW0yaCANaz06wE6OHpgjrjgaL4j-G4apOhNlyprA0ZU
 
 {
     "title": "Panini Nutella",
@@ -151,14 +151,17 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTY
 
 PUT {{baseUrl}}/account
 Content-Type: application/json
-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTE5ODU4MSwiZXhwIjoxNjE1MjA5MzgxfQ.S3dn7nUdFTrcoXvrxRdpxWKRrTqVj37_Cw8lo7VHwus
+auth_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTM2NDQ4OSwiZXhwIjoxNjE1Mzc1Mjg5fQ.-t3OatBnF984M0gWMrSYid-IkdjfMzHT2XjVNTjZTco
 
 {
-    "email": "j@gmail.fr",
-    "first_name": "j",
+    "email": "jaybi@orange.fr",
+    "first_name": "jasdadsqd",
     "last_name": "b",
     "phone_number": "0602267895",
-    "allergens": [2]
+    "allergens": [1],
+    "header" : {
+        "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTMwMDA1MCwiZXhwIjoxNjE1MzEwODUwfQ.hi3lyzz2QW3R3InzAatW0P4vRa6PseLE_IE0WW1seQk"
+        }
 }
 
 ### Route PUT /password-account
@@ -210,3 +213,15 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTY
 
 GET {{baseUrl}}/dayli-orders
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTI4NjY1NywiZXhwIjoxNjE1Mjk3NDU3fQ.wzliyO8dkx5zSQuy9KIeeEndOjMbZIhNA_cLtku7fi8
+
+### Route POST 
+
+POST {{baseUrl}}/product-score
+Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTI4NjY1NywiZXhwIjoxNjE1Mjk3NDU3fQ.wzliyO8dkx5zSQuy9KIeeEndOjMbZIhNA_cLtku7fi8
+
+{
+    "mark": 5,
+    "account_id": 1,
+    "id": 11
+}

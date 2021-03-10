@@ -6,9 +6,10 @@
 
   const categoryController = require('./controllers/categoryController');
   const productController = require('./controllers/productController');
-  const accountContoller = require('./controllers/accountController');
+  const accountController = require('./controllers/accountController');
   const allergenController = require('./controllers/allergenController');
   const orderController = require('./controllers/orderController');
+  const reviewController = require('./controllers/reviewController');
 
   const adminMW = require('./middlewares/adminMW');
   const userMW = require('./middlewares/userMW');
@@ -32,17 +33,20 @@
   router.delete('/allergen', adminMW, allergenController.deleteAllergen);
 
   // Route pour les comptes 
-  router.post('/signup', accountContoller.handleSignupForm);
-  router.post('/login', accountContoller.handleLoginForm);
-  router.get('/account', accountContoller.accountPage);
-  router.put('/account', userMW, accountContoller.modifyAccount);
-  router.put('/password-account', userMW, accountContoller.modifyPassword);
-  router.delete('/account', userMW, accountContoller.deleteAccount);
+  router.post('/signup', accountController.handleSignupForm);
+  router.post('/login', accountController.handleLoginForm);
+  router.get('/account', userMW, accountController.accountPage);
+  router.put('/account', userMW, accountController.modifyAccount);
+  router.put('/password-account', userMW, accountController.modifyPassword);
+  router.delete('/account', userMW, accountController.deleteAccount);
 
   // Route pour les commandes
   router.post('/order', userMW, orderController.postOrder);
   router.get('/client-orders', userMW, orderController.OrdersById);
-  router.get('/dayli-orders', orderController.OrdersByDay);
+  router.get('/dayli-orders', adminMW, orderController.OrdersByDay);
+
+  // Route pour les avis
+  router.post('/product-score', userMW, reviewController.postReview)
 
   // ici, une 404 pour l'API
   router.use((req, res) => {
