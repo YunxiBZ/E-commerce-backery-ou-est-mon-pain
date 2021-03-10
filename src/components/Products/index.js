@@ -18,7 +18,6 @@ const Products = ({
     }
     fetchData();
   }, []);
-  console.log('products in Products', products);
 
   return (
     <div className="products">

@@ -2,21 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-const LoginField = ({
+const InputAddProduct = ({
   name,
   type,
   placeholder,
   value,
+  className,
 
 }) => {
   const inputId = `field-${name}`;
 
   return (
-    <div className="loginField">
+    <div className="ProductInput">
 
       <label
         htmlFor={inputId}
-        className="loginField__label"
+        className="ProductInput__label"
       >
         {placeholder}
       </label>
@@ -24,7 +25,7 @@ const LoginField = ({
       <input
         value={value}
         type={type}
-        className="loginField__input"
+        className={className}
         placeholder={placeholder}
         name={name}
       />
@@ -32,16 +33,18 @@ const LoginField = ({
   );
 };
 
-LoginField.propTypes = {
+InputAddProduct.propTypes = {
   value: PropTypes.string,
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
-LoginField.defaultProps = {
+InputAddProduct.defaultProps = {
   value: '',
   type: 'text',
+  className: '',
 };
 
-export default LoginField;
+export default InputAddProduct;
