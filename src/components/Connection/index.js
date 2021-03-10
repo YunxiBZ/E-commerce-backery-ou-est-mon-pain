@@ -6,15 +6,11 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Connection = ({
-<<<<<<< HEAD
   userName,
   onClickLogoutBtn,
   isLogged,
   onClickCartBtn,
   role,
-=======
-  userName, onClickLogoutBtn, isLogged,
->>>>>>> e7d5465db35644030cacec07ddb62f8e6df051da
 }) => (
   <div className="connection">
     {
@@ -72,11 +68,8 @@ Connection.propTypes = {
   userName: PropTypes.string.isRequired,
   onClickLogoutBtn: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
-<<<<<<< HEAD
   onClickCartBtn: PropTypes.func.isRequired,
   role: PropTypes.string,
-=======
->>>>>>> e7d5465db35644030cacec07ddb62f8e6df051da
 };
 
 Connection.defaultProps = {
