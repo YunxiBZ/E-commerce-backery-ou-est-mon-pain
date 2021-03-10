@@ -3,7 +3,7 @@ import './styles.scss';
 import PropTypes from 'prop-types';
 
 const Button = ({
-  value, type, className, addInCart,
+  value, type, className, addInCart, handleOrder,
 }) => {
   const test = 'cool';
 
@@ -12,9 +12,11 @@ const Button = ({
       className={`button ${className}`}
       type={type === 'button' ? 'button' : 'submit'}
       onClick={() => {
-        console.log('click');
         if (addInCart) {
           addInCart();
+        }
+        if (handleOrder) {
+          handleOrder();
         }
       }}
     >
@@ -28,6 +30,7 @@ Button.propTypes = {
   type: PropTypes.string,
   className: PropTypes.string,
   addInCart: PropTypes.func,
+  handleOrder: PropTypes.func,
 };
 
 Button.defaultProps = {
@@ -35,6 +38,7 @@ Button.defaultProps = {
   type: 'button',
   className: '',
   addInCart: null,
+  handleOrder: null,
 };
 
 export default Button;
