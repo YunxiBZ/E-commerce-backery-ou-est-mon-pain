@@ -6,22 +6,69 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import InputAddProduct from './InputAddProduct';
 
-const AdminProduct = ({ products, fetchData }) => {
+const AdminProduct = ({
+  products,
+  fetchData,
+  categories,
+  fetchCategories,
+  productName,
+  productPrice,
+  productDescription,
+  productImage,
+  changeField,
+  changeCategories,
+  submitNewProduct,
+  changeProduct,
+  deleteProduct,
+  successAddProduct,
+  successDeleteProduct,
+  addProductError,
+  deleteProductError,
+}) => {
+  // useEffect(() => {
+  //   fetchCategories();
+  // }, []);
+
   useEffect(() => {
-    if (products.length > 0) {
-      return;
-    }
     fetchData();
   }, []);
-  // gestion ouverture de la modal ajout de produit via useState
+
   const [open, setOpen] = useState(false);
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
+
+  const handleChangeCategories = (event) => {
+    console.log(event.target);
+    changeCategories(event.target.value, event.target.id);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    submitNewProduct();
+    // On ferme la modal après envoi du nouveau produit
+    onCloseModal();
+  };
+
+  const handleChangeProduct = (event) => {
+    console.log('ok');
+    changeProduct(event.target.value);
+  };
 
   return (
     <div className="adminProduct">
       <section className="adminProduct__addProductContainer">
         <h2 className="adminProduct__title">Produit</h2>
+        {successAddProduct && (
+          <p className="adminProduct__successMessage">{successAddProduct}</p>
+        )}
+        {successDeleteProduct && (
+          <p className="adminProduct__successMessage">{successDeleteProduct}</p>
+        )}
+        {addProductError && (
+          <p className="adminProduct__errorMessage">{addProductError}</p>
+        )}
+        {deleteProductError && (
+          <p className="adminProduct__errorMessage">{deleteProductError}</p>
+        )}
         <button
           value="Ajouter un produit"
           className="adminProduct__addProduct"
@@ -31,52 +78,88 @@ const AdminProduct = ({ products, fetchData }) => {
           Ajouter un produit
         </button>
         <Modal open={open} onClose={onCloseModal} center className="adminProduct__modal">
-          <form action="test">
-            <InputAddProduct
-              name="name"
-              placeholder="Nom du produit"
-              type="text"
-              value="truc"
-            />
-            <InputAddProduct
-              name="name"
-              placeholder="Description"
-              type="text"
-              value="truc"
-            />
-            <InputAddProduct
-              name="name"
-              placeholder="Prix"
-              type="text"
-              value="truc"
-            />
-            <InputAddProduct
-              name="name"
-              placeholder="Image"
-              type="text"
-              value="truc"
-            />
-            <select type="text" className="adminProduct__dropdown">
-              {products.map((product) => (
-                <option
-                  value={product.title}
-                  key={product.id}
-                >
-                  {product.title}
-                </option>
-              ))}
-            </select>
-            <div className="modal__button">
-              <Button type="submit" value="Ajouter un produit" className="button" />
-            </div>
+          <form className="adminProduct__form" onSubmit={handleSubmit}>
+            <section className="adminProduct__inputsContainer">
+              <InputAddProduct
+                name="title"
+                placeholder="Nom du produit"
+                type="text"
+                value={productName}
+                className="adminProduct__field"
+                changeField={changeField}
+              />
+              <InputAddProduct
+                name="description"
+                placeholder="Description"
+                type="text"
+                value={productDescription}
+                className="adminProduct__field"
+                changeField={changeField}
+              />
+              <InputAddProduct
+                name="price"
+                placeholder="Prix"
+                type="text"
+                value={productPrice}
+                className="adminProduct__field"
+                changeField={changeField}
+              />
+              <InputAddProduct
+                name="image"
+                placeholder="Image"
+                type="text"
+                value={productImage}
+                className="adminProduct__field"
+                changeField={changeField}
+              />
+            </section>
+            <section className="adminProduct__dropdownContainer">
+              <select
+                type="text"
+                className="adminProduct__dropdownCategories"
+                onChange={handleChangeCategories}
+                id="0"
+              >
+                {categories.map((category) => (
+                  <option
+                    value={category.id}
+                    key={category.id}
+                  >
+                    {category.label}
+                  </option>
+                ))}
+              </select>
+              <select
+                type="text"
+                className="adminProduct__dropdownCategories"
+                onChange={handleChangeCategories}
+                id="1"
+              >
+                {categories.map((category) => (
+                  <option
+                    value={category.id}
+                    key={category.id}
+                  >
+                    {category.label}
+                  </option>
+                ))}
+              </select>
+              <div className="adminProduct__addProductButton">
+                <Button type="submit" value="Ajouter un produit" className="adminProduct__button" />
+              </div>
+            </section>
           </form>
         </Modal>
       </section>
       <section className="adminProduct__modifyProductContainer">
-        <select type="text" className="adminProduct__dropdown">
+        <select
+          type="text"
+          className="adminProduct__dropdownProducts"
+          onChange={handleChangeProduct}
+        >
           {products.map((product) => (
             <option
-              value={product.title}
+              value={product.id}
               key={product.id}
             >
               {product.title}
@@ -84,7 +167,14 @@ const AdminProduct = ({ products, fetchData }) => {
           ))}
         </select>
         <Button value="Modifier ce produit" />
-        <Button value="Supprimer ce produit" />
+        <Button
+          value="Supprimer ce produit"
+          handleDeleteProduct={
+          () => {
+            deleteProduct();
+          }
+        }
+        />
       </section>
     </div>
   );
@@ -98,10 +188,35 @@ AdminProduct.propTypes = {
       title: PropTypes.string.isRequired,
     }),
   ),
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      label: PropTypes.string.isRequired,
+    }),
+  ),
+  fetchCategories: PropTypes.func.isRequired,
+  productName: PropTypes.string.isRequired,
+  productPrice: PropTypes.string.isRequired,
+  productDescription: PropTypes.string.isRequired,
+  productImage: PropTypes.string.isRequired,
+  changeField: PropTypes.func.isRequired,
+  changeCategories: PropTypes.func.isRequired,
+  submitNewProduct: PropTypes.func.isRequired,
+  changeProduct: PropTypes.func.isRequired,
+  deleteProduct: PropTypes.func.isRequired,
+  successAddProduct: PropTypes.string,
+  successDeleteProduct: PropTypes.string,
+  addProductError: PropTypes.string,
+  deleteProductError: PropTypes.string,
 };
 
 AdminProduct.defaultProps = {
   products: null,
+  categories: null,
+  successAddProduct: null,
+  successDeleteProduct: null,
+  addProductError: null,
+  deleteProductError: null,
 };
 
 export default AdminProduct;

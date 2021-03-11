@@ -2,21 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-const LoginField = ({
+const InputAddProduct = ({
   name,
   type,
   placeholder,
   value,
+  className,
+  changeField,
 
 }) => {
   const inputId = `field-${name}`;
+  const handleChange = (event) => {
+    changeField(event.target.value, name);
+  };
 
   return (
-    <div className="loginField">
+    <div className="productInput">
 
       <label
         htmlFor={inputId}
-        className="loginField__label"
+        className="productInput__label"
       >
         {placeholder}
       </label>
@@ -24,24 +29,29 @@ const LoginField = ({
       <input
         value={value}
         type={type}
-        className="loginField__input"
+        className={className}
         placeholder={placeholder}
         name={name}
+        onChange={handleChange}
+
       />
     </div>
   );
 };
 
-LoginField.propTypes = {
+InputAddProduct.propTypes = {
   value: PropTypes.string,
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  changeField: PropTypes.func.isRequired,
 };
 
-LoginField.defaultProps = {
+InputAddProduct.defaultProps = {
   value: '',
   type: 'text',
+  className: '',
 };
 
-export default LoginField;
+export default InputAddProduct;

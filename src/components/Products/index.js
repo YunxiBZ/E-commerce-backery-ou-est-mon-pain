@@ -13,12 +13,8 @@ const Products = ({
   onClickAddToCartBtn,
 }) => {
   useEffect(() => {
-    if (products.length > 0) {
-      return;
-    }
     fetchData();
   }, []);
-  console.log('products in Products', products);
 
   return (
     <div className="products">

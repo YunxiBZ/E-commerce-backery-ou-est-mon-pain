@@ -10,6 +10,7 @@ const Button = ({
   openModal,
   handleOrder,
   fetchOrderList,
+  handleDeleteProduct,
 }) => {
   const test = 'cool';
 
@@ -28,6 +29,9 @@ const Button = ({
           handleOrder();
           fetchOrderList();
         }
+        if (handleDeleteProduct) {
+          handleDeleteProduct();
+        }
       }}
     >
       {value}
@@ -42,6 +46,7 @@ Button.propTypes = {
   addInCart: PropTypes.func,
   openModal: PropTypes.func,
   handleOrder: PropTypes.func,
+  handleDeleteProduct: PropTypes.func,
 };
 
 Button.defaultProps = {
@@ -51,6 +56,7 @@ Button.defaultProps = {
   addInCart: null,
   openModal: null,
   handleOrder: null,
+  handleDeleteProduct: null,
 };
 
 export default Button;

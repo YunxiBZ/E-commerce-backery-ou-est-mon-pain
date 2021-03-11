@@ -12,7 +12,6 @@ const products = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_PRODUCTS:
       return [
-        ...state,
         ...action.products,
       ];
     case ADD_QUANTITY:
