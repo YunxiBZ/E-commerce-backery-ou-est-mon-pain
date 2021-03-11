@@ -31,46 +31,48 @@ const productController = {
 
     createProduct: async (req, res) => {
 
-        const {
-            title,
-            description,
-            price,
-            image,
-            categories,
-            allergens
-        } = req.body;
+        try {
+            const {
+                title,
+                description,
+                price,
+                image,
+                categories,
+                //allergens
+            } = req.body;
 
-        // Création d'un nouveau produit
-        const newProduct = await Product.create({
-            title,
-            description,
-            price,
-            image
-        });
+            // Création d'un nouveau produit
+            const newProduct = await Product.create({
+                title,
+                description,
+                price,
+                image
+            });
 
-        // Création des éléments de la table de liasion ProductCategory
-        for (const category of categories) {
-            await ProductCategory.create({
-                product_id: newProduct.id,
-                category_id: category
-            })
-        };
+            // Création des éléments de la table de liasion ProductCategory
+            for (const category of categories) {
+                await ProductCategory.create({
+                    product_id: newProduct.id,
+                    category_id: category
+                })
+            };
 
-        // Création des éléments de la table de liasion ProductAllergen
-        for (const allergen of allergens) {
-            await ProductAllergen.create({
-                product_id: newProduct.id,
-                allergen_id: allergen
-            })
-        };
+            // Création des éléments de la table de liasion ProductAllergen
+            // for (const allergen of allergens) {
+            //     await ProductAllergen.create({
+            //         product_id: newProduct.id,
+            //         allergen_id: allergen
+            //     })
+            // };
 
 
-        if (newProduct) {
+
             res.status(201).json({
                 message: 'produit créé'
             });
-        } else {
-            res.sendStatus(400);
+
+        } catch (error) {
+            res.status(400).send(error);
         }
     },
 
@@ -83,7 +85,7 @@ const productController = {
             price,
             image,
             categories,
-            allergens
+            // allergens
         } = req.body;
 
         // Modification d'un produit
@@ -115,19 +117,19 @@ const productController = {
         };
 
         // Suppression des éléments de la table de liasion ProductAllergen pour modification
-        await ProductAllergen.destroy({
-            where: {
-                product_id: id
-            }
-        });
+        // await ProductAllergen.destroy({
+        //     where: {
+        //         product_id: id
+        //     }
+        // });
 
         // Création des nouveaux éléments de la table de liasion ProductAllergen
-        for (const allergen of allergens) {
-            await ProductAllergen.create({
-                product_id: id,
-                allergen_id: allergen
-            })
-        };
+        // for (const allergen of allergens) {
+        //     await ProductAllergen.create({
+        //         product_id: id,
+        //         allergen_id: allergen
+        //     })
+        // };
 
         if (modifiedProduct) {
             res.status(200).json({
@@ -152,11 +154,11 @@ const productController = {
         })
 
         // Suppression des éléments de la table de liasion ProductAllergen pour modification
-        await ProductAllergen.destroy({
-            where: {
-                product_id: id
-            }
-        })
+        // await ProductAllergen.destroy({
+        //     where: {
+        //         product_id: id
+        //     }
+        // })
 
         // Suppression du produit
         const deletedProduct = await Product.destroy({
