@@ -1,4 +1,4 @@
-.ProductInput {
+.productInput {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -8,5 +8,13 @@
   &__label {
     font-weight: 700;
     margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .productInput {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.8em;
   }
 }

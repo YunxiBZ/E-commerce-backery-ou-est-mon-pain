@@ -17,11 +17,11 @@ const InputAddProduct = ({
   };
 
   return (
-    <div className="ProductInput">
+    <div className="productInput">
 
       <label
         htmlFor={inputId}
-        className="ProductInput__label"
+        className="productInput__label"
       >
         {placeholder}
       </label>
