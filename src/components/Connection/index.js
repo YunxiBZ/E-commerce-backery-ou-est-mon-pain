@@ -72,7 +72,10 @@ const Connection = ({
                 <FontAwesomeIcon
                   className="connection__logout-btn"
                   icon="sign-out-alt"
-                  onClick={onClickLogoutBtn}
+                  onClick={() => {
+                    localStorage.removeItem('userData');
+                    onClickLogoutBtn();
+                  }}
                 />
               </Link>
             </div>

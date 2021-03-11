@@ -10,9 +10,12 @@ import {
   DELETE_PRODUCT,
 } from 'src/actions/cart';
 
+import { FETCH_LIST_SUCCESS } from 'src/actions/user';
+
 const initialState = {
   totalPriceInCart: 0,
   cart: [],
+  orderList: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -148,6 +151,13 @@ const reducer = (state = initialState, action = {}) => {
 
       };
     }
+    case FETCH_LIST_SUCCESS: {
+      return {
+        ...state,
+        orderList: action.orderList,
+      };
+    }
+
     default:
       return state;
   }

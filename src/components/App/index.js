@@ -50,11 +50,22 @@ library.add(
 );
 
 // == Composant
-const App = ({ fetchData }) => {
+const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
   useEffect(() => {
     fetchData();
   }, []);
 
+  const string = localStorage.getItem('userData');
+  if (string) {
+    useEffect(() => {
+      // Fetch data from localStorage
+      const userData = JSON.parse(string);
+      loginSuccess(
+        userData,
+      );
+      fetchOrderList(userData.token);
+    });
+  }
   return (
     <div className="app">
       <Header />
@@ -104,6 +115,8 @@ const App = ({ fetchData }) => {
 
 App.propTypes = {
   fetchData: PropTypes.func.isRequired,
+  loginSuccess: PropTypes.func.isRequired,
+  fetchOrderList: PropTypes.func.isRequired,
 };
 
 // == Export

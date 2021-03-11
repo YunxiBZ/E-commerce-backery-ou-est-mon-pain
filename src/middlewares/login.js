@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { SUBMIT_FORM, loginSuccess, loginFailed } from 'src/actions/user';
+import {
+  SUBMIT_FORM, loginSuccess, loginFailed, fetchOrderList,
+} from 'src/actions/user';
 
 const login = (store) => (next) => (action) => {
   // eslint-disable-next-line default-case
@@ -27,7 +29,10 @@ const login = (store) => (next) => (action) => {
             const lastName = response.data.last_name;
             const phoneNumber = response.data.phone_number;
 
-            store.dispatch(loginSuccess(
+            // Store user infos in localStorage
+            // 1.prepare the right data format => the value = JSON.stringify(data)
+            // 2.with commande => localStorage.setItem('name of key', the value )
+            const userData = {
               email,
               firstName,
               lastName,
@@ -35,7 +40,13 @@ const login = (store) => (next) => (action) => {
               phoneNumber,
               token,
               role,
+            };
+            console.log(userData);
+            localStorage.setItem('userData', JSON.stringify(userData));
+            store.dispatch(loginSuccess(
+              userData,
             ));
+            store.dispatch(fetchOrderList(token));
           }
         }
         catch (error) {

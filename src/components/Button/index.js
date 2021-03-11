@@ -9,6 +9,7 @@ const Button = ({
   addInCart,
   openModal,
   handleOrder,
+  fetchOrderList,
 }) => {
   const test = 'cool';
 
@@ -25,6 +26,7 @@ const Button = ({
         }
         if (handleOrder) {
           handleOrder();
+          fetchOrderList();
         }
       }}
     >

@@ -8,9 +8,12 @@ import {
   handleOrder,
 } from 'src/actions/cart';
 
+import { fetchOrderList } from 'src/actions/user';
+
 const mapStateToProps = (state) => ({
   productsInCart: state.cartReducer.cart,
   totalPriceInCart: state.cartReducer.totalPriceInCart,
+  token: state.user.infos.token,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -33,6 +36,10 @@ const mapDispatchToProps = (dispatch) => ({
   onClickCommandBtn: (productsInCart, totalPriceInCart) => {
     console.log('je veux bien passer ma commande!!! ', productsInCart, totalPriceInCart);
     const action = handleOrder(productsInCart, totalPriceInCart);
+    dispatch(action);
+  },
+  fetchOrderList: (token) => {
+    const action = fetchOrderList(token);
     dispatch(action);
   },
 });
