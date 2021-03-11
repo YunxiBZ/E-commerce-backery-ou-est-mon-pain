@@ -50,7 +50,7 @@ library.add(
 );
 
 // == Composant
-const App = ({ fetchData, loginSuccess }) => {
+const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
   useEffect(() => {
     fetchData();
   }, []);
@@ -63,6 +63,7 @@ const App = ({ fetchData, loginSuccess }) => {
       loginSuccess(
         userData,
       );
+      fetchOrderList(userData.token);
     });
   }
   return (
@@ -115,6 +116,7 @@ const App = ({ fetchData, loginSuccess }) => {
 App.propTypes = {
   fetchData: PropTypes.func.isRequired,
   loginSuccess: PropTypes.func.isRequired,
+  fetchOrderList: PropTypes.func.isRequired,
 };
 
 // == Export

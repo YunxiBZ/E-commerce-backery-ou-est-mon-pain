@@ -14,6 +14,8 @@ const Cart = (
     onChangeQuantityInput,
     onClickDeleteBtn,
     onClickCommandBtn,
+    fetchOrderList,
+    token,
   },
 ) => {
   console.log('productsInCart.onClickAddQuantityBtn', onClickAddQuantityBtn);
@@ -41,10 +43,16 @@ const Cart = (
             className="cart__order-btn"
             value="Valider ma commande"
             handleOrder={
-            () => {
-              onClickCommandBtn(productsInCart, totalPriceInCart);
+              () => {
+                onClickCommandBtn(productsInCart, totalPriceInCart);
+              }
             }
-          }
+            fetchOrderList={
+              () => {
+                fetchOrderList(token);
+              }
+            }
+
           />
         </Link>
       </div>
@@ -66,6 +74,8 @@ Cart.propTypes = {
   onChangeQuantityInput: PropTypes.func.isRequired,
   onClickDeleteBtn: PropTypes.func.isRequired,
   onClickCommandBtn: PropTypes.func.isRequired,
+  fetchOrderList: PropTypes.func.isRequired,
+  token: PropTypes.string.isRequired,
 };
 
 Cart.defaultProps = {
