@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Redirect } from 'react-router-dom';
+import OrderList from './OrderList';
 
 const Account = ({
   firstName,
@@ -25,6 +26,7 @@ const Account = ({
   newEmail,
   changeInfo,
   submitInfo,
+  orderList,
 }) => {
   if (!logged) {
     console.log(logged);
@@ -184,6 +186,9 @@ const Account = ({
             )
         }
       </section>
+      <OrderList
+        orderList={orderList}
+      />
     </div>
   );
 };
@@ -208,6 +213,16 @@ Account.propTypes = {
   newPhone: PropTypes.string.isRequired,
   changeInfo: PropTypes.func.isRequired,
   submitInfo: PropTypes.func.isRequired,
+  orderList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      reception_date: PropTypes.string.isRequired,
+      total_price: PropTypes.number.isRequired,
+      state: PropTypes.string.isRequired,
+    }),
+  ),
 };
-
+Account.defaultProps = {
+  orderList: null,
+};
 export default Account;

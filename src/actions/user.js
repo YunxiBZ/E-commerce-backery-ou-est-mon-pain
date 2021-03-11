@@ -11,6 +11,26 @@ export const CHANGE_INFO = 'CHANGE_INFO';
 export const SUBMIT_NEW_INFO = 'SUBMIT_NEW_INFO';
 export const MODIF__USER__SUCCESS = 'MODIF__USER__SUCCESS';
 
+export const FETCH_LIST_SUCCESS = 'FETCH_LIST_SUCCESS';
+export const FETCH_LIST_FAILED = 'FETCH_LIST_FAILED';
+
+export const fetchListFailed = (error) => ({
+  type: FETCH_LIST_FAILED,
+  error,
+});
+
+export const fetchListSuccess = (orderList) => ({
+  type: FETCH_LIST_SUCCESS,
+  orderList,
+});
+
+export const FETCH_ORDER_LIST = 'FETCH_ORDER_LIST';
+
+export const fetchOrderList = (token) => ({
+  type: FETCH_ORDER_LIST,
+  token,
+});
+
 export const loginFailed = (message) => ({
   type: LOGIN_FAILED,
   error: message,

@@ -23,6 +23,7 @@ const mapStateToProps = (state) => ({
   newLastName: state.user.newInfos.lastName,
   newEmail: state.user.newInfos.email,
   newPhone: state.user.newInfos.phoneNumber,
+  orderList: state.cartReducer.orderList,
 });
 
 const mapDispatchToProps = (dispatch) => ({
