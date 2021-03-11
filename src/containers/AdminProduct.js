@@ -9,6 +9,7 @@ import {
 import {
   changeValueProduct,
   changeCategoriesProduct,
+  submitNewProduct,
 } from 'src/actions/admin';
 
 const mapStateToProps = (state) => ({
@@ -34,6 +35,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeCategories: (value, id) => {
     dispatch(changeCategoriesProduct(value, id));
+  },
+  submitNewProduct: () => {
+    dispatch(submitNewProduct());
   },
 });
 

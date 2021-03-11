@@ -9,7 +9,10 @@ const initialState = {
     price: '',
     description: '',
     image: '',
-    categories: {},
+    categories: {
+      0: 1,
+      1: 1,
+    },
   },
 };
 

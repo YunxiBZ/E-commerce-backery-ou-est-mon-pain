@@ -14,10 +14,10 @@ const AdminProduct = ({
   productName,
   productPrice,
   productDescription,
-  productCategories,
   productImage,
   changeField,
   changeCategories,
+  submitNewProduct,
 }) => {
   useEffect(() => {
     if (products.length < 1) {
@@ -36,6 +36,12 @@ const AdminProduct = ({
     console.log(event.target);
     changeCategories(event.target.value, event.target.id);
   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    submitNewProduct();
+    // On ferme la modal après envoi du nouveau produit
+    onCloseModal();
+  };
 
   return (
     <div className="adminProduct">
@@ -50,7 +56,7 @@ const AdminProduct = ({
           Ajouter un produit
         </button>
         <Modal open={open} onClose={onCloseModal} center className="adminProduct__modal">
-          <form className="adminProduct__form">
+          <form className="adminProduct__form" onSubmit={handleSubmit}>
             <section className="adminProduct__inputsContainer">
               <InputAddProduct
                 name="title"
@@ -160,10 +166,9 @@ AdminProduct.propTypes = {
   productPrice: PropTypes.string.isRequired,
   productDescription: PropTypes.string.isRequired,
   productImage: PropTypes.string.isRequired,
-  productCategories: PropTypes.arrayOf(
-  ).isRequired,
   changeField: PropTypes.func.isRequired,
   changeCategories: PropTypes.func.isRequired,
+  submitNewProduct: PropTypes.func.isRequired,
 };
 
 AdminProduct.defaultProps = {
