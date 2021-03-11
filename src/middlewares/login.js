@@ -40,7 +40,7 @@ const login = (store) => (next) => (action) => {
               role,
             };
             console.log(userData);
-            // const stringToSave = JSON.stringify()
+            localStorage.setItem('userData', JSON.stringify(userData));
 
             store.dispatch(loginSuccess(
               userData,
