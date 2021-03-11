@@ -13,9 +13,6 @@ const Products = ({
   onClickAddToCartBtn,
 }) => {
   useEffect(() => {
-    if (products.length > 0) {
-      return;
-    }
     fetchData();
   }, []);
 

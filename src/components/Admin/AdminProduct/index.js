@@ -23,13 +23,12 @@ const AdminProduct = ({
   successAddProduct,
   successDeleteProduct,
 }) => {
+  // useEffect(() => {
+  //   fetchCategories();
+  // }, []);
+
   useEffect(() => {
-    if (products.length < 1) {
-      fetchData();
-    }
-    if (categories.length < 1) {
-      fetchCategories();
-    }
+    fetchData();
   }, []);
 
   const [open, setOpen] = useState(false);
