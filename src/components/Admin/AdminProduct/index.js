@@ -22,6 +22,8 @@ const AdminProduct = ({
   deleteProduct,
   successAddProduct,
   successDeleteProduct,
+  addProductError,
+  deleteProductError,
 }) => {
   // useEffect(() => {
   //   fetchCategories();
@@ -60,6 +62,12 @@ const AdminProduct = ({
         )}
         {successDeleteProduct && (
           <p className="adminProduct__successMessage">{successDeleteProduct}</p>
+        )}
+        {addProductError && (
+          <p className="adminProduct__errorMessage">{addProductError}</p>
+        )}
+        {deleteProductError && (
+          <p className="adminProduct__errorMessage">{deleteProductError}</p>
         )}
         <button
           value="Ajouter un produit"
@@ -198,6 +206,8 @@ AdminProduct.propTypes = {
   deleteProduct: PropTypes.func.isRequired,
   successAddProduct: PropTypes.string,
   successDeleteProduct: PropTypes.string,
+  addProductError: PropTypes.string,
+  deleteProductError: PropTypes.string,
 };
 
 AdminProduct.defaultProps = {
@@ -205,6 +215,8 @@ AdminProduct.defaultProps = {
   categories: null,
   successAddProduct: null,
   successDeleteProduct: null,
+  addProductError: null,
+  deleteProductError: null,
 };
 
 export default AdminProduct;

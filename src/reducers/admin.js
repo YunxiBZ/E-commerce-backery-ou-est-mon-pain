@@ -4,6 +4,8 @@ import {
   CHANGE_PRODUCT_DROPDOWN,
   CREATE_PRODUCT,
   NEW_PRODUCT_SUCCESS,
+  ERROR_ADD_PRODUCT,
+  DELETE_PRODUCT_ERROR,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -20,6 +22,8 @@ const initialState = {
   product: '11',
   addProductSuccess: '',
   deleteProductSuccess: '',
+  addProductError: '',
+  deleteProductError: '',
 };
 
 const admin = (state = initialState, action = {}) => {
@@ -59,6 +63,8 @@ const admin = (state = initialState, action = {}) => {
         ...state,
         addProductSuccess: action.message,
         deleteProductSuccess: '',
+        addProductError: '',
+        deleteProductError: '',
       };
     }
     case NEW_PRODUCT_SUCCESS: {
@@ -67,6 +73,27 @@ const admin = (state = initialState, action = {}) => {
         ...state,
         deleteProductSuccess: action.message,
         addProductSuccess: '',
+        addProductError: '',
+        deleteProductError: '',
+      };
+    }
+    case ERROR_ADD_PRODUCT: {
+      console.log(action);
+      return {
+        ...state,
+        addProductError: action.message,
+        addProductSuccess: '',
+        deleteProductSuccess: '',
+        deleteProductError: '',
+      };
+    }
+    case DELETE_PRODUCT_ERROR: {
+      return {
+        ...state,
+        addProductError: '',
+        addProductSuccess: '',
+        deleteProductSuccess: '',
+        deleteProductError: action.message,
       };
     }
     default:

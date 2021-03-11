@@ -24,6 +24,8 @@ const mapStateToProps = (state) => ({
   productImage: state.admin.newProduct.image,
   successAddProduct: state.admin.addProductSuccess,
   successDeleteProduct: state.admin.deleteProductSuccess,
+  addProductError: state.admin.addProductError,
+  deleteProductError: state.admin.deleteProductError,
 });
 
 const mapDispatchToProps = (dispatch) => ({

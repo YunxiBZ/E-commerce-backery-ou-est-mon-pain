@@ -4,6 +4,8 @@ import {
   DELETE_PRODUCT,
   createProduct,
   newProductSuccess,
+  errorAddProduct,
+  deleteProductError,
 } from 'src/actions/admin';
 
 const admin = (store) => (next) => (action) => {
@@ -38,6 +40,7 @@ const admin = (store) => (next) => (action) => {
         }
         catch (error) {
           console.log(error, 'error');
+          store.dispatch(errorAddProduct('Veuillez entrer un prix valide'));
         }
       };
       postProduct();
@@ -72,6 +75,7 @@ const admin = (store) => (next) => (action) => {
         }
         catch (error) {
           console.log(error, 'error');
+          store.dispatch(deleteProductError(error.response.data.message));
         }
       };
       deleteProduct();
