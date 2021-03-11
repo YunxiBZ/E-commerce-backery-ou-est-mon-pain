@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Connection from 'src/containers/Connection';
 
@@ -19,11 +19,14 @@ const Header = ({ toggle, toggleNavbar }) => (
         toggleNavbar();
       }}
     />
-    <img
-      src={logo}
-      alt="Logo"
-      className="header__logo"
-    />
+    <Link to="/">
+
+      <img
+        src={logo}
+        alt="Logo"
+        className="header__logo"
+      />
+    </Link>
 
     <Connection />
 
