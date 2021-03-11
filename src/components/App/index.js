@@ -54,15 +54,17 @@ const App = ({ fetchData, loginSuccess }) => {
   useEffect(() => {
     fetchData();
   }, []);
-  useEffect(() => {
-    // Fetch data from localStorage
-    const string = localStorage.getItem('userData');
-    const userData = JSON.parse(string);
-    console.log('found userData', userData);
-    loginSuccess(
-      userData,
-    );
-  });
+
+  const string = localStorage.getItem('userData');
+  if (string) {
+    useEffect(() => {
+      // Fetch data from localStorage
+      const userData = JSON.parse(string);
+      loginSuccess(
+        userData,
+      );
+    });
+  }
   return (
     <div className="app">
       <Header />
