@@ -18,6 +18,7 @@ const AdminProduct = ({
   changeField,
   changeCategories,
   submitNewProduct,
+  changeProduct,
 }) => {
   useEffect(() => {
     if (products.length < 1) {
@@ -41,6 +42,11 @@ const AdminProduct = ({
     submitNewProduct();
     // On ferme la modal après envoi du nouveau produit
     onCloseModal();
+  };
+
+  const handleChangeProduct = (event) => {
+    console.log('ok');
+    changeProduct(event.target.value);
   };
 
   return (
@@ -130,10 +136,14 @@ const AdminProduct = ({
         </Modal>
       </section>
       <section className="adminProduct__modifyProductContainer">
-        <select type="text" className="adminProduct__dropdownProducts">
+        <select
+          type="text"
+          className="adminProduct__dropdownProducts"
+          onChange={handleChangeProduct}
+        >
           {products.map((product) => (
             <option
-              value={product.title}
+              value={product.id}
               key={product.id}
             >
               {product.title}
@@ -169,6 +179,7 @@ AdminProduct.propTypes = {
   changeField: PropTypes.func.isRequired,
   changeCategories: PropTypes.func.isRequired,
   submitNewProduct: PropTypes.func.isRequired,
+  changeProduct: PropTypes.func.isRequired,
 };
 
 AdminProduct.defaultProps = {

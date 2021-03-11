@@ -1,6 +1,7 @@
 import {
   CHANGE_VALUE_PRODUCT,
   CHANGE_CATEGORIES_PRODUCT,
+  CHANGE_PRODUCT_DROPDOWN,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
       1: 1,
     },
   },
+  product: '11',
 };
 
 const admin = (state = initialState, action = {}) => {
@@ -38,6 +40,13 @@ const admin = (state = initialState, action = {}) => {
             [action.id]: categoryId,
           },
         },
+      };
+    }
+    case CHANGE_PRODUCT_DROPDOWN: {
+      console.log(action);
+      return {
+        ...state,
+        product: action.value,
       };
     }
     default:
