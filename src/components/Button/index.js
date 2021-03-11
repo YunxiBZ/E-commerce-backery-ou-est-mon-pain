@@ -47,6 +47,7 @@ Button.propTypes = {
   openModal: PropTypes.func,
   handleOrder: PropTypes.func,
   handleDeleteProduct: PropTypes.func,
+  fetchOrderList: PropTypes.func,
 };
 
 Button.defaultProps = {
@@ -57,6 +58,7 @@ Button.defaultProps = {
   openModal: null,
   handleOrder: null,
   handleDeleteProduct: null,
+  fetchOrderList: null,
 };
 
 export default Button;
