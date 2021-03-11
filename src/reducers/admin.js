@@ -15,8 +15,8 @@ const initialState = {
     description: '',
     image: '',
     categories: {
-      0: 1,
-      1: 1,
+      0: '',
+      1: '',
     },
   },
   product: '11',

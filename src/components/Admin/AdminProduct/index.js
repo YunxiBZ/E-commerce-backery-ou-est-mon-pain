@@ -10,7 +10,6 @@ const AdminProduct = ({
   products,
   fetchData,
   categories,
-  fetchCategories,
   productName,
   productPrice,
   productDescription,
@@ -119,7 +118,9 @@ const AdminProduct = ({
                 className="adminProduct__dropdownCategories"
                 onChange={handleChangeCategories}
                 id="0"
+                defaultValue="Category"
               >
+                <option disabled hidden>Category</option>
                 {categories.map((category) => (
                   <option
                     value={category.id}
@@ -134,7 +135,9 @@ const AdminProduct = ({
                 className="adminProduct__dropdownCategories"
                 onChange={handleChangeCategories}
                 id="1"
+                defaultValue="Category"
               >
+                <option disabled hidden>Category</option>
                 {categories.map((category) => (
                   <option
                     value={category.id}
@@ -194,7 +197,6 @@ AdminProduct.propTypes = {
       label: PropTypes.string.isRequired,
     }),
   ),
-  fetchCategories: PropTypes.func.isRequired,
   productName: PropTypes.string.isRequired,
   productPrice: PropTypes.string.isRequired,
   productDescription: PropTypes.string.isRequired,

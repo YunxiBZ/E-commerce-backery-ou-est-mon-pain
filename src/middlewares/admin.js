@@ -16,16 +16,19 @@ const admin = (store) => (next) => (action) => {
         const state = store.getState();
         const baseUrl = process.env.REACT_APP_BASE_URL;
         const url = `${baseUrl}/product`;
+        console.log(state.admin.newProduct.categories[0].length);
+        console.log(state.admin.newProduct.categories[1].length);
         try {
           const response = await axios.post(url, {
             title: state.admin.newProduct.title,
-            // A voir s'il faut mettre le parseInt
             price: parseInt(state.admin.newProduct.price, 10),
             description: state.admin.newProduct.description,
             image: state.admin.newProduct.image,
+            // Deux objets dans le state, si l'objet est vide on ne le met pas.
+            // permet de renseigner une seule catégorie sur le produit.
             categories: [
-              state.admin.newProduct.categories[0],
-              state.admin.newProduct.categories[1],
+              (state.admin.newProduct.categories[0] && (state.admin.newProduct.categories[0])),
+              (state.admin.newProduct.categories[1] && (state.admin.newProduct.categories[1])),
             ],
           },
           {
