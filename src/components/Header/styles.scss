@@ -32,6 +32,7 @@
     justify-content: center;
   }
   &__links {
+    width:80%;
     margin: 1em 2em;
     padding: 0.5em;
     font-size:1.1em;
@@ -42,7 +43,7 @@
     color: $light-brown;
     white-space: nowrap;
     background-color: $normal-grey;
-    border-radius: 2px;
+    border-radius: 15px 15px 0 0 ;
     &:hover {
       color: $lightest-brown;
     }
@@ -84,6 +85,15 @@
     }
     &__links {
       margin-bottom: 0.5em;
+      background-color: none;
+      width:50%;
+      border-radius: 15px;
+
+    }
+    &__links:hover {
+      background-color: $dark-grey;
+
     }
   }
 }
+
