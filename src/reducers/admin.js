@@ -19,7 +19,7 @@ const initialState = {
       1: '',
     },
   },
-  product: '11',
+  product: '',
   addProductSuccess: '',
   deleteProductSuccess: '',
   addProductError: '',

@@ -120,7 +120,7 @@ const AdminProduct = ({
                 id="0"
                 defaultValue="Category"
               >
-                <option disabled hidden>Category</option>
+                <option disabled hidden>Categorie</option>
                 {categories.map((category) => (
                   <option
                     value={category.id}
@@ -137,7 +137,7 @@ const AdminProduct = ({
                 id="1"
                 defaultValue="Category"
               >
-                <option disabled hidden>Category</option>
+                <option disabled hidden>Categorie</option>
                 {categories.map((category) => (
                   <option
                     value={category.id}
@@ -159,7 +159,9 @@ const AdminProduct = ({
           type="text"
           className="adminProduct__dropdownProducts"
           onChange={handleChangeProduct}
+          defaultValue="Produit"
         >
+          <option disabled hidden>Produit</option>
           {products.map((product) => (
             <option
               value={product.id}
