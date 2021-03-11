@@ -3,6 +3,7 @@ import {
   SUBMIT_NEW_PRODUCT,
   DELETE_PRODUCT,
   createProduct,
+  newProductSuccess,
 } from 'src/actions/admin';
 
 const admin = (store) => (next) => (action) => {
@@ -47,16 +48,27 @@ const admin = (store) => (next) => (action) => {
         const state = store.getState();
         const baseUrl = process.env.REACT_APP_BASE_URL;
         const url = `${baseUrl}/product`;
-
         try {
           const response = await axios.delete(url, {
-            id: parseInt(state.admin.product, 10),
-          },
-          {
             headers: {
               authorization: `Bearer ${state.user.infos.token}`,
             },
+            data: {
+              id: parseInt(state.admin.product, 10),
+            },
           });
+
+          console.log(response);
+          // if (response.statusText === 'OK') {
+          //   console.log('cestcool');
+          //   const { message } = response.data;
+          //   store.dispatch(deleteProductSuccess(message));
+          // }
+
+          if (response.statusText === 'OK') {
+            const { message } = response.data;
+            store.dispatch(newProductSuccess(message));
+          }
         }
         catch (error) {
           console.log(error, 'error');

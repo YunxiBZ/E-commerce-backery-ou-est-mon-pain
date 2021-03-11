@@ -23,6 +23,7 @@ const mapStateToProps = (state) => ({
   productCategories: state.admin.newProduct.categories,
   productImage: state.admin.newProduct.image,
   successAddProduct: state.admin.addProductSuccess,
+  successDeleteProduct: state.admin.deleteProductSuccess,
 });
 
 const mapDispatchToProps = (dispatch) => ({

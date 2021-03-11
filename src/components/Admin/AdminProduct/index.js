@@ -21,6 +21,7 @@ const AdminProduct = ({
   changeProduct,
   deleteProduct,
   successAddProduct,
+  successDeleteProduct,
 }) => {
   useEffect(() => {
     if (products.length < 1) {
@@ -57,6 +58,9 @@ const AdminProduct = ({
         <h2 className="adminProduct__title">Produit</h2>
         {successAddProduct && (
           <p className="adminProduct__successMessage">{successAddProduct}</p>
+        )}
+        {successDeleteProduct && (
+          <p className="adminProduct__successMessage">{successDeleteProduct}</p>
         )}
         <button
           value="Ajouter un produit"
@@ -193,12 +197,15 @@ AdminProduct.propTypes = {
   submitNewProduct: PropTypes.func.isRequired,
   changeProduct: PropTypes.func.isRequired,
   deleteProduct: PropTypes.func.isRequired,
-  successAddProduct: PropTypes.string.isRequired,
+  successAddProduct: PropTypes.string,
+  successDeleteProduct: PropTypes.string,
 };
 
 AdminProduct.defaultProps = {
   products: null,
   categories: null,
+  successAddProduct: null,
+  successDeleteProduct: null,
 };
 
 export default AdminProduct;

@@ -4,6 +4,7 @@ export const CHANGE_CATEGORIES_PRODUCT = 'CHANGE_CATEGORIES_PRODUCT';
 export const CHANGE_PRODUCT_DROPDOWN = 'CHANGE_PRODUCT_DROPDOWN';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const CREATE_PRODUCT = 'CREATE_PRODUCT';
+export const NEW_PRODUCT_SUCCESS = 'NEW_PRODUCT_SUCCESS';
 
 export const changeValueProduct = (value, name) => ({
   type: CHANGE_VALUE_PRODUCT,
@@ -32,5 +33,10 @@ export const deleteProduct = () => ({
 
 export const createProduct = (message) => ({
   type: CREATE_PRODUCT,
+  message,
+});
+
+export const newProductSuccess = (message) => ({
+  type: NEW_PRODUCT_SUCCESS,
   message,
 });
