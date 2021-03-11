@@ -23,12 +23,11 @@
     text-align: center;
     font-size: 0.8rem;
     margin-bottom: 1em;
+    cursor: default;
   }
  &__logged{
    font-size:1.5rem;
    margin-top: $gutter;
-
-
  }
  &__edit-btn{
   margin: $gutter 0;
