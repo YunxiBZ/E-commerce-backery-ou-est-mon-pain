@@ -90,6 +90,29 @@
   &__infoData {
     font-size: 1.2em;
   }
+  &__order-list {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    border-radius: 10px;
+    width: 90%;
+  }
+  &__order-title {
+    font-size: 0.6em;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  &__item {
+    margin: 1em 0;
+    padding: 0 1em;
+  }
+  &__order-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 .svg-inline--fa.fa-w-11 {
   width: 20px;

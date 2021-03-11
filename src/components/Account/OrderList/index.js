@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const OrderList = ({ orderList }) => (
   <section className="account__order-list">
     <h2 className="account__order-title">Historique des commandes :</h2>
-    <ul>
+    <ul className="account__order-container">
       {
         orderList.map((order) => (
           <li className="account__item" key={order.id}>
