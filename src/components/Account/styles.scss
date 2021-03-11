@@ -2,7 +2,7 @@
 
 .account {
   background-color: $lightest-brown;
-  height: 20vh;
+  height: 65vh;
   display: flex;
   justify-content: center;
   flex-direction:column;
@@ -16,10 +16,14 @@
     margin:$gutter*2;
     font-size: 2rem;
     font-weight: bold;
+    padding:$gutter*4 $gutter*5;
+    border: 2px solid $light-brown;
+    border-radius: 0px 100px / 120px;
   }
   &__item{
     display: flex;
     font-size: 1rem;
+    margin: $gutter;
     justify-content: space-between;
 
   }
