@@ -19,6 +19,8 @@ const AdminProduct = ({
   changeCategories,
   submitNewProduct,
   changeProduct,
+  deleteProduct,
+  successAddProduct,
 }) => {
   useEffect(() => {
     if (products.length < 1) {
@@ -53,6 +55,9 @@ const AdminProduct = ({
     <div className="adminProduct">
       <section className="adminProduct__addProductContainer">
         <h2 className="adminProduct__title">Produit</h2>
+        {successAddProduct && (
+          <p className="adminProduct__successMessage">{successAddProduct}</p>
+        )}
         <button
           value="Ajouter un produit"
           className="adminProduct__addProduct"
@@ -151,7 +156,14 @@ const AdminProduct = ({
           ))}
         </select>
         <Button value="Modifier ce produit" />
-        <Button value="Supprimer ce produit" />
+        <Button
+          value="Supprimer ce produit"
+          handleDeleteProduct={
+          () => {
+            deleteProduct();
+          }
+        }
+        />
       </section>
     </div>
   );
@@ -180,6 +192,8 @@ AdminProduct.propTypes = {
   changeCategories: PropTypes.func.isRequired,
   submitNewProduct: PropTypes.func.isRequired,
   changeProduct: PropTypes.func.isRequired,
+  deleteProduct: PropTypes.func.isRequired,
+  successAddProduct: PropTypes.string.isRequired,
 };
 
 AdminProduct.defaultProps = {

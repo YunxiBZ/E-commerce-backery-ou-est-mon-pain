@@ -2,6 +2,7 @@ import {
   CHANGE_VALUE_PRODUCT,
   CHANGE_CATEGORIES_PRODUCT,
   CHANGE_PRODUCT_DROPDOWN,
+  CREATE_PRODUCT,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
     },
   },
   product: '11',
+  addProductSuccess: '',
 };
 
 const admin = (state = initialState, action = {}) => {
@@ -47,6 +49,13 @@ const admin = (state = initialState, action = {}) => {
       return {
         ...state,
         product: action.value,
+      };
+    }
+    case CREATE_PRODUCT: {
+      console.log(action);
+      return {
+        ...state,
+        addProductSuccess: action.message,
       };
     }
     default:

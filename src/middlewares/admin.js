@@ -1,6 +1,8 @@
 import axios from 'axios';
 import {
   SUBMIT_NEW_PRODUCT,
+  DELETE_PRODUCT,
+  createProduct,
 } from 'src/actions/admin';
 
 const admin = (store) => (next) => (action) => {
@@ -28,13 +30,39 @@ const admin = (store) => (next) => (action) => {
               authorization: `Bearer ${state.user.infos.token}`,
             },
           });
-          console.log(response);
+          if (response.statusText === 'Created') {
+            const { message } = response.data;
+            store.dispatch(createProduct(message));
+          }
         }
         catch (error) {
           console.log(error, 'error');
         }
       };
       postProduct();
+      break;
+    }
+    case DELETE_PRODUCT: {
+      const deleteProduct = async () => {
+        const state = store.getState();
+        const baseUrl = process.env.REACT_APP_BASE_URL;
+        const url = `${baseUrl}/product`;
+
+        try {
+          const response = await axios.delete(url, {
+            id: parseInt(state.admin.product, 10),
+          },
+          {
+            headers: {
+              authorization: `Bearer ${state.user.infos.token}`,
+            },
+          });
+        }
+        catch (error) {
+          console.log(error, 'error');
+        }
+      };
+      deleteProduct();
       break;
     }
     default:

@@ -7,6 +7,18 @@
     font-weight: 700;
     font-size: 1.5em;
   }
+  &__successMessage {
+    margin-bottom: 1em;
+    background-color: green;
+    color: white;
+    width: 20%;
+    text-align: right;
+    border-radius: 20px;
+    padding: 1em;
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+  }
   &__addProduct {
     width: 30%;
     font-size: 1em;
