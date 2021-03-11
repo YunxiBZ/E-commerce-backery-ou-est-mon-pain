@@ -11,6 +11,13 @@ const AdminProduct = ({
   fetchData,
   categories,
   fetchCategories,
+  productName,
+  productPrice,
+  productDescription,
+  productCategories,
+  productImage,
+  changeField,
+  changeCategories,
 }) => {
   useEffect(() => {
     if (products.length < 1) {
@@ -24,6 +31,11 @@ const AdminProduct = ({
   const [open, setOpen] = useState(false);
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
+
+  const handleChangeCategories = (event) => {
+    console.log(event.target);
+    changeCategories(event.target.value, event.target.id);
+  };
 
   return (
     <div className="adminProduct">
@@ -41,49 +53,63 @@ const AdminProduct = ({
           <form className="adminProduct__form">
             <section className="adminProduct__inputsContainer">
               <InputAddProduct
-                name="name"
+                name="title"
                 placeholder="Nom du produit"
                 type="text"
-                value="truc"
+                value={productName}
                 className="adminProduct__field"
+                changeField={changeField}
               />
               <InputAddProduct
-                name="name"
+                name="description"
                 placeholder="Description"
                 type="text"
-                value="truc"
+                value={productDescription}
                 className="adminProduct__field"
+                changeField={changeField}
               />
               <InputAddProduct
-                name="name"
+                name="price"
                 placeholder="Prix"
                 type="text"
-                value="truc"
+                value={productPrice}
                 className="adminProduct__field"
+                changeField={changeField}
               />
               <InputAddProduct
-                name="name"
+                name="image"
                 placeholder="Image"
                 type="text"
-                value="truc"
+                value={productImage}
                 className="adminProduct__field"
+                changeField={changeField}
               />
             </section>
             <section className="adminProduct__dropdownContainer">
-              <select type="text" className="adminProduct__dropdownCategories">
+              <select
+                type="text"
+                className="adminProduct__dropdownCategories"
+                onChange={handleChangeCategories}
+                id="0"
+              >
                 {categories.map((category) => (
                   <option
-                    value={category.label}
+                    value={category.id}
                     key={category.id}
                   >
                     {category.label}
                   </option>
                 ))}
               </select>
-              <select type="text" className="adminProduct__dropdownCategories">
+              <select
+                type="text"
+                className="adminProduct__dropdownCategories"
+                onChange={handleChangeCategories}
+                id="1"
+              >
                 {categories.map((category) => (
                   <option
-                    value={category.label}
+                    value={category.id}
                     key={category.id}
                   >
                     {category.label}
@@ -130,6 +156,14 @@ AdminProduct.propTypes = {
     }),
   ),
   fetchCategories: PropTypes.func.isRequired,
+  productName: PropTypes.string.isRequired,
+  productPrice: PropTypes.string.isRequired,
+  productDescription: PropTypes.string.isRequired,
+  productImage: PropTypes.string.isRequired,
+  productCategories: PropTypes.arrayOf(
+  ).isRequired,
+  changeField: PropTypes.func.isRequired,
+  changeCategories: PropTypes.func.isRequired,
 };
 
 AdminProduct.defaultProps = {

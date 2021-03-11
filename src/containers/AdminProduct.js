@@ -6,10 +6,19 @@ import {
 import {
   fetchCategories,
 } from 'src/actions/categories';
+import {
+  changeValueProduct,
+  changeCategoriesProduct,
+} from 'src/actions/admin';
 
 const mapStateToProps = (state) => ({
   products: state.products,
   categories: state.categories,
+  productName: state.admin.newProduct.title,
+  productPrice: state.admin.newProduct.price,
+  productDescription: state.admin.newProduct.description,
+  productCategories: state.admin.newProduct.categories,
+  productImage: state.admin.newProduct.image,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,6 +27,13 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchCategories: () => {
     dispatch(fetchCategories);
+  },
+  changeField: (value, name) => {
+    const action = changeValueProduct(value, name);
+    dispatch(action);
+  },
+  changeCategories: (value, id) => {
+    dispatch(changeCategoriesProduct(value, id));
   },
 });
 

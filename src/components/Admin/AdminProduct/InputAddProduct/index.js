@@ -8,9 +8,13 @@ const InputAddProduct = ({
   placeholder,
   value,
   className,
+  changeField,
 
 }) => {
   const inputId = `field-${name}`;
+  const handleChange = (event) => {
+    changeField(event.target.value, name);
+  };
 
   return (
     <div className="ProductInput">
@@ -28,6 +32,8 @@ const InputAddProduct = ({
         className={className}
         placeholder={placeholder}
         name={name}
+        onChange={handleChange}
+
       />
     </div>
   );
@@ -39,6 +45,7 @@ InputAddProduct.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   className: PropTypes.string,
+  changeField: PropTypes.func.isRequired,
 };
 
 InputAddProduct.defaultProps = {

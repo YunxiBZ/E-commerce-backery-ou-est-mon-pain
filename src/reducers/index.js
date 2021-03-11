@@ -6,6 +6,7 @@ import products from './products';
 import user from './user';
 import cartReducer from './cartReducer';
 import signup from './signup';
+import admin from './admin';
 
 // Import des reducers
 
@@ -17,6 +18,7 @@ const globalReducer = combineReducers({
   user,
   signup,
   cartReducer,
+  admin,
   //  reducer,
   //  reducer,
 });
