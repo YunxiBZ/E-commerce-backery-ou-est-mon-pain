@@ -30,22 +30,10 @@ export const modifUserSucess = (
 });
 
 export const loginSuccess = (
-  email,
-  firstName,
-  lastName,
-  logged,
-  phoneNumber,
-  token,
-  role,
+  userData,
 ) => ({
   type: LOGIN_SUCCESS,
-  email,
-  firstName,
-  lastName,
-  logged,
-  phoneNumber,
-  token,
-  role,
+  userData,
 });
 
 export const changeValue = (value, name) => ({

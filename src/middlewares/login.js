@@ -27,7 +27,10 @@ const login = (store) => (next) => (action) => {
             const lastName = response.data.last_name;
             const phoneNumber = response.data.phone_number;
 
-            store.dispatch(loginSuccess(
+            // Store user infos in localStorage
+            // 1.prepare the right data format => the value = JSON.stringify(data)
+            // 2.with commande => localStorage.setItem('name of key', the value )
+            const userData = {
               email,
               firstName,
               lastName,
@@ -35,6 +38,12 @@ const login = (store) => (next) => (action) => {
               phoneNumber,
               token,
               role,
+            };
+            console.log(userData);
+            // const stringToSave = JSON.stringify()
+
+            store.dispatch(loginSuccess(
+              userData,
             ));
           }
         }

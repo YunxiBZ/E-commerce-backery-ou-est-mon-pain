@@ -55,15 +55,10 @@ const user = (state = initialState, action = {}) => {
     case LOGIN_SUCCESS: {
       return {
         ...state,
-        email: action.email,
+        email: action.userData.email,
         password: '',
         infos: {
-          firstName: action.firstName,
-          lastName: action.lastName,
-          logged: action.logged,
-          phoneNumber: action.phoneNumber,
-          token: action.token,
-          role: action.role,
+          ...action.userData,
         },
       };
     }
