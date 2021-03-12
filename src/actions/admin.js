@@ -7,6 +7,7 @@ export const CREATE_PRODUCT = 'CREATE_PRODUCT';
 export const NEW_PRODUCT_SUCCESS = 'NEW_PRODUCT_SUCCESS';
 export const ERROR_ADD_PRODUCT = 'ERROR_ADD_PRODUCT';
 export const DELETE_PRODUCT_ERROR = 'DELETE_PRODUCT_ERROR';
+export const CHANGE_VALUE_PRODUCT_MODIFY = 'CHANGE_VALUE_PRODUCT_MODIFY';
 
 export const changeValueProduct = (value, name) => ({
   type: CHANGE_VALUE_PRODUCT,
@@ -52,4 +53,10 @@ export const errorAddProduct = (message) => ({
 export const deleteProductError = (message) => ({
   type: DELETE_PRODUCT_ERROR,
   message,
+});
+
+export const changeValueProductModify = (value, name) => ({
+  type: CHANGE_VALUE_PRODUCT_MODIFY,
+  value,
+  name,
 });

@@ -12,6 +12,7 @@ import {
   submitNewProduct,
   changeProductDropdown,
   deleteProduct,
+  changeValueProductModify,
 } from 'src/actions/admin';
 
 const mapStateToProps = (state) => ({
@@ -57,6 +58,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteProduct: () => {
     dispatch(deleteProduct());
+  },
+  changeFieldModifyProduct: (value, name) => {
+    const action = changeValueProductModify(value, name);
+    dispatch(action);
   },
 });
 

@@ -6,6 +6,7 @@ import {
   NEW_PRODUCT_SUCCESS,
   ERROR_ADD_PRODUCT,
   DELETE_PRODUCT_ERROR,
+  CHANGE_VALUE_PRODUCT_MODIFY,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -44,6 +45,16 @@ const admin = (state = initialState, action = {}) => {
         ...state,
         newProduct: {
           ...state.newProduct,
+          [action.name]: action.value,
+        },
+      };
+    }
+    case CHANGE_VALUE_PRODUCT_MODIFY: {
+      console.log(action);
+      return {
+        ...state,
+        modifyProduct: {
+          ...state.modifyProduct,
           [action.name]: action.value,
         },
       };

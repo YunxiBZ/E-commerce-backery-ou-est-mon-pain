@@ -31,6 +31,7 @@ const AdminProduct = ({
   selectedProductImage,
   selectedProductCategory1,
   selectedProductCategory2,
+  changeFieldModifyProduct,
 }) => {
   // useEffect(() => {
   //   fetchCategories();
@@ -202,6 +203,7 @@ const AdminProduct = ({
                 type="text"
                 value={selectedProductTitle}
                 className="adminProduct__field"
+                changeField={changeFieldModifyProduct}
               />
               <InputModifyProduct
                 name="description"
@@ -209,6 +211,7 @@ const AdminProduct = ({
                 type="text"
                 value={selectedProductDescription}
                 className="adminProduct__field"
+                changeField={changeFieldModifyProduct}
               />
               <InputModifyProduct
                 name="price"
@@ -216,6 +219,7 @@ const AdminProduct = ({
                 type="text"
                 value={selectedProductPrice}
                 className="adminProduct__field"
+                changeField={changeFieldModifyProduct}
               />
               <InputModifyProduct
                 name="image"
@@ -223,6 +227,7 @@ const AdminProduct = ({
                 type="text"
                 value={selectedProductImage}
                 className="adminProduct__field"
+                changeField={changeFieldModifyProduct}
               />
             </section>
             <section className="adminProduct__dropdownContainer">
@@ -313,6 +318,7 @@ AdminProduct.propTypes = {
   selectedProductImage: PropTypes.string,
   selectedProductCategory1: PropTypes.string,
   selectedProductCategory2: PropTypes.string,
+  changeFieldModifyProduct: PropTypes.func.isRequired,
 };
 
 AdminProduct.defaultProps = {
