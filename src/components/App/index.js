@@ -20,6 +20,7 @@ import SingleProduct from "src/containers/SingleProduct";
 import Account from "src/containers/Account";
 import Admin from "src/containers/Admin";
 import Cart from "src/containers/Cart";
+import RGPD from "src/components/RGPD";
 
 // ==Import FontAwesomeIcon for use Icon
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -100,6 +101,9 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
         </Route>
         <Route exact path="/cart">
           <Cart />
+        </Route>
+        <Route exact path="/RGPD">
+          <RGPD />
         </Route>
       </Switch>
       <Footer />
