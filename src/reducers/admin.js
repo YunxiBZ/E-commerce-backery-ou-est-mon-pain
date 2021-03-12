@@ -7,6 +7,7 @@ import {
   ERROR_ADD_PRODUCT,
   DELETE_PRODUCT_ERROR,
   CHANGE_VALUE_PRODUCT_MODIFY,
+  CHANGE_CATEGORIES_MODIFY_PRODUCT,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -69,6 +70,19 @@ const admin = (state = initialState, action = {}) => {
           categories: {
             ...state.newProduct.categories,
             [action.id]: categoryId,
+          },
+        },
+      };
+    }
+    case CHANGE_CATEGORIES_MODIFY_PRODUCT: {
+      console.log(action);
+      return {
+        ...state,
+        modifyProduct: {
+          ...state.modifyProduct,
+          categories: {
+            ...state.modifyProduct.categories,
+            [action.id]: action.value,
           },
         },
       };

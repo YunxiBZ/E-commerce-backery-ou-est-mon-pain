@@ -8,6 +8,7 @@ export const NEW_PRODUCT_SUCCESS = 'NEW_PRODUCT_SUCCESS';
 export const ERROR_ADD_PRODUCT = 'ERROR_ADD_PRODUCT';
 export const DELETE_PRODUCT_ERROR = 'DELETE_PRODUCT_ERROR';
 export const CHANGE_VALUE_PRODUCT_MODIFY = 'CHANGE_VALUE_PRODUCT_MODIFY';
+export const CHANGE_CATEGORIES_MODIFY_PRODUCT = 'CHANGE_CATEGORIES_MODIFY_PRODUCT';
 
 export const changeValueProduct = (value, name) => ({
   type: CHANGE_VALUE_PRODUCT,
@@ -17,6 +18,12 @@ export const changeValueProduct = (value, name) => ({
 
 export const changeCategoriesProduct = (value, id) => ({
   type: CHANGE_CATEGORIES_PRODUCT,
+  value,
+  id,
+});
+
+export const changeCategoriesProductModify = (value, id) => ({
+  type: CHANGE_CATEGORIES_MODIFY_PRODUCT,
   value,
   id,
 });

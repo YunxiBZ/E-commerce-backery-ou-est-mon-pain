@@ -32,6 +32,7 @@ const AdminProduct = ({
   selectedProductCategory1,
   selectedProductCategory2,
   changeFieldModifyProduct,
+  changeModifyProductCategories,
 }) => {
   // useEffect(() => {
   //   fetchCategories();
@@ -63,6 +64,10 @@ const AdminProduct = ({
   const handleChangeProduct = (event) => {
     console.log('ok');
     changeProduct(event.target.value, products);
+  };
+
+  const handleModifyProductCategories = (event) => {
+    changeModifyProductCategories(event.target.value, event.target.id);
   };
 
   return (
@@ -236,6 +241,7 @@ const AdminProduct = ({
                 className="adminProduct__dropdownCategories"
                 id="0"
                 defaultValue={selectedProductCategory1 || ('Categorie')}
+                onChange={handleModifyProductCategories}
               >
                 <option disabled hidden>Categorie</option>
                 {categories.map((category) => (
@@ -252,6 +258,7 @@ const AdminProduct = ({
                 className="adminProduct__dropdownCategories"
                 id="1"
                 defaultValue={selectedProductCategory2 || ('Categorie')}
+                onChange={handleModifyProductCategories}
               >
                 <option disabled hidden>Categorie</option>
                 {categories.map((category) => (
@@ -319,6 +326,7 @@ AdminProduct.propTypes = {
   selectedProductCategory1: PropTypes.string,
   selectedProductCategory2: PropTypes.string,
   changeFieldModifyProduct: PropTypes.func.isRequired,
+  changeModifyProductCategories: PropTypes.func.isRequired,
 };
 
 AdminProduct.defaultProps = {
