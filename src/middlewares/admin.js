@@ -8,6 +8,7 @@ import {
   deleteProductError,
   SUBMIT_MODIFIED_PRODUCT,
   modifyProduct,
+  errorModifyProduct,
 } from 'src/actions/admin';
 
 const admin = (store) => (next) => (action) => {
@@ -118,6 +119,7 @@ const admin = (store) => (next) => (action) => {
         }
         catch (error) {
           console.log('error', error);
+          store.dispatch(errorModifyProduct('Veuillez entrer un prix valide'));
         }
       };
       tryModifyProduct();

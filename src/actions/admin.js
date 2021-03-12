@@ -12,6 +12,7 @@ export const CHANGE_CATEGORIES_MODIFY_PRODUCT = 'CHANGE_CATEGORIES_MODIFY_PRODUC
 export const SUBMIT_MODIFIED_PRODUCT = 'SUBMIT_MODIFIED_PRODUCT';
 export const MODIFY_PRODUCT = 'MODIFY_PRODUCT';
 export const DELETE_MESSAGES = 'DELETE_MESSAGES';
+export const ERROR_MODIFY_PRODUCT = 'ERROR_MODIFY_PRODUCT';
 
 export const deleteMessages = () => ({
   type: DELETE_MESSAGES,
@@ -70,6 +71,11 @@ export const newProductSuccess = (message) => ({
 
 export const errorAddProduct = (message) => ({
   type: ERROR_ADD_PRODUCT,
+  message,
+});
+
+export const errorModifyProduct = (message) => ({
+  type: ERROR_MODIFY_PRODUCT,
   message,
 });
 

@@ -38,6 +38,7 @@ const mapStateToProps = (state) => ({
   selectedProductCategory1: state.admin.modifyProduct.categories[0],
   selectedProductCategory2: state.admin.modifyProduct.categories[1],
   successModifyProduct: state.admin.modifyProductSuccess,
+  errorModifyProduct: state.admin.modifyProductError,
 });
 
 const mapDispatchToProps = (dispatch) => ({

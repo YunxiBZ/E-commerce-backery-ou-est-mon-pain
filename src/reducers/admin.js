@@ -10,6 +10,7 @@ import {
   CHANGE_CATEGORIES_MODIFY_PRODUCT,
   MODIFY_PRODUCT,
   DELETE_MESSAGES,
+  ERROR_MODIFY_PRODUCT,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -29,6 +30,7 @@ const initialState = {
   addProductError: '',
   deleteProductError: '',
   modifyProductSuccess: '',
+  modifyProductError: '',
   modifyProduct: {
     id: '',
     title: '',
@@ -119,6 +121,8 @@ const admin = (state = initialState, action = {}) => {
         deleteProductSuccess: '',
         addProductError: '',
         deleteProductError: '',
+        modifyProductSuccess: '',
+        modifyProductError: '',
         newProduct: {
           title: '',
           price: '',
@@ -135,7 +139,13 @@ const admin = (state = initialState, action = {}) => {
       console.log(action);
       return {
         ...state,
+        product: '',
         modifyProductSuccess: action.message,
+        modifyProductError: '',
+        addProductSuccess: '',
+        deleteProductSuccess: '',
+        addProductError: '',
+        deleteProductError: '',
         modifyProduct: {
           id: '',
           title: '',
@@ -157,6 +167,8 @@ const admin = (state = initialState, action = {}) => {
         addProductSuccess: '',
         addProductError: '',
         deleteProductError: '',
+        modifyProductError: '',
+        modifyProductSuccess: '',
       };
     }
     case ERROR_ADD_PRODUCT: {
@@ -167,6 +179,8 @@ const admin = (state = initialState, action = {}) => {
         addProductSuccess: '',
         deleteProductSuccess: '',
         deleteProductError: '',
+        modifyProductError: '',
+        modifyProductSuccess: '',
       };
     }
     case DELETE_PRODUCT_ERROR: {
@@ -176,6 +190,8 @@ const admin = (state = initialState, action = {}) => {
         addProductSuccess: '',
         deleteProductSuccess: '',
         deleteProductError: action.message,
+        modifyProductError: '',
+        modifyProductSuccess: '',
       };
     }
     case DELETE_MESSAGES: {
@@ -186,6 +202,18 @@ const admin = (state = initialState, action = {}) => {
         addProductError: '',
         deleteProductError: '',
         modifyProductSuccess: '',
+        modifyProductError: '',
+      };
+    }
+    case ERROR_MODIFY_PRODUCT: {
+      return {
+        ...state,
+        addProductError: '',
+        addProductSuccess: '',
+        deleteProductSuccess: '',
+        deleteProductError: '',
+        modifyProductSuccess: '',
+        modifyProductError: action.message,
       };
     }
     default:

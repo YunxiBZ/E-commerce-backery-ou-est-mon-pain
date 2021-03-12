@@ -36,6 +36,7 @@ const AdminProduct = ({
   submitModifiedProduct,
   successModifyProduct,
   deleteMessages,
+  errorModifyProduct,
 }) => {
   // A chaque render du component admin on vide les messages error/success du state
   useEffect(() => {
@@ -44,7 +45,7 @@ const AdminProduct = ({
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [products]);
 
   const [open, setOpen] = useState(false);
   const onOpenModal = () => setOpen(true);
@@ -98,6 +99,9 @@ const AdminProduct = ({
         )}
         {successModifyProduct && (
           <p className="adminProduct__successMessage">{successModifyProduct}</p>
+        )}
+        {errorModifyProduct && (
+          <p className="adminProduct__errorMessage">{errorModifyProduct}</p>
         )}
         <button
           value="Ajouter un produit"
@@ -343,6 +347,7 @@ AdminProduct.propTypes = {
   submitModifiedProduct: PropTypes.func.isRequired,
   successModifyProduct: PropTypes.string,
   deleteMessages: PropTypes.func.isRequired,
+  errorModifyProduct: PropTypes.string,
 };
 
 AdminProduct.defaultProps = {
@@ -360,6 +365,7 @@ AdminProduct.defaultProps = {
   selectedProductCategory1: '',
   selectedProductCategory2: '',
   successModifyProduct: null,
+  errorModifyProduct: null,
 };
 
 export default AdminProduct;
