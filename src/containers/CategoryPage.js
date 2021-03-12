@@ -7,37 +7,16 @@ import {
   quantityChange,
   addInCart,
 } from 'src/actions/products';
+// Import selector findProductsByCategory
+import findProductsByCategory from 'src/selectors/category';
 
 const mapStateToProps = (state, ownProps) => {
   // Get category from params
   const { category } = ownProps.match.params;
-
-  // Filter products with one category
-  const productsWithOneCategory = state.products.filter(
-    (productFoundWithCategory) => (
-      productFoundWithCategory.categories.length === 1
-    ),
-  );
-  // Filter products with two categories
-  const productsWithTwoCategories = state.products.filter(
-    (productFoundWithCategory) => (
-      productFoundWithCategory.categories.length === 2
-    ),
-  );
-  // Filter products of one category with params
-  const productsFilterWithFirstCategory = productsWithOneCategory.filter(
-    // The trim() method removes whitespace from both ends of a string.
-    (productFilter) => productFilter.categories[0].label.toLowerCase().trim() === category.trim(),
-  );
-  // Filter products of two categories with params
-  const productsFilterWithSecondCategory = productsWithTwoCategories.filter(
-    (productFilter) => (
-      productFilter.categories[1].label.toLowerCase().trim() === category.trim()
-    ),
-  );
-
+  // Use Category selector for filter products
+  const ProductsByCategory = findProductsByCategory(state.products, category);
   return {
-    productsByCategory: [...productsFilterWithFirstCategory, ...productsFilterWithSecondCategory],
+    productsByCategory: ProductsByCategory,
   };
 };
 
