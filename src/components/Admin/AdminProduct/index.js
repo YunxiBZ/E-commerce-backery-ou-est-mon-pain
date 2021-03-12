@@ -130,7 +130,7 @@ const AdminProduct = ({
                 className="adminProduct__dropdownCategories"
                 onChange={handleChangeCategories}
                 id="0"
-                defaultValue="Category"
+                defaultValue="Categorie"
               >
                 <option disabled hidden>Categorie</option>
                 {categories.map((category) => (
@@ -147,7 +147,7 @@ const AdminProduct = ({
                 className="adminProduct__dropdownCategories"
                 onChange={handleChangeCategories}
                 id="1"
-                defaultValue="Category"
+                defaultValue="Categorie"
               >
                 <option disabled hidden>Categorie</option>
                 {categories.map((category) => (
