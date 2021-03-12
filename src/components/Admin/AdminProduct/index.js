@@ -23,6 +23,7 @@ const AdminProduct = ({
   successDeleteProduct,
   addProductError,
   deleteProductError,
+  productSelected,
 }) => {
   // useEffect(() => {
   //   fetchCategories();
@@ -35,6 +36,10 @@ const AdminProduct = ({
   const [open, setOpen] = useState(false);
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
+
+  const [openModal, setOpenModal] = useState(false);
+  const setModalOpen = () => setOpenModal(true);
+  const setModalClose = () => setOpenModal(false);
 
   const handleChangeCategories = (event) => {
     console.log(event.target);
@@ -171,15 +176,103 @@ const AdminProduct = ({
             </option>
           ))}
         </select>
-        <Button value="Modifier ce produit" />
-        <Button
-          value="Supprimer ce produit"
-          handleDeleteProduct={
-          () => {
-            deleteProduct();
+        {productSelected && (
+          <button
+            value="Modifier ce produit"
+            onClick={setModalOpen}
+            type="button"
+            className="adminProduct__addProduct"
+          >
+            Modifier ce produit
+          </button>
+        )}
+        <Modal open={openModal} onClose={setModalClose} center className="">
+          <form className="adminProduct__form">
+            <section className="adminProduct__inputsContainer">
+              <InputAddProduct
+                name="title"
+                placeholder="Nom du produit"
+                type="text"
+                value={productName}
+                className="adminProduct__field"
+                changeField={changeField}
+              />
+              <InputAddProduct
+                name="description"
+                placeholder="Description"
+                type="text"
+                value={productDescription}
+                className="adminProduct__field"
+                changeField={changeField}
+              />
+              <InputAddProduct
+                name="price"
+                placeholder="Prix"
+                type="text"
+                value={productPrice}
+                className="adminProduct__field"
+                changeField={changeField}
+              />
+              <InputAddProduct
+                name="image"
+                placeholder="Image"
+                type="text"
+                value={productImage}
+                className="adminProduct__field"
+                changeField={changeField}
+              />
+            </section>
+            <section className="adminProduct__dropdownContainer">
+              <select
+                type="text"
+                className="adminProduct__dropdownCategories"
+                onChange={handleChangeCategories}
+                id="0"
+                defaultValue="Category"
+              >
+                <option disabled hidden>Categorie</option>
+                {categories.map((category) => (
+                  <option
+                    value={category.id}
+                    key={category.id}
+                  >
+                    {category.label}
+                  </option>
+                ))}
+              </select>
+              <select
+                type="text"
+                className="adminProduct__dropdownCategories"
+                onChange={handleChangeCategories}
+                id="1"
+                defaultValue="Category"
+              >
+                <option disabled hidden>Categorie</option>
+                {categories.map((category) => (
+                  <option
+                    value={category.id}
+                    key={category.id}
+                  >
+                    {category.label}
+                  </option>
+                ))}
+              </select>
+              <div className="adminProduct__addProductButton">
+                <Button type="submit" value="Ajouter un produit" className="adminProduct__button" />
+              </div>
+            </section>
+          </form>
+        </Modal>
+        {productSelected && (
+          <Button
+            value="Supprimer ce produit"
+            handleDeleteProduct={
+            () => {
+              deleteProduct();
+            }
           }
-        }
-        />
+          />
+        )}
       </section>
     </div>
   );
@@ -212,6 +305,7 @@ AdminProduct.propTypes = {
   successDeleteProduct: PropTypes.string,
   addProductError: PropTypes.string,
   deleteProductError: PropTypes.string,
+  productSelected: PropTypes.string,
 };
 
 AdminProduct.defaultProps = {
@@ -221,6 +315,7 @@ AdminProduct.defaultProps = {
   successDeleteProduct: null,
   addProductError: null,
   deleteProductError: null,
+  productSelected: null,
 };
 
 export default AdminProduct;

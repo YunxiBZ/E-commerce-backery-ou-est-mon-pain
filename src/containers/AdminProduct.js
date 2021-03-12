@@ -26,6 +26,7 @@ const mapStateToProps = (state) => ({
   successDeleteProduct: state.admin.deleteProductSuccess,
   addProductError: state.admin.addProductError,
   deleteProductError: state.admin.deleteProductError,
+  productSelected: state.admin.product,
 });
 
 const mapDispatchToProps = (dispatch) => ({
