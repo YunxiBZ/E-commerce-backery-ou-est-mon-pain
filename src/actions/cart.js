@@ -4,7 +4,7 @@ export const REDUCE_QUANTITY_IN_CART = 'REDUCE_QUANTITY_IN_CART';
 
 export const CHANGE_QUANTITY_IN_CART = 'CHANGE_QUANTITY_IN_CART';
 
-export const DELETE_PRODUCT = 'DELETE_PRODUCT';
+export const DELETE_PRODUCT_IN_CART = 'DELETE_PRODUCT_IN_CART';
 
 export const HANDLE_ORDER = 'HANDLE_ORDER';
 
@@ -29,8 +29,8 @@ export const handleOrder = (cart, totalPriceInCart) => ({
   totalPriceInCart,
 });
 
-export const deleteProduct = (title, totalPrice) => ({
-  type: DELETE_PRODUCT,
+export const deleteProductInCart = (title, totalPrice) => ({
+  type: DELETE_PRODUCT_IN_CART,
   title,
   totalPrice,
 });

@@ -7,7 +7,7 @@ import {
   ADD_QUANTITY_IN_CART,
   REDUCE_QUANTITY_IN_CART,
   CHANGE_QUANTITY_IN_CART,
-  DELETE_PRODUCT,
+  DELETE_PRODUCT_IN_CART,
 } from 'src/actions/cart';
 
 import { FETCH_LIST_SUCCESS } from 'src/actions/user';
@@ -140,7 +140,7 @@ const reducer = (state = initialState, action = {}) => {
 
       };
     }
-    case DELETE_PRODUCT: {
+    case DELETE_PRODUCT_IN_CART: {
       // Filter the products in cart with product title
       const productRest = state.cart.filter((product) => product.title !== action.title);
 

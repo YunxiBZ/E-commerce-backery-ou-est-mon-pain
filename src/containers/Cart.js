@@ -4,7 +4,7 @@ import {
   addQuantityInCart,
   reduceQuantityInCart,
   changeQuantityInCart,
-  deleteProduct,
+  deleteProductInCart,
   handleOrder,
 } from 'src/actions/cart';
 
@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   onClickDeleteBtn: (title, totalPrice) => {
-    const action = deleteProduct(title, totalPrice);
+    const action = deleteProductInCart(title, totalPrice);
     dispatch(action);
   },
   onClickCommandBtn: (productsInCart, totalPriceInCart) => {
