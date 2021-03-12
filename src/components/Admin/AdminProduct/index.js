@@ -45,7 +45,7 @@ const AdminProduct = ({
 
   useEffect(() => {
     fetchData();
-  }, [products]);
+  }, []);
 
   const [open, setOpen] = useState(false);
   const onOpenModal = () => setOpen(true);
