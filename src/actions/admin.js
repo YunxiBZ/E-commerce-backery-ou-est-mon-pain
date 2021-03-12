@@ -13,6 +13,9 @@ export const SUBMIT_MODIFIED_PRODUCT = 'SUBMIT_MODIFIED_PRODUCT';
 export const MODIFY_PRODUCT = 'MODIFY_PRODUCT';
 export const DELETE_MESSAGES = 'DELETE_MESSAGES';
 export const ERROR_MODIFY_PRODUCT = 'ERROR_MODIFY_PRODUCT';
+export const FETCH_DAILY_ORDERS_SUCCESS = 'FETCH_DAILY_ORDERS_SUCCESS';
+
+export const FETCH_DAILY_ORDERS = 'FETCH_DAILY_ORDERS';
 
 export const deleteMessages = () => ({
   type: DELETE_MESSAGES,
@@ -89,3 +92,13 @@ export const changeValueProductModify = (value, name) => ({
   value,
   name,
 });
+
+export const fetchDailyOrders = () => ({
+  type: FETCH_DAILY_ORDERS,
+});
+
+export const fetchDailyOrdersSuccess = (orders) => ({
+  type: FETCH_DAILY_ORDERS_SUCCESS,
+  orders,
+});
+

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Button from 'src/components/Button';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
+import DailyOrders from 'src/containers/DailyOrders';
 import InputAddProduct from './InputAddProduct';
 import InputModifyProduct from './InputModifyProduct';
 
@@ -304,6 +305,7 @@ const AdminProduct = ({
           />
         )}
       </section>
+      <DailyOrders />
     </div>
   );
 };

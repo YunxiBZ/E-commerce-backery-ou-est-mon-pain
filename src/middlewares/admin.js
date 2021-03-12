@@ -2,13 +2,15 @@ import axios from 'axios';
 import {
   SUBMIT_NEW_PRODUCT,
   DELETE_PRODUCT,
+  SUBMIT_MODIFIED_PRODUCT,
+  FETCH_DAILY_ORDERS,
   createProduct,
   newProductSuccess,
   errorAddProduct,
   deleteProductError,
-  SUBMIT_MODIFIED_PRODUCT,
   modifyProduct,
   errorModifyProduct,
+  fetchDailyOrdersSuccess,
 } from 'src/actions/admin';
 import {
   fetchProducts,
@@ -129,6 +131,28 @@ const admin = (store) => (next) => (action) => {
         }
       };
       tryModifyProduct();
+      break;
+    }
+    case FETCH_DAILY_ORDERS: {
+      const fetchData = async () => {
+        const state = store.getState();
+        const baseUrl = process.env.REACT_APP_BASE_URL;
+        const url = `${baseUrl}/daily-orders`;
+        try {
+          const response = await axios.get(url, {
+            headers: {
+              authorization: `Bearer ${state.user.infos.token}`,
+            },
+          });
+          if (response.statusText === 'OK') {
+            store.dispatch(fetchDailyOrdersSuccess(response.data));
+          }
+        }
+        catch (error) {
+          console.log(error, 'error');
+        }
+      };
+      fetchData();
       break;
     }
     default:

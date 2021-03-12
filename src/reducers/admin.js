@@ -11,6 +11,7 @@ import {
   MODIFY_PRODUCT,
   DELETE_MESSAGES,
   ERROR_MODIFY_PRODUCT,
+  FETCH_DAILY_ORDERS_SUCCESS,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -42,6 +43,7 @@ const initialState = {
       1: '',
     },
   },
+  dailyOrders: [],
 };
 
 const admin = (state = initialState, action = {}) => {
@@ -214,6 +216,13 @@ const admin = (state = initialState, action = {}) => {
         deleteProductError: '',
         modifyProductSuccess: '',
         modifyProductError: action.message,
+      };
+    }
+    case FETCH_DAILY_ORDERS_SUCCESS: {
+      console.log(action);
+      return {
+        ...state,
+        dailyOrders: action.orders,
       };
     }
     default:

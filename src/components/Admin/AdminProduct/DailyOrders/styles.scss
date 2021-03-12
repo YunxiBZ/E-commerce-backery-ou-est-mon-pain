@@ -1,0 +1,31 @@
+@import 'src/styles/vars';
+
+.dailyOrders {
+  height: 60vh;
+  background-color: $dark-grey;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 20px;
+  border-radius: 0px 100px / 120px;
+  border: 2px solid $light-brown;
+  &__title {
+    color: $light-brown;
+    font-size: 1.6em;
+    padding: 1em;
+  }
+  &__ordersContainer {
+    width: 100%;
+    height: 80%;
+    border-radius: 0px 0px 0px 70px;
+    overflow: auto;
+  }
+  &__order {
+    background-color: red;
+    width: 95%;
+    margin: 0 auto;
+    height: 20%;
+    background-color: $normal-grey;
+    border-radius: 10px;
+    margin-bottom: 1em;
+  }
+}
