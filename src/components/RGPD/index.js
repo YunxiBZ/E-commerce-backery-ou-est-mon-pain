@@ -3,7 +3,7 @@ import "./styles.scss";
 
 function RGPD() {
   return (
-    <div>
+    <div className="Container">
       <h1 className="RGPDTitle">Politique de confidentialité</h1>
       <h2 className="RGPDSubtitle">Protection des données</h2>
       <p>
@@ -19,11 +19,9 @@ function RGPD() {
         définit pour quel usage et comment vos données personnelles sont
         utilisées. Les données personnelles collectées sur le site ou lors de
         vos commandes en magasins sont traitées par la société : Où-est-mon-pain
-        26 rue des pissenlits, 95100, Argenteuil
+        26 rue des pissenlits, 95100, Argenteuil.
       </p>
-      <h3 className="RGPDSubsubtitle">
-        1.Traitement des données personnelles
-      </h3>
+      <h3 className="RGPDSubsubtitle">1.Traitement des données personnelles</h3>
       <p>
         Le site ou-est-mon-pain.surge.sh est amené à vous demander des
         informations personnelles dans le but de mieux vous satisfaire en
@@ -46,15 +44,13 @@ function RGPD() {
         contacter par e-mail pour plusieurs raisons : confirmation de votre
         commande, envoi de votre commande.
       </p>
-      <h3 className="RGPDSubsubtitle">
-        3. Accès à vos données personnelles
-      </h3>
+      <h3 className="RGPDSubsubtitle">3. Accès à vos données personnelles</h3>
       <p>
         Conformément à l’article 34 de la loi 78-17 du 6 janvier 1978 dite loi »
         Informatiques et Libertés » vous disposez d’un droit d’accès, de
         modification, de rectification et de suppression de vos données
         personnelles. Vous pouvez exercer ce droit en envoyant un e-mail à
-        l’adresse suivante ou-est-mon-pain@gmail.com
+        l’adresse suivante ou-est-mon-pain@gmail.com .
       </p>
       <h3 className="RGPDSubsubtitle">
         4. Transmission de vos données personnelles
