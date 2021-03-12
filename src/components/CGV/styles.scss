@@ -1,6 +1,17 @@
-.CGV {
+.Container {
+  margin: 0% 15% 0% 15%;
+}
+
+.CGVTitle {
   text-align: center;
   font-size: xx-large;
+  padding: 20px;
+}
+
+.CGVSubtitle {
+  text-align: left;
+  font-size: x-large;
+  padding: 20px;
 }
 
 @media screen and (max-width: 650px) {

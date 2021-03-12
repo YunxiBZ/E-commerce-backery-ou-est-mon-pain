@@ -3,7 +3,7 @@ import "./styles.scss";
 
 function CGV() {
   return (
-    <div>
+    <div className="Container">
       <h1 className="CGVTitle">Conditions générales de vente</h1>
       <p>
         Les présentes conditions régissent les ventes de produits exclusivement
@@ -16,7 +16,7 @@ function CGV() {
         95100, Argenteuil, Le Service Client de la boutique en ligne est
         disponible pour vous renseigner à tout moment et répondre à vos
         questions par téléphone : 06 15 26 73 62 (prix d’un appel local à partir
-        d’un poste fixe)
+        d’un poste fixe).
       </p>
       <h2 className="CGVSubtitle">2.Prix et produits</h2>
       <p>
@@ -52,7 +52,7 @@ function CGV() {
       <h2 className="CGVSubtitle">
         6. Droits de rétractation : Le remboursement
       </h2>
-      <p>Non valable sur nos produits</p>
+      <p>Non valable sur nos produits.</p>
       <h2 className="CGVSubtitle">7. Garantie du consommateur</h2>
       <p>
         Dans l’hypothèse où un problème apparaîtrait lors d’un retrait de
@@ -67,7 +67,7 @@ function CGV() {
         dossier. Conformément à loi du 6 janvier 1978, vous pouvez accéder à ces
         informations, demander leur modification ou leur rectification ou exiger
         de ne plus figurer dans notre base de données en nous envoyant un
-        courrier électronique à : ou-est-mon-pain@gmail.com
+        courrier électronique à : ou-est-mon-pain@gmail.com .
       </p>
       <h2 className="CGVSubtitle">9. Textes applicables - Juridiction</h2>
       <p>
