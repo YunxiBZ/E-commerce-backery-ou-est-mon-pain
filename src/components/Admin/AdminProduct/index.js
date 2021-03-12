@@ -33,6 +33,8 @@ const AdminProduct = ({
   selectedProductCategory2,
   changeFieldModifyProduct,
   changeModifyProductCategories,
+  submitModifiedProduct,
+  successModifyProduct,
 }) => {
   // useEffect(() => {
   //   fetchCategories();
@@ -61,6 +63,12 @@ const AdminProduct = ({
     onCloseModal();
   };
 
+  const handleSubmitModify = (event) => {
+    event.preventDefault();
+    submitModifiedProduct();
+    setModalClose();
+  };
+
   const handleChangeProduct = (event) => {
     console.log('ok');
     changeProduct(event.target.value, products);
@@ -85,6 +93,9 @@ const AdminProduct = ({
         )}
         {deleteProductError && (
           <p className="adminProduct__errorMessage">{deleteProductError}</p>
+        )}
+        {successModifyProduct && (
+          <p className="adminProduct__successMessage">{successModifyProduct}</p>
         )}
         <button
           value="Ajouter un produit"
@@ -200,7 +211,7 @@ const AdminProduct = ({
           </button>
         )}
         <Modal open={openModal} onClose={setModalClose} center className="">
-          <form className="adminProduct__form">
+          <form className="adminProduct__form" onSubmit={handleSubmitModify}>
             <section className="adminProduct__inputsContainer">
               <InputModifyProduct
                 name="title"
@@ -271,7 +282,7 @@ const AdminProduct = ({
                 ))}
               </select>
               <div className="adminProduct__addProductButton">
-                <Button type="submit" value="Ajouter un produit" className="adminProduct__button" />
+                <Button type="submit" value="Modifier le produit" className="adminProduct__button" />
               </div>
             </section>
           </form>
@@ -327,6 +338,8 @@ AdminProduct.propTypes = {
   selectedProductCategory2: PropTypes.string,
   changeFieldModifyProduct: PropTypes.func.isRequired,
   changeModifyProductCategories: PropTypes.func.isRequired,
+  submitModifiedProduct: PropTypes.func.isRequired,
+  successModifyProduct: PropTypes.string,
 };
 
 AdminProduct.defaultProps = {
@@ -343,6 +356,7 @@ AdminProduct.defaultProps = {
   selectedProductImage: '',
   selectedProductCategory1: '',
   selectedProductCategory2: '',
+  successModifyProduct: null,
 };
 
 export default AdminProduct;

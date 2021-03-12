@@ -8,6 +8,7 @@ import {
   DELETE_PRODUCT_ERROR,
   CHANGE_VALUE_PRODUCT_MODIFY,
   CHANGE_CATEGORIES_MODIFY_PRODUCT,
+  MODIFY_PRODUCT,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -26,7 +27,9 @@ const initialState = {
   deleteProductSuccess: '',
   addProductError: '',
   deleteProductError: '',
+  modifyProductSuccess: '',
   modifyProduct: {
+    id: '',
     title: '',
     price: '',
     description: '',
@@ -95,13 +98,14 @@ const admin = (state = initialState, action = {}) => {
         ...state,
         product: action.value,
         modifyProduct: {
+          id: product[0].id,
           title: product[0].title,
           price: product[0].price.toString(),
           description: product[0].description,
           image: product[0].image,
           categories: {
-            0: (product[0].categories[0] && (product[0].categories[0].id.toString())),
-            1: (product[0].categories[1] && (product[0].categories[1].id.toString())),
+            0: (product[0].categories[0] ? (product[0].categories[0].id.toString()) : ''),
+            1: (product[0].categories[1] ? (product[0].categories[1].id.toString()) : ''),
           },
         },
       };
@@ -115,6 +119,24 @@ const admin = (state = initialState, action = {}) => {
         addProductError: '',
         deleteProductError: '',
         newProduct: {
+          title: '',
+          price: '',
+          description: '',
+          image: '',
+          categories: {
+            0: '',
+            1: '',
+          },
+        },
+      };
+    }
+    case MODIFY_PRODUCT: {
+      console.log(action);
+      return {
+        ...state,
+        modifyProductSuccess: action.message,
+        modifyProduct: {
+          id: '',
           title: '',
           price: '',
           description: '',

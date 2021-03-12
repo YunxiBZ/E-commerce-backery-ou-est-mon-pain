@@ -9,6 +9,8 @@ export const ERROR_ADD_PRODUCT = 'ERROR_ADD_PRODUCT';
 export const DELETE_PRODUCT_ERROR = 'DELETE_PRODUCT_ERROR';
 export const CHANGE_VALUE_PRODUCT_MODIFY = 'CHANGE_VALUE_PRODUCT_MODIFY';
 export const CHANGE_CATEGORIES_MODIFY_PRODUCT = 'CHANGE_CATEGORIES_MODIFY_PRODUCT';
+export const SUBMIT_MODIFIED_PRODUCT = 'SUBMIT_MODIFIED_PRODUCT';
+export const MODIFY_PRODUCT = 'MODIFY_PRODUCT';
 
 export const changeValueProduct = (value, name) => ({
   type: CHANGE_VALUE_PRODUCT,
@@ -45,6 +47,15 @@ export const deleteProduct = () => ({
 export const createProduct = (message) => ({
   type: CREATE_PRODUCT,
   message,
+});
+
+export const modifyProduct = (message) => ({
+  type: MODIFY_PRODUCT,
+  message,
+});
+
+export const submitModifiedProduct = () => ({
+  type: SUBMIT_MODIFIED_PRODUCT,
 });
 
 export const newProductSuccess = (message) => ({

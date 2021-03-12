@@ -14,6 +14,7 @@ import {
   deleteProduct,
   changeValueProductModify,
   changeCategoriesProductModify,
+  submitModifiedProduct,
 } from 'src/actions/admin';
 
 const mapStateToProps = (state) => ({
@@ -35,6 +36,7 @@ const mapStateToProps = (state) => ({
   selectedProductImage: state.admin.modifyProduct.image,
   selectedProductCategory1: state.admin.modifyProduct.categories[0],
   selectedProductCategory2: state.admin.modifyProduct.categories[1],
+  successModifyProduct: state.admin.modifyProductSuccess,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -56,6 +58,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   submitNewProduct: () => {
     dispatch(submitNewProduct());
+  },
+  submitModifiedProduct: () => {
+    dispatch(submitModifiedProduct());
   },
   changeProduct: (value, products) => {
     dispatch(changeProductDropdown(value, products));

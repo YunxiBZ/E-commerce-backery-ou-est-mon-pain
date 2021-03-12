@@ -6,6 +6,8 @@ import {
   newProductSuccess,
   errorAddProduct,
   deleteProductError,
+  SUBMIT_MODIFIED_PRODUCT,
+  modifyProduct,
 } from 'src/actions/admin';
 
 const admin = (store) => (next) => (action) => {
@@ -16,8 +18,6 @@ const admin = (store) => (next) => (action) => {
         const state = store.getState();
         const baseUrl = process.env.REACT_APP_BASE_URL;
         const url = `${baseUrl}/product`;
-        console.log(state.admin.newProduct.categories[0].length);
-        console.log(state.admin.newProduct.categories[1].length);
         const categories = [];
         if (state.admin.newProduct.categories[0] !== '') {
           categories.push(state.admin.newProduct.categories[0]);
@@ -70,11 +70,6 @@ const admin = (store) => (next) => (action) => {
           });
 
           console.log(response);
-          // if (response.statusText === 'OK') {
-          //   console.log('cestcool');
-          //   const { message } = response.data;
-          //   store.dispatch(deleteProductSuccess(message));
-          // }
 
           if (response.statusText === 'OK') {
             const { message } = response.data;
@@ -87,6 +82,45 @@ const admin = (store) => (next) => (action) => {
         }
       };
       deleteProduct();
+      break;
+    }
+    case SUBMIT_MODIFIED_PRODUCT: {
+      const tryModifyProduct = async () => {
+        const state = store.getState();
+        const baseUrl = process.env.REACT_APP_BASE_URL;
+        const url = `${baseUrl}/product`;
+        const categories = [];
+        if (state.admin.modifyProduct.categories[0] !== '') {
+          categories.push(parseInt(state.admin.modifyProduct.categories[0], 10));
+        }
+        if (state.admin.modifyProduct.categories[1] !== '') {
+          categories.push(parseInt(state.admin.modifyProduct.categories[1], 10));
+        }
+        try {
+          const response = await axios.put(url, {
+            id: state.admin.modifyProduct.id,
+            title: state.admin.modifyProduct.title,
+            price: parseInt(state.admin.modifyProduct.price, 10),
+            description: state.admin.modifyProduct.description,
+            image: state.admin.modifyProduct.image,
+            categories,
+          },
+          {
+            headers: {
+              authorization: `Bearer ${state.user.infos.token}`,
+            },
+          });
+          console.log(response);
+          if (response.statusText === 'OK') {
+            const { message } = response.data;
+            store.dispatch(modifyProduct(message));
+          }
+        }
+        catch (error) {
+          console.log('error', error);
+        }
+      };
+      tryModifyProduct();
       break;
     }
     default:
