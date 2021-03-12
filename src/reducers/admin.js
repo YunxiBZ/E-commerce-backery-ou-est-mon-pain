@@ -24,6 +24,16 @@ const initialState = {
   deleteProductSuccess: '',
   addProductError: '',
   deleteProductError: '',
+  modifyProduct: {
+    title: '',
+    price: '',
+    description: '',
+    image: '',
+    categories: {
+      0: '',
+      1: '',
+    },
+  },
 };
 
 const admin = (state = initialState, action = {}) => {
@@ -31,6 +41,7 @@ const admin = (state = initialState, action = {}) => {
     case CHANGE_VALUE_PRODUCT: {
       console.log(action);
       return {
+        ...state,
         newProduct: {
           ...state.newProduct,
           [action.name]: action.value,
@@ -41,6 +52,7 @@ const admin = (state = initialState, action = {}) => {
       console.log(action);
       const categoryId = parseInt(action.value, 10);
       return {
+        ...state,
         newProduct: {
           ...state.newProduct,
           categories: {
@@ -52,9 +64,21 @@ const admin = (state = initialState, action = {}) => {
     }
     case CHANGE_PRODUCT_DROPDOWN: {
       console.log(action);
+      const product = action.products.filter((item) => item.id === parseInt(action.value, 10));
+      console.log(product);
       return {
         ...state,
         product: action.value,
+        modifyProduct: {
+          title: product[0].title,
+          price: product[0].price.toString(),
+          description: product[0].description,
+          image: product[0].image,
+          categories: {
+            0: (product[0].categories[0] && (product[0].categories[0].id.toString())),
+            1: (product[0].categories[1] && (product[0].categories[1].id.toString())),
+          },
+        },
       };
     }
     case CREATE_PRODUCT: {
@@ -65,6 +89,16 @@ const admin = (state = initialState, action = {}) => {
         deleteProductSuccess: '',
         addProductError: '',
         deleteProductError: '',
+        newProduct: {
+          title: '',
+          price: '',
+          description: '',
+          image: '',
+          categories: {
+            0: '',
+            1: '',
+          },
+        },
       };
     }
     case NEW_PRODUCT_SUCCESS: {

@@ -5,6 +5,7 @@ import Button from 'src/components/Button';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import InputAddProduct from './InputAddProduct';
+import InputModifyProduct from './InputModifyProduct';
 
 const AdminProduct = ({
   products,
@@ -24,6 +25,12 @@ const AdminProduct = ({
   addProductError,
   deleteProductError,
   productSelected,
+  selectedProductTitle,
+  selectedProductPrice,
+  selectedProductDescription,
+  selectedProductImage,
+  selectedProductCategory1,
+  selectedProductCategory2,
 }) => {
   // useEffect(() => {
   //   fetchCategories();
@@ -54,7 +61,7 @@ const AdminProduct = ({
 
   const handleChangeProduct = (event) => {
     console.log('ok');
-    changeProduct(event.target.value);
+    changeProduct(event.target.value, products);
   };
 
   return (
@@ -189,46 +196,41 @@ const AdminProduct = ({
         <Modal open={openModal} onClose={setModalClose} center className="">
           <form className="adminProduct__form">
             <section className="adminProduct__inputsContainer">
-              <InputAddProduct
+              <InputModifyProduct
                 name="title"
                 placeholder="Nom du produit"
                 type="text"
-                value={productName}
+                value={selectedProductTitle}
                 className="adminProduct__field"
-                changeField={changeField}
               />
-              <InputAddProduct
+              <InputModifyProduct
                 name="description"
                 placeholder="Description"
                 type="text"
-                value={productDescription}
+                value={selectedProductDescription}
                 className="adminProduct__field"
-                changeField={changeField}
               />
-              <InputAddProduct
+              <InputModifyProduct
                 name="price"
                 placeholder="Prix"
                 type="text"
-                value={productPrice}
+                value={selectedProductPrice}
                 className="adminProduct__field"
-                changeField={changeField}
               />
-              <InputAddProduct
+              <InputModifyProduct
                 name="image"
                 placeholder="Image"
                 type="text"
-                value={productImage}
+                value={selectedProductImage}
                 className="adminProduct__field"
-                changeField={changeField}
               />
             </section>
             <section className="adminProduct__dropdownContainer">
               <select
                 type="text"
                 className="adminProduct__dropdownCategories"
-                onChange={handleChangeCategories}
                 id="0"
-                defaultValue="Category"
+                defaultValue={selectedProductCategory1}
               >
                 <option disabled hidden>Categorie</option>
                 {categories.map((category) => (
@@ -243,9 +245,8 @@ const AdminProduct = ({
               <select
                 type="text"
                 className="adminProduct__dropdownCategories"
-                onChange={handleChangeCategories}
                 id="1"
-                defaultValue="Category"
+                defaultValue={selectedProductCategory2}
               >
                 <option disabled hidden>Categorie</option>
                 {categories.map((category) => (
@@ -306,6 +307,12 @@ AdminProduct.propTypes = {
   addProductError: PropTypes.string,
   deleteProductError: PropTypes.string,
   productSelected: PropTypes.string,
+  selectedProductTitle: PropTypes.string,
+  selectedProductPrice: PropTypes.string,
+  selectedProductDescription: PropTypes.string,
+  selectedProductImage: PropTypes.string,
+  selectedProductCategory1: PropTypes.string,
+  selectedProductCategory2: PropTypes.string,
 };
 
 AdminProduct.defaultProps = {
@@ -316,6 +323,12 @@ AdminProduct.defaultProps = {
   addProductError: null,
   deleteProductError: null,
   productSelected: null,
+  selectedProductTitle: '',
+  selectedProductPrice: '',
+  selectedProductDescription: '',
+  selectedProductImage: '',
+  selectedProductCategory1: '',
+  selectedProductCategory2: '',
 };
 
 export default AdminProduct;

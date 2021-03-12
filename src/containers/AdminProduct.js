@@ -27,6 +27,12 @@ const mapStateToProps = (state) => ({
   addProductError: state.admin.addProductError,
   deleteProductError: state.admin.deleteProductError,
   productSelected: state.admin.product,
+  selectedProductTitle: state.admin.modifyProduct.title,
+  selectedProductPrice: state.admin.modifyProduct.price,
+  selectedProductDescription: state.admin.modifyProduct.description,
+  selectedProductImage: state.admin.modifyProduct.image,
+  selectedProductCategory1: state.admin.modifyProduct.categories[0],
+  selectedProductCategory2: state.admin.modifyProduct.categories[1],
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -46,8 +52,8 @@ const mapDispatchToProps = (dispatch) => ({
   submitNewProduct: () => {
     dispatch(submitNewProduct());
   },
-  changeProduct: (value) => {
-    dispatch(changeProductDropdown(value));
+  changeProduct: (value, products) => {
+    dispatch(changeProductDropdown(value, products));
   },
   deleteProduct: () => {
     dispatch(deleteProduct());

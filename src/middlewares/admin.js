@@ -18,6 +18,13 @@ const admin = (store) => (next) => (action) => {
         const url = `${baseUrl}/product`;
         console.log(state.admin.newProduct.categories[0].length);
         console.log(state.admin.newProduct.categories[1].length);
+        const categories = [];
+        if (state.admin.newProduct.categories[0] !== '') {
+          categories.push(state.admin.newProduct.categories[0]);
+        }
+        if (state.admin.newProduct.categories[1] !== '') {
+          categories.push(state.admin.newProduct.categories[1]);
+        }
         try {
           const response = await axios.post(url, {
             title: state.admin.newProduct.title,
@@ -26,16 +33,14 @@ const admin = (store) => (next) => (action) => {
             image: state.admin.newProduct.image,
             // Deux objets dans le state, si l'objet est vide on ne le met pas.
             // permet de renseigner une seule catégorie sur le produit.
-            categories: [
-              (state.admin.newProduct.categories[0] && (state.admin.newProduct.categories[0])),
-              (state.admin.newProduct.categories[1] && (state.admin.newProduct.categories[1])),
-            ],
+            categories,
           },
           {
             headers: {
               authorization: `Bearer ${state.user.infos.token}`,
             },
           });
+          console.log(response);
           if (response.statusText === 'Created') {
             const { message } = response.data;
             store.dispatch(createProduct(message));

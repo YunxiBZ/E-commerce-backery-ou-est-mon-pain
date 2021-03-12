@@ -20,9 +20,10 @@ export const changeCategoriesProduct = (value, id) => ({
   id,
 });
 
-export const changeProductDropdown = (value) => ({
+export const changeProductDropdown = (value, products) => ({
   type: CHANGE_PRODUCT_DROPDOWN,
   value,
+  products,
 });
 
 export const submitNewProduct = () => ({
