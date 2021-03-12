@@ -20,6 +20,7 @@ import SingleProduct from 'src/containers/SingleProduct';
 import Account from 'src/containers/Account';
 import Admin from 'src/containers/Admin';
 import Cart from 'src/containers/Cart';
+import CategoryPage from 'src/containers/CategoryPage';
 
 // ==Import FontAwesomeIcon for use Icon
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -107,6 +108,7 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
         <Route exact path="/cart">
           <Cart />
         </Route>
+        <Route exact component={CategoryPage} path="/category/:category" />
       </Switch>
       <Footer />
     </div>

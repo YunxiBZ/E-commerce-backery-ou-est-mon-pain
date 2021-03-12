@@ -10,7 +10,7 @@ const Category = ({ label, image }) => {
   return (
     <NavLink
       className="category"
-      to={label} // à changer
+      to={`/category/${label.toLowerCase()} `} // à changer=>changé par Yunxi :)
       exact
     >
       <img className="category__img" alt="category-name" src={image} /* Il faudra modifier les url dans categories *//>
