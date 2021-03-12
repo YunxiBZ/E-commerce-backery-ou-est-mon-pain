@@ -10,6 +10,9 @@ import {
   modifyProduct,
   errorModifyProduct,
 } from 'src/actions/admin';
+import {
+  fetchProducts,
+} from 'src/actions/products';
 
 const admin = (store) => (next) => (action) => {
   switch (action.type) {
@@ -45,6 +48,7 @@ const admin = (store) => (next) => (action) => {
           if (response.statusText === 'Created') {
             const { message } = response.data;
             store.dispatch(createProduct(message));
+            store.dispatch(fetchProducts());
           }
         }
         catch (error) {
@@ -75,6 +79,7 @@ const admin = (store) => (next) => (action) => {
           if (response.statusText === 'OK') {
             const { message } = response.data;
             store.dispatch(newProductSuccess(message));
+            store.dispatch(fetchProducts());
           }
         }
         catch (error) {
@@ -115,6 +120,7 @@ const admin = (store) => (next) => (action) => {
           if (response.statusText === 'OK') {
             const { message } = response.data;
             store.dispatch(modifyProduct(message));
+            store.dispatch(fetchProducts());
           }
         }
         catch (error) {
