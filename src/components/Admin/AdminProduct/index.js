@@ -230,7 +230,7 @@ const AdminProduct = ({
                 type="text"
                 className="adminProduct__dropdownCategories"
                 id="0"
-                defaultValue={selectedProductCategory1}
+                defaultValue={selectedProductCategory1 || ('Categorie')}
               >
                 <option disabled hidden>Categorie</option>
                 {categories.map((category) => (
@@ -246,7 +246,7 @@ const AdminProduct = ({
                 type="text"
                 className="adminProduct__dropdownCategories"
                 id="1"
-                defaultValue={selectedProductCategory2}
+                defaultValue={selectedProductCategory2 || ('Categorie')}
               >
                 <option disabled hidden>Categorie</option>
                 {categories.map((category) => (
