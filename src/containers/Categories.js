@@ -5,7 +5,6 @@ const mapStateToProps = (state) => ({
   categories: state.categories,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-});
+const mapDispatchToProps = {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);

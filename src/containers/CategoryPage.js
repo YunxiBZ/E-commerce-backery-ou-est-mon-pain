@@ -11,30 +11,30 @@ import {
 const mapStateToProps = (state, ownProps) => {
   // Get category from params
   const { category } = ownProps.match.params;
+
   // Filter products with one category
   const productsWithOneCategory = state.products.filter(
-    (productFoundWithCategory) => (productFoundWithCategory.categories.length === 1),
-  );
-  // Filter products with two category
-  const productsWithTwoCategory = state.products.filter(
-    (productFoundWithCategory) => (productFoundWithCategory.categories.length === 2),
-  );
-  console.log('productsWithTwoCategory', productsWithTwoCategory);
-  // Filter products of one category with params
-  const productsFilterWithFirstCategory = productsWithOneCategory.filter(
-    (productFilter) => (
-      (productFilter.categories[0].label.toLowerCase() === category)
+    (productFoundWithCategory) => (
+      productFoundWithCategory.categories.length === 1
     ),
   );
-  console.log('productsFilterWithFirstCategory', productsFilterWithFirstCategory);
-  // Filter products of two category with params
-  const productsFilterWithSecondCategory = productsWithTwoCategory.filter(
-    (productFilter) => (
-      (productFilter.categories[1].label.toLowerCase() === category)
-    )
-    ,
+  // Filter products with two categories
+  const productsWithTwoCategories = state.products.filter(
+    (productFoundWithCategory) => (
+      productFoundWithCategory.categories.length === 2
+    ),
   );
-  console.log('productsFilterWithSecondCategory', productsFilterWithSecondCategory);
+  // Filter products of one category with params
+  const productsFilterWithFirstCategory = productsWithOneCategory.filter(
+    // The trim() method removes whitespace from both ends of a string.
+    (productFilter) => productFilter.categories[0].label.toLowerCase().trim() === category.trim(),
+  );
+  // Filter products of two categories with params
+  const productsFilterWithSecondCategory = productsWithTwoCategories.filter(
+    (productFilter) => (
+      productFilter.categories[1].label.toLowerCase().trim() === category.trim()
+    ),
+  );
 
   return {
     productsByCategory: [...productsFilterWithFirstCategory, ...productsFilterWithSecondCategory],
