@@ -3,7 +3,6 @@ import {
   ADD_QUANTITY,
   REDUCE_QUANTITY,
   QUANTITY_CHANGE,
-
 } from 'src/actions/products';
 
 export const initialState = [];
