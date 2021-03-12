@@ -9,6 +9,7 @@ import {
   CHANGE_VALUE_PRODUCT_MODIFY,
   CHANGE_CATEGORIES_MODIFY_PRODUCT,
   MODIFY_PRODUCT,
+  DELETE_MESSAGES,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -175,6 +176,16 @@ const admin = (state = initialState, action = {}) => {
         addProductSuccess: '',
         deleteProductSuccess: '',
         deleteProductError: action.message,
+      };
+    }
+    case DELETE_MESSAGES: {
+      return {
+        ...state,
+        addProductSuccess: '',
+        deleteProductSuccess: '',
+        addProductError: '',
+        deleteProductError: '',
+        modifyProductSuccess: '',
       };
     }
     default:

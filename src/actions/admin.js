@@ -11,6 +11,11 @@ export const CHANGE_VALUE_PRODUCT_MODIFY = 'CHANGE_VALUE_PRODUCT_MODIFY';
 export const CHANGE_CATEGORIES_MODIFY_PRODUCT = 'CHANGE_CATEGORIES_MODIFY_PRODUCT';
 export const SUBMIT_MODIFIED_PRODUCT = 'SUBMIT_MODIFIED_PRODUCT';
 export const MODIFY_PRODUCT = 'MODIFY_PRODUCT';
+export const DELETE_MESSAGES = 'DELETE_MESSAGES';
+
+export const deleteMessages = () => ({
+  type: DELETE_MESSAGES,
+});
 
 export const changeValueProduct = (value, name) => ({
   type: CHANGE_VALUE_PRODUCT,

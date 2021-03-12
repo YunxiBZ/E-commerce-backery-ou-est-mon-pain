@@ -15,6 +15,7 @@ import {
   changeValueProductModify,
   changeCategoriesProductModify,
   submitModifiedProduct,
+  deleteMessages,
 } from 'src/actions/admin';
 
 const mapStateToProps = (state) => ({
@@ -71,6 +72,9 @@ const mapDispatchToProps = (dispatch) => ({
   changeFieldModifyProduct: (value, name) => {
     const action = changeValueProductModify(value, name);
     dispatch(action);
+  },
+  deleteMessages: () => {
+    dispatch(deleteMessages());
   },
 });
 

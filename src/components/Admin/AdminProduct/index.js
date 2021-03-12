@@ -35,10 +35,12 @@ const AdminProduct = ({
   changeModifyProductCategories,
   submitModifiedProduct,
   successModifyProduct,
+  deleteMessages,
 }) => {
-  // useEffect(() => {
-  //   fetchCategories();
-  // }, []);
+  // A chaque render du component admin on vide les messages error/success du state
+  useEffect(() => {
+    deleteMessages();
+  }, []);
 
   useEffect(() => {
     fetchData();
@@ -340,6 +342,7 @@ AdminProduct.propTypes = {
   changeModifyProductCategories: PropTypes.func.isRequired,
   submitModifiedProduct: PropTypes.func.isRequired,
   successModifyProduct: PropTypes.string,
+  deleteMessages: PropTypes.func.isRequired,
 };
 
 AdminProduct.defaultProps = {
