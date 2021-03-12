@@ -23,11 +23,10 @@ const CartProduct = ({
     </Link>
     <div className="product__bottom">
       <div className="product__quantity">
-
         <FontAwesomeIcon
-          icon="arrow-alt-circle-up"
-          className="product__icon product__add-icon"
-          onClick={() => onClickAddQuantityBtn(title, price)}
+          icon="arrow-alt-circle-down"
+          className="product__icon product__reduce-icon"
+          onClick={() => onClickReduceQuantityBtn(title, price)}
         />
         <input
           className="product__quantity-input"
@@ -43,9 +42,9 @@ const CartProduct = ({
           }
         />
         <FontAwesomeIcon
-          icon="arrow-alt-circle-down"
-          className="product__icon product__reduce-icon"
-          onClick={() => onClickReduceQuantityBtn(title, price)}
+          icon="arrow-alt-circle-up"
+          className="product__icon product__add-icon"
+          onClick={() => onClickAddQuantityBtn(title, price)}
         />
       </div>
 

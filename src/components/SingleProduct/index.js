@@ -25,9 +25,9 @@ const SingleProduct = ({
         <div className="singleProduct__data">
           <div className="singleProduct__quantityContainer">
             <FontAwesomeIcon
-              icon="arrow-alt-circle-up"
-              className="singleProduct__AddIcon"
-              onClick={() => onClickAddQuantityBtn(product.title)}
+              icon="arrow-alt-circle-down"
+              className="singleProduct__RemoveIcon"
+              onClick={() => onClickReduceQuantityBtn(product.title)}
             />
             <input
               className="singleProduct__quantity"
@@ -43,9 +43,9 @@ const SingleProduct = ({
               }
             />
             <FontAwesomeIcon
-              icon="arrow-alt-circle-down"
-              className="singleProduct__RemoveIcon"
-              onClick={() => onClickReduceQuantityBtn(product.title)}
+              icon="arrow-alt-circle-up"
+              className="singleProduct__AddIcon"
+              onClick={() => onClickAddQuantityBtn(product.title)}
             />
           </div>
           <p className="singleProduct__price">{product.totalPrice}€</p>
