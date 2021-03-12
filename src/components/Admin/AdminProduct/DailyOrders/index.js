@@ -12,8 +12,6 @@ const dailyOrders = ({
     fetchDailyOrders();
   }, []);
 
-
-
   return (
     <div className="dailyOrders">
       <h2 className="dailyOrders__title">Commandes journalières</h2>
