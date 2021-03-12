@@ -101,4 +101,3 @@ export const fetchDailyOrdersSuccess = (orders) => ({
   type: FETCH_DAILY_ORDERS_SUCCESS,
   orders,
 });
-

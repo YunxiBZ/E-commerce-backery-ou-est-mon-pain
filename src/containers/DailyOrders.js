@@ -5,6 +5,7 @@ import {
 } from 'src/actions/admin';
 
 const mapStateToProps = (state) => ({
+  orders: state.admin.dailyOrders,
 });
 
 const mapDispatchToProps = (dispatch) => ({
