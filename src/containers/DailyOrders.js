@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import DailyOrders from 'src/components/Admin/AdminProduct/DailyOrders';
 import {
   fetchDailyOrders,
+  validateOrder,
 } from 'src/actions/admin';
 
 const mapStateToProps = (state) => ({
@@ -11,6 +12,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchDailyOrders: () => {
     dispatch(fetchDailyOrders());
+  },
+  validateOrder: (orderId) => {
+    dispatch(validateOrder(orderId));
   },
 });
 

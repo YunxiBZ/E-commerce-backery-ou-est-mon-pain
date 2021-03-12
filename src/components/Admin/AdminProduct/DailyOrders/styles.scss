@@ -80,7 +80,7 @@
     justify-content: space-between;
     flex-direction: column;
   }
-  &__status {
+  &__statusCheckedIn {
     text-align: center;
     background-color: $status-save;
     width: 50%;
@@ -88,6 +88,18 @@
     border-radius: 20px;
     padding: 0.6em;
     color: $dark-grey;
+    text-align: center;
+    font-weight: 700;
+    cursor: default;
+  }
+  &__statusValid {
+    text-align: center;
+    background-color: green;
+    width: 50%;
+    margin: 0 auto 1em auto;
+    border-radius: 20px;
+    padding: 0.6em;
+    color: white;
     text-align: center;
     font-weight: 700;
     cursor: default;

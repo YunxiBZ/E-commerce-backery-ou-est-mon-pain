@@ -6,22 +6,29 @@ import Order from './Order';
 const dailyOrders = ({
   fetchDailyOrders,
   orders,
+  validateOrder,
 }) => {
   useEffect(() => {
     fetchDailyOrders();
   }, []);
-  console.log(orders);
+
+
 
   return (
     <div className="dailyOrders">
       <h2 className="dailyOrders__title">Commandes journalières</h2>
-      <ul className="dailyOrders__ordersContainer">
-        {
+      { orders ? (
+        <ul className="dailyOrders__ordersContainer">
+          {
           orders.map((order) => (
-            <Order key={order.id} order={order}>Okkk</Order>
+            <Order key={order.id} order={order} validateOrder={validateOrder}>Okkk</Order>
           ))
         }
-      </ul>
+        </ul>
+      ) : (
+        <div>Pas de commandes pour l'instant 😁</div>
+      )}
+
     </div>
   );
 };
@@ -33,6 +40,7 @@ dailyOrders.propTypes = {
       id: PropTypes.number.isRequired,
     }),
   ),
+  validateOrder: PropTypes.func.isRequired,
 };
 
 export default dailyOrders;

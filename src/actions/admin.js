@@ -14,6 +14,7 @@ export const MODIFY_PRODUCT = 'MODIFY_PRODUCT';
 export const DELETE_MESSAGES = 'DELETE_MESSAGES';
 export const ERROR_MODIFY_PRODUCT = 'ERROR_MODIFY_PRODUCT';
 export const FETCH_DAILY_ORDERS_SUCCESS = 'FETCH_DAILY_ORDERS_SUCCESS';
+export const VALIDATE_ORDER = 'VALIDATE_ORDER';
 
 export const FETCH_DAILY_ORDERS = 'FETCH_DAILY_ORDERS';
 
@@ -100,4 +101,9 @@ export const fetchDailyOrders = () => ({
 export const fetchDailyOrdersSuccess = (orders) => ({
   type: FETCH_DAILY_ORDERS_SUCCESS,
   orders,
+});
+
+export const validateOrder = (orderId) => ({
+  type: VALIDATE_ORDER,
+  orderId,
 });
