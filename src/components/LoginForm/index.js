@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 
 import Button from 'src/components/Button';
 import LoginField from './LoginField';
@@ -13,11 +13,15 @@ const LoginForm = ({
   changeField,
   submitForm,
   error,
+  logged,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     submitForm();
   };
+  if (logged) {
+    return <Redirect to="/account" />;
+  }
 
   return (
     <div className="container">
@@ -67,10 +71,12 @@ LoginForm.propTypes = {
   changeField: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
   error: PropTypes.string,
+  logged: PropTypes.bool,
 };
 
 LoginForm.defaultProps = {
   error: '',
+  logged: null,
 };
 
 export default LoginForm;
