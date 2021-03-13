@@ -26,6 +26,16 @@ const LoginForm = ({
       history.push('/');
     }
   }, 1000);
+  // const ADMIN = 'admin';
+  // const USER = 'user';
+
+  // if (role === ADMIN) {
+  //   return <Redirect to="/admin" />;
+  // }
+  // if (role === USER) {
+  //   return <Redirect to="/account" />;
+  // }
+
   return (
     <div className="container">
       <form autoComplete="off" className="loginForm" onSubmit={handleSubmit}>

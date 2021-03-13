@@ -1,11 +1,11 @@
 @import 'src/styles/vars';
 
 .connection{
-  color: $normal-grey;
+  color: $lightest-brown;
   position: absolute;
   font-weight: 700;
-  top:0;
-  right: 0;
+  top: 0px;
+  right: -15px;
   margin:$gutter ;
   &__icon{
     max-width: 30px;
@@ -14,20 +14,26 @@
   &__icon:hover {
     color:$dark-grey
   }
-&__group-icon{
+  &__group-icon{
   display: flex;
   font-size: 1.3rem;
-  justify-content:space-around
-}
+  background-color: $normal-grey;
+  border-radius: 20px;
+  border: 2px solid $dark-grey;
+  justify-content: space-between;
+  }
   &__hello {
     text-align: center;
     font-size: 0.8rem;
     margin-bottom: 1em;
     cursor: default;
+    padding: 0.3em;
+    background-color: $normal-grey;
+    border-radius: 20px;
   }
  &__logged{
    font-size:1.5rem;
-   margin-top: $gutter;
+   padding-left: 1em;
  }
  &__edit-btn{
   margin: $gutter 0;
@@ -49,17 +55,37 @@
   color:$dark-grey
 }
  &__logout-btn{
-  margin: $gutter 0;
+  margin: $gutter 0.5em;
 
  }
  &__logout-btn:hover {
   color:$dark-grey
 }
+  &__cart-link {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__logout-link {
+    width: 33%;
+    justify-content: center;
+    align-items: center;
+  }
+  &__account-btn{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 650px) {
   .connection{
     margin: $gutter*2;
+    &__group-icon {
+      padding: 0.5em;
+      padding-bottom: 0;
+    }
     &__hello {
       font-size: 1.5rem;
       text-shadow: center;
@@ -87,8 +113,6 @@
     &__admin-btn{
       margin-top: 0;
       font-size: 1.5rem;
-
-
      }
   }
   

@@ -39,6 +39,7 @@ const Connection = ({
             <div className="connection__group-icon">
               <Link
                 to={role === USER ? '/account' : '/admin'}
+                className="connection__account-btn"
               >
                 {role === USER
                   ? (

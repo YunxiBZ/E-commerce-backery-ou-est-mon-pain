@@ -1,0 +1,137 @@
+@import 'src/styles/vars';
+
+.dailyOrders {
+  height: 60vh;
+  background-color: $dark-grey;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 20px;
+  border-radius: 0px 100px / 120px;
+  border: 2px solid $light-brown;
+  height: max-content;
+  padding-bottom: 2em;
+  &__title {
+    color: $light-brown;
+    font-size: 1.6em;
+    padding: 1em;
+  }
+  &__ordersContainer {
+    width: 100%;
+    height: 80%;
+    border-radius: 0px 0px 0px 70px;
+    overflow: auto;
+  }
+  &__order {
+    background-color: red;
+    width: 95%;
+    margin: 0 auto;
+    height: 20%;
+    background-color: $normal-grey;
+    border-radius: 10px;
+    margin-bottom: 1em;
+    display: flex;
+    padding: 1em 0;
+  }
+  &__productsContainer {
+    display:flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: flex-end;
+    margin-left: 1em;
+  }
+  &__quantityContainer {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+  }
+  &__entityTitle {
+    text-align: center;
+    width: 100%;
+    padding-bottom: 1em;
+    cursor: default;
+    border-radius: 0 0 0 0px;
+  }
+  &__product {
+    cursor: default;
+    border-top: 2px solid $light-brown;
+    width: 100%;
+    text-align: end;
+    padding: 0.4em;
+    border-left: 2px solid $light-brown;
+    border-radius: 5px 0 0 5px;
+    &:last-child {
+      border-bottom: 2px solid $light-brown;
+    }
+  }
+  &__quantity {
+    cursor: default;
+    border: 2px solid $light-brown;
+    border-bottom: 0;
+    text-align: center;
+    padding: 0.4em;
+    border-radius: 0px 5px 5px 0;
+    &:last-child {
+      border-bottom: 2px solid $light-brown;
+    }
+  }
+  &__statusContainer {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  &__statusCheckedIn {
+    text-align: center;
+    background-color: $status-save;
+    width: 50%;
+    margin: 0 auto 1em auto;
+    border-radius: 20px;
+    padding: 0.6em;
+    color: $dark-grey;
+    text-align: center;
+    font-weight: 700;
+    cursor: default;
+  }
+  &__statusValid {
+    text-align: center;
+    background-color: green;
+    width: 50%;
+    margin: 0 auto 1em auto;
+    border-radius: 20px;
+    padding: 0.6em;
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    cursor: default;
+  }
+  &__validateOrder {
+    width: 70%;
+    margin: 0 auto;
+    background-color: $lightest-brown;
+    border: 4px solid $light-brown;
+    color: $dark-grey;
+    font-size: 0.9em;
+    padding: 0.4em;
+    border-radius: 20px;
+    font-family: $font-ubuntu;
+    font-weight: 700;
+    margin-bottom: 1em;
+    transition: 0.3s background-color;
+    &:hover {
+      background-color: $dark-grey;
+      color: white;
+      transition-delay: 0.2s;
+    }
+  }
+  &__totalPrice {
+    background-color: $dark-grey;
+    border-radius: 20px;
+    width: 20%;
+    font-size: 1.5em;
+    padding: 0.5em;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    cursor: default;
+  }
+}

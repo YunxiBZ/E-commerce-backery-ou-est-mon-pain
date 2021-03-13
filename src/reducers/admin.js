@@ -11,6 +11,8 @@ import {
   MODIFY_PRODUCT,
   DELETE_MESSAGES,
   ERROR_MODIFY_PRODUCT,
+  FETCH_DAILY_ORDERS_SUCCESS,
+  VALIDATE_ORDER,
 } from 'src/actions/admin';
 
 const initialState = {
@@ -42,6 +44,7 @@ const initialState = {
       1: '',
     },
   },
+  dailyOrders: [],
 };
 
 const admin = (state = initialState, action = {}) => {
@@ -214,6 +217,28 @@ const admin = (state = initialState, action = {}) => {
         deleteProductError: '',
         modifyProductSuccess: '',
         modifyProductError: action.message,
+      };
+    }
+    case FETCH_DAILY_ORDERS_SUCCESS: {
+      console.log(action);
+      return {
+        ...state,
+        dailyOrders: action.orders,
+      };
+    }
+    case VALIDATE_ORDER: {
+      // On récupère la commande qui match l'orderId envoyé avec l'action
+      const matchOrder = state.dailyOrders.filter((order) => order.id === action.orderId);
+      // On récupère les autres commandes
+      const otherOrders = state.dailyOrders.filter((order) => order.id !== action.orderId);
+      // On change le statut de la commande qui match
+      matchOrder[0].state = 'Validé';
+      return {
+        ...state,
+        dailyOrders: [
+          ...otherOrders,
+          ...matchOrder,
+        ],
       };
     }
     default:
