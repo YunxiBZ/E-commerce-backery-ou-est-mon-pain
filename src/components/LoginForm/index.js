@@ -13,13 +13,19 @@ const LoginForm = ({
   changeField,
   submitForm,
   error,
-  logged,
+  role,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     submitForm();
   };
-  if (logged) {
+  const ADMIN = 'admin';
+  const USER = 'user';
+
+  if (role === ADMIN) {
+    return <Redirect to="/admin" />;
+  }
+  if (role === USER) {
     return <Redirect to="/account" />;
   }
 
@@ -71,12 +77,12 @@ LoginForm.propTypes = {
   changeField: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
   error: PropTypes.string,
-  logged: PropTypes.bool,
+  role: PropTypes.string,
 };
 
 LoginForm.defaultProps = {
   error: '',
-  logged: null,
+  role: null,
 };
 
 export default LoginForm;
