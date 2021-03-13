@@ -217,7 +217,7 @@ const AdminProduct = ({
             Modifier ce produit
           </button>
         )}
-        <Modal open={openModal} onClose={setModalClose} center className="">
+        <Modal open={openModal} onClose={setModalClose} center className="adminProduct__modal">
           <form className="adminProduct__form" onSubmit={handleSubmitModify}>
             <section className="adminProduct__inputsContainer">
               <InputModifyProduct
