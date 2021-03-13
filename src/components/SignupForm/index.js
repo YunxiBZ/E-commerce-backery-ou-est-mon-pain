@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import Button from 'src/components/Button';
 import SignupField from './SignupField';
 import './styles.scss';
@@ -14,11 +15,16 @@ const SignupForm = ({
   changeField,
   handleSignup,
   error,
+  signedUp,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleSignup();
   };
+
+  if (signedUp) {
+    return <Redirect to="/login" />;
+  }
   return (
 
     <form
@@ -92,9 +98,11 @@ SignupForm.propTypes = {
   changeField: PropTypes.func.isRequired,
   handleSignup: PropTypes.func.isRequired,
   error: PropTypes.string,
+  signedUp: PropTypes.string,
 };
 
 SignupForm.defaultProps = {
   error: null,
+  signedUp: null,
 };
 export default SignupForm;
