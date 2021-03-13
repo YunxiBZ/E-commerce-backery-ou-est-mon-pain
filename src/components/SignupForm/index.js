@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'src/components/Button';
+import { useHistory } from 'react-router-dom';
 import SignupField from './SignupField';
+
 import './styles.scss';
 
 const SignupForm = ({
@@ -14,11 +16,20 @@ const SignupForm = ({
   changeField,
   handleSignup,
   error,
+  signupSuccess,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleSignup();
   };
+  // hook useHistory for redirect
+  const history = useHistory();
+  setTimeout(() => {
+    if (signupSuccess) {
+      history.push('/login');
+    }
+  }, 1000);
+
   return (
 
     <form
@@ -92,9 +103,11 @@ SignupForm.propTypes = {
   changeField: PropTypes.func.isRequired,
   handleSignup: PropTypes.func.isRequired,
   error: PropTypes.string,
+  signupSuccess: PropTypes.bool,
 };
 
 SignupForm.defaultProps = {
   error: null,
+  signupSuccess: false,
 };
 export default SignupForm;

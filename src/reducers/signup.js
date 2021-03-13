@@ -1,4 +1,5 @@
 import { CHANGE_FIELD, SIGNUP_SUCCESS, SIGNUP_FAILED } from 'src/actions/signup';
+import { USER_LOGOUT } from 'src/actions/user';
 
 const initialState = {
   email: '',
@@ -25,6 +26,7 @@ const signup = (state = initialState, action = {}) => {
         first_name: '',
         last_name: '',
         phone_number: '',
+        signupSuccess: true,
       };
     }
     case SIGNUP_FAILED: {
@@ -33,6 +35,12 @@ const signup = (state = initialState, action = {}) => {
         password: '',
         passwordConfirm: '',
         error: action.message,
+      };
+    }
+    case USER_LOGOUT: {
+      return {
+        ...state,
+        signupSuccess: false,
       };
     }
     default:
