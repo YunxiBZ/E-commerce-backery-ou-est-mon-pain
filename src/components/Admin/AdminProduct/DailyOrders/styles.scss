@@ -135,3 +135,14 @@
     cursor: default;
   }
 }
+
+@media screen and (max-width: 770px) {
+  .dailyOrders {
+    &__statusCheckedIn {
+      padding: 0;
+    }
+    &__statusValid {
+      padding: 0;
+    }
+  }
+}
