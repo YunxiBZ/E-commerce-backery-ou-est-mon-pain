@@ -10,6 +10,7 @@ const Connection = ({
   onClickLogoutBtn,
   isLogged,
   role,
+  cart,
 }) => {
   const USER = 'user';
 
@@ -64,6 +65,7 @@ const Connection = ({
                   className="connection__cart-btn"
                   icon="shopping-basket"
                 />
+                {cart.length > 0 && (<div className="connection__cart-items">{cart.length}</div>)}
               </Link>
               )}
               <Link
@@ -93,9 +95,11 @@ Connection.propTypes = {
   onClickLogoutBtn: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
   role: PropTypes.string,
+  cart: PropTypes.array,
 };
 
 Connection.defaultProps = {
   role: '',
+  cart: null,
 };
 export default Connection;
