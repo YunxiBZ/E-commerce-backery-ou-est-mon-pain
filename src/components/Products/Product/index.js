@@ -28,14 +28,13 @@ const Product = ({
   // On définit 3 couleurs que l'on va appliquer au bg-color de notre div
   // en fonction du state du dessus.
   const darkGrey = '#303a44';
-  const normalGrey = '#56666e';
   const lightGrey = '#caccc9';
   const [props, set] = useSpring(() => ({ backgroundColor: darkGrey }));
   //
   set({ backgroundColor: hover ? darkGrey : lightGrey });
 
   return (
-    <animated.div style={props} className="product" props={hover} onMouseEnter={onHoverProduct} onMouseLeave={onMouseOutProduct}>
+    <animated.div style={props} className="product" props={hover.toString()} onMouseEnter={onHoverProduct} onMouseLeave={onMouseOutProduct}>
       <h3 className="product__name">{title}</h3>
       <Link to={`/product/${id}`}>
         <img className="product__img" src={image} alt={`image_${title}`} />
