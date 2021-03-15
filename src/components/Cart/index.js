@@ -20,9 +20,19 @@ const Cart = (
     onReceptionDateChange,
   },
 ) => {
-  console.log('productsInCart.onClickAddQuantityBtn', onClickAddQuantityBtn);
   const dateInput = 'reception-date';
-
+  const todayDate = new Date().toISOString().split('T')[0];
+  function getNextDate(date, day) {
+    const dd = new Date(date);
+    dd.setDate(dd.getDate() + day);
+    const y = dd.getFullYear();
+    const m = dd.getMonth() + 1 < 10 ? `0${dd.getMonth() + 1}` : dd.getMonth() + 1;
+    const d = dd.getDate() < 10 ? `0${dd.getDate()}` : dd.getDate();
+    return `${y}-${m}-${d}`;
+  }
+  const dateMax = getNextDate(todayDate, 7);
+  console.log('@@@@date', todayDate);
+  console.log('@@@@dateMax', dateMax);
   return (
     <div className="cart">
       {productsInCart.map((product) => (
@@ -49,8 +59,8 @@ const Cart = (
             value={receptionDate}
             className="cart__input-receptionDate"
             // hollow out to choose a date before today
-            min={new Date().toISOString().split('T')[0]}
-            max="2022-12-31"
+            min={todayDate}
+            max={dateMax}
             onChange={(evt) => onReceptionDateChange(evt.target.value)}
           />
         </label>
