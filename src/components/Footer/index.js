@@ -40,7 +40,7 @@ const Footer = ({ onClickToggleFooterList, toggleFooterClassname }) => (
       <Link to="/Mentions-legales" className="footer__links">
         Mentions légales
       </Link>
-      <Link to="/Groupe-de-dev" className="footer__links">
+      <Link to="/dev" className="footer__links">
         Groupe de dev
       </Link>
     </nav>

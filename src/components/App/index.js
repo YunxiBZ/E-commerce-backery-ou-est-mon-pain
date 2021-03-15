@@ -24,6 +24,7 @@ import RGPD from 'src/components/RGPD';
 import CategoryPage from 'src/containers/CategoryPage';
 import PageNotFound from 'src/components/PageNotFound';
 import CGV from 'src/components/CGV';
+import Dev from 'src/components/dev';
 
 // ==Import FontAwesomeIcon for use Icon
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -113,6 +114,9 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
         </Route>
         <Route exact path="/CGV">
           <CGV />
+        </Route>
+        <Route exact path="/dev">
+          <Dev />
         </Route>
         <Route exact component={CategoryPage} path="/category/:category" />
         <Route component={PageNotFound} />
