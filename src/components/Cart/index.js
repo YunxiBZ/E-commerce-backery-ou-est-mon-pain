@@ -22,6 +22,7 @@ const Cart = (
 ) => {
   const dateInput = 'reception-date';
   const todayDate = new Date().toISOString().split('T')[0];
+  // Limit the possibility of choosing the order days
   function getNextDate(date, day) {
     const dd = new Date(date);
     dd.setDate(dd.getDate() + day);
@@ -31,8 +32,7 @@ const Cart = (
     return `${y}-${m}-${d}`;
   }
   const dateMax = getNextDate(todayDate, 7);
-  console.log('@@@@date', todayDate);
-  console.log('@@@@dateMax', dateMax);
+
   return (
     <div className="cart">
       {productsInCart.map((product) => (

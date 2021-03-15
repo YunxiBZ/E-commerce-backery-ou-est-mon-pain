@@ -5,7 +5,7 @@ import './styles.scss';
 const Slogan = ({ slogan }) => {
   const ok = 'ok';
   return (
-    <h1 className="slogan">{slogan}</h1>
+    <h1 className="slogan">{slogan.toUpperCase()}</h1>
   );
 };
 
