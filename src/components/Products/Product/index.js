@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'src/components/Button';
 import './styles.scss';
+import { setTimeout } from 'core-js';
 
 const Product = ({
   id,
@@ -18,6 +19,10 @@ const Product = ({
   onChangeQuantityInput,
   onClickAddToCartBtn,
 }) => {
+  // Label produit ajouté
+  const [add, setAdd] = useState(false);
+  const setLabel = () => setAdd(true);
+  const unsetLabel = () => setAdd(false);
   // Gestion du hover sur un produit si on hover notre props hover
   // Lorsque l'on quitte un produit de la souris hover est à false
   const [hover, setHover] = useState(false);
@@ -36,8 +41,9 @@ const Product = ({
   return (
     <animated.div style={props} className="product" props={hover.toString()} onMouseEnter={onHoverProduct} onMouseLeave={onMouseOutProduct}>
       <h3 className="product__name">{title}</h3>
-      <Link to={`/product/${id}`}>
+      <Link to={`/product/${id}`} className="product__link">
         <img className="product__img" src={image} alt={`image_${title}`} />
+        <div className={add ? 'product__label' : 'product__label--modifier'}>Produit ajouté</div>
       </Link>
       <div className="product__bottom">
         <div className="product__quantity">
@@ -83,6 +89,12 @@ const Product = ({
             image,
             quantity,
           );
+        }}
+        onAddProduct={() => {
+          setLabel();
+          setTimeout(() => {
+            unsetLabel();
+          }, 3000);
         }}
       />
     </animated.div>

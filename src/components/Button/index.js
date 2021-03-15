@@ -11,6 +11,7 @@ const Button = ({
   handleOrder,
   fetchOrderList,
   handleDeleteProduct,
+  onAddProduct,
 }) => {
   const test = 'cool';
 
@@ -32,6 +33,9 @@ const Button = ({
         if (handleDeleteProduct) {
           handleDeleteProduct();
         }
+        if (onAddProduct) {
+          onAddProduct();
+        }
       }}
     >
       {value}
@@ -48,6 +52,7 @@ Button.propTypes = {
   handleOrder: PropTypes.func,
   handleDeleteProduct: PropTypes.func,
   fetchOrderList: PropTypes.func,
+  onAddProduct: PropTypes.func,
 };
 
 Button.defaultProps = {
@@ -59,6 +64,7 @@ Button.defaultProps = {
   handleOrder: null,
   handleDeleteProduct: null,
   fetchOrderList: null,
+  onAddProduct: null,
 };
 
 export default Button;
