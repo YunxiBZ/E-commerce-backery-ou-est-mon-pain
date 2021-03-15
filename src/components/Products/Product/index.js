@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'src/components/Button';
 import './styles.scss';
-import { setTimeout } from 'core-js';
 
 const Product = ({
   id,
