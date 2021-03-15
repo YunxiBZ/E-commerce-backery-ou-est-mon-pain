@@ -1,34 +1,35 @@
 // == Import npm
-import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React, { useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
+import PropTypes from "prop-types";
 
 // == Import
-import './styles.scss';
-import Header from 'src/containers/Header';
-import Footer from 'src/containers/Footer';
-import Categories from 'src/containers/Categories';
-import History from 'src/containers/History';
-import OpeningHours from 'src/containers/OpeningHours';
-import Slogan from 'src/containers/Slogan';
-import Contact from 'src/containers/Contact';
-import Products from 'src/containers/Products';
-import LoginForm from 'src/containers/LoginForm';
-import SignupForm from 'src/containers/SignupForm';
-import ContactForm from 'src/containers/ContactForm';
-import SingleProduct from 'src/containers/SingleProduct';
-import Account from 'src/containers/Account';
-import Admin from 'src/containers/Admin';
-import Cart from 'src/containers/Cart';
-import RGPD from 'src/components/RGPD';
-import CategoryPage from 'src/containers/CategoryPage';
-import PageNotFound from 'src/components/PageNotFound';
-import CGV from 'src/components/CGV';
+import "./styles.scss";
+import Header from "src/containers/Header";
+import Footer from "src/containers/Footer";
+import Categories from "src/containers/Categories";
+import History from "src/containers/History";
+import OpeningHours from "src/containers/OpeningHours";
+import Slogan from "src/containers/Slogan";
+import Contact from "src/containers/Contact";
+import Products from "src/containers/Products";
+import LoginForm from "src/containers/LoginForm";
+import SignupForm from "src/containers/SignupForm";
+import ContactForm from "src/components/ContactForm";
+import SingleProduct from "src/containers/SingleProduct";
+import Account from "src/containers/Account";
+import Admin from "src/containers/Admin";
+import Cart from "src/containers/Cart";
+import RGPD from "src/components/RGPD";
+import CategoryPage from "src/containers/CategoryPage";
+import PageNotFound from "src/components/PageNotFound";
+import CGV from "src/components/CGV";
+import LegalMentions from "src/components/LegalMentions";
 import Dev from 'src/components/Dev';
 
 // ==Import FontAwesomeIcon for use Icon
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
   faTrashAlt,
   faAngleRight,
@@ -39,7 +40,7 @@ import {
   faShoppingBasket,
   faUserCog,
   faUserEdit,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
 
 library.add(
   fab,
@@ -54,7 +55,7 @@ library.add(
   faUserEdit,
   faShoppingBasket,
   faUserEdit,
-  faUserEdit,
+  faUserEdit
 );
 
 // == Composant
@@ -63,7 +64,7 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
     fetchData();
   }, []);
 
-  const string = localStorage.getItem('userData');
+  const string = localStorage.getItem("userData");
   if (string) {
     useEffect(() => {
       // Fetch data from localStorage
@@ -109,14 +110,16 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
         <Route exact path="/cart">
           <Cart />
         </Route>
-        <Route exact path="/RGPD">
+        <Route exact path="/rgpd">
           <RGPD />
         </Route>
-        <Route exact path="/CGV">
+        <Route exact path="/cgv">
           <CGV />
         </Route>
         <Route exact path="/dev">
           <Dev />
+        <Route exact path="/Mentions-legales">
+          <LegalMentions />
         </Route>
         <Route exact component={CategoryPage} path="/category/:category" />
         <Route component={PageNotFound} />
