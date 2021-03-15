@@ -15,9 +15,10 @@ const orderCart = (store) => (next) => async (action) => {
   console.log('cart', cart);
   switch (action.type) {
     case HANDLE_ORDER: {
+      const date = new Date().toISOString().split('T')[0];
       try {
         const response = await axios.post(`${baseUrl}/order`, {
-          reception_date: '2021-03-09',
+          reception_date: date,
           products: cart,
           total_price: totalPriceInCart,
         },

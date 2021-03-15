@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import Button from 'src/components/Button';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
+import DailyOrders from 'src/containers/DailyOrders';
 import InputAddProduct from './InputAddProduct';
+import InputModifyProduct from './InputModifyProduct';
 
 const AdminProduct = ({
   products,
@@ -23,10 +25,24 @@ const AdminProduct = ({
   successDeleteProduct,
   addProductError,
   deleteProductError,
+  productSelected,
+  selectedProductTitle,
+  selectedProductPrice,
+  selectedProductDescription,
+  selectedProductImage,
+  selectedProductCategory1,
+  selectedProductCategory2,
+  changeFieldModifyProduct,
+  changeModifyProductCategories,
+  submitModifiedProduct,
+  successModifyProduct,
+  deleteMessages,
+  errorModifyProduct,
 }) => {
-  // useEffect(() => {
-  //   fetchCategories();
-  // }, []);
+  // A chaque render du component admin on vide les messages error/success du state
+  useEffect(() => {
+    deleteMessages();
+  }, []);
 
   useEffect(() => {
     fetchData();
@@ -35,6 +51,10 @@ const AdminProduct = ({
   const [open, setOpen] = useState(false);
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
+
+  const [openModal, setOpenModal] = useState(false);
+  const setModalOpen = () => setOpenModal(true);
+  const setModalClose = () => setOpenModal(false);
 
   const handleChangeCategories = (event) => {
     console.log(event.target);
@@ -47,9 +67,19 @@ const AdminProduct = ({
     onCloseModal();
   };
 
+  const handleSubmitModify = (event) => {
+    event.preventDefault();
+    submitModifiedProduct();
+    setModalClose();
+  };
+
   const handleChangeProduct = (event) => {
     console.log('ok');
-    changeProduct(event.target.value);
+    changeProduct(event.target.value, products);
+  };
+
+  const handleModifyProductCategories = (event) => {
+    changeModifyProductCategories(event.target.value, event.target.id);
   };
 
   return (
@@ -67,6 +97,12 @@ const AdminProduct = ({
         )}
         {deleteProductError && (
           <p className="adminProduct__errorMessage">{deleteProductError}</p>
+        )}
+        {successModifyProduct && (
+          <p className="adminProduct__successMessage">{successModifyProduct}</p>
+        )}
+        {errorModifyProduct && (
+          <p className="adminProduct__errorMessage">{errorModifyProduct}</p>
         )}
         <button
           value="Ajouter un produit"
@@ -118,7 +154,7 @@ const AdminProduct = ({
                 className="adminProduct__dropdownCategories"
                 onChange={handleChangeCategories}
                 id="0"
-                defaultValue="Category"
+                defaultValue="Categorie"
               >
                 <option disabled hidden>Categorie</option>
                 {categories.map((category) => (
@@ -135,7 +171,7 @@ const AdminProduct = ({
                 className="adminProduct__dropdownCategories"
                 onChange={handleChangeCategories}
                 id="1"
-                defaultValue="Category"
+                defaultValue="Categorie"
               >
                 <option disabled hidden>Categorie</option>
                 {categories.map((category) => (
@@ -171,16 +207,105 @@ const AdminProduct = ({
             </option>
           ))}
         </select>
-        <Button value="Modifier ce produit" />
-        <Button
-          value="Supprimer ce produit"
-          handleDeleteProduct={
-          () => {
-            deleteProduct();
+        {productSelected && (
+          <button
+            value="Modifier ce produit"
+            onClick={setModalOpen}
+            type="button"
+            className="adminProduct__addProduct"
+          >
+            Modifier ce produit
+          </button>
+        )}
+        <Modal open={openModal} onClose={setModalClose} center className="adminProduct__modal">
+          <form className="adminProduct__form" onSubmit={handleSubmitModify}>
+            <section className="adminProduct__inputsContainer">
+              <InputModifyProduct
+                name="title"
+                placeholder="Nom du produit"
+                type="text"
+                value={selectedProductTitle}
+                className="adminProduct__field"
+                changeField={changeFieldModifyProduct}
+              />
+              <InputModifyProduct
+                name="description"
+                placeholder="Description"
+                type="text"
+                value={selectedProductDescription}
+                className="adminProduct__field"
+                changeField={changeFieldModifyProduct}
+              />
+              <InputModifyProduct
+                name="price"
+                placeholder="Prix"
+                type="text"
+                value={selectedProductPrice}
+                className="adminProduct__field"
+                changeField={changeFieldModifyProduct}
+              />
+              <InputModifyProduct
+                name="image"
+                placeholder="Image"
+                type="text"
+                value={selectedProductImage}
+                className="adminProduct__field"
+                changeField={changeFieldModifyProduct}
+              />
+            </section>
+            <section className="adminProduct__dropdownContainer">
+              <select
+                type="text"
+                className="adminProduct__dropdownCategories"
+                id="0"
+                defaultValue={selectedProductCategory1 || ('Categorie')}
+                onChange={handleModifyProductCategories}
+              >
+                <option disabled hidden>Categorie</option>
+                {categories.map((category) => (
+                  <option
+                    value={category.id}
+                    key={category.id}
+                  >
+                    {category.label}
+                  </option>
+                ))}
+              </select>
+              <select
+                type="text"
+                className="adminProduct__dropdownCategories"
+                id="1"
+                defaultValue={selectedProductCategory2 || ('Categorie')}
+                onChange={handleModifyProductCategories}
+              >
+                <option disabled hidden>Categorie</option>
+                {categories.map((category) => (
+                  <option
+                    value={category.id}
+                    key={category.id}
+                  >
+                    {category.label}
+                  </option>
+                ))}
+              </select>
+              <div className="adminProduct__addProductButton">
+                <Button type="submit" value="Modifier le produit" className="adminProduct__button" />
+              </div>
+            </section>
+          </form>
+        </Modal>
+        {productSelected && (
+          <Button
+            value="Supprimer ce produit"
+            handleDeleteProduct={
+            () => {
+              deleteProduct();
+            }
           }
-        }
-        />
+          />
+        )}
       </section>
+      <DailyOrders />
     </div>
   );
 };
@@ -212,6 +337,19 @@ AdminProduct.propTypes = {
   successDeleteProduct: PropTypes.string,
   addProductError: PropTypes.string,
   deleteProductError: PropTypes.string,
+  productSelected: PropTypes.string,
+  selectedProductTitle: PropTypes.string,
+  selectedProductPrice: PropTypes.string,
+  selectedProductDescription: PropTypes.string,
+  selectedProductImage: PropTypes.string,
+  selectedProductCategory1: PropTypes.string,
+  selectedProductCategory2: PropTypes.string,
+  changeFieldModifyProduct: PropTypes.func.isRequired,
+  changeModifyProductCategories: PropTypes.func.isRequired,
+  submitModifiedProduct: PropTypes.func.isRequired,
+  successModifyProduct: PropTypes.string,
+  deleteMessages: PropTypes.func.isRequired,
+  errorModifyProduct: PropTypes.string,
 };
 
 AdminProduct.defaultProps = {
@@ -221,6 +359,15 @@ AdminProduct.defaultProps = {
   successDeleteProduct: null,
   addProductError: null,
   deleteProductError: null,
+  productSelected: null,
+  selectedProductTitle: '',
+  selectedProductPrice: '',
+  selectedProductDescription: '',
+  selectedProductImage: '',
+  selectedProductCategory1: '',
+  selectedProductCategory2: '',
+  successModifyProduct: null,
+  errorModifyProduct: null,
 };
 
 export default AdminProduct;

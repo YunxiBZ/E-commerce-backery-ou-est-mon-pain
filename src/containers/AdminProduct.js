@@ -12,6 +12,10 @@ import {
   submitNewProduct,
   changeProductDropdown,
   deleteProduct,
+  changeValueProductModify,
+  changeCategoriesProductModify,
+  submitModifiedProduct,
+  deleteMessages,
 } from 'src/actions/admin';
 
 const mapStateToProps = (state) => ({
@@ -26,6 +30,15 @@ const mapStateToProps = (state) => ({
   successDeleteProduct: state.admin.deleteProductSuccess,
   addProductError: state.admin.addProductError,
   deleteProductError: state.admin.deleteProductError,
+  productSelected: state.admin.product,
+  selectedProductTitle: state.admin.modifyProduct.title,
+  selectedProductPrice: state.admin.modifyProduct.price,
+  selectedProductDescription: state.admin.modifyProduct.description,
+  selectedProductImage: state.admin.modifyProduct.image,
+  selectedProductCategory1: state.admin.modifyProduct.categories[0],
+  selectedProductCategory2: state.admin.modifyProduct.categories[1],
+  successModifyProduct: state.admin.modifyProductSuccess,
+  errorModifyProduct: state.admin.modifyProductError,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -42,14 +55,27 @@ const mapDispatchToProps = (dispatch) => ({
   changeCategories: (value, id) => {
     dispatch(changeCategoriesProduct(value, id));
   },
+  changeModifyProductCategories: (value, id) => {
+    dispatch(changeCategoriesProductModify(value, id));
+  },
   submitNewProduct: () => {
     dispatch(submitNewProduct());
   },
-  changeProduct: (value) => {
-    dispatch(changeProductDropdown(value));
+  submitModifiedProduct: () => {
+    dispatch(submitModifiedProduct());
+  },
+  changeProduct: (value, products) => {
+    dispatch(changeProductDropdown(value, products));
   },
   deleteProduct: () => {
     dispatch(deleteProduct());
+  },
+  changeFieldModifyProduct: (value, name) => {
+    const action = changeValueProductModify(value, name);
+    dispatch(action);
+  },
+  deleteMessages: () => {
+    dispatch(deleteMessages());
   },
 });
 

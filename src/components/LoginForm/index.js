@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 import Button from 'src/components/Button';
 import LoginField from './LoginField';
@@ -13,11 +13,28 @@ const LoginForm = ({
   changeField,
   submitForm,
   error,
+  isLogged,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     submitForm();
   };
+  // hook useHistory for redirect
+  const history = useHistory();
+  setTimeout(() => {
+    if (isLogged) {
+      history.push('/');
+    }
+  }, 1000);
+  // const ADMIN = 'admin';
+  // const USER = 'user';
+
+  // if (role === ADMIN) {
+  //   return <Redirect to="/admin" />;
+  // }
+  // if (role === USER) {
+  //   return <Redirect to="/account" />;
+  // }
 
   return (
     <div className="container">
@@ -67,6 +84,7 @@ LoginForm.propTypes = {
   changeField: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
   error: PropTypes.string,
+  isLogged: PropTypes.bool.isRequired,
 };
 
 LoginForm.defaultProps = {

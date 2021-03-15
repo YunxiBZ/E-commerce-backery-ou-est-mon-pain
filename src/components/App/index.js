@@ -23,6 +23,7 @@ import SingleProduct from 'src/containers/SingleProduct';
 import Account from 'src/containers/Account';
 import Admin from 'src/containers/Admin';
 import Cart from 'src/containers/Cart';
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> RGPD
@@ -56,6 +57,9 @@ import Account from "src/containers/Account";
 import Admin from "src/containers/Admin";
 import Cart from "src/containers/Cart";
 >>>>>>> CGV
+=======
+import CategoryPage from 'src/containers/CategoryPage';
+>>>>>>> eee1b21266bd8627998c8a999338ffe84cb053aa
 
 // ==Import FontAwesomeIcon for use Icon
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -164,6 +168,7 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
         </Route>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Route component={PageNotFound} />
 =======
         <Route exact path="/RGPD">
@@ -175,6 +180,9 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
           <CGV />
         </Route>
 >>>>>>> CGV
+=======
+        <Route exact component={CategoryPage} path="/category/:category" />
+>>>>>>> eee1b21266bd8627998c8a999338ffe84cb053aa
       </Switch>
       <Footer />
     </div>

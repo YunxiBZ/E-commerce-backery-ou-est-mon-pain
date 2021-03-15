@@ -1,22 +1,29 @@
 import { connect } from 'react-redux';
-import SingleProduct from 'src/components/SingleProduct';
+import CategoryPage from 'src/components/CategoryPage';
 import {
+  fetchProducts,
   addQuantity,
   reduceQuantity,
   quantityChange,
   addInCart,
 } from 'src/actions/products';
-import { findProductById } from 'src/selectors/product';
+// Import selector findProductsByCategory
+import findProductsByCategory from 'src/selectors/category';
 
 const mapStateToProps = (state, ownProps) => {
-  const { id } = ownProps.match.params;
-  console.log(findProductById(state.products, parseInt(id, 10)));
+  // Get category from params
+  const { category } = ownProps.match.params;
+  // Use Category selector for filter products
+  const ProductsByCategory = findProductsByCategory(state.products, category);
   return {
-    product: findProductById(state.products, parseInt(id, 10)),
+    productsByCategory: ProductsByCategory,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
+  fetchData: () => {
+    dispatch(fetchProducts());
+  },
   onClickAddQuantityBtn: (product) => {
     const action = addQuantity(product);
     dispatch(action);
@@ -47,6 +54,7 @@ const mapDispatchToProps = (dispatch) => ({
     );
     dispatch(action);
   },
+
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct);
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryPage);
