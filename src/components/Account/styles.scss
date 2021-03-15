@@ -2,15 +2,25 @@
 
 .account {
   background-color: $lightest-brown;
-  height: 65vh;
+  height:70vh;
   display: flex;
   justify-content: center;
-  flex-direction:column;
   align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
   &__userInterface {
     display: flex;
-    width: 80%;
+    flex-direction: column;
+    height:30%;
+    width: 70%;
     justify-content: space-between;
+    align-items: center;
+  }
+  &__order-container {
+    height:80%;
+    overflow-y: auto;
+  overflow-x: hidden;
   }
   &__order-list {
     margin:$gutter*2;
@@ -19,12 +29,12 @@
     padding:$gutter*4 $gutter*5;
     border: 2px solid $light-brown;
     border-radius: 0px 100px / 120px;
+    height:80%
   }
   &__item{
     display: flex;
     flex-direction: column;
     font-size: 1rem;
-    margin: $gutter;
     justify-content: space-between;
 
   }
@@ -44,6 +54,7 @@
   }
   &__input {
     width: 100%;
+
     margin: $gutter $gutter*.3;
     border: none;
     background-color:$light-brown;
@@ -55,6 +66,7 @@
   }
   &__changeInfo {
     display: flex;
+    padding: $gutter;
     justify-content: center;
     flex-direction: column;
     width: 100%;
@@ -70,10 +82,13 @@
 
 @media screen and (max-width: 650px) {
 .account {
-  height: 70vh;
+  margin-top: $gutter;
+  height: 90vh;
+  flex-direction: column;
   &__userInterface {
     flex-direction: column;
     justify-content: space-around;
+    padding-top: 15rem;
     width: 100%;
     height: 100%;
   }
@@ -93,7 +108,7 @@
   }
   &__order-list {
     padding: 0;
-    margin: 0;
+    margin: $gutter 0;
     width: 100%;
     height: 100vh;
     border-radius: 10px;
@@ -105,16 +120,16 @@
     font-size: 0.6em;
     width: 100%;
     text-align: center;
-    margin-bottom: 1em;
+    margin: 1em 0;
   }
   &__item {
-    margin: 1em;
     padding: 1em;
   }
   &__order-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height:90%;
   }
 }
 .svg-inline--fa.fa-w-11 {
