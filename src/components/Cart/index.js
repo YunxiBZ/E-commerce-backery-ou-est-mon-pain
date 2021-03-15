@@ -65,7 +65,7 @@ const Cart = (
           />
         </label>
 
-        <p className="cart__price-total">Prix total: {totalPriceInCart}</p>
+        <p className="cart__price-total">Prix total: {totalPriceInCart} €</p>
         <Link
           to="/account"
           className="cart__order-link"
