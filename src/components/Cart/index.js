@@ -47,7 +47,8 @@ const Cart = (
             id={dateInput}
             name={dateInput}
             value={receptionDate}
-            min="2021-03-01"
+            // hollow out to choose a date before today
+            min={new Date().toISOString().split('T')[0]}
             max="2022-12-31"
             onChange={(evt) => onReceptionDateChange(evt.target.value)}
           />
@@ -94,14 +95,13 @@ Cart.propTypes = {
   onClickCommandBtn: PropTypes.func.isRequired,
   fetchOrderList: PropTypes.func.isRequired,
   token: PropTypes.string.isRequired,
-  receptionDate: PropTypes.string,
+  receptionDate: PropTypes.string.isRequired,
   onReceptionDateChange: PropTypes.func.isRequired,
 };
 
 Cart.defaultProps = {
   productsInCart: [],
   totalPriceInCart: 0,
-  receptionDate: '2021-03-01',
 };
 
 export default Cart;

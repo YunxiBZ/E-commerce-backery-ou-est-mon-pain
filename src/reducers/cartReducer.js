@@ -17,7 +17,7 @@ const initialState = {
   totalPriceInCart: 0,
   cart: [],
   orderList: [],
-  receptionDate: '2021-04-01',
+  receptionDate: new Date().toISOString().split('T')[0],
 };
 
 const reducer = (state = initialState, action = {}) => {
