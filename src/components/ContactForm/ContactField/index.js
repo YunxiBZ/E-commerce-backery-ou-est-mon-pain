@@ -7,8 +7,13 @@ const ContactField = ({
   placeholder,
   name,
   className,
+  value,
+  changeField,
 }) => {
   const inputId = `field-${name}`;
+  const handleChangeField = (event) => {
+    changeField(name, event.target.value);
+  };
 
   return (
     <div className={`field ${className}`}>
@@ -25,6 +30,8 @@ const ContactField = ({
         className="field__input"
         placeholder={placeholder}
         name={name}
+        value={value}
+        onChange={handleChangeField}
       />
     </div>
   );
@@ -35,11 +42,14 @@ ContactField.propTypes = {
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
+  value: PropTypes.string.isRequired || PropTypes.number.isRequired,
+  changeField: PropTypes.func.isRequired,
 };
 
 ContactField.defaultProps = {
   type: 'text',
   className: '',
+  value: '',
 };
 
 export default ContactField;

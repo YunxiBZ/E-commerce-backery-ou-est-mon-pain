@@ -9,6 +9,17 @@
   margin: 0 auto;
   height: 60vh;
   color: v.$light-brown;
+  position: relative;
+  &__success {
+  position: absolute;
+  background-color: v.$dark-grey;
+  right: 20px;
+  padding: 1em;
+  border-radius: 20px;
+  &--modifier{
+    display: none;
+  }
+  }
   &__message {
     width: 80%;
     height: 40%;
@@ -17,11 +28,26 @@
 }
 
 @media screen and (max-width: 650px) {
-  .contactForm__message {
-    width: 100%;
+  .contactForm {
+    margin-top: 4em;
+    &__message {
+      width: 100%;
+    }
+    &__success {
+      min-width: 210px;
+      top: -55px;
+      left: 5px;
+      text-align: center;
+      margin: 0 auto;
+      white-space: nowrap;
+      font-size: 1.4em;
+      padding: 10px;
+    }
   }
+  
   .test {
     display: flex;
     justify-content: center;
   }
+  
 }

@@ -8,10 +8,11 @@ import login from 'src/middlewares/login';
 import info from 'src/middlewares/info';
 import order from 'src/middlewares/order';
 import admin from 'src/middlewares/admin';
+import contactForm from 'src/middlewares/contactForm';
 // import middlewares
 
 const store = createStore(reducer, composeWithDevTools(
-  applyMiddleware(categories, products, signup, login, info, order, admin),
+  applyMiddleware(categories, products, signup, login, info, order, admin, contactForm),
 
 // import middlewares
 ));
