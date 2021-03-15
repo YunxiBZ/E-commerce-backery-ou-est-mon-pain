@@ -15,7 +15,7 @@ import Contact from 'src/containers/Contact';
 import Products from 'src/containers/Products';
 import LoginForm from 'src/containers/LoginForm';
 import SignupForm from 'src/containers/SignupForm';
-import ContactForm from 'src/components/ContactForm';
+import ContactForm from 'src/containers/ContactForm';
 import SingleProduct from 'src/containers/SingleProduct';
 import Account from 'src/containers/Account';
 import Admin from 'src/containers/Admin';
