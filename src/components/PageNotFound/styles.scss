@@ -1,0 +1,11 @@
+.PageNotFound {
+  margin: 13%;
+  text-align: center;
+  font-size: xx-large;
+}
+
+@media screen and (max-width: 650px) {
+  .PageNotFound {
+    margin: 40%;
+  }
+}

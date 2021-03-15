@@ -1,9 +1,10 @@
 // == Import npm
-import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React, { useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
+import PropTypes from "prop-types";
 
 // == Import
+<<<<<<< HEAD
 import './styles.scss';
 import Header from 'src/containers/Header';
 import Footer from 'src/containers/Footer';
@@ -20,10 +21,26 @@ import SingleProduct from 'src/containers/SingleProduct';
 import Account from 'src/containers/Account';
 import Admin from 'src/containers/Admin';
 import Cart from 'src/containers/Cart';
+=======
+import "./styles.scss";
+import Header from "src/containers/Header";
+import Footer from "src/containers/Footer";
+import Categories from "src/containers/Categories";
+import History from "src/containers/History";
+import OpeningHours from "src/containers/OpeningHours";
+import Slogan from "src/containers/Slogan";
+import Contact from "src/containers/Contact";
+import Products from "src/containers/Products";
+import LoginForm from "src/containers/LoginForm";
+import SignupForm from "src/containers/SignupForm";
+import ContactForm from "src/components/ContactForm";
+import SingleProduct from "src/containers/SingleProduct";
+import PageNotFound from "src/components/PageNotFound";
+>>>>>>> custom-404
 
 // ==Import FontAwesomeIcon for use Icon
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
   faTrashAlt,
   faAngleRight,
@@ -32,9 +49,13 @@ import {
   faUser,
   faSignOutAlt,
   faShoppingBasket,
+<<<<<<< HEAD
   faUserCog,
   faUserEdit,
 } from '@fortawesome/free-solid-svg-icons';
+=======
+} from "@fortawesome/free-solid-svg-icons";
+>>>>>>> custom-404
 
 library.add(
   fab,
@@ -44,9 +65,13 @@ library.add(
   faArrowAltCircleDown,
   faUser,
   faSignOutAlt,
+<<<<<<< HEAD
   faShoppingBasket,
   faUserCog,
   faUserEdit,
+=======
+  faShoppingBasket
+>>>>>>> custom-404
 );
 
 // == Composant
@@ -86,11 +111,7 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
         <Route exact path="/products">
           <Products />
         </Route>
-        <Route
-          exact
-          path="/product/:id"
-          component={SingleProduct}
-        />
+        <Route exact path="/product/:id" component={SingleProduct} />
         <Route exact path="/infos-pratiques">
           <OpeningHours />
           <Contact />
@@ -107,6 +128,7 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
         <Route exact path="/cart">
           <Cart />
         </Route>
+        <Route component={PageNotFound} />
       </Switch>
       <Footer />
     </div>
