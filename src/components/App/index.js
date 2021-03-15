@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 // == Import
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import './styles.scss';
 import Header from 'src/containers/Header';
 import Footer from 'src/containers/Footer';
@@ -25,6 +26,8 @@ import Cart from 'src/containers/Cart';
 =======
 =======
 >>>>>>> RGPD
+=======
+>>>>>>> CGV
 import "./styles.scss";
 import Header from "src/containers/Header";
 import Footer from "src/containers/Footer";
@@ -39,6 +42,7 @@ import SignupForm from "src/containers/SignupForm";
 import ContactForm from "src/components/ContactForm";
 import SingleProduct from "src/containers/SingleProduct";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import PageNotFound from "src/components/PageNotFound";
 >>>>>>> custom-404
 =======
@@ -47,6 +51,11 @@ import Admin from "src/containers/Admin";
 import Cart from "src/containers/Cart";
 import RGPD from "src/components/RGPD";
 >>>>>>> RGPD
+=======
+import Account from "src/containers/Account";
+import Admin from "src/containers/Admin";
+import Cart from "src/containers/Cart";
+>>>>>>> CGV
 
 // ==Import FontAwesomeIcon for use Icon
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -63,6 +72,7 @@ import {
   faUserCog,
   faUserEdit,
 <<<<<<< HEAD
+<<<<<<< HEAD
 } from '@fortawesome/free-solid-svg-icons';
 =======
 } from "@fortawesome/free-solid-svg-icons";
@@ -70,6 +80,10 @@ import {
 =======
 } from "@fortawesome/free-solid-svg-icons";
 >>>>>>> RGPD
+=======
+} from "@fortawesome/free-solid-svg-icons";
+import CGV from "../CGV";
+>>>>>>> CGV
 
 library.add(
   fab,
@@ -83,6 +97,7 @@ library.add(
   faShoppingBasket,
   faUserCog,
 <<<<<<< HEAD
+<<<<<<< HEAD
   faUserEdit,
 =======
   faShoppingBasket
@@ -90,6 +105,9 @@ library.add(
 =======
   faUserEdit
 >>>>>>> RGPD
+=======
+  faUserEdit
+>>>>>>> CGV
 );
 
 // == Composant
@@ -145,12 +163,18 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
           <Cart />
         </Route>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Route component={PageNotFound} />
 =======
         <Route exact path="/RGPD">
           <RGPD />
         </Route>
 >>>>>>> RGPD
+=======
+        <Route exact path="/CGV">
+          <CGV />
+        </Route>
+>>>>>>> CGV
       </Switch>
       <Footer />
     </div>
