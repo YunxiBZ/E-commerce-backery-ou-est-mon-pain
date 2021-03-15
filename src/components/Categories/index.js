@@ -5,9 +5,12 @@ import Category from './Category';
 
 const Categories = ({ categories }) => (
   <div className="categories">
-    {categories.map((category) => (
-      <Category key={category.id} {...category} />
-    ))}
+    <p className="categories__title">Nos categories: </p>
+    <div className="categories__items">
+      {categories.map((category) => (
+        <Category key={category.id} {...category} />
+      ))}
+    </div>
   </div>
 );
 
