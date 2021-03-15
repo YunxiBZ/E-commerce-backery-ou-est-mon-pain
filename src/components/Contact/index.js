@@ -2,20 +2,22 @@ import React from 'react';
 import maps from 'src/assets/image-maps.PNG';
 import './styles.scss';
 import PropTypes from 'prop-types';
+import arrowImg from 'src/assets/curve-arrow.svg';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faMapMarked } from '@fortawesome/free-solid-svg-icons';
 
 const Contact = ({ adress, phoneNumber }) => {
-  const ok = 'ok';
+  const ok = 'truc';
 
   return (
     <div className="contact">
-      <div className="contact__section">
-        <h3 className="contact__title">Nous Contacter</h3>
+      <div className="contact__section contact__section--modifier">
+        <h3 className="contact__title">{adress}</h3>
+        <img className="contact__arrow" src={arrowImg} alt="icone-flèche" />
         <section className="contact__infos">
-          <p className="contact__info">{adress}</p>
+          <p className="contact__info contact__info--modifier">Nous contacter</p>
           <p className="contact__info">{phoneNumber}</p>
         </section>
         <section className="contact__links">

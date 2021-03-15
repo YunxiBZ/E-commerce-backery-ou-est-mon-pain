@@ -17,6 +17,6 @@ export default [{
     third: '16h',
   },
   adress: '26 rue des pissenlits, 95100, Argenteuil',
-  phone_number: '0615267362',
+  phone_number: '06-15-26-73-62',
 
 }];
