@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 
 // == Import
 <<<<<<< HEAD
+<<<<<<< HEAD
 import './styles.scss';
 import Header from 'src/containers/Header';
 import Footer from 'src/containers/Footer';
@@ -22,6 +23,8 @@ import Account from 'src/containers/Account';
 import Admin from 'src/containers/Admin';
 import Cart from 'src/containers/Cart';
 =======
+=======
+>>>>>>> RGPD
 import "./styles.scss";
 import Header from "src/containers/Header";
 import Footer from "src/containers/Footer";
@@ -35,8 +38,15 @@ import LoginForm from "src/containers/LoginForm";
 import SignupForm from "src/containers/SignupForm";
 import ContactForm from "src/components/ContactForm";
 import SingleProduct from "src/containers/SingleProduct";
+<<<<<<< HEAD
 import PageNotFound from "src/components/PageNotFound";
 >>>>>>> custom-404
+=======
+import Account from "src/containers/Account";
+import Admin from "src/containers/Admin";
+import Cart from "src/containers/Cart";
+import RGPD from "src/components/RGPD";
+>>>>>>> RGPD
 
 // ==Import FontAwesomeIcon for use Icon
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -52,10 +62,14 @@ import {
 <<<<<<< HEAD
   faUserCog,
   faUserEdit,
+<<<<<<< HEAD
 } from '@fortawesome/free-solid-svg-icons';
 =======
 } from "@fortawesome/free-solid-svg-icons";
 >>>>>>> custom-404
+=======
+} from "@fortawesome/free-solid-svg-icons";
+>>>>>>> RGPD
 
 library.add(
   fab,
@@ -68,10 +82,14 @@ library.add(
 <<<<<<< HEAD
   faShoppingBasket,
   faUserCog,
+<<<<<<< HEAD
   faUserEdit,
 =======
   faShoppingBasket
 >>>>>>> custom-404
+=======
+  faUserEdit
+>>>>>>> RGPD
 );
 
 // == Composant
@@ -80,14 +98,12 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
     fetchData();
   }, []);
 
-  const string = localStorage.getItem('userData');
+  const string = localStorage.getItem("userData");
   if (string) {
     useEffect(() => {
       // Fetch data from localStorage
       const userData = JSON.parse(string);
-      loginSuccess(
-        userData,
-      );
+      loginSuccess(userData);
       fetchOrderList(userData.token);
     });
   }
@@ -128,7 +144,13 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
         <Route exact path="/cart">
           <Cart />
         </Route>
+<<<<<<< HEAD
         <Route component={PageNotFound} />
+=======
+        <Route exact path="/RGPD">
+          <RGPD />
+        </Route>
+>>>>>>> RGPD
       </Switch>
       <Footer />
     </div>

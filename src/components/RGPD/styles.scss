@@ -1,0 +1,26 @@
+.Container {
+  margin: 0% 15% 0% 15%;
+}
+
+.RGPDTitle {
+  text-align: center;
+  font-size: xx-large;
+  padding: 20px;
+}
+
+.RGPDSubtitle {
+  text-align: left;
+  font-size: x-large;
+  padding: 20px;
+}
+
+.RGPDSubsubtitle {
+  text-align: left;
+  font-size: large;
+  padding: 20px;
+}
+
+@media screen and (max-width: 650px) {
+  .RGPD {
+  }
+}
