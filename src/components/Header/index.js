@@ -45,7 +45,7 @@ const Header = ({ toggle, toggleNavbar }) => (
         exact
         className="header__links"
       >
-        Products
+        Produits
       </NavLink>
       <NavLink
         to="/infos-pratiques"
