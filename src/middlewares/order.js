@@ -7,7 +7,7 @@ import { FETCH_ORDER_LIST, fetchListSuccess, fetchListFailed } from 'src/actions
 const orderCart = (store) => (next) => async (action) => {
   const { token } = store.getState().user.infos;
   console.log('middlewares order token', token);
-  const { cart, totalPriceInCart } = store.getState().cartReducer;
+  const { cart, totalPriceInCart, receptionDate } = store.getState().cartReducer;
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const config = {
     headers: { authorization: `Bearer ${token}` },
@@ -15,7 +15,7 @@ const orderCart = (store) => (next) => async (action) => {
   console.log('cart', cart);
   switch (action.type) {
     case HANDLE_ORDER: {
-      const date = new Date().toISOString().split('T')[0];
+      const date = receptionDate;
       try {
         const response = await axios.post(`${baseUrl}/order`, {
           reception_date: date,

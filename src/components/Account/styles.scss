@@ -22,6 +22,7 @@
   }
   &__item{
     display: flex;
+    flex-direction: column;
     font-size: 1rem;
     margin: $gutter;
     justify-content: space-between;
@@ -97,6 +98,8 @@
     height: 100vh;
     border-radius: 10px;
     width: 90%;
+    border-radius: 0px 100px / 120px;
+
   }
   &__order-title {
     font-size: 0.6em;
@@ -105,8 +108,8 @@
     margin-bottom: 1em;
   }
   &__item {
-    margin: 1em 0;
-    padding: 0 1em;
+    margin: 1em;
+    padding: 1em;
   }
   &__order-container {
     display: flex;

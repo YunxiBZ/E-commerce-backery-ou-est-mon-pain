@@ -16,9 +16,12 @@ const Cart = (
     onClickCommandBtn,
     fetchOrderList,
     token,
+    receptionDate,
+    onReceptionDateChange,
   },
 ) => {
   console.log('productsInCart.onClickAddQuantityBtn', onClickAddQuantityBtn);
+  const dateInput = 'reception-date';
 
   return (
     <div className="cart">
@@ -34,6 +37,24 @@ const Cart = (
       ))}
       <div className="cart__bottom">
 
+        <label
+          htmlFor={dateInput}
+          className="cart__label-receptionDate"
+        >
+          <p>Veuillez choisir le jour de récupérer votre bonheur :</p>
+          <input
+            type="date"
+            id={dateInput}
+            name={dateInput}
+            value={receptionDate}
+            className="cart__input-receptionDate"
+            // hollow out to choose a date before today
+            min={new Date().toISOString().split('T')[0]}
+            max="2022-12-31"
+            onChange={(evt) => onReceptionDateChange(evt.target.value)}
+          />
+        </label>
+
         <p className="cart__price-total">Prix total: {totalPriceInCart}</p>
         <Link
           to="/account"
@@ -43,16 +64,15 @@ const Cart = (
             className="cart__order-btn"
             value="Valider ma commande"
             handleOrder={
-              () => {
-                onClickCommandBtn(productsInCart, totalPriceInCart);
-              }
-            }
+          () => {
+            onClickCommandBtn(productsInCart, totalPriceInCart, receptionDate);
+          }
+        }
             fetchOrderList={
-              () => {
-                fetchOrderList(token);
-              }
-            }
-
+          () => {
+            fetchOrderList(token);
+          }
+        }
           />
         </Link>
       </div>
@@ -76,6 +96,8 @@ Cart.propTypes = {
   onClickCommandBtn: PropTypes.func.isRequired,
   fetchOrderList: PropTypes.func.isRequired,
   token: PropTypes.string.isRequired,
+  receptionDate: PropTypes.string.isRequired,
+  onReceptionDateChange: PropTypes.func.isRequired,
 };
 
 Cart.defaultProps = {

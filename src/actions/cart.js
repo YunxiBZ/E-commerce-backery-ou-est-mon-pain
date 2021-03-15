@@ -12,6 +12,13 @@ export const ORDER_SUCCESS = 'ORDER_SUCCESS';
 
 export const ORDER_FAILED = 'ORDER_FAILED';
 
+export const RECEPTION_DATE_CHANGE = 'RECEPTION_DATE_CHANGE';
+
+export const receptionDateChange = (date) => ({
+  type: RECEPTION_DATE_CHANGE,
+  date,
+});
+
 export const orderFailed = (message) => ({
   type: ORDER_FAILED,
   message,
@@ -23,10 +30,11 @@ export const orderSuccess = (cart, totalPriceInCart) => ({
   totalPriceInCart,
 });
 
-export const handleOrder = (cart, totalPriceInCart) => ({
+export const handleOrder = (cart, totalPriceInCart, receptionDate) => ({
   type: HANDLE_ORDER,
   cart,
   totalPriceInCart,
+  receptionDate,
 });
 
 export const deleteProductInCart = (title, totalPrice) => ({
