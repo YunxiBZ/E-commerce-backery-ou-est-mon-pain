@@ -14,7 +14,7 @@ export default [{
   hot_bread: {
     first: '7h',
     second: '12h',
-    third: '16',
+    third: '16h',
   },
   adress: '26 rue des pissenlits, 95100, Argenteuil',
   phone_number: '0615267362',

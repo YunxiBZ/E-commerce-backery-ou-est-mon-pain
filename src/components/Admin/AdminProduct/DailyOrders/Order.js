@@ -30,6 +30,7 @@ const Order = ({ order, validateOrder }) => {
           ))
         }
       </ul>
+      <p className="dailyOrders__commandId">Id commande ➡ {order.id}</p>
       <div className="dailyOrders__statusContainer">
         <p className={order.state === orderHasBeenValidate ? 'dailyOrders__statusValid' : 'dailyOrders__statusCheckedIn'}>{order.state}</p>
         <button className="dailyOrders__validateOrder" type="button">Voir le détail</button>

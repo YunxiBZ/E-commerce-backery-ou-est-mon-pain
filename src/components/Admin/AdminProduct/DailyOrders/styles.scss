@@ -31,6 +31,7 @@
     margin-bottom: 1em;
     display: flex;
     padding: 1em 0;
+    position: relative;
   }
   &__productsContainer {
     display:flex;
@@ -133,6 +134,13 @@
     align-self: center;
     justify-content: center;
     cursor: default;
+  }
+  &__commandId{
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    font-size: 1.2em;
+    font-weight: 700;
   }
 }
 

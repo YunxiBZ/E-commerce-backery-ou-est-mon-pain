@@ -20,7 +20,10 @@ import SingleProduct from 'src/containers/SingleProduct';
 import Account from 'src/containers/Account';
 import Admin from 'src/containers/Admin';
 import Cart from 'src/containers/Cart';
+import RGPD from 'src/components/RGPD';
 import CategoryPage from 'src/containers/CategoryPage';
+import PageNotFound from 'src/components/PageNotFound';
+import CGV from 'src/components/CGV';
 
 // ==Import FontAwesomeIcon for use Icon
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -48,6 +51,9 @@ library.add(
   faShoppingBasket,
   faUserCog,
   faUserEdit,
+  faShoppingBasket,
+  faUserEdit,
+  faUserEdit,
 );
 
 // == Composant
@@ -61,9 +67,7 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
     useEffect(() => {
       // Fetch data from localStorage
       const userData = JSON.parse(string);
-      loginSuccess(
-        userData,
-      );
+      loginSuccess(userData);
       fetchOrderList(userData.token);
     });
   }
@@ -80,18 +84,14 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
         <Route exact path="/">
           <Slogan />
           <History />
+          <Categories />
           <OpeningHours />
           <Contact />
-          <Categories />
         </Route>
         <Route exact path="/products">
           <Products />
         </Route>
-        <Route
-          exact
-          path="/product/:id"
-          component={SingleProduct}
-        />
+        <Route exact path="/product/:id" component={SingleProduct} />
         <Route exact path="/infos-pratiques">
           <OpeningHours />
           <Contact />
@@ -108,7 +108,14 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
         <Route exact path="/cart">
           <Cart />
         </Route>
+        <Route exact path="/RGPD">
+          <RGPD />
+        </Route>
+        <Route exact path="/CGV">
+          <CGV />
+        </Route>
         <Route exact component={CategoryPage} path="/category/:category" />
+        <Route component={PageNotFound} />
       </Switch>
       <Footer />
     </div>

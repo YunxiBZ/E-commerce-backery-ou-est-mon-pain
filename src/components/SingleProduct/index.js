@@ -60,6 +60,16 @@ const SingleProduct = ({
         <Button
           value="Ajouter au panier"
           className="singleProduct__button"
+          addInCart={() => {
+            onClickAddToCartBtn(
+              product.id,
+              product.title,
+              product.price,
+              product.totalPrice,
+              product.image,
+              product.quantity,
+            );
+          }}
         />
       </section>
       <section className="singleProduct__rightContainer">
