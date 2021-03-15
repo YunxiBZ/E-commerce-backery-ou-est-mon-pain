@@ -142,9 +142,9 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
         <Route exact path="/">
           <Slogan />
           <History />
+          <Categories />
           <OpeningHours />
           <Contact />
-          <Categories />
         </Route>
         <Route exact path="/products">
           <Products />
