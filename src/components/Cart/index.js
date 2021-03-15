@@ -39,14 +39,15 @@ const Cart = (
 
         <label
           htmlFor={dateInput}
-          className="receptionDate__label"
+          className="cart__label-receptionDate"
         >
-          Veuillez choisir le jour de récupérer votre bonheur :
+          <p>Veuillez choisir le jour de récupérer votre bonheur :</p>
           <input
             type="date"
             id={dateInput}
             name={dateInput}
             value={receptionDate}
+            className="cart__input-receptionDate"
             // hollow out to choose a date before today
             min={new Date().toISOString().split('T')[0]}
             max="2022-12-31"

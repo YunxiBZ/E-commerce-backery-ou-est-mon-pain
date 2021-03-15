@@ -17,6 +17,7 @@ const initialState = {
   totalPriceInCart: 0,
   cart: [],
   orderList: [],
+  // Set date of reception default "today"
   receptionDate: new Date().toISOString().split('T')[0],
 };
 
