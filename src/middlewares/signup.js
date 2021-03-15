@@ -17,7 +17,6 @@ const signup = (store) => (next) => (action) => {
             last_name: state.signup.last_name,
             phone_number: state.signup.phone_number,
           });
-          console.log(response);
           if (response.status === 201) {
             store.dispatch(signupSuccess(state.signup.email));
           }

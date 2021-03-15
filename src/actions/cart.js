@@ -1,17 +1,10 @@
 export const ADD_QUANTITY_IN_CART = 'ADD_QUANTITY_IN_CART';
-
 export const REDUCE_QUANTITY_IN_CART = 'REDUCE_QUANTITY_IN_CART';
-
 export const CHANGE_QUANTITY_IN_CART = 'CHANGE_QUANTITY_IN_CART';
-
 export const DELETE_PRODUCT_IN_CART = 'DELETE_PRODUCT_IN_CART';
-
 export const HANDLE_ORDER = 'HANDLE_ORDER';
-
 export const ORDER_SUCCESS = 'ORDER_SUCCESS';
-
 export const ORDER_FAILED = 'ORDER_FAILED';
-
 export const RECEPTION_DATE_CHANGE = 'RECEPTION_DATE_CHANGE';
 
 export const receptionDateChange = (date) => ({

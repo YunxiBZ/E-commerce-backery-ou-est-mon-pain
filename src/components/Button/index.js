@@ -12,36 +12,32 @@ const Button = ({
   fetchOrderList,
   handleDeleteProduct,
   onAddProduct,
-}) => {
-  const test = 'cool';
-
-  return (
-    <button
-      className={`button ${className}`}
-      type={type === 'button' ? 'button' : 'submit'}
-      onClick={() => {
-        if (addInCart) {
-          addInCart();
-        }
-        if (openModal) {
-          openModal();
-        }
-        if (handleOrder) {
-          handleOrder();
-          fetchOrderList();
-        }
-        if (handleDeleteProduct) {
-          handleDeleteProduct();
-        }
-        if (onAddProduct) {
-          onAddProduct();
-        }
-      }}
-    >
-      {value}
-    </button>
-  );
-};
+}) => (
+  <button
+    className={`button ${className}`}
+    type={type === 'button' ? 'button' : 'submit'}
+    onClick={() => {
+      if (addInCart) {
+        addInCart();
+      }
+      if (openModal) {
+        openModal();
+      }
+      if (handleOrder) {
+        handleOrder();
+        fetchOrderList();
+      }
+      if (handleDeleteProduct) {
+        handleDeleteProduct();
+      }
+      if (onAddProduct) {
+        onAddProduct();
+      }
+    }}
+  >
+    {value}
+  </button>
+);
 
 Button.propTypes = {
   value: PropTypes.string,

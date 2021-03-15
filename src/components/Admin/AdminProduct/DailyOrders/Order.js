@@ -3,8 +3,7 @@ import './styles.scss';
 import PropTypes from 'prop-types';
 
 const Order = ({ order, validateOrder }) => {
-  const handleValidateOrder = (event) => {
-    console.log(event.target);
+  const handleValidateOrder = () => {
     validateOrder(order.id);
   };
 
