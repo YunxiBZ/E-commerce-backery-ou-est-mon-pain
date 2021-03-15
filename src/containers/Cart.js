@@ -6,6 +6,7 @@ import {
   changeQuantityInCart,
   deleteProductInCart,
   handleOrder,
+  receptionDateChange,
 } from 'src/actions/cart';
 
 import { fetchOrderList } from 'src/actions/user';
@@ -14,6 +15,7 @@ const mapStateToProps = (state) => ({
   productsInCart: state.cartReducer.cart,
   totalPriceInCart: state.cartReducer.totalPriceInCart,
   token: state.user.infos.token,
+  receptionDate: state.cartReducer.receptionDate,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -33,13 +35,18 @@ const mapDispatchToProps = (dispatch) => ({
     const action = deleteProductInCart(title, totalPrice);
     dispatch(action);
   },
-  onClickCommandBtn: (productsInCart, totalPriceInCart) => {
-    console.log('je veux bien passer ma commande!!! ', productsInCart, totalPriceInCart);
-    const action = handleOrder(productsInCart, totalPriceInCart);
+  onClickCommandBtn: (productsInCart, totalPriceInCart, receptionDate) => {
+    console.log('je veux bien passer ma commande!!! ', productsInCart, totalPriceInCart, receptionDate);
+    const action = handleOrder(productsInCart, totalPriceInCart, receptionDate);
     dispatch(action);
   },
   fetchOrderList: (token) => {
     const action = fetchOrderList(token);
+    dispatch(action);
+  },
+  onReceptionDateChange: (date) => {
+    console.log('onReceptionDateChange', date);
+    const action = receptionDateChange(date);
     dispatch(action);
   },
 });

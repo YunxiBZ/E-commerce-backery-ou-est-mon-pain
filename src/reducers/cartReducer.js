@@ -8,6 +8,7 @@ import {
   REDUCE_QUANTITY_IN_CART,
   CHANGE_QUANTITY_IN_CART,
   DELETE_PRODUCT_IN_CART,
+  RECEPTION_DATE_CHANGE,
 } from 'src/actions/cart';
 
 import { FETCH_LIST_SUCCESS } from 'src/actions/user';
@@ -16,6 +17,7 @@ const initialState = {
   totalPriceInCart: 0,
   cart: [],
   orderList: [],
+  receptionDate: '2021-04-01',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -157,7 +159,12 @@ const reducer = (state = initialState, action = {}) => {
         orderList: action.orderList,
       };
     }
-
+    case RECEPTION_DATE_CHANGE: {
+      return {
+        ...state,
+        receptionDate: action.date,
+      };
+    }
     default:
       return state;
   }

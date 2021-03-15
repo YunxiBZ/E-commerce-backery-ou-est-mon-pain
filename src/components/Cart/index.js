@@ -16,9 +16,12 @@ const Cart = (
     onClickCommandBtn,
     fetchOrderList,
     token,
+    receptionDate,
+    onReceptionDateChange,
   },
 ) => {
   console.log('productsInCart.onClickAddQuantityBtn', onClickAddQuantityBtn);
+  const dateInput = 'reception-date';
 
   return (
     <div className="cart">
@@ -34,6 +37,22 @@ const Cart = (
       ))}
       <div className="cart__bottom">
 
+        <label
+          htmlFor={dateInput}
+          className="receptionDate__label"
+        >
+          Veuillez choisir le jour de récupérer votre bonheur :
+          <input
+            type="date"
+            id={dateInput}
+            name={dateInput}
+            value={receptionDate}
+            min="2021-03-01"
+            max="2022-12-31"
+            onChange={(evt) => onReceptionDateChange(evt.target.value)}
+          />
+        </label>
+
         <p className="cart__price-total">Prix total: {totalPriceInCart}</p>
         <Link
           to="/account"
@@ -43,16 +62,15 @@ const Cart = (
             className="cart__order-btn"
             value="Valider ma commande"
             handleOrder={
-              () => {
-                onClickCommandBtn(productsInCart, totalPriceInCart);
-              }
-            }
+          () => {
+            onClickCommandBtn(productsInCart, totalPriceInCart, receptionDate);
+          }
+        }
             fetchOrderList={
-              () => {
-                fetchOrderList(token);
-              }
-            }
-
+          () => {
+            fetchOrderList(token);
+          }
+        }
           />
         </Link>
       </div>
@@ -76,11 +94,14 @@ Cart.propTypes = {
   onClickCommandBtn: PropTypes.func.isRequired,
   fetchOrderList: PropTypes.func.isRequired,
   token: PropTypes.string.isRequired,
+  receptionDate: PropTypes.string,
+  onReceptionDateChange: PropTypes.func.isRequired,
 };
 
 Cart.defaultProps = {
   productsInCart: [],
   totalPriceInCart: 0,
+  receptionDate: '2021-03-01',
 };
 
 export default Cart;
