@@ -22,11 +22,13 @@ const Connection = ({
   // });
   // // On crée une const qui contiendra le panier à l'état du render précédent
   // const prevCart = prevCartRef.current;
-  // // Je reçois bien le log si j'ajoute un produit dans mon panier, je vois que cart à une length +1
+  // // Je reçois bien le log si j'ajoute un produit dans mon panier,
+  // // je vois que cart à une length +1
   // // vis à vis de prevCart
   // console.log(prevCart, 'prev-cart', cart, 'cart');
 
-  // // On définit une prop qui se mettra à true à chaque fois que le panier reçoit un nouveau produit
+  // // On définit une prop qui se mettra à true à chaque fois que le panier
+  // // reçoit un nouveau produit
   // const [newCart, setNewCart] = useState(false);
   // const animateTrue = () => setNewCart(true);
   // const animateFalse = () => setNewCart(false);
@@ -105,7 +107,7 @@ const Connection = ({
                   className="connection__cart-btn"
                   icon="shopping-basket"
                 />
-                {cart.length > 0 && (<animated.div style={props} className="connection__cart-items">{cart.length}</animated.div>)}
+                {cart.length > 0 && (<animated.div className="connection__cart-items">{cart.length}</animated.div>)}
               </Link>
               )}
               <Link
