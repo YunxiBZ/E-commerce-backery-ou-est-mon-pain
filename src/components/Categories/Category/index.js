@@ -10,9 +10,9 @@ const Category = ({ label, image }) => {
   return (
     <Link
       className="category"
-      to={`/category/${label.toLowerCase()} `} // à changer=>changé par Yunxi :)
+      to={`/category/${label.toLowerCase()} `}
     >
-      <img className="category__img" alt="category-name" src={image} /* Il faudra modifier les url dans categories *//>
+      <img className="category__img" alt="category-name" src={image} />
       <p className="category__title">{label}</p>
     </Link>
   );

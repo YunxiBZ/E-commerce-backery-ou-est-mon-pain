@@ -12,6 +12,9 @@
     padding-bottom: $gutter*2;
     font-weight: bold;
   }
+  &__items{
+    text-transform: uppercase;
+    }
 }
 
 @media screen and (min-width: 650px) {
@@ -24,6 +27,7 @@
   }
   &__items{
   display: flex;
+  font-size: 1.2rem;
 
   }
 
