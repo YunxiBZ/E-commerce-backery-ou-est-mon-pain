@@ -1,0 +1,56 @@
+@import 'src/styles/vars';
+
+.dev {
+  height: auto;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  border-radius: 20px;
+  justify-content: space-between;
+  &__section {
+    background-color: $dark-grey;
+    width: 33%;
+    min-width: 200px;
+    flex-wrap: wrap;
+    height: 100%;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 30px;
+    min-height: 316px;
+  }
+  &__avatar {
+    height: auto;
+    width: 100%;
+    border-radius: 20px;
+  }
+  &__name {
+    height: 20%;
+    margin-top: 1em;
+    text-align: center;
+    font-size: 1.2em;
+    font-family: $font-ubuntu;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .dev {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: center;
+    align-content: center;
+    &__section {
+      width: 40%;
+    }
+  }
+  }
+
+@media screen and (max-width: 650px) {
+  .dev {
+    &__section {
+      width: 100%;
+    }
+  }
+  
+}
+  

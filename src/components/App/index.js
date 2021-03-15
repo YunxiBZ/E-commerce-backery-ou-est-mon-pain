@@ -24,7 +24,7 @@ import RGPD from 'src/components/RGPD';
 import CategoryPage from 'src/containers/CategoryPage';
 import PageNotFound from 'src/components/PageNotFound';
 import CGV from 'src/components/CGV';
-import Dev from 'src/components/dev';
+import Dev from 'src/components/Dev';
 
 // ==Import FontAwesomeIcon for use Icon
 import { library } from '@fortawesome/fontawesome-svg-core';

@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import "./styles.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import './styles.scss';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = ({ onClickToggleFooterList, toggleFooterClassname }) => (
   <div className="footer">
@@ -13,8 +13,8 @@ const Footer = ({ onClickToggleFooterList, toggleFooterClassname }) => (
         icon={faArrowRight}
         className={
           toggleFooterClassname
-            ? "footer__icon  footer__icon--open"
-            : "footer__icon"
+            ? 'footer__icon  footer__icon--open'
+            : 'footer__icon'
         }
         onClick={onClickToggleFooterList}
       />
@@ -24,8 +24,8 @@ const Footer = ({ onClickToggleFooterList, toggleFooterClassname }) => (
     <nav
       className={
         toggleFooterClassname
-          ? "footer__list"
-          : "footer__list footer__list--notActive"
+          ? 'footer__list'
+          : 'footer__list footer__list--notActive'
       }
     >
       <Link to="/RGPD" className="footer__links">
