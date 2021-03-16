@@ -26,6 +26,7 @@ import PageNotFound from 'src/components/PageNotFound';
 import CGV from 'src/components/CGV';
 import LegalMentions from 'src/components/LegalMentions';
 import Dev from 'src/components/Dev';
+import useScrollToTop from 'src/hooks/ScrollToTop';
 
 // ==Import FontAwesomeIcon for use Icon
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -63,6 +64,7 @@ const App = ({ fetchData, loginSuccess, fetchOrderList }) => {
   useEffect(() => {
     fetchData();
   }, []);
+  useScrollToTop();
 
   const string = localStorage.getItem('userData');
   if (string) {
