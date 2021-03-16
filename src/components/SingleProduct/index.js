@@ -21,7 +21,7 @@ const SingleProduct = ({
       <section className="singleProduct__leftContainer">
         <header className="singleProduct__infos">
           <h2>{product.title} </h2>
-          <p>Stock</p>
+          <p>disponible</p>
         </header>
         <div className="test">
           {product.description}
