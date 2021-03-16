@@ -9,6 +9,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: $gutter*6;
+    font-size: 1.2rem;
+
   }
   &__rightContainer {
     width: 50%;
@@ -84,6 +87,8 @@
       width: 100%;
       height: 50%;
       margin-bottom: 1em;
+      padding: $gutter*1;
+    font-size: 0.8rem;
     }
     &__rightContainer {
       width: 100%;
@@ -95,11 +100,8 @@
       margin-bottom: 1em;
     }
     &__button  {
-      display: none;
       width: 40%;
-      &--modifier {
-        display: block;
-      }
+     
     }
   }
   

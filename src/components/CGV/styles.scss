@@ -1,20 +1,51 @@
-.Container {
-  margin: 0% 15% 0% 15%;
-}
+@import 'src/styles/vars';
 
-.CGVTitle {
-  text-align: center;
-  font-size: xx-large;
-  padding: 20px;
-}
-
-.CGVSubtitle {
-  text-align: left;
-  font-size: x-large;
-  padding: 20px;
-}
-
-@media screen and (max-width: 650px) {
-  .CGV {
+.cgv {
+  display: flex;
+  flex-direction:column;
+  width:90%;
+  margin: 0 auto;
+  &__title {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
   }
+  
+  &__subtitle {
+    font-size: 1rem;
+  
+    text-align: left;
+    font-size: x-large;
+    padding: 20px;
+  }
+
+  &__content{
+    text-align: justify;
+  }
+}
+
+
+
+@media screen and (min-width: 650px) {
+  .cgv {
+    width:70%;
+    &__title {
+      font-size: 2rem;
+      padding: 2rem;
+      text-transform: uppercase;
+      font-weight: bold;
+
+    }
+    
+    &__subtitle {
+      text-align: left;
+      font-size: 1.4rem;
+      padding:$gutter*1.2;
+      font-weight: bold;
+
+    }
+  }
+  
 }

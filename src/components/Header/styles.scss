@@ -44,6 +44,10 @@
     white-space: nowrap;
     background-color: $normal-grey;
     border-radius: 15px 15px 0 0 ;
+    &.active{
+      background-color:$light-brown;
+      color:$normal-grey;
+    }
     &:hover {
       color: $lightest-brown;
     }
@@ -87,6 +91,8 @@
       margin-bottom: 0.5em;
       background-color: none;
       width:50%;
+      font-size:0.8rem;
+
       border-radius: 15px;
 
     }

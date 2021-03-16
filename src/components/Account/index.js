@@ -29,7 +29,6 @@ const Account = ({
   orderList,
 }) => {
   if (!logged) {
-    console.log(logged);
     return <Redirect to="/" />;
   }
 

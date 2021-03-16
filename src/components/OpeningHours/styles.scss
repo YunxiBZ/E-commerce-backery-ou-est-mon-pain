@@ -12,12 +12,14 @@
   border: 2px solid v.$light-brown;
   border-radius: 15px;
   border-radius: 0px 100px / 120px;
-  padding: 1em;
+  padding: 2em 1em;
   &__title {
-    font-size: 2em;
+    font-size: 1.8em;
     margin-bottom: 1em;
     width: 100%;
     text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
     &--modifier {
       padding-right: 1em;
     }
@@ -49,6 +51,9 @@
     &__breadSection {
       width: 100%;
       justify-content:center;
+    }
+    &__title {
+      font-size: 1.5em;
     }
   }
   .opening__title--modifier {

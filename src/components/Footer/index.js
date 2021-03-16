@@ -18,7 +18,7 @@ const Footer = ({ onClickToggleFooterList, toggleFooterClassname }) => (
         }
         onClick={onClickToggleFooterList}
       />
-      <p className="footer__content">©Copyright</p>
+      <p className="footer__content">©OU EST MON PAIN Tous droits réservés 2021</p>
     </div>
 
     <nav
