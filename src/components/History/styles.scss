@@ -4,6 +4,8 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 2em;
+  background-color: $normal-grey;
+  border-radius: 20px;
   &__img {
     width: 100%;
     min-width: 300px;
@@ -11,6 +13,7 @@
     max-width: 650px;
     max-height: 400px;
     border-radius: 8px;
+    margin: 1em 1em;
   }
   &__content {
     align-self: center;
@@ -22,12 +25,15 @@
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
   .history {
     flex-direction: column;
     &__content {
       font-size: 1em;
       min-width: 100%;
+    }
+    &__img {
+      margin: 0;
     }
   }
 }
