@@ -10,9 +10,10 @@
   &__icon{
     max-width: 30px;
     margin-left: 1em;
+    color:$dark-grey;
   }
   &__icon:hover {
-    color:$dark-grey
+    color:$normal-grey;
   }
   &__group-icon{
   display: flex;
