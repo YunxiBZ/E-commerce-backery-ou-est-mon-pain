@@ -61,6 +61,7 @@
   color:$dark-grey
 }
   &__cart-link {
+    display: flex;
     width: 33%;
     display: flex;
     justify-content: center;
@@ -69,6 +70,7 @@
   }
   &__logout-link {
     width: 33%;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
@@ -76,6 +78,7 @@
     width: 33%;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   &__cart-items{
     position: absolute;
