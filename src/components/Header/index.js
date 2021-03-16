@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Connection from 'src/containers/Connection';
 
 import './styles.scss';
-import logo from 'src/assets/logo.png';
+import logo from 'src/assets/logo_grey.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';

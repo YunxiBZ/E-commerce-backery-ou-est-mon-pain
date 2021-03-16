@@ -19,13 +19,21 @@
       margin-left: 2em;
     }
   }
+  &__hamburger:hover {
+    color: $normal-grey;
+    
+  }
   &__logo {
-    width: 15%;
+    width: 20%;
     display: block;
     margin: 0 auto;
-    margin-bottom: 2em;
-    border-radius: 20px;
+    padding-top:1rem;
+    padding-right: .1rem;
+    padding-bottom: .2rem;
+    border-radius: 0px 100px / 120px;
     max-width: 160px;
+    margin-bottom: 1rem;
+    box-shadow: 10px 0px 7px $light-brown;
   }
   &__navbar {
     display: flex;
