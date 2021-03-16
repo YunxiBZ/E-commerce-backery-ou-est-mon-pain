@@ -73,20 +73,6 @@ const SingleProduct = ({
       </section>
       <section className="singleProduct__rightContainer">
         <img src={product.image} alt="product-img" className="singleProduct__image" />
-        <Button
-          value="Ajouter au panier"
-          className="singleProduct__button singleProduct__button--modifier"
-          addInCart={() => {
-            onClickAddToCartBtn(
-              product.id,
-              product.title,
-              product.price,
-              product.totalPrice,
-              product.image,
-              product.quantity,
-            );
-          }}
-        />
       </section>
     </div>
   );

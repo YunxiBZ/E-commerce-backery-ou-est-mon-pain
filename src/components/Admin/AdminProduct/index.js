@@ -60,7 +60,6 @@ const AdminProduct = ({
   const setModalClose = () => setOpenModal(false);
 
   const handleChangeCategories = (event) => {
-    console.log(event.target);
     changeCategories(event.target.value, event.target.id);
   };
   const handleSubmit = (event) => {
@@ -77,7 +76,6 @@ const AdminProduct = ({
   };
 
   const handleChangeProduct = (event) => {
-    console.log('ok');
     changeProduct(event.target.value, products);
   };
 
