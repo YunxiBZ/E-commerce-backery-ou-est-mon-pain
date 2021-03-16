@@ -53,7 +53,7 @@ const ContactForm = ({
         value={phoneNumber}
         changeField={changeField}
       />
-      <p className="field__label">Message</p>
+      <p className="field__description-label">Message</p>
       <textarea
         value={message}
         className="contactForm__message"

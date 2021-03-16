@@ -1,3 +1,5 @@
+@use 'src/styles/vars' as v;
+
 .field {
 display: flex;
 flex-direction: column;
@@ -14,11 +16,12 @@ font-weight: bold;
 }
 &__input {
   height: 3em;
-  border: 2px solid #975721;
 }
-&__label {
+&__description-label {
   margin-bottom: 0.5em;
   font-weight: bold;
+  width: 100%;
+  color: v.$dark-grey;
 }
 }
 
@@ -32,5 +35,4 @@ font-weight: bold;
   .button--ContactForm {
     margin: 0 auto;
   }
-  
 }

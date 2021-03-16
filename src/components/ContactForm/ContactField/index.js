@@ -19,7 +19,7 @@ const ContactField = ({
     <div className={`field ${className}`}>
       <label
         htmlFor={inputId}
-        className="field__label"
+        className="field__description-label"
       >
         {placeholder}
       </label>
