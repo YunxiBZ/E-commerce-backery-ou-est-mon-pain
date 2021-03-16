@@ -108,7 +108,7 @@ const admin = (store) => (next) => (action) => {
           const response = await axios.put(url, {
             id: state.admin.modifyProduct.id,
             title: state.admin.modifyProduct.title,
-            price: parseInt(state.admin.modifyProduct.price, 10),
+            price: parseFloat(state.admin.modifyProduct.price, 10),
             description: state.admin.modifyProduct.description,
             image: state.admin.modifyProduct.image,
             categories,
