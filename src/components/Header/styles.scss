@@ -7,8 +7,9 @@
   background-image: url(https://images.unsplash.com/photo-1523294587484-bae6cc870010?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2064&q=80);
   background-size: cover;
   background-position-y: 25%;
-  margin-bottom: 2em;
+  margin-bottom: 4em;
   position: relative;
+  border-radius: 20px;
   &__hamburger {
     color: $dark-grey;
     display: none;
@@ -38,6 +39,7 @@
   &__navbar {
     display: flex;
     justify-content: center;
+    margin-bottom: 2em;
   }
   &__links {
     width:80%;
@@ -50,8 +52,8 @@
     text-align: center;
     color: $light-brown;
     white-space: nowrap;
-    background-color: $normal-grey;
-    border-radius: 15px 15px 0 0 ;
+    background-color: $dark-grey;
+    border-radius: 20px;
     &.active{
       background-color:$light-brown;
       color:$normal-grey;

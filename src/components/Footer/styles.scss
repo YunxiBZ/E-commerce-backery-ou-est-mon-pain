@@ -13,7 +13,8 @@
   &__top{
     display: flex;
     justify-content: space-between;
-    margin: $gutter*2;
+    margin: $gutter*2 auto;
+    width: 90%;
   }
   &__icon{
     cursor: pointer;
@@ -24,12 +25,12 @@
   }
   &__icon--open{
     transform: rotate(90deg);
-    
-
   }
   &__content{
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     padding-top: 0.5rem;
+    width: 100%;
+    padding-left: 0.4em;
   }
   &__list{
     display: flex;
@@ -69,6 +70,7 @@
     }
     &__content{
       font-size: 1rem;
+      text-align: center;
     }
   }
 }
