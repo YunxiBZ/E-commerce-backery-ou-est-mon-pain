@@ -49,6 +49,11 @@ const accountController = {
                 };
 
                 const token = jwt.sign(jwtContent, 'YuThJbAn', jwtOptions);
+
+                res.cookie('token', token, {
+                    httpOnly: true
+                })
+
                 res.header('authorization', token).status(200).json({
                     logged: true,
                     email: account.email,

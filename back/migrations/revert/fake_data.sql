@@ -4,6 +4,8 @@ BEGIN;
 
 DELETE FROM "product_category";
 
+DELETE FROM "product_order";
+
 DELETE FROM "product";
 
 DELETE FROM "category";

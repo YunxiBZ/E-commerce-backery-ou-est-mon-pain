@@ -75,7 +75,7 @@ const orderController = {
         if (dailyOrders) {
             res.json(dailyOrders);
         } else {
-            res.json("Il n'y a pas de commandes aujourd'hui")
+            res.json("Il n'y a pas de commandes aujourd'hui");
         }
     }
 };

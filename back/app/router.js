@@ -4,6 +4,8 @@
 
   const router = Router();
 
+  const nodemailer = require('nodemailer');
+
   const categoryController = require('./controllers/categoryController');
   const productController = require('./controllers/productController');
   const accountController = require('./controllers/accountController');
@@ -43,10 +45,50 @@
   // Route pour les commandes
   router.post('/order', userMW, orderController.postOrder);
   router.get('/client-orders', userMW, orderController.OrdersById);
-  router.get('/dayli-orders', adminMW, orderController.OrdersByDay);
+  router.get('/daily-orders', adminMW, orderController.OrdersByDay);
 
   // Route pour les avis
-  router.post('/product-score', userMW, reviewController.postReview)
+  router.post('/product-score', userMW, reviewController.postReview);
+
+  // Gestion du mail
+  router.post('/contact', (req, res) => {
+
+      const {
+          last_name,
+          first_name,
+          email,
+          phone_number,
+          message
+      } = req.body
+
+      const transporterbis = nodemailer.createTransport({
+          host: 'smtp.gmail.com',
+          port: 465,
+          auth: {
+              user: 'ouestmonpaintest@gmail.com',
+              pass: '@bcd3fgh'
+          },
+          tls: {
+              // do not fail on invalid certs
+              rejectUnauthorized: false
+          },
+      });
+
+      const mailOptions = {
+          from: email,
+          to: 'ouestmonpaintest@gmail.com',
+          subject: email + ' ' + first_name + ' ' + last_name + ' ' + phone_number,
+          text: message
+      };
+
+      transporterbis.sendMail(mailOptions, (error, info) => {
+          if (error) {
+              res.send(error);
+          } else {
+              res.send('Sucess');
+          }
+      })
+  })
 
   // ici, une 404 pour l'API
   router.use((req, res) => {

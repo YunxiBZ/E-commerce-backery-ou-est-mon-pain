@@ -22,9 +22,9 @@ POST {{baseUrl}}/signup
 Content-Type: application/json
 
 {
-    "email": "jaybi@orange.fr",
-    "password": "bla",
-    "passwordConfirm" : "bla",
+    "email": "jdqsdqsdzqzqy@orange.fr",
+    "password": "KjfY5h2J448Bzw",
+    "passwordConfirm" : "KjfY5h2J448Bzw",
     "last_name": "Bataya",
     "first_name": "Hernandez",
     "phone_number": "0602235645"
@@ -75,7 +75,7 @@ Content-Type: application/json
 
 POST {{baseUrl}}/product
 Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjMsImlhdCI6MTYxNTQ2NzE0MiwiZXhwIjoxNjE1NDc3OTQyfQ.AEfSRZP30DNDpgp6sEICPrTv5GPHxZcJWq2mt7Rmopk
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjMsImlhdCI6MTYxNTU1MjcxMywiZXhwIjoxNjE1NTYzNTEzfQ.jjzWlmcmM3orK7so5rjzhrWmDdlQN_mblVzX1A424Lg
 
 {
     "title": "Panini Nutella",
@@ -89,14 +89,15 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjMsI
 
 PUT {{baseUrl}}/product
 Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjMsImlhdCI6MTYxNTU1MjcxMywiZXhwIjoxNjE1NTYzNTEzfQ.jjzWlmcmM3orK7so5rjzhrWmDdlQN_mblVzX1A424Lg
 
 {
-    "id" : 9,
+    "id" : 12,
     "title": "AIEAIE",
     "description": "Incroyable panini du monde",
     "price": 1.95,
     "image": "image d'huile de palme",
-    "categories" : [1,2,5]
+    "categories" : [25]
 }
 
 ### Route DELETE /product
@@ -189,10 +190,10 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsI
 
 POST {{baseUrl}}/order
 Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTM4Mzk2NiwiZXhwIjoxNjE1Mzk0NzY2fQ.ntMmYEMqLN73L1aGnuyPlEG4X1G0GQ3e_h_PsuS_DlM
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjMsImlhdCI6MTYxNTU2MjAzOSwiZXhwIjoxNjE1NTcyODM5fQ.o9BDgF71bPqef_gJgknT5dcysAGDop1tIbzB-L3q_Q8
 
 {
-    "reception_date" : "2021-03-09",
+    "reception_date" : "2021-03-12",
     "total_price" : 14.20,
     "products" : [
         {"id" :11,
@@ -204,12 +205,12 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsI
     ]
 }
 
-### Route GET /dayli-orders
+### Route GET /daily-orders
 
-GET {{baseUrl}}/dayli-orders
-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTYxNTI4NjY1NywiZXhwIjoxNjE1Mjk3NDU3fQ.wzliyO8dkx5zSQuy9KIeeEndOjMbZIhNA_cLtku7fi8
+GET {{baseUrl}}/daily-orders
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjMsImlhdCI6MTYxNTU2MjAzOSwiZXhwIjoxNjE1NTcyODM5fQ.o9BDgF71bPqef_gJgknT5dcysAGDop1tIbzB-L3q_Q8
 
-### Route POST 
+### Route POST /product-score
 
 POST {{baseUrl}}/product-score
 Content-Type: application/json
@@ -219,4 +220,16 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTY
     "mark": 5,
     "account_id": 1,
     "id": 11
+}
+
+### Route POST /contact
+POST {{baseUrl}}/contact
+Content-Type: application/json
+
+{
+    "first_name" : "JB",
+    "last_name" : "biogoss",
+    "phone_number" : "tacru",
+    "email": "camarche@truc.com",
+    "message": "koukoulodzqidzqou stach stach"
 }
