@@ -130,7 +130,7 @@ const AdminProduct = ({
                 type="text"
                 value={productDescription}
                 className="adminProduct__field"
-                changeField={changeField}
+                onChange={(event) => changeField(event.target.value, 'description')}
               />
               <InputAddProduct
                 name="price"
@@ -242,7 +242,7 @@ const AdminProduct = ({
                 type="text"
                 value={selectedProductDescription}
                 className="adminProduct__field"
-                changeField={changeFieldModifyProduct}
+                onChange={(event) => changeFieldModifyProduct(event.target.value, 'description')}
               />
               <InputModifyProduct
                 name="price"
