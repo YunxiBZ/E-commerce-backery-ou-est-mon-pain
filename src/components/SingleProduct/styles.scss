@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: $gutter*6;
+    padding: 2em;
     font-size: 1.2rem;
 
   }
@@ -18,6 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2em;
   }
   &__infos {
     display: flex;
@@ -79,7 +80,7 @@
 }
 
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
   .singleProduct {
     flex-direction: column;
     height: 75vh;
@@ -88,11 +89,12 @@
       height: 50%;
       margin-bottom: 1em;
       padding: $gutter*1;
-    font-size: 0.8rem;
+      font-size: 0.8rem;
     }
     &__rightContainer {
       width: 100%;
       flex-direction: column;
+      padding: 0;
     }
     &__image {
       width: 100%;
@@ -102,6 +104,9 @@
     &__button  {
       width: 40%;
      
+    }
+    &__data {
+      margin-bottom: 3em;
     }
   }
   
