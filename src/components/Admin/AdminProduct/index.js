@@ -129,7 +129,7 @@ const AdminProduct = ({
                 placeholder="Description"
                 type="text"
                 value={productDescription}
-                className="adminProduct__field"
+                className="adminProduct__field adminProduct__field--modifier"
                 onChange={(event) => changeField(event.target.value, 'description')}
               />
               <InputAddProduct
@@ -241,7 +241,7 @@ const AdminProduct = ({
                 placeholder="Description"
                 type="text"
                 value={selectedProductDescription}
-                className="adminProduct__field"
+                className="adminProduct__field adminProduct__field--modifier"
                 onChange={(event) => changeFieldModifyProduct(event.target.value, 'description')}
               />
               <InputModifyProduct
