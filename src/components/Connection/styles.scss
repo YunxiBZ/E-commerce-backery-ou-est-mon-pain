@@ -1,7 +1,7 @@
 @import 'src/styles/vars';
 
 .connection{
-  color: $lightest-brown;
+  color: $light-brown;
   position: absolute;
   font-weight: 700;
   top: 0px;
@@ -18,7 +18,7 @@
   &__group-icon{
   display: flex;
   font-size: 1.2rem;
-  background-color: $normal-grey;
+  background-color: $dark-grey;
   border-radius: 20px;
   justify-content: space-around;
   }
@@ -28,7 +28,7 @@
     margin-bottom: 1em;
     cursor: default;
     padding: 0.5em;
-    background-color: $normal-grey;
+    background-color: $dark-grey;
     border-radius: 20px;
   }
  &__logged{
