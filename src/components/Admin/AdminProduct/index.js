@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
@@ -47,6 +48,8 @@ const AdminProduct = ({
   useEffect(() => {
     fetchData();
   }, []);
+
+  const ok = 'truc';
 
   const [open, setOpen] = useState(false);
   const onOpenModal = () => setOpen(true);
@@ -123,7 +126,7 @@ const AdminProduct = ({
                 className="adminProduct__field"
                 changeField={changeField}
               />
-              <InputAddProduct
+              <textarea
                 name="description"
                 placeholder="Description"
                 type="text"
@@ -228,7 +231,14 @@ const AdminProduct = ({
                 className="adminProduct__field"
                 changeField={changeFieldModifyProduct}
               />
-              <InputModifyProduct
+              <label
+                htmlFor={ok}
+                className="modifyInput__label"
+              >
+                Description
+              </label>
+              <textarea
+                id={ok}
                 name="description"
                 placeholder="Description"
                 type="text"

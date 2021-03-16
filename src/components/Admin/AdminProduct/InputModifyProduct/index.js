@@ -26,6 +26,7 @@ const InputModifyProduct = ({
       </label>
 
       <input
+        id={inputId}
         value={value}
         type={type}
         className={className}
