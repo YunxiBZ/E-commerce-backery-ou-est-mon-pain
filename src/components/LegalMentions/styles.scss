@@ -5,8 +5,7 @@
   flex-direction:column;
   width:90%;
   margin: 0 auto;
-  height:66vh;
-
+  margin-bottom:$gutter ;
   &__title {
     font-size: 1.5rem;
     text-align: center;
@@ -32,6 +31,8 @@
 @media screen and (min-width: 650px) {
   .legal_mentions {
     width:70%;
+    height:66vh;
+
     &__title {
       font-size: 2rem;
       padding: 2rem;
