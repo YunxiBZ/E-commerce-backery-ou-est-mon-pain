@@ -10,6 +10,7 @@ import {
 
 const mapStateToProps = (state) => ({
   products: state.products,
+  logged: state.user.infos.logged,
 });
 
 const mapDispatchToProps = (dispatch) => ({

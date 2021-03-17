@@ -17,11 +17,14 @@ const Product = ({
   onClickReduceQuantityBtn,
   onChangeQuantityInput,
   onClickAddToCartBtn,
+  logged,
 }) => {
   // Label produit ajouté
   const [add, setAdd] = useState(false);
   const setLabel = () => setAdd(true);
   const unsetLabel = () => setAdd(false);
+  // Label produit ajouté mais non connecté
+
   // Gestion du hover sur un produit si on hover notre props hover
   // Lorsque l'on quitte un produit de la souris hover est à false
   const [hover, setHover] = useState(false);
@@ -42,7 +45,7 @@ const Product = ({
       <h3 className="product__name">{title}</h3>
       <Link to={`/product/${id}`} className="product__link">
         <img className="product__img" src={image} alt={`image_${title}`} />
-        <div className={add ? 'product__label' : 'product__label--modifier'}>Produit ajouté</div>
+        <div className={add ? 'product__label' : 'product__label--modifier'}>{logged ? 'Produit ajouté' : 'Votre produit a été ajouté, connectez vous pour visualiser votre panier'}</div>
       </Link>
       <div className="product__bottom">
         <div className="product__quantity">
@@ -93,7 +96,7 @@ const Product = ({
           setLabel();
           setTimeout(() => {
             unsetLabel();
-          }, 3000);
+          }, 4000);
         }}
       />
     </animated.div>
@@ -111,6 +114,7 @@ Product.propTypes = {
   onClickReduceQuantityBtn: PropTypes.func.isRequired,
   onChangeQuantityInput: PropTypes.func.isRequired,
   onClickAddToCartBtn: PropTypes.func.isRequired,
+  logged: PropTypes.bool.isRequired,
 };
 
 export default Product;

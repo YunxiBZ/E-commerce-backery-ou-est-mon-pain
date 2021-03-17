@@ -11,6 +11,7 @@ const Products = ({
   onClickReduceQuantityBtn,
   onChangeQuantityInput,
   onClickAddToCartBtn,
+  logged,
 }) => {
   useEffect(() => {
     fetchData();
@@ -26,6 +27,7 @@ const Products = ({
           onClickReduceQuantityBtn={onClickReduceQuantityBtn}
           onChangeQuantityInput={onChangeQuantityInput}
           onClickAddToCartBtn={onClickAddToCartBtn}
+          logged={logged}
         />
       ))}
     </div>
@@ -43,6 +45,7 @@ Products.propTypes = {
   onClickReduceQuantityBtn: PropTypes.func.isRequired,
   onChangeQuantityInput: PropTypes.func.isRequired,
   onClickAddToCartBtn: PropTypes.func.isRequired,
+  logged: PropTypes.bool.isRequired,
 };
 
 Products.defaultProps = {
