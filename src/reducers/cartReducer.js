@@ -158,6 +158,8 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         orderList: action.orderList,
+        totalPriceInCart: 0,
+        cart: [],
       };
     }
     case RECEPTION_DATE_CHANGE: {
