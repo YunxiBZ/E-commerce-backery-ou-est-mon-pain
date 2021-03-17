@@ -11,7 +11,7 @@ const OrderList = ({ orderList }) => {
           orderList.map((order) => (
             <li className="account__item" key={order.id}>
               <p>ID: {order.id}</p>
-              <p>Prix Total: {order.total_price}</p>
+              <p>Prix Total: {order.total_price} €</p>
               <p>Date de réception: {order.reception_date}</p>
               <p>{order.state}</p>
             </li>
