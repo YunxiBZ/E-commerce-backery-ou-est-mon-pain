@@ -1,7 +1,9 @@
 import React from 'react';
 import './styles.scss';
+import ScrollToTop from 'src/hooks/ScrollToTop';
 
 function LegalMentions() {
+  ScrollToTop();
   return (
     <div className="legal_mentions">
       <h1 className="legal_mentions__title">MENTIONS LEGALES</h1>

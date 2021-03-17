@@ -1,7 +1,10 @@
 import React from 'react';
 import './styles.scss';
+import ScrollToTop from 'src/hooks/ScrollToTop';
 
 function CGV() {
+  ScrollToTop();
+
   return (
     <div className="cgv">
       <h1 className="cgv__title">Conditions générales de vente</h1>

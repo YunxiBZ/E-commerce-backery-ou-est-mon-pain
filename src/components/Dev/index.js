@@ -4,9 +4,10 @@ import avatarTheo from 'src/assets/avatar-theo.png';
 import avatarAntoine from 'src/assets/avatar-antoine.png';
 import avatarJB from 'src/assets/avatar-JB.png';
 import avatarYunxi from 'src/assets/avatar-yunxi.jpeg';
+import ScrollToTop from 'src/hooks/ScrollToTop';
 
 const Dev = () => {
-  const ok = 'truc';
+  ScrollToTop();
 
   return (
     <div className="dev">

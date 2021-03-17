@@ -1,7 +1,9 @@
 import React from 'react';
 import './styles.scss';
+import ScrollToTop from 'src/hooks/ScrollToTop';
 
 function RGPD() {
+  ScrollToTop();
   return (
     <div className="rgpd">
       <h1 className="rgpd__title">Politique de confidentialité</h1>

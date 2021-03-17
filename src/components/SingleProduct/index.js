@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'src/components/Button';
 import { Redirect } from 'react-router-dom';
+import ScrollToTop from 'src/hooks/ScrollToTop';
 
 const SingleProduct = ({
   product,
@@ -15,6 +16,8 @@ const SingleProduct = ({
   if (!product) {
     return <Redirect to="/" />;
   }
+
+  ScrollToTop();
 
   return (
     <div className="singleProduct">
