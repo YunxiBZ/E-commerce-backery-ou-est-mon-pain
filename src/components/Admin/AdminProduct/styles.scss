@@ -1,7 +1,7 @@
 @import 'src/styles/vars';
 
 .adminProduct {
-  background-color: $normal-grey;
+  background-color: $dark-grey;
   &__title {
     margin-bottom: 1em;
     font-weight: 700;
@@ -71,7 +71,7 @@
   &__addProductContainer {
     display: flex;
     flex-direction: column;
-    background-color: $dark-grey;
+    background-color: $normal-grey;
     width: 80%;
     margin: 0 auto;
     border-radius: 20px;
@@ -83,7 +83,7 @@
     height: 10vh;
     justify-content: space-around;
     align-items: center;
-    background-color: $dark-grey;
+    background-color: $normal-grey;
     width: 80%;
     margin: 0 auto;
     border-radius: 20px;
