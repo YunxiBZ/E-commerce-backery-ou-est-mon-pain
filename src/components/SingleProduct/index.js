@@ -27,7 +27,16 @@ const SingleProduct = ({
           <p className="singleProduct__stock">disponible</p>
         </header>
         <div className="test">
-          {product.description}
+          {/*
+          Handle description of product just for display, because of the format data of description
+          */}
+          {
+            product.description.split('I')[0]
+          }
+          <span className="singleProduct__ingredients">Ingédients: </span>
+          {
+            product.description.split(':')[1]
+          }
         </div>
 
         <div className="singleProduct__data">
