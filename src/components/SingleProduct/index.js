@@ -33,10 +33,13 @@ const SingleProduct = ({
           {
             product.description.split('I')[0]
           }
-          <span className="singleProduct__ingredients">Ingédients: </span>
-          {
+          <div className="singleProduct__ingredients">
+            <p>Ingédients: </p>
+            {
             product.description.split(':')[1]
           }
+
+          </div>
         </div>
 
         <div className="singleProduct__data">
