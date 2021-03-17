@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import ScrollToTop from 'src/hooks/ScrollToTop';
 import Product from 'src/components/Products/Product';
 
 import PropTypes from 'prop-types';
@@ -14,6 +15,8 @@ const CategoryPage = ({
   useEffect(() => {
     fetchData();
   }, []);
+  ScrollToTop();
+
   return (
     <div className="products">
       {productsByCategory.map((product) => (

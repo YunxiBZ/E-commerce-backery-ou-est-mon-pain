@@ -60,7 +60,7 @@
     margin: $gutter $gutter*.3;
     border: none;
     background-color:$light-brown;
-    color:$normal-grey;
+    color:$dark-grey !important;
     text-align: center;
     font-size: 1em !important;
     border-radius: 5px;
@@ -96,7 +96,7 @@
 
   &__add-to-cart-btn{
     background-color: $light-brown;
-    color: $normal-grey;
+    color: $dark-grey !important;
     font-weight: 700;
     max-width: 80%;
     margin: 0 auto;

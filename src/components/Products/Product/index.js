@@ -114,7 +114,10 @@ Product.propTypes = {
   onClickReduceQuantityBtn: PropTypes.func.isRequired,
   onChangeQuantityInput: PropTypes.func.isRequired,
   onClickAddToCartBtn: PropTypes.func.isRequired,
-  logged: PropTypes.bool.isRequired,
+  logged: PropTypes.bool,
 };
 
+Product.defaultProps = {
+  logged: null,
+};
 export default Product;

@@ -35,6 +35,10 @@
     font-size: 0.8rem;
     border-radius: 5px;
   }
+  &__delete {
+    width: 30px !important;
+    height: 30px !important;
+  }
   &__quantity-input:hover{
     background-color:$lightest-brown;
   }
