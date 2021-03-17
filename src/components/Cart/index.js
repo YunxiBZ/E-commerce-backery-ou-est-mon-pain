@@ -45,46 +45,64 @@ const Cart = (
           onClickDeleteBtn={onClickDeleteBtn}
         />
       ))}
+
       <div className="cart__bottom">
-
-        <label
-          htmlFor={dateInput}
-          className="cart__label-receptionDate"
-        >
-          <p>Veuillez choisir le jour de récupérer votre bonheur :</p>
-          <input
-            type="date"
-            id={dateInput}
-            name={dateInput}
-            value={receptionDate}
-            className="cart__input-receptionDate"
+        { productsInCart.length > 0 ? (
+          <div className="cart__bottom">
+            <label
+              htmlFor={dateInput}
+              className="cart__label-receptionDate"
+            >
+              <p>Veuillez choisir le jour de récupérer votre bonheur :</p>
+              <input
+                type="date"
+                id={dateInput}
+                name={dateInput}
+                value={receptionDate}
+                className="cart__input-receptionDate"
             // hollow out to choose a date before today
-            min={todayDate}
-            max={dateMax}
-            onChange={(evt) => onReceptionDateChange(evt.target.value)}
-          />
-        </label>
+                min={todayDate}
+                max={dateMax}
+                onChange={(evt) => onReceptionDateChange(evt.target.value)}
+              />
+            </label>
 
-        <p className="cart__price-total">Prix total: {totalPriceInCart} €</p>
-        <Link
-          to="/account"
-          className="cart__order-link"
-        >
-          <Button
-            className="cart__order-btn"
-            value="Valider ma commande"
-            handleOrder={
-          () => {
-            onClickCommandBtn(productsInCart, totalPriceInCart, receptionDate);
-          }
-        }
-            fetchOrderList={
+            <p className="cart__price-total">Prix total: {totalPriceInCart} €</p>
+            <Link
+              to="/account"
+              className="cart__order-link"
+            >
+              <Button
+                className="cart__order-btn"
+                value="Valider ma commande"
+                handleOrder={
+              () => {
+                onClickCommandBtn(productsInCart, totalPriceInCart, receptionDate);
+              }
+           }
+                fetchOrderList={
           () => {
             fetchOrderList(token);
           }
         }
-          />
-        </Link>
+              />
+            </Link>
+          </div>
+        ) : (
+          <div className="cart__empty">
+            <h2 className="cart__title-empty">Votre panier est vide ...</h2>
+            <Link
+              to="/products"
+              className="cart__link-products"
+            >
+              <Button
+                value="Voir les produits"
+                className="cart__button-products"
+              />
+            </Link>
+          </div>
+        )}
+
       </div>
 
     </div>
