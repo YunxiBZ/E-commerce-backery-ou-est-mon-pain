@@ -47,15 +47,26 @@
     width: 30%;
     display:flex;
   }
+  &__add-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  &__reduce-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
   &__quantity-input{
-    width: 60%;
+    width: 100%;
     margin: $gutter $gutter*.3;
     border: none;
     background-color:$light-brown;
     color:$normal-grey;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1em !important;
     border-radius: 5px;
+    min-width: 50px;
+    font-weight: 700;
+    font-family: $font-ubuntu;
   }
   &__quantity-input:hover{
     background-color:$lightest-brown;
@@ -68,6 +79,10 @@
     text-transform: uppercase;
     margin: $gutter;
     font-weight: 700;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__icon{
@@ -96,12 +111,16 @@
   .product{
     width:100%;
     font-size: 0.7rem;
-    &__quantity-input {
-      font-size: 0.6rem;
-      min-width: 50px;
+    &__price {
+      font-size: 2em;
     }
-    &__icon{
-      font-size: 0.9rem;
+    &__add-icon {
+      width: 30px !important;
+      height: 30px !important;
+    }
+    &__reduce-icon {
+      width: 30px !important;
+      height: 30px !important;
     }
     &__quantity{
       width: 50%;
@@ -109,6 +128,7 @@
       align-items: center;
       &-input {
         height: 50%;
+        font-size: 2em !important;
       }
     }
     &__add-to-cart-btn{

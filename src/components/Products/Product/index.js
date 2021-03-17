@@ -73,7 +73,7 @@ const Product = ({
           />
         </div>
 
-        <p className="product__price">Prix: {totalPrice}€ </p>
+        <p className="product__price">{totalPrice}€ </p>
 
       </div>
       <Button

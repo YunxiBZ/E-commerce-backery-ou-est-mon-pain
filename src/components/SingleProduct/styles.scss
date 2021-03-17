@@ -35,13 +35,19 @@
   &__data {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     margin-bottom: 1em;
   }
   &__quantityContainer {
     display: flex;
     width: 50%;
     justify-content: space-around;
+    font-size: 1.5em;
+    align-items: center;
+    font-family: $font-ubuntu;
+  }
+  &__removeIcon {
+    font-size: 2em;
   }
   &__quantity {
     width: 60%;
@@ -49,20 +55,37 @@
     background-color:$light-brown;
     color:$normal-grey;
     text-align: center;
-    font-size: 0.8rem;
-    border-radius: 5px;
+    border-radius: 20px;
+    height: 100%;
+    padding: 0.4em;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: $font-ubuntu;
+    font-size: 0.7em;
   }
   &__price{
     align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
+    width: 15%;
     text-transform: uppercase;
     font-weight: 700;
     margin-right: 1em;
     text-align: center;
+    font-weight: 700;
+    background-color: $light-brown;
+    color: $normal-grey;
+    border-radius: 20px;
+    font-size: 1.2em;
+    font-family: $font-ubuntu;
+    text-transform: uppercase;
   }
   &__button {
     width: 50%;
     align-self: center;
+    margin-top: 2em;
     &--modifier {
       display: none;
     }
@@ -75,14 +98,24 @@
     border-radius: 20px;
     display: inline-block;
   }
-}
-
-.test {
-  margin-left: 1em;
-  height: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  &__productTitle {
+    text-align: center;
+    font-size: 2em;
+    border-bottom: 2px solid $light-brown
+  }
+  &__productDescription {
+    margin-left: 1em;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+  }
+  &__addIcon {
+    background-color: red;
+    font-size: 2em;
+  }
+  
 }
 
 
@@ -91,6 +124,14 @@
     flex-direction: column;
     height: 75vh;
     justify-content: space-between;
+    &__AddIcon {
+      width: 30px !important;
+      height: 30px !important;
+    }
+    &__RemoveIcon {
+      width: 30px !important;
+      height: 30px !important;
+    }
     &__leftContainer {
       width: 100%;
       height: 50%;
@@ -109,11 +150,31 @@
       
     }
     &__button  {
-      width: 40%;
+      width: 60%;
+      font-size: 1.4em;
      
     }
     &__data {
-      margin-bottom: 3em;
+      margin-top: 2em;
+    }
+    &__productDescription {
+      font-size: 1.5em;
+      margin-top: 2em;
+    }
+    &__price {
+      width: 30%;
+      height: 100%;
+      font-size: 2em;
+    }
+    &__quantity {
+      font-size: 2em;
+      font-weight: 700;
+      margin-left: 0.3em;
+      margin-right: 0.3em;
+      width: 100%;
+    }
+    &__quantityContainer {
+      font-size: 1em;
     }
   }
   

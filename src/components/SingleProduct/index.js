@@ -23,10 +23,10 @@ const SingleProduct = ({
     <div className="singleProduct">
       <section className="singleProduct__leftContainer">
         <header className="singleProduct__infos">
-          <h2>{product.title} </h2>
+          <h2 className="singleProduct__productTitle">{product.title} </h2>
           <p className="singleProduct__stock">disponible</p>
         </header>
-        <div className="test">
+        <div className="singleProduct__productDescription">
           {product.description}
         </div>
 
