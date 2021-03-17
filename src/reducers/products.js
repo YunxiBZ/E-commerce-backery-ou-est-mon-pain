@@ -31,7 +31,7 @@ const products = (state = initialState, action = {}) => {
         if (product.title === action.product) {
           // Ici si on a une quantité égal à 0 on arrête on renvoit juste le produit
           // sans decrement sa quantité
-          if (product.quantity === 0) {
+          if (product.quantity === 1) {
             return {
               ...product,
               quantity: product.quantity,
