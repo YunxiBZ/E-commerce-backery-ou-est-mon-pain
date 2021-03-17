@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  HANDLE_ORDER, orderSuccess, orderFailed,
+  HANDLE_ORDER, orderSuccess, orderFailed, emptyBasket,
 } from 'src/actions/cart';
 import { FETCH_ORDER_LIST, fetchListSuccess, fetchListFailed } from 'src/actions/user';
 
@@ -22,6 +22,7 @@ const orderCart = (store) => (next) => async (action) => {
         },
         config);
         store.dispatch(orderSuccess(response.date));
+        store.dispatch(emptyBasket());
       }
       catch (error) {
         store.dispatch(orderFailed(error.response.data.error));

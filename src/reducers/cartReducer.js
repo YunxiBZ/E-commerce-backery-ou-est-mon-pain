@@ -9,6 +9,7 @@ import {
   CHANGE_QUANTITY_IN_CART,
   DELETE_PRODUCT_IN_CART,
   RECEPTION_DATE_CHANGE,
+  EMPTY_BASKET,
 } from 'src/actions/cart';
 
 import { FETCH_LIST_SUCCESS } from 'src/actions/user';
@@ -51,7 +52,7 @@ const reducer = (state = initialState, action = {}) => {
 
         };
       }
-      // If the product is'n yet to be in cart, we add it in cart with price
+      // If the product isn't yet to be in cart, we add it in cart with price
       return {
         ...state,
         cart: [
@@ -158,14 +159,19 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         orderList: action.orderList,
-        totalPriceInCart: 0,
-        cart: [],
       };
     }
     case RECEPTION_DATE_CHANGE: {
       return {
         ...state,
         receptionDate: action.date,
+      };
+    }
+    case EMPTY_BASKET: {
+      return {
+        ...state,
+        totalPriceInCart: 0,
+        cart: [],
       };
     }
     default:

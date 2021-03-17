@@ -6,6 +6,12 @@ export const HANDLE_ORDER = 'HANDLE_ORDER';
 export const ORDER_SUCCESS = 'ORDER_SUCCESS';
 export const ORDER_FAILED = 'ORDER_FAILED';
 export const RECEPTION_DATE_CHANGE = 'RECEPTION_DATE_CHANGE';
+export const EMPTY_BASKET = 'EMPTY_BASKET';
+
+export const emptyBasket = () => ({
+  type: EMPTY_BASKET,
+
+});
 
 export const receptionDateChange = (date) => ({
   type: RECEPTION_DATE_CHANGE,
