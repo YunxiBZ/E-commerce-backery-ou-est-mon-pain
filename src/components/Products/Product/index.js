@@ -45,7 +45,7 @@ const Product = ({
       <h3 className="product__name">{title}</h3>
       <Link to={`/product/${id}`} className="product__link">
         <img className="product__img" src={image} alt={`image_${title}`} />
-        <div className={add ? 'product__label' : 'product__label--modifier'}>{logged ? 'Produit ajouté' : 'Votre produit a été ajouté, connectez vous pour visualiser votre panier'}</div>
+        <div className={add ? 'product__label' : 'product__label--modifier'}>{logged ? 'Produit ajouté' : 'Produit ajouté - connectez-vous 🥖 '}</div>
       </Link>
       <div className="product__bottom">
         <div className="product__quantity">
@@ -96,7 +96,7 @@ const Product = ({
           setLabel();
           setTimeout(() => {
             unsetLabel();
-          }, 4000);
+          }, 2000);
         }}
       />
     </animated.div>
