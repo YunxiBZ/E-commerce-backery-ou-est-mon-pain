@@ -39,27 +39,27 @@
   margin: $gutter*0.5 0;
  }
  &__edit-btn:hover {
-  color:$dark-grey
+  color:$lightest-brown;
   }
  &__admin-btn{
   margin: $gutter*0.5;
  }
  &__admin-btn:hover {
-  color:$dark-grey
+  color:$lightest-brown;
 }
 
  &__cart-btn{
    margin: $gutter;
  }
  &__cart-btn:hover {
-  color:$dark-grey
+  color:$lightest-brown;
 }
  &__logout-btn{
   margin: $gutter*0.5;
 
  }
  &__logout-btn:hover {
-  color:$dark-grey
+  color:$lightest-brown;
 }
   &__cart-link {
     display: flex;
