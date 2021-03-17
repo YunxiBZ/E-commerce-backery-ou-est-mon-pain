@@ -53,7 +53,7 @@ const Cart = (
               htmlFor={dateInput}
               className="cart__label-receptionDate"
             >
-              <p>Veuillez choisir le jour de récupérer votre bonheur :</p>
+              <p>Veuillez choisir le jour de récupération de votre petit bonheur :</p>
               <input
                 type="date"
                 id={dateInput}
