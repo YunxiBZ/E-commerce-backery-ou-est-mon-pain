@@ -37,6 +37,7 @@ const Header = ({ toggle, toggleNavbar }) => (
         to="/"
         exact
         className="header__links"
+        onClick={toggleNavbar}
       >
         Accueil
       </NavLink>
@@ -44,6 +45,7 @@ const Header = ({ toggle, toggleNavbar }) => (
         to="/products"
         exact
         className="header__links"
+        onClick={toggleNavbar}
       >
         Produits
       </NavLink>
@@ -51,6 +53,7 @@ const Header = ({ toggle, toggleNavbar }) => (
         to="/infos-pratiques"
         exact
         className="header__links"
+        onClick={toggleNavbar}
       >
         Infos pratiques
       </NavLink>
@@ -58,6 +61,7 @@ const Header = ({ toggle, toggleNavbar }) => (
         to="/formulaire-de-contact"
         exact
         className="header__links"
+        onClick={toggleNavbar}
       >
         Formulaire de contact
       </NavLink>
