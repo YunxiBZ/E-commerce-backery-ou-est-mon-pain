@@ -96,12 +96,18 @@ const reducer = (state = initialState, action = {}) => {
         cart:
         // Find the product with title, change his quantity, then map all of products
           state.cart.map((product) => {
-            if (product.title === action.title) {
+            if (product.title === action.title && product.quantity !== 0) {
               return {
                 ...product,
                 quantity: product.quantity - 1,
                 totalPrice: parseFloat((product.totalPrice - product.price).toFixed(2)),
 
+              };
+            } if (product.title === action.title && product.quantity === 0) {
+              action.price = 0;
+              return {
+                ...product,
+                quantity: product.quantity,
               };
             }
             return product;
@@ -116,6 +122,7 @@ const reducer = (state = initialState, action = {}) => {
       let newTotalPrice;
       if (Number.isNaN(action.quantity)) {
         newTotalPrice = 0;
+        action.quantity = 0;
       }
       newTotalPrice = action.quantity * productFound.price;
 
@@ -139,7 +146,7 @@ const reducer = (state = initialState, action = {}) => {
           return product;
         }),
         totalPriceInCart: parseFloat((
-          state.totalPriceInCart - oldTotalPrice + newTotalPrice
+          state.totalPriceInCart + newTotalPrice - oldTotalPrice
         ).toFixed(2)),
 
       };
