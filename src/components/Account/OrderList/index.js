@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const OrderList = ({ orderList }) => {
-  console.log('orderList', orderList);
+  // console.log('orderList', orderList);
   return (
     <section className="account__order-list">
       <h2 className="account__order-title">Historique des commandes :</h2>

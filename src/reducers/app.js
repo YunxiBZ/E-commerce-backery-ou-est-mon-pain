@@ -38,7 +38,7 @@ export default (state = initialState, action = {}) => {
       };
     }
     case CHANGE_FIELD_FORM: {
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         contactForm: {

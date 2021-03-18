@@ -24,7 +24,7 @@ const contactForm = (store) => (next) => (action) => {
           }
         }
         catch (error) {
-          console.log(error, 'error');
+          // console.log(error, 'error');
         }
       };
       submitForm();

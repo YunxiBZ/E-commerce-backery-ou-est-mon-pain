@@ -19,7 +19,7 @@ import {
 const admin = (store) => (next) => (action) => {
   switch (action.type) {
     case SUBMIT_NEW_PRODUCT: {
-      console.log('ok');
+      // console.log('ok');
       const postProduct = async () => {
         const state = store.getState();
         const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -46,7 +46,7 @@ const admin = (store) => (next) => (action) => {
               authorization: `Bearer ${state.user.infos.token}`,
             },
           });
-          console.log(response);
+          // console.log(response);
           if (response.statusText === 'Created') {
             const { message } = response.data;
             store.dispatch(createProduct(message));
@@ -54,7 +54,7 @@ const admin = (store) => (next) => (action) => {
           }
         }
         catch (error) {
-          console.log(error, 'error');
+          // console.log(error, 'error');
           store.dispatch(errorAddProduct('Veuillez entrer un prix valide'));
         }
       };
@@ -76,7 +76,7 @@ const admin = (store) => (next) => (action) => {
             },
           });
 
-          console.log(response);
+          // console.log(response);
 
           if (response.statusText === 'OK') {
             const { message } = response.data;
@@ -85,7 +85,7 @@ const admin = (store) => (next) => (action) => {
           }
         }
         catch (error) {
-          console.log(error, 'error');
+          // console.log(error, 'error');
           store.dispatch(deleteProductError(error.response.data.message));
         }
       };
@@ -118,7 +118,7 @@ const admin = (store) => (next) => (action) => {
               authorization: `Bearer ${state.user.infos.token}`,
             },
           });
-          console.log(response);
+          // console.log(response);
           if (response.statusText === 'OK') {
             const { message } = response.data;
             store.dispatch(modifyProduct(message));
@@ -126,7 +126,7 @@ const admin = (store) => (next) => (action) => {
           }
         }
         catch (error) {
-          console.log('error', error);
+          // console.log('error', error);
           store.dispatch(errorModifyProduct('Veuillez entrer un prix valide'));
         }
       };
@@ -149,7 +149,7 @@ const admin = (store) => (next) => (action) => {
           }
         }
         catch (error) {
-          console.log(error, 'error');
+          // console.log(error, 'error');
         }
       };
       fetchData();

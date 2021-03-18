@@ -50,7 +50,7 @@ const initialState = {
 const admin = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_VALUE_PRODUCT: {
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         newProduct: {
@@ -60,7 +60,7 @@ const admin = (state = initialState, action = {}) => {
       };
     }
     case CHANGE_VALUE_PRODUCT_MODIFY: {
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         modifyProduct: {
@@ -70,7 +70,7 @@ const admin = (state = initialState, action = {}) => {
       };
     }
     case CHANGE_CATEGORIES_PRODUCT: {
-      console.log(action);
+      // console.log(action);
       const categoryId = parseInt(action.value, 10);
       return {
         ...state,
@@ -84,7 +84,7 @@ const admin = (state = initialState, action = {}) => {
       };
     }
     case CHANGE_CATEGORIES_MODIFY_PRODUCT: {
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         modifyProduct: {
@@ -97,9 +97,9 @@ const admin = (state = initialState, action = {}) => {
       };
     }
     case CHANGE_PRODUCT_DROPDOWN: {
-      console.log(action);
+      // console.log(action);
       const product = action.products.filter((item) => item.id === parseInt(action.value, 10));
-      console.log(product);
+      // console.log(product);
       return {
         ...state,
         product: action.value,
@@ -117,7 +117,7 @@ const admin = (state = initialState, action = {}) => {
       };
     }
     case CREATE_PRODUCT: {
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         addProductSuccess: action.message,
@@ -139,7 +139,7 @@ const admin = (state = initialState, action = {}) => {
       };
     }
     case MODIFY_PRODUCT: {
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         product: '',
@@ -163,7 +163,7 @@ const admin = (state = initialState, action = {}) => {
       };
     }
     case NEW_PRODUCT_SUCCESS: {
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         deleteProductSuccess: action.message,
@@ -175,7 +175,7 @@ const admin = (state = initialState, action = {}) => {
       };
     }
     case ERROR_ADD_PRODUCT: {
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         addProductError: action.message,
@@ -220,7 +220,7 @@ const admin = (state = initialState, action = {}) => {
       };
     }
     case FETCH_DAILY_ORDERS_SUCCESS: {
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         dailyOrders: action.orders,

@@ -46,7 +46,7 @@ const products = (state = initialState, action = {}) => {
         return product;
       });
     case QUANTITY_CHANGE:
-      console.log(action);
+      // console.log(action);
       return state.map((product) => {
         if (product.title === action.product) {
           if (Number.isNaN(action.quantity) || action.quantity === 0) {

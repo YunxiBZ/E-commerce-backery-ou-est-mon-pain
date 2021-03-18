@@ -25,7 +25,7 @@ const Connection = ({
   // // Je reçois bien le log si j'ajoute un produit dans mon panier,
   // // je vois que cart à une length +1
   // // vis à vis de prevCart
-  // console.log(prevCart, 'prev-cart', cart, 'cart');
+  // // console.log(prevCart, 'prev-cart', cart, 'cart');
 
   // // On définit une prop qui se mettra à true à chaque fois que le panier
   // // reçoit un nouveau produit

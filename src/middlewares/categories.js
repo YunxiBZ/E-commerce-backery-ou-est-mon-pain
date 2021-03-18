@@ -12,7 +12,7 @@ const categories = (store) => (next) => (action) => {
           store.dispatch(saveCategories(response.data));
         }
         catch (error) {
-          console.log(error, 'error');
+          // console.log(error, 'error');
         }
       };
       fetchData();

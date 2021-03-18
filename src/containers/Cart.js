@@ -36,7 +36,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   onClickCommandBtn: (productsInCart, totalPriceInCart, receptionDate) => {
-    console.log('je veux bien passer ma commande!!! ', productsInCart, totalPriceInCart, receptionDate);
+    // console.log('je veux bien passer ma commande!!! ', productsInCart, totalPriceInCart, receptionDate);
     const action = handleOrder(productsInCart, totalPriceInCart, receptionDate);
     dispatch(action);
   },
@@ -45,7 +45,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   onReceptionDateChange: (date) => {
-    console.log('onReceptionDateChange', date);
+    // console.log('onReceptionDateChange', date);
     const action = receptionDateChange(date);
     dispatch(action);
   },
