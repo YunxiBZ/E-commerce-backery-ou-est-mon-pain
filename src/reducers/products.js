@@ -49,11 +49,11 @@ const products = (state = initialState, action = {}) => {
       console.log(action);
       return state.map((product) => {
         if (product.title === action.product) {
-          if (Number.isNaN(action.quantity)) {
+          if (Number.isNaN(action.quantity) || action.quantity === 0) {
             return {
               ...product,
-              quantity: 0,
-              totalPrice: 0,
+              quantity: 1,
+              totalPrice: parseFloat((product.price).toFixed(2)),
             };
           }
           return {
