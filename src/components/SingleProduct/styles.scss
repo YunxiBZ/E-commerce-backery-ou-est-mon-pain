@@ -25,6 +25,7 @@
     align-items: center;
     justify-content: center;
     padding: 2em;
+    position: relative;
   }
   &__infos {
     display: flex;
@@ -118,6 +119,21 @@
     background-color: red;
     font-size: 2em;
   }
+  &__label {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    margin: 1em;
+    background-color: $light-brown;
+    padding: 1em;
+    border-radius: 20px;
+    color: $dark-grey;
+    font-family: $font-ubuntu;
+    font-weight: 700;
+    &--modifier {
+      display: none;
+    }
+  }
   
 }
 
@@ -179,6 +195,10 @@
     }
     &__quantityContainer {
       font-size: 1em;
+    }
+    &__label {
+      top: 20px;
+      right: 20px;
     }
   }
   

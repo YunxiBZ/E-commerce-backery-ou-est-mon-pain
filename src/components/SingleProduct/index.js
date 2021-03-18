@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,10 +12,15 @@ const SingleProduct = ({
   onClickReduceQuantityBtn,
   onChangeQuantityInput,
   onClickAddToCartBtn,
+  logged,
 }) => {
   if (!product) {
     return <Redirect to="/" />;
   }
+  // Label produit ajouté
+  const [add, setAdd] = useState(false);
+  const setLabel = () => setAdd(true);
+  const unsetLabel = () => setAdd(false);
 
   ScrollToTop();
 
@@ -84,10 +89,17 @@ const SingleProduct = ({
               product.quantity,
             );
           }}
+          onAddProduct={() => {
+            setLabel();
+            setTimeout(() => {
+              unsetLabel();
+            }, 2000);
+          }}
         />
       </section>
       <section className="singleProduct__rightContainer">
         <img src={product.image} alt="product-img" className="singleProduct__image" />
+        <div className={add ? 'singleProduct__label' : 'singleProduct__label--modifier'}>{logged ? 'Produit ajouté' : 'Produit ajouté - connectez-vous 🥖'}</div>
       </section>
     </div>
   );
@@ -107,9 +119,11 @@ SingleProduct.propTypes = {
   onClickReduceQuantityBtn: PropTypes.func.isRequired,
   onChangeQuantityInput: PropTypes.func.isRequired,
   onClickAddToCartBtn: PropTypes.func.isRequired,
+  logged: PropTypes.bool,
 };
 
 SingleProduct.defaultProps = {
   product: null,
+  logged: null,
 };
 export default SingleProduct;

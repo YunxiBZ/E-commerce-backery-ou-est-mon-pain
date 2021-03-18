@@ -10,9 +10,9 @@ import { findProductById } from 'src/selectors/product';
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
-  console.log(findProductById(state.products, parseInt(id, 10)));
   return {
     product: findProductById(state.products, parseInt(id, 10)),
+    logged: state.user.infos.logged,
   };
 };
 
