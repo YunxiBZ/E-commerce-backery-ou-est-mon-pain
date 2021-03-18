@@ -29,7 +29,6 @@ const Order = ({ order, validateOrder }) => {
           ))
         }
       </ul>
-      <p className="dailyOrders__commandId">Id commande ➡ {order.id}</p>
       <div className="dailyOrders__statusContainer">
         <p className={order.state === orderHasBeenValidate ? 'dailyOrders__statusValid' : 'dailyOrders__statusCheckedIn'}>{order.state}</p>
         <button className="dailyOrders__validateOrder" type="button">Voir le détail</button>
@@ -44,7 +43,10 @@ const Order = ({ order, validateOrder }) => {
           </button>
         )}
       </div>
-      <p className="dailyOrders__totalPrice">{order.total_price}€</p>
+      <div className="dailyOrders__infosContainer">
+        <p className="dailyOrders__totalPrice">{order.total_price}€</p>
+        <p className="dailyOrders__commandId">Id commande ➡ {order.id}</p>
+      </div>
     </div>
   );
 };
