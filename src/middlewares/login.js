@@ -41,7 +41,7 @@ const login = (store) => (next) => (action) => {
               token,
               role,
             };
-            console.log(userData);
+            // console.log(userData);
             localStorage.setItem('userData', JSON.stringify(userData));
             store.dispatch(loginSuccess(
               userData,
@@ -51,7 +51,7 @@ const login = (store) => (next) => (action) => {
         }
         catch (error) {
           // Sinon on dispatch l'action loginFailed
-          console.log('error', error);
+          // console.log('error', error);
           store.dispatch(loginFailed(error.response.data.error));
         }
       };

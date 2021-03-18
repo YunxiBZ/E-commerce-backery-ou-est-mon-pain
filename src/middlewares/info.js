@@ -39,7 +39,7 @@ const info = (store) => (next) => (action) => {
           }
         }
         catch (error) {
-          console.log(error, 'error');
+          // console.log(error, 'error');
         }
       };
       changeInfoUser();

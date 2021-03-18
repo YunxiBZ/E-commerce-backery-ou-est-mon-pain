@@ -139,7 +139,7 @@ const user = (state = initialState, action = {}) => {
       };
     }
     case CHANGE_INFO: {
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         newInfos: {
@@ -149,7 +149,7 @@ const user = (state = initialState, action = {}) => {
       };
     }
     case MODIF__USER__SUCCESS: {
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         email: action.email,
