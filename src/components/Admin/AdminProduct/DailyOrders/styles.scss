@@ -1,4 +1,4 @@
-@import 'src/styles/vars';
+@import "src/styles/vars";
 
 .dailyOrders {
   height: 60vh;
@@ -32,9 +32,15 @@
     display: flex;
     padding: 1em 0;
     position: relative;
+    &:first-child {
+      animation-name: animation;
+      animation-fill-mode: backwards;
+      animation-delay: 0ms;
+      animation-duration: 3s;
+    }
   }
   &__productsContainer {
-    display:flex;
+    display: flex;
     flex-direction: column;
     width: 30%;
     align-items: flex-end;
@@ -135,12 +141,21 @@
     justify-content: center;
     cursor: default;
   }
-  &__commandId{
+  &__commandId {
     position: absolute;
     top: 150px;
     right: 180px;
     font-size: 1.2em;
     font-weight: 700;
+  }
+}
+
+@keyframes animation {
+  0% {
+    background-color: #4ab321;
+  }
+  100% {
+    background-color: $normal-grey;
   }
 }
 
