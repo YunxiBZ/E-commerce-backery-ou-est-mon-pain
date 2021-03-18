@@ -124,7 +124,14 @@ const AdminProduct = ({
                 className="adminProduct__field"
                 changeField={changeField}
               />
+              <label
+                htmlFor="description-area-add"
+                className="productInput__label"
+              >
+                Description
+              </label>
               <textarea
+                id="description-area-add"
                 name="description"
                 placeholder="Description"
                 type="text"
@@ -230,13 +237,13 @@ const AdminProduct = ({
                 changeField={changeFieldModifyProduct}
               />
               <label
-                htmlFor={ok}
+                htmlFor="description-area"
                 className="modifyInput__label"
               >
                 Description
               </label>
               <textarea
-                id={ok}
+                id="description-area"
                 name="description"
                 placeholder="Description"
                 type="text"
