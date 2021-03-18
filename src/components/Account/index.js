@@ -40,7 +40,7 @@ const Account = ({
             <p className="account__label">{firstName}</p>
             <input
               className="account__input"
-              placeholder="first-name"
+              placeholder="Prénom"
               type="text"
               value={newFirstName}
               name="firstName"
@@ -78,7 +78,7 @@ const Account = ({
             <p className="account__label">{lastName}</p>
             <input
               className="account__input"
-              placeholder="last-name"
+              placeholder="Nom"
               type="text"
               value={newLastName}
               name="lastName"
@@ -115,7 +115,7 @@ const Account = ({
               <p className="account__label">{phoneNumber}</p>
               <input
                 className="account__input"
-                placeholder="phone-number"
+                placeholder="Téléphone"
                 type="text"
                 value={newPhone}
                 name="phoneNumber"
