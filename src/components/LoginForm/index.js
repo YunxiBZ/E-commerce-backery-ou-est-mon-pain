@@ -72,8 +72,12 @@ const LoginForm = ({
             Mot de passe oublié ?
           </NavLink>
           <Button value="Se connecter" className="loginForm__button" type="submit" />
+
         </div>
       </form>
+      <div className="loginForm__imgContainer">
+        <img className="loginForm__image" src="https://images-ext-1.discordapp.net/external/Z3ffqdLdw4LNC5rmWehL2Aoa4NYBPIZ5dDbh7vHmPfA/%3Fixid%3DMXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%253D%26ixlib%3Drb-1.2.1%26auto%3Dformat%26fit%3Dcrop%26w%3D1350%26q%3D80/https/images.unsplash.com/photo-1550599112-0c21a831f6b9?width=885&height=590" alt="img de login" />
+      </div>
     </div>
   );
 };
