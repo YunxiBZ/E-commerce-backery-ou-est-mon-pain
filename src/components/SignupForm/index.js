@@ -86,7 +86,7 @@ const SignupForm = ({
       <div className="signupForm__field--modifier">
         <Button
           className="signupForm__submit-btn"
-          value="Inscrire"
+          value="S'inscrire"
           type="submit"
         />
       </div>
