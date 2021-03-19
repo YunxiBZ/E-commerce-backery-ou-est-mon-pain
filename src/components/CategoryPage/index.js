@@ -11,6 +11,7 @@ const CategoryPage = ({
   onClickReduceQuantityBtn,
   onChangeQuantityInput,
   onClickAddToCartBtn,
+  logged,
 }) => {
   useEffect(() => {
     fetchData();
@@ -27,6 +28,7 @@ const CategoryPage = ({
           onClickReduceQuantityBtn={onClickReduceQuantityBtn}
           onChangeQuantityInput={onChangeQuantityInput}
           onClickAddToCartBtn={onClickAddToCartBtn}
+          logged={logged}
         />
       ))}
     </div>
@@ -44,10 +46,12 @@ CategoryPage.propTypes = {
   onClickReduceQuantityBtn: PropTypes.func.isRequired,
   onChangeQuantityInput: PropTypes.func.isRequired,
   onClickAddToCartBtn: PropTypes.func.isRequired,
+  logged: PropTypes.bool,
 };
 
 CategoryPage.defaultProps = {
   productsByCategory: null,
+  logged: null,
 };
 
 export default CategoryPage;

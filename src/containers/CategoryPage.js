@@ -17,6 +17,7 @@ const mapStateToProps = (state, ownProps) => {
   const ProductsByCategory = findProductsByCategory(state.products, category);
   return {
     productsByCategory: ProductsByCategory,
+    logged: state.user.infos.logged,
   };
 };
 
