@@ -52,6 +52,16 @@
     margin-top: 2em;
     color: $dark-grey;
   }
+  &__errorMessage {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.3em;
+    padding: 0.2em;
+    background-color: $light-brown;
+    border-radius: 20px;
+    color: $dark-grey;
+  }
 
 }
 
@@ -60,6 +70,9 @@
     flex-direction: column;
     &__title-empty {
       font-size: 2em;
+    }
+    &__errorMessage {
+      padding: 1em;
     }
   }
 }

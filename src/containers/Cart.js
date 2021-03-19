@@ -16,6 +16,7 @@ const mapStateToProps = (state) => ({
   totalPriceInCart: state.cartReducer.totalPriceInCart,
   token: state.user.infos.token,
   receptionDate: state.cartReducer.receptionDate,
+  errorMessage: state.cartReducer.message,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -36,7 +37,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   onClickCommandBtn: (productsInCart, totalPriceInCart, receptionDate) => {
-    // console.log('je veux bien passer ma commande!!! ', productsInCart, totalPriceInCart, receptionDate);
+    // console.log('je veux bien passer ma commande!!! ',
+    // productsInCart, totalPriceInCart, receptionDate);
     const action = handleOrder(productsInCart, totalPriceInCart, receptionDate);
     dispatch(action);
   },

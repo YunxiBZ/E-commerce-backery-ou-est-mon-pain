@@ -18,6 +18,7 @@ const Cart = (
     token,
     receptionDate,
     onReceptionDateChange,
+    errorMessage,
   },
 ) => {
   const dateInput = 'reception-date';
@@ -32,9 +33,13 @@ const Cart = (
     return `${y}-${m}-${d}`;
   }
   const dateMax = getNextDate(todayDate, 7);
+  const noQuantity = productsInCart.find((product) => product.quantity === 0);
 
   return (
     <div className="cart">
+      {errorMessage && (
+        <p className="cart__errorMessage">{errorMessage}</p>
+      )}
       {productsInCart.map((product) => (
         <CartProduct
           key={product.id}
@@ -69,7 +74,7 @@ const Cart = (
 
             <p className="cart__price-total">Prix total: {totalPriceInCart} €</p>
             <Link
-              to="/account"
+              to={noQuantity ? '/cart' : '/account'}
               className="cart__order-link"
             >
               <Button
@@ -126,11 +131,13 @@ Cart.propTypes = {
   token: PropTypes.string.isRequired,
   receptionDate: PropTypes.string.isRequired,
   onReceptionDateChange: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string,
 };
 
 Cart.defaultProps = {
   productsInCart: [],
   totalPriceInCart: 0,
+  errorMessage: null,
 };
 
 export default Cart;

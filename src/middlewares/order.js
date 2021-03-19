@@ -25,7 +25,8 @@ const orderCart = (store) => (next) => async (action) => {
         store.dispatch(emptyBasket());
       }
       catch (error) {
-        store.dispatch(orderFailed(error.response.data.error));
+        console.log(error, 'error');
+        store.dispatch(orderFailed(error.response.data.message));
       }
 
       break;

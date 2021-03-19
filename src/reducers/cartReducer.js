@@ -10,6 +10,8 @@ import {
   DELETE_PRODUCT_IN_CART,
   RECEPTION_DATE_CHANGE,
   EMPTY_BASKET,
+  ORDER_FAILED,
+  ORDER_SUCCESS,
 } from 'src/actions/cart';
 
 import { FETCH_LIST_SUCCESS } from 'src/actions/user';
@@ -20,6 +22,7 @@ const initialState = {
   orderList: [],
   // Set date of reception default "today"
   receptionDate: new Date().toISOString().split('T')[0],
+  message: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -179,6 +182,19 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         totalPriceInCart: 0,
         cart: [],
+      };
+    }
+    case ORDER_FAILED: {
+      console.log(action);
+      return {
+        ...state,
+        message: action.message,
+      };
+    }
+    case ORDER_SUCCESS: {
+      return {
+        ...state,
+        message: '',
       };
     }
     default:
