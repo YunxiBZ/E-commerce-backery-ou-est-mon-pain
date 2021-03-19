@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,6 +17,10 @@ const SingleProduct = ({
   if (!product) {
     return <Redirect to="/" />;
   }
+  const labelRef = useRef(null);
+  useEffect(() => {
+    labelRef.current.scrollIntoView({ behavior: 'smooth' });
+  });
   // Label produit ajouté
   const [add, setAdd] = useState(false);
   const setLabel = () => setAdd(true);
@@ -100,6 +104,7 @@ const SingleProduct = ({
       <section className="singleProduct__rightContainer">
         <img src={product.image} alt="product-img" className="singleProduct__image" />
         <div className={add ? 'singleProduct__label' : 'singleProduct__label--modifier'}>{logged ? 'Produit ajouté' : 'Produit ajouté - connectez-vous 🥖'}</div>
+        <div ref={labelRef} />
       </section>
     </div>
   );
