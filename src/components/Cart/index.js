@@ -37,9 +37,6 @@ const Cart = (
 
   return (
     <div className="cart">
-      {errorMessage && (
-        <p className="cart__errorMessage">{errorMessage}</p>
-      )}
       {productsInCart.map((product) => (
         <CartProduct
           key={product.id}
@@ -73,6 +70,9 @@ const Cart = (
             </label>
 
             <p className="cart__price-total">Prix total: {totalPriceInCart} €</p>
+            {errorMessage && (
+              <p className="cart__errorMessage">{errorMessage}</p>
+            )}
             <Link
               to={noQuantity ? '/cart' : '/account'}
               className="cart__order-link"
