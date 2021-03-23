@@ -1,0 +1,59 @@
+@import 'src/styles/vars';
+
+.PageNotFound {
+  text-align: center;
+  height: 68vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1rem;
+  border-radius: 20px;
+  background-image: url("https://images.unsplash.com/photo-1511629036492-6c07153d3e83?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80");
+  background-size: cover;
+  align-items: center;
+  &__text-oups{
+    padding-top: $gutter;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  &__text{
+    margin:$gutter;
+  }
+  &__btn {
+    width: 50%;
+    background-color:$dark-grey;
+    color: $light-brown;
+    margin-bottom: $gutter;
+    padding: 1rem;
+    border-radius:20px;
+    font-size:1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+
+
+  }
+  &__btn:hover {
+    background-color:$light-brown;
+    color: $dark-grey;
+
+
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .PageNotFound {
+    height: 67vh;
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 1em;
+    &__text-oups{
+      font-size: 2.5rem;
+    }
+    &__btn {
+      width:25%;
+      font-size:1.6rem;
+
+    }
+  }
+}

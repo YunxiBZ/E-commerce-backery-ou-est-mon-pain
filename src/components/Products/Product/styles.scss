@@ -1,0 +1,138 @@
+@import 'src/styles/vars';
+
+.product {
+  width: 30%;
+  margin: $gutter*2 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+  max-height: 500px;
+  max-width: 500px;
+  &__name {
+    margin: $gutter;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &__img {
+    width: 100%;
+    border-radius: 5px;
+    height: auto;
+    object-fit: contain;
+  }
+  &__link{
+    position: relative;
+  }
+  &__label {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 1em;
+    background-color: $light-brown;
+    padding: 1em;
+    border-radius: 20px;
+    color: $dark-grey;
+    font-family: $font-ubuntu;
+    font-weight: 700;
+    &--modifier {
+      display: none;
+    }
+  }
+  &__bottom{
+    display: flex;
+    justify-content:space-around
+  }
+  &__quantity {
+    width: 30%;
+    display:flex;
+  }
+  &__add-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  &__reduce-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  &__quantity-input{
+    width: 100%;
+    margin: $gutter $gutter*.3;
+    border: none;
+    background-color:$light-brown;
+    color:$dark-grey !important;
+    text-align: center;
+    font-size: 1em !important;
+    border-radius: 5px;
+    min-width: 50px;
+    font-weight: 700;
+    font-family: $font-ubuntu;
+  }
+  &__quantity-input:hover{
+    background-color:$lightest-brown;
+  }
+  &__quantity-input::-webkit-input-placeholder {
+    color: $normal-grey;
+  }
+ 
+  &__price {
+    text-transform: uppercase;
+    margin: $gutter;
+    font-weight: 700;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon{
+    margin: $gutter 0;
+    cursor: pointer;
+  }
+  
+  &__icon:hover{
+    color: $lightest-brown;
+  }
+
+  &__add-to-cart-btn{
+    background-color: $light-brown;
+    color: $dark-grey !important;
+    font-weight: 700;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  &__add-to-cart-btn:hover{
+    background-color: $lightest-brown;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .product{
+    width:100%;
+    font-size: 0.7rem;
+    &__price {
+      font-size: 2em;
+    }
+    &__add-icon {
+      width: 30px !important;
+      height: 30px !important;
+    }
+    &__reduce-icon {
+      width: 30px !important;
+      height: 30px !important;
+    }
+    &__quantity{
+      width: 50%;
+      display: flex;
+      align-items: center;
+      &-input {
+        height: 50%;
+        font-size: 2em !important;
+      }
+    }
+    &__add-to-cart-btn{
+      max-width: 100%;
+    }
+  }
+}

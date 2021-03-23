@@ -1,0 +1,14 @@
+@import 'src/styles/reset';
+@import 'src/styles/vars';
+html{
+  background-color:$dark-grey;
+}
+
+body {
+  background-color: $normal-grey;
+  color:$light-brown;
+  font-family: $font-ubuntu;
+  width: 80%;
+  min-width: 375px;
+  margin: auto;
+}

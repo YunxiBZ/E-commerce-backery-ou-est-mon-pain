@@ -1,0 +1,118 @@
+@import 'src/styles/vars';
+
+.header {
+  width: 100%;
+  height: 20%;
+  // background-color: $lightest-brown;
+  background-image: url(https://images.unsplash.com/photo-1523294587484-bae6cc870010?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2064&q=80);
+  background-size: cover;
+  background-position-y: 25%;
+  margin-bottom: 4em;
+  position: relative;
+  border-radius: 20px;
+  &__hamburger {
+    color: $dark-grey;
+    display: none;
+    padding: 2em 0 0 2em;
+    text-shadow: $light-brown 2px 0 20px;;
+    &--active {
+      transform: rotate(90deg);
+      margin-left: 2em;
+    }
+  }
+  &__hamburger:hover {
+    color: $normal-grey;
+    
+  }
+  &__logo {
+    width: 20%;
+    display: block;
+    margin: 0 auto;
+    padding-top:1rem;
+    padding-right: .1rem;
+    padding-bottom: .2rem;
+    border-radius: 0px 100px / 120px;
+    max-width: 160px;
+    margin-bottom: 1rem;
+    box-shadow: 10px 0px 7px $light-brown;
+  }
+  &__navbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+  }
+  &__links {
+    width:80%;
+    margin: 1em 2em;
+    padding: 0.5em;
+    font-size:1.1em;
+    margin: 0.6em 0.3em;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    color: $light-brown;
+    white-space: nowrap;
+    background-color: $dark-grey;
+    border-radius: 20px;
+    &.active{
+      background-color:$light-brown;
+      color:$normal-grey;
+    }
+    &:hover {
+      color: $lightest-brown;
+    }
+  }
+  // target la svg (hamburger)
+  .svg-inline--fa.fa-w-14 {
+    width: 70px;
+    height: 70px;
+  }
+  .active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@keyframes test {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    border-radius: 0 0 10px 10px;
+
+    &__logo {
+      width: 30%;
+      margin-top: -4.4em;
+    }
+    &__hamburger {
+      display: block;
+    }
+    &__navbar {
+      display: flex;
+      flex-direction: column;
+      display: none;
+    }
+    &__links {
+      margin-bottom: 0.5em;
+      background-color: none;
+      width:50%;
+      font-size:0.8rem;
+
+      border-radius: 15px;
+
+    }
+    &__links:hover {
+      background-color: $dark-grey;
+
+    }
+  }
+}
+
+

@@ -1,0 +1,147 @@
+@import 'src/styles/vars';
+
+.connection{
+  color: $light-brown;
+  position: absolute;
+  font-weight: 700;
+  top: 0px;
+  right: -5px;
+  margin:$gutter ;
+  &__icon{
+    max-width: 30px;
+    margin-left: 1em;
+    color:$dark-grey;
+  }
+  &__icon:hover {
+    color:$normal-grey;
+  }
+  &__group-icon{
+  display: flex;
+  font-size: 1.2rem;
+  background-color: $dark-grey;
+  border-radius: 20px;
+  justify-content: space-around;
+  }
+  &__hello {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-bottom: 1em;
+    cursor: default;
+    padding: 0.5em;
+    background-color: $dark-grey;
+    border-radius: 20px;
+  }
+ &__logged{
+   font-size:1.5rem;
+   padding-left: 1em;
+ }
+ &__edit-btn{
+  margin: $gutter*0.5 0;
+ }
+ &__edit-btn:hover {
+  color:$lightest-brown;
+  }
+ &__admin-btn{
+  margin: $gutter*0.5;
+ }
+ &__admin-btn:hover {
+  color:$lightest-brown;
+}
+
+ &__cart-btn{
+   margin: $gutter;
+ }
+ &__cart-btn:hover {
+  color:$lightest-brown;
+}
+ &__logout-btn{
+  margin: $gutter*0.5;
+
+ }
+ &__logout-btn:hover {
+  color:$lightest-brown;
+}
+  &__cart-link {
+    display: flex;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  &__logout-link {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__account-btn{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__cart-items{
+    position: absolute;
+    top: 27px;
+    width: 20px;
+    height: 20px;
+    left: 10px;
+    padding: 0.1em;
+    border-radius: 50%;
+    background-color: $dark-grey;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .connection{
+    margin: $gutter*2;
+    &__group-icon {
+      padding: 0.5em;
+      padding-bottom: 0;
+    }
+    &__hello {
+      font-size: 1.5rem;
+      text-shadow: center;
+      padding: 0.7em;
+
+    }
+    &__logged {
+      display: flex;
+      flex-direction: column;
+
+    }
+    &__cart-btn{
+      margin-top: 0;
+      font-size: 1.5rem;
+
+    }
+    &__edit-btn{
+      margin-top: 0;
+      font-size: 1.5rem;
+
+     }
+    &__logout-btn{
+      margin-top: 0;
+      font-size: 1.5rem;
+      
+    }
+    &__admin-btn{
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    &__cart-items {
+      top: 20px;
+      left: 13px;
+    }
+    &__cart-link {
+      padding-top: 0.4em;
+    }
+  }
+  
+}

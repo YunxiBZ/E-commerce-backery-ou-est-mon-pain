@@ -1,0 +1,76 @@
+@import 'src/styles/vars';
+
+.footer {
+  width: 100%;
+  font-size:1.4em;
+  margin: $gutter auto;
+  margin-bottom: 0;
+  padding-bottom: $gutter;
+  font-weight: 700;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    margin: $gutter*2 auto;
+    width: 90%;
+  }
+  &__icon{
+    cursor: pointer;
+
+  }
+  &__icon:hover{
+    color: $lightest-brown;
+  }
+  &__icon--open{
+    transform: rotate(90deg);
+  }
+  &__content{
+    font-size: 0.8rem;
+    padding-top: 0.5rem;
+    width: 100%;
+    padding-left: 0.4em;
+  }
+  &__list{
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+    margin: $gutter;
+  }
+  &__list--notActive{
+    display: none;
+  }
+  &__links{
+    margin: $gutter;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  &__links:hover{
+    color: $lightest-brown;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .footer {
+    width: 80%;
+    &__list {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    &__list--notActive{
+      display: block;
+    }
+    &__icon{
+      display:none;
+    }
+    &__top{
+      justify-content: center;
+    }
+    &__content{
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+}

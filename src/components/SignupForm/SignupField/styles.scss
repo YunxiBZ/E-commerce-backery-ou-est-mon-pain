@@ -1,0 +1,68 @@
+@import 'src/styles/vars';
+
+.field {
+  margin: .3em;
+  position: relative;
+  width: 60%;
+  &__input {
+    margin: auto;
+    width:80% !important;
+    padding: .7em;
+    font-size: 1em;
+    border: none;
+    border-radius: .3em;
+    height: 2.5em;
+    color:$dark-grey;
+   
+  }
+  &__input:focus {
+    border-color: $lightest-brown;
+  }
+  &__input:focus + &__label {
+    color: $lightest-brown;
+  }
+  
+  &--has-content &__label {
+    display: block;
+  }
+  
+  &--has-content &__input {
+    padding: 1.4em .7em .4em;
+  }
+  
+  &__label {
+    display: none;
+    position: absolute;
+    top: -0.3rem;
+    left: .7rem;
+    font-weight: 700;
+    color: $light-brown;
+    font-size: .7em;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    animation: labelSlideUpAndShow .3s;
+  }
+}
+
+@keyframes labelSlideUpAndShow{
+  0% {
+    transform: translateY(1em);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0em);
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .field{
+    width: 60%;
+    max-width: 300px;
+    &__input {
+    width: 100% !important;
+    color:$dark-grey;
+
+    }
+  }
+}

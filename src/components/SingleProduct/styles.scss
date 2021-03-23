@@ -1,0 +1,205 @@
+@import 'src/styles/vars';
+
+.singleProduct {
+  background-color: $normal-grey;
+  height: 55vh;
+  display: flex;
+  border-radius: 20px;
+  &__leftContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em;
+    font-size: 1.2rem;
+
+  }
+  &__stock {
+    background-color: #386641;
+    padding: 1em;
+    border-radius: 20px;
+  }
+  &__rightContainer {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    position: relative;
+  }
+  &__infos {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1em;
+    font-weight: 700;
+  }
+  &__data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+  }
+  &__quantityContainer {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    font-size: 1.5em;
+    align-items: center;
+    font-family: $font-ubuntu;
+  }
+  &__removeIcon {
+    font-size: 2em;
+  }
+  &__quantity {
+    width: 60%;
+    border: none;
+    background-color:$light-brown;
+    color:$dark-grey;
+    text-align: center;
+    border-radius: 20px;
+    height: 100%;
+    padding: 0.4em;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: $font-ubuntu;
+    font-size: 0.7em;
+  }
+  &__price{
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 15%;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-right: 1em;
+    text-align: center;
+    font-weight: 700;
+    background-color: $light-brown;
+    color: $dark-grey;
+    border-radius: 20px;
+    font-size: 1.2em;
+    font-family: $font-ubuntu;
+    text-transform: uppercase;
+  }
+  &__button {
+    width: 50%;
+    align-self: center;
+    margin-top: 2em;
+    &--modifier {
+      display: none;
+    }
+  }
+  &__image {
+    height: auto;
+    max-height: 100%;
+    min-height: 50%;
+    max-width: 100%;
+    border-radius: 20px;
+    display: inline-block;
+  }
+  &__productTitle {
+    text-align: center;
+    font-size: 2em;
+    border-bottom: 2px solid $light-brown
+  }
+  &__productDescription {
+    margin-left: 1em;
+    height: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.2em;
+    padding:$gutter*3 0;
+  }
+  &__addIcon {
+    background-color: red;
+    font-size: 2em;
+  }
+  &__label {
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    margin: 1em;
+    background-color: $light-brown;
+    padding: 1em;
+    border-radius: 20px;
+    color: $dark-grey;
+    font-family: $font-ubuntu;
+    font-weight: 700;
+    &--modifier {
+      display: none;
+    }
+  }
+  
+}
+
+
+@media screen and (max-width: 800px) {
+  .singleProduct {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    &__AddIcon {
+      width: 30px !important;
+      height: 30px !important;
+    }
+    &__RemoveIcon {
+      width: 30px !important;
+      height: 30px !important;
+    }
+    &__leftContainer {
+      width: 100%;
+      height: 50%;
+      margin-bottom: 1em;
+      padding: $gutter*1;
+      font-size: 0.8rem;
+    }
+    &__rightContainer {
+      width: 100%;
+      flex-direction: column;
+      padding: 0;
+    }
+    &__image {
+      width: 100%;
+      height: 100%;
+      
+    }
+    &__button  {
+      width: 60%;
+      font-size: 1.4em;
+     
+    }
+    &__data {
+      margin-top: 2em;
+    }
+    &__productDescription {
+      font-size: 1.5em;
+      margin-top: 2em;
+    }
+    &__price {
+      width: 30%;
+      height: 100%;
+      font-size: 2em;
+      padding: 0.5em;
+    }
+    &__quantity {
+      font-size: 2em;
+      font-weight: 700;
+      margin-left: 0.3em;
+      margin-right: 0.3em;
+      width: 100%;
+    }
+    &__quantityContainer {
+      font-size: 1em;
+    }
+    &__label {
+      top: 20px;
+      right: 20px;
+    }
+  }
+  
+}

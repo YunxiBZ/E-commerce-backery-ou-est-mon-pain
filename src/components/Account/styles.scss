@@ -1,0 +1,143 @@
+@import 'src/styles/vars';
+
+.account {
+  background-color: $lightest-brown;
+  height:70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 20px;
+  
+  &__userInterface {
+    display: flex;
+    flex-direction: column;
+    height:30%;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__order-container {
+    height:80%;
+    overflow-y: auto;
+  overflow-x: hidden;
+  }
+  &__order-list {
+    margin:$gutter*2;
+    margin-right: 4rem;
+    font-size: 2rem;
+    font-weight: bold;
+    padding:$gutter*4 $gutter*5;
+    border: 2px solid $light-brown;
+    border-radius: 0px 100px / 120px;
+    height:80%;
+  }
+  &__item{
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    justify-content: space-between;
+    margin: 1em;
+
+  }
+  &__info {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.1em;
+    font-weight: 700;
+  }
+  &__infoData{
+    margin-right: 1em;
+  }
+  &__label {
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  &__input {
+    width: 40%;
+    align-self: center;
+    margin: $gutter $gutter*.3;
+    border: none;
+    background-color:$light-brown;
+    color:$normal-grey;
+    text-align: center;
+    font-size: 1.2em;
+    border-radius: 5px;
+    padding: 0.5em;
+  }
+  &__changeInfo {
+    display: flex;
+    padding: $gutter;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.1em;
+    font-weight: 700;
+  }
+  &__modify {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 800px) {
+.account {
+  margin-top: $gutter;
+  height: 90vh;
+  flex-direction: column;
+  &__userInterface {
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 7em;
+    width: 100%;
+    height: 100%;
+  }
+  &__info {
+    margin-bottom: 1em;
+  }
+  &__label {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  &__input {
+    width: 80%;
+    align-self: center;
+  }
+  &__infoData {
+    font-size: 1.2em;
+  }
+  &__order-list {
+    padding: 0;
+    margin: $gutter 0;
+    width: 100%;
+    max-height: max-content;
+    border-radius: 10px;
+    width: 90%;
+    border-radius: 0px 100px / 0px;
+
+  }
+  &__order-title {
+    font-size: 0.6em;
+    width: 100%;
+    text-align: center;
+    margin: 1em 0;
+  }
+  &__order-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:90%;
+  }
+}
+.svg-inline--fa.fa-w-11 {
+  width: 20px;
+  height: 20px;
+}
+.svg-inline--fa.fa-w-16 {
+  width: 20px;
+  height: 20px;
+}
+}

@@ -1,0 +1,58 @@
+@use 'src/styles/vars' as v;
+
+.contactForm {
+  background-color: v.$normal-grey;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+  margin: 0 auto;
+  height: 66vh;
+  color: v.$light-brown;
+  position: relative;
+  border-radius: 20px;
+  padding: 1em;
+  &__success {
+  position: absolute;
+  background-color: v.$dark-grey;
+  right: 20px;
+  padding: 1em;
+  border-radius: 20px;
+  &--modifier{
+    display: none;
+  }
+  }
+  &__message {
+    width: 80%;
+    height: 40%;
+    margin: 0 0 2em 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .contactForm {
+    margin-top: 4em;
+    width: 90%;
+    height: max-content;
+    &__message {
+      width: 100%;
+      min-height: 90px;
+    }
+    &__success {
+      min-width: 210px;
+      top: -55px;
+      left: 5px;
+      text-align: center;
+      margin: 0 auto;
+      white-space: nowrap;
+      font-size: 1.4em;
+      padding: 10px;
+    }
+  }
+  
+  .test {
+    display: flex;
+    justify-content: center;
+  }
+  
+}
