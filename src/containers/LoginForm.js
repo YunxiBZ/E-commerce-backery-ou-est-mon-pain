@@ -7,6 +7,7 @@ const mapStateToProps = (state) => ({
   password: state.user.password,
   error: state.user.error,
   isLogged: state.user.infos.logged,
+  signupSuccess: state.signup.signupSuccess,
 });
 
 const mapDispatchToProps = (dispatch) => ({

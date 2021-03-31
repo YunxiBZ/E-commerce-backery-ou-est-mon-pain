@@ -69,13 +69,13 @@
 
 @keyframes warning {
   0%{
-    background-color: $light-brown;
+    background-color: none;
   }
-  50% {
-    background-color: red;
+  75% {
+    background-color: rgb(167, 11, 11);
   }
   100% {
-    background-color: $light-brown;
+    background-color: none;
   }
 }
 

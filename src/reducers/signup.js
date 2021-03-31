@@ -8,6 +8,7 @@ const initialState = {
   first_name: '',
   last_name: '',
   phone_number: '',
+  signupSuccess: false,
 };
 
 const signup = (state = initialState, action = {}) => {
@@ -27,6 +28,7 @@ const signup = (state = initialState, action = {}) => {
         last_name: '',
         phone_number: '',
         signupSuccess: true,
+        error: '',
       };
     }
     case SIGNUP_FAILED: {

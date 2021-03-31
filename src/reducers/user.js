@@ -50,6 +50,7 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         email: action.email,
+        error: '',
       };
     }
     case LOGIN_SUCCESS: {

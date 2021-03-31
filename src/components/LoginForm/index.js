@@ -14,6 +14,7 @@ const LoginForm = ({
   submitForm,
   error,
   isLogged,
+  signupSuccess,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,6 +27,7 @@ const LoginForm = ({
       history.push('/');
     }
   }, 1000);
+
   // const ADMIN = 'admin';
   // const USER = 'user';
 
@@ -41,6 +43,12 @@ const LoginForm = ({
       <form autoComplete="off" className="loginForm" onSubmit={handleSubmit}>
         {error && (
           <div className="loginForm__error">{error}</div>
+        )}
+        {signupSuccess && (
+          <div className="loginForm__message">
+            Votre compte a bien été créé,
+            veuillez entrer votre mot de passe pour vous connecter
+          </div>
         )}
         <LoginField
           name="email"
@@ -88,11 +96,13 @@ LoginForm.propTypes = {
   changeField: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
   error: PropTypes.string,
+  signupSuccess: PropTypes.bool,
   isLogged: PropTypes.bool.isRequired,
 };
 
 LoginForm.defaultProps = {
   error: '',
+  signupSuccess: false,
 };
 
 export default LoginForm;

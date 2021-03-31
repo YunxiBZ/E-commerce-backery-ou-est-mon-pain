@@ -36,6 +36,16 @@
   }
   &__error {
     margin-bottom: 1.5em;
+    padding: 1em;
+    border-radius: 20px;
+    animation: warning 3s;
+  }
+  &__message {
+    margin-bottom: 1.5em;
+    padding: 0.5em;
+    border-radius: 20px;
+    text-align: center;
+    animation: message 3s;
   }
   &__image {
     width: auto;
@@ -45,7 +55,17 @@
   }
 }
 
-
+@keyframes message {
+  0%{
+    background-color: $light-brown;
+  }
+  75% {
+    background-color: rgb(10, 100, 10);
+  }
+  to {
+    background-color: none;
+  }
+}
 @media screen and (max-width: 650px) {
   .loginForm {
     &__links {
