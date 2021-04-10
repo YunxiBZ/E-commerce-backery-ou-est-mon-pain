@@ -8,9 +8,16 @@ const SignupField = ({
   type,
   placeholder,
   onChange,
+  onBlur,
 }) => {
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
+  };
+  const handleBlur = (evt) => {
+    if (!evt.target.value) {
+      console.log(`First ${placeholder} is empty`);
+      onBlur(placeholder);
+    }
   };
   const inputId = `field__${name}`;
   return (
@@ -18,6 +25,7 @@ const SignupField = ({
       <input
         value={value}
         onChange={handleChange}
+        onBlur={handleBlur}
         id={inputId}
         type={type}
         className="field__input"
@@ -39,6 +47,7 @@ SignupField.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onBlur: PropTypes.func.isRequired,
 };
 
 SignupField.defaultProps = {

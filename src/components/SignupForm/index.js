@@ -14,6 +14,7 @@ const SignupForm = ({
   password,
   passwordComfirm,
   changeField,
+  handleBlur,
   handleSignup,
   error,
   signupSuccess,
@@ -44,12 +45,14 @@ const SignupForm = ({
         name="first_name"
         placeholder="Votre prénom"
         onChange={changeField}
+        onBlur={handleBlur}
         value={firstName}
       />
       <SignupField
         name="last_name"
         placeholder="Votre nom de famille"
         onChange={changeField}
+        onBlur={handleBlur}
         value={lastName}
       />
       <SignupField
@@ -57,6 +60,7 @@ const SignupForm = ({
         placeholder="Adresse Email"
         type="email"
         onChange={changeField}
+        onBlur={handleBlur}
         value={email}
       />
 
@@ -65,6 +69,7 @@ const SignupForm = ({
         placeholder="Numéro de téléphone"
         type="telephone"
         onChange={changeField}
+        onBlur={handleBlur}
         value={telephone}
       />
 
@@ -73,6 +78,7 @@ const SignupForm = ({
         placeholder="Mot de passe"
         type="password"
         onChange={changeField}
+        onBlur={handleBlur}
         value={password}
       />
 
@@ -81,6 +87,7 @@ const SignupForm = ({
         placeholder="Confirmez votre mot de passe"
         type="password"
         onChange={changeField}
+        onBlur={handleBlur}
         value={passwordComfirm}
       />
       <div className="signupForm__field--modifier">
@@ -101,6 +108,7 @@ SignupForm.propTypes = {
   password: PropTypes.string.isRequired,
   passwordComfirm: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
+  handleBlur: PropTypes.func.isRequired,
   handleSignup: PropTypes.func.isRequired,
   error: PropTypes.string,
   signupSuccess: PropTypes.bool,

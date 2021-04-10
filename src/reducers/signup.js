@@ -1,4 +1,6 @@
-import { CHANGE_FIELD, SIGNUP_SUCCESS, SIGNUP_FAILED } from 'src/actions/signup';
+import {
+  CHANGE_FIELD, SIGNUP_SUCCESS, SIGNUP_FAILED, HANDLE_BLUR,
+} from 'src/actions/signup';
 import { USER_LOGOUT } from 'src/actions/user';
 
 const initialState = {
@@ -41,6 +43,12 @@ const signup = (state = initialState, action = {}) => {
       return {
         ...state,
         signupSuccess: false,
+      };
+    }
+    case HANDLE_BLUR: {
+      return {
+        ...state,
+        error: `Il ne faut pas que ${action.placeholder} soit vide.`,
       };
     }
     default:
