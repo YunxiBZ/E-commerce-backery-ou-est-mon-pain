@@ -10,21 +10,15 @@ const port = process.env.PORT || 5478;
 
 const router = require('./app/router');
 
-app.use(cors());
-
+/**
+ * cofig for CORS
+ */
 app.use(cors({
-
   optionsSuccessStatus: 200,
   credentials: true,
   allowedHeaders: ['Content-Type', 'authorization'],
+  origin: ['http://ou-est-mon-pain-v1.surge.sh', 'http://localhost:8080/', 'http://ou-est-mon-pain.surge.sh'],
 }));
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://ou-est-mon-pain-v1.surge.sh');
-  res.header('Access-Control-Allow-headers', 'Origin, x-Requested-With, Content-Type, Accept, authorization');
-  res.header('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, PUT');
-  next();
-});
 
 // le parser JSON qui récupère le payload quand il y en a un et le transforme en objet JS disponible sous request.body
 app.use(express.json());
