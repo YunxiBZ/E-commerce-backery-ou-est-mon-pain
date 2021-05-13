@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const OrderList = ({ orderList }) => {
+const OrderList = ({ orderList }) =>
   // console.log('orderList', orderList);
-  return (
+  (
     <section className="account__order-list">
-      <h2 className="account__order-title">Historique des commandes :</h2>
+      <h2 className="account__order-title">Historique des commandes</h2>
       <ul className="account__order-container">
         {
           orderList.map((order) => (
@@ -20,8 +20,6 @@ const OrderList = ({ orderList }) => {
       </ul>
     </section>
   );
-};
-
 OrderList.propTypes = {
   orderList: PropTypes.arrayOf(
     PropTypes.shape({

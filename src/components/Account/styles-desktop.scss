@@ -1,29 +1,22 @@
 @import 'src/styles/vars';
 
 .account {
-  background-color: $lightest-brown; 
+  background-color: $lightest-brown;
+  height:70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 20px;
-  margin-top: $gutter;
-  height: 90vh;
-  flex-direction: column;
+  
   &__userInterface {
     display: flex;
     flex-direction: column;
-    padding-top: 7em;
-    width: 100%;
-    height: 100%;
-    justify-content: space-around;
-  }
-  &__order-title {
-    font-size: 0.6em;
-    width: 100%;
-    text-align: center;
-    margin: 1em 0;
+    height:30%;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
   }
   &__order-container {
     height:80%;
@@ -31,13 +24,13 @@
   overflow-x: hidden;
   }
   &__order-list {
-    margin: $gutter 0;
+    margin:$gutter*2;
+    margin-right: 4rem;
     font-size: 2rem;
-    width: 90%;
     font-weight: bold;
-    padding: 0;
+    padding:$gutter*4 $gutter*5;
     border: 2px solid $light-brown;
-    border-radius: 0px 100px / 0px;
+    border-radius: 0px 100px / 120px;
     height:80%;
   }
   &__item{
@@ -54,19 +47,16 @@
     width: 100%;
     font-size: 1.1em;
     font-weight: 700;
-    margin-bottom: 1em;
   }
   &__infoData{
     margin-right: 1em;
-    font-size: 1.2em;
   }
   &__label {
-    font-size: 1.2em;
-    margin: 0;
+    margin-bottom: 1em;
     text-align: center;
   }
   &__input {
-    width: 80%;
+    width: 40%;
     align-self: center;
     margin: $gutter $gutter*.3;
     border: none;
@@ -93,52 +83,53 @@
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 800px) {
 .account {
-  height:70vh;
-  flex-direction: row;
-  margin-top: 0;
+  margin-top: $gutter;
+  height: 90vh;
+  flex-direction: column;
   &__userInterface {
-    height:50%;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 7em;
     width: 100%;
-    justify-content: space-between;
-    align-items: center;
+    height: 100%;
   }
   &__info {
-    margin-bottom: 0;
+    margin-bottom: 1em;
   }
   &__label {
-    margin-bottom: 1em;
-    
+    margin: 0;
+    font-size: 1.2em;
   }
   &__input {
-    width: 40%;
+    width: 80%;
+    align-self: center;
   }
   &__infoData {
-    font-size: 1em;
+    font-size: 1.2em;
   }
   &__order-list {
-    width:80%;
-    padding: 1em;
-    margin:$gutter*4;
-    margin-right: $gutter *4;
-    margin-right: 4rem;
+    padding: 0;
+    margin: $gutter 0;
+    width: 100%;
     max-height: max-content;
-    border-radius: 0px 100px / 120px;
+    border-radius: 10px;
+    width: 90%;
+    border-radius: 0px 100px / 0px;
 
   }
   &__order-title {
-    font-size: 1em;
-    padding-bottom: 1rem;
+    font-size: 0.6em;
     width: 100%;
     text-align: center;
-    margin: 0;
+    margin: 1em 0;
   }
   &__order-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height:76%;
+    height:90%;
   }
 }
 .svg-inline--fa.fa-w-11 {

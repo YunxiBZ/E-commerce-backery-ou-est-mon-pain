@@ -1,6 +1,8 @@
 import { expect, should } from 'chai';
 import { findProductById } from '../../src/selectors/product';
-
+/**
+ *  execute method should for use it later
+ */
 should();
 
 describe('selectors', () => {

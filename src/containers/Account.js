@@ -1,5 +1,14 @@
+/**
+ * Import npm
+ */
 import { connect } from 'react-redux';
+/**
+ * Local import
+ */
 import Account from 'src/components/Account';
+/**
+ * Import actions
+ */
 import {
   toggleFirstName,
   toggleLastName,
@@ -52,5 +61,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
 });
-
+/**
+ * Export container
+ */
 export default connect(mapStateToProps, mapDispatchToProps)(Account);
