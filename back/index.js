@@ -17,7 +17,7 @@ app.use(cors({
   optionsSuccessStatus: 200,
   credentials: true,
   allowedHeaders: ['Content-Type', 'authorization'],
-  origin: ['http://ou-est-mon-pain-v1.surge.sh', 'http://localhost:8080/', 'http://ou-est-mon-pain.surge.sh'],
+  origin: ['http://ou-est-mon-pain-v1.surge.sh', 'http://localhost:8080', 'http://ou-est-mon-pain.surge.sh'],
 }));
 
 // le parser JSON qui récupère le payload quand il y en a un et le transforme en objet JS disponible sous request.body
