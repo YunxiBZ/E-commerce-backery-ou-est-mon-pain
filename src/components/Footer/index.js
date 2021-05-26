@@ -16,7 +16,7 @@ const Footer = ({ onClickToggleFooterList, toggleFooterClassname }) => {
     onClickToggleFooterList();
   };
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer__top">
         <FontAwesomeIcon
           icon={faArrowRight}
@@ -54,7 +54,7 @@ const Footer = ({ onClickToggleFooterList, toggleFooterClassname }) => {
         </Link>
       </nav>
       <div ref={footerRef} />
-    </div>
+    </footer>
   );
 };
 Footer.propTypes = {

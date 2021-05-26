@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Header = ({ toggle, toggleNavbar }) => (
-  <div className="header">
+  <header className="header">
     <FontAwesomeIcon
       icon={faBars}
       className={toggle ? 'header__hamburger header__hamburger--active' : 'header__hamburger'}
@@ -67,7 +67,7 @@ const Header = ({ toggle, toggleNavbar }) => (
       </NavLink>
     </nav>
 
-  </div>
+  </header>
 );
 
 Header.propTypes = {

@@ -43,6 +43,7 @@ const admin = (store) => (next) => (action) => {
           },
           {
             headers: {
+              // create token
               authorization: `Bearer ${state.user.infos.token}`,
             },
           });
